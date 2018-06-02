@@ -57,7 +57,7 @@ namespace ProcurementSystem
                 m.Show();
             }
             else
-                MessageBox.Show("Please enter the correct information", "alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter the correct information", "alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void button2_Click(object sender, EventArgs e)

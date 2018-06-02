@@ -36,6 +36,7 @@ namespace ProcurementSystem
                     break;
                 case "AM":
                     lb1.Text = "ADMIN";
+                    btn1.Text = "Create New User";
                     break;
             }
         }
