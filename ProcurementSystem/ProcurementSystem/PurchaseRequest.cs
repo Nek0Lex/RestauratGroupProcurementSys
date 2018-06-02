@@ -24,13 +24,6 @@ namespace ProcurementSystem
 
         }
 
-        private void createPRbtn_Click(object sender, EventArgs e)
-        {
-            CreatePurchaseRequest cpr = new CreatePurchaseRequest(this);
-            this.Hide();
-            cpr.Show();
-        }
-
         private void purchaseRequestList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -47,6 +40,13 @@ namespace ProcurementSystem
             EditPurchaseRequest epr = new EditPurchaseRequest(this);
             this.Hide();
             epr.Show();
+        }
+
+        private void createPRbtn_Click_1(object sender, EventArgs e)
+        {
+            CreatePurchaseRequest cpr = new CreatePurchaseRequest(this);
+            this.Hide();
+            cpr.Show();
         }
     }
 }

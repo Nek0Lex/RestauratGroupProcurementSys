@@ -71,6 +71,7 @@
             this.createPRbtn.TabIndex = 2;
             this.createPRbtn.Text = "Create Purchase Request";
             this.createPRbtn.UseVisualStyleBackColor = true;
+            this.createPRbtn.Click += new System.EventHandler(this.createPRbtn_Click_1);
             // 
             // edditPRbtn
             // 
