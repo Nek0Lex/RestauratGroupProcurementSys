@@ -1,6 +1,6 @@
 ﻿namespace ProcurementSystem
 {
-    partial class Form1
+    partial class PurchaseRequest
     {
         /// <summary>
         /// Required designer variable.
@@ -61,6 +61,7 @@
             this.purchaseRequestList.Name = "purchaseRequestList";
             this.purchaseRequestList.Size = new System.Drawing.Size(490, 344);
             this.purchaseRequestList.TabIndex = 1;
+            this.purchaseRequestList.SelectedIndexChanged += new System.EventHandler(this.purchaseRequestList_SelectedIndexChanged);
             // 
             // createPRbtn
             // 
@@ -79,6 +80,7 @@
             this.edditPRbtn.TabIndex = 3;
             this.edditPRbtn.Text = "Edit Purchase Request";
             this.edditPRbtn.UseVisualStyleBackColor = true;
+            this.edditPRbtn.Click += new System.EventHandler(this.edditPRbtn_Click);
             // 
             // deletePRbtn
             // 
@@ -97,6 +99,7 @@
             this.prBack.TabIndex = 5;
             this.prBack.Text = "Back";
             this.prBack.UseVisualStyleBackColor = true;
+            this.prBack.Click += new System.EventHandler(this.prBack_Click);
             // 
             // textSearch
             // 
@@ -114,7 +117,7 @@
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // PurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,8 +130,9 @@
             this.Controls.Add(this.createPRbtn);
             this.Controls.Add(this.purchaseRequestList);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "PurchaseRequest";
             this.Text = "Purchase Request";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

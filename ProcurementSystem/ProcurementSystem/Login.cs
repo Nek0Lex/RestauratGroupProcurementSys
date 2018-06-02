@@ -53,7 +53,7 @@ namespace ProcurementSystem
                 String deptCode = dt.Rows[0][0].ToString();
                 cnn.Close();
                 this.Hide();
-                Menu m = new Menu(deptCode);
+                Menu m = new Menu(tbSN.Text, deptCode);
                 m.Show();
             }
             else
@@ -63,6 +63,11 @@ namespace ProcurementSystem
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

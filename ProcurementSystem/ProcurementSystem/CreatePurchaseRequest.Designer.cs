@@ -1,6 +1,6 @@
 ﻿namespace ProcurementSystem
 {
-    partial class Create_Purchase_Order
+    partial class CreatePurchaseRequest
     {
         /// <summary>
         /// Required designer variable.
@@ -180,6 +180,7 @@
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // itemList
             // 
@@ -284,6 +285,7 @@
             this.Controls.Add(this.title);
             this.Name = "Create_Purchase_Order";
             this.Text = "Create_Purchase_Request";
+            this.Load += new System.EventHandler(this.Create_Purchase_Order_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,6 +1,6 @@
 ﻿namespace ProcurementSystem
 {
-    partial class Form2
+    partial class EditPurchaseRequest
     {
         /// <summary>
         /// Required designer variable.
@@ -130,6 +130,7 @@
             this.btnCancel.TabIndex = 33;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEdit
             // 
@@ -251,7 +252,7 @@
             this.title.TabIndex = 21;
             this.title.Text = "Purchase Request pr001";
             // 
-            // Form2
+            // EditPurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -276,8 +277,9 @@
             this.Controls.Add(this.txtRestId);
             this.Controls.Add(this.txtRestName);
             this.Controls.Add(this.title);
-            this.Name = "Form2";
+            this.Name = "EditPurchaseRequest";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
