@@ -16,5 +16,13 @@ namespace ProcurementSystem
         {
             InitializeComponent();
         }
+
+        private void createPRbtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ProcurementSystem.Create_Purchase_Order CPO = new Create_Purchase_Order();
+            CPO.MdiParent = this;
+            CPO.Show();
+        }
     }
 }
