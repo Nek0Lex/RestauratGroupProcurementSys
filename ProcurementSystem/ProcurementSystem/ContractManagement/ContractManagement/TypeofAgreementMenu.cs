@@ -27,5 +27,17 @@ namespace ContractManagement
             Form1 BPA = new Form1();
             BPA.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SPO SPO = new SPO();
+            SPO.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PPO PPO = new PPO();
+            PPO.ShowDialog();
+        }
     }
 }

@@ -51,7 +51,25 @@
     <Compile Include="BPA.Designer.cs">
       <DependentUpon>BPA.cs</DependentUpon>
     </Compile>
+    <Compile Include="CPA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CPA.Designer.cs">
+      <DependentUpon>CPA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PPO.Designer.cs">
+      <DependentUpon>PPO.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainProgram.cs" />
+    <Compile Include="SPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPO.Designer.cs">
+      <DependentUpon>SPO.cs</DependentUpon>
+    </Compile>
     <Compile Include="TypeofAgreementMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +79,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BPA.resx">
       <DependentUpon>BPA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CPA.resx">
+      <DependentUpon>CPA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PPO.resx">
+      <DependentUpon>PPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPO.resx">
+      <DependentUpon>SPO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TypeofAgreementMenu.resx">
       <DependentUpon>TypeofAgreementMenu.cs</DependentUpon>
