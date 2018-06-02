@@ -29,7 +29,13 @@ namespace ContractManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            TypeofAgreementMenu menu = new TypeofAgreementMenu();
+            this.Close();
         }
     }
 }
