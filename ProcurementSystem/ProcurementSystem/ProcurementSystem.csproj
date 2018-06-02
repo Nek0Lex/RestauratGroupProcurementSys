@@ -62,11 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Edit Purchase Request.cs">
+    <Compile Include="EditPurchaseRequest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Edit Purchase Request.Designer.cs">
-      <DependentUpon>Edit Purchase Request.cs</DependentUpon>
+    <Compile Include="EditPurchaseRequest.Designer.cs">
+      <DependentUpon>EditPurchaseRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -86,22 +86,22 @@
     <Compile Include="CreateAc.Designer.cs">
       <DependentUpon>CreateAc.cs</DependentUpon>
     </Compile>
-    <Compile Include="Purchase Request.cs">
+    <Compile Include="PurchaseRequest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Purchase Request.Designer.cs">
-      <DependentUpon>Purchase Request.cs</DependentUpon>
+    <Compile Include="PurchaseRequest.Designer.cs">
+      <DependentUpon>PurchaseRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Create Purchase Request.cs">
+    <Compile Include="CreatePurchaseRequest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Create Purchase Request.Designer.cs">
-      <DependentUpon>Create Purchase Request.cs</DependentUpon>
+    <Compile Include="CreatePurchaseRequest.Designer.cs">
+      <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Edit Purchase Request.resx">
-      <DependentUpon>Edit Purchase Request.cs</DependentUpon>
+    <EmbeddedResource Include="EditPurchaseRequest.resx">
+      <DependentUpon>EditPurchaseRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -112,11 +112,11 @@
     <EmbeddedResource Include="CreateAc.resx">
       <DependentUpon>CreateAc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Purchase Request.resx">
-      <DependentUpon>Purchase Request.cs</DependentUpon>
+    <EmbeddedResource Include="PurchaseRequest.resx">
+      <DependentUpon>PurchaseRequest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Create Purchase Request.resx">
-      <DependentUpon>Create Purchase Request.cs</DependentUpon>
+    <EmbeddedResource Include="CreatePurchaseRequest.resx">
+      <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

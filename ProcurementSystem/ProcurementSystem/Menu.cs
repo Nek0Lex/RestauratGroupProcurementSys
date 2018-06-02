@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace ProcurementSystem
 {
     public partial class Menu : Form
     {
+        private String StaffNo;
         private String deptCode;
-        public Menu(String deptCode)
+        public Menu(String StaffNo, String deptCode)
         {
             InitializeComponent();
+            this.StaffNo = StaffNo;
             this.deptCode = deptCode;
             switch (deptCode)
             {
@@ -24,6 +28,12 @@ namespace ProcurementSystem
                     break;
                 case "RM":
                     lb1.Text = "Restaurant Manager";
+                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;");
+                    MySqlDataAdapter sda = new MySqlDataAdapter("select RestName from Staff,StaffRestaurant,Restaurant where Staff.StaffNo='"+StaffNo+"' and Staff.StaffNo = StaffRestaurant.StaffNo and StaffRestaurant.RestNo = Restaurant.RestNo;", cnn);
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+                    lb1.Text = dt.Rows[0][0].ToString();
+                    btn1.Text = "Create Purchase Request";
                     break;
                 case "CM":
                     lb1.Text = "Category Manager";
@@ -65,11 +75,18 @@ namespace ProcurementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (deptCode == "AM")
+            switch (deptCode)
             {
-                this.Hide();
-                CreateAc cac = new CreateAc(this);
-                cac.Show();
+                case "AM":
+                    this.Hide();
+                    CreateAc cac = new CreateAc(this);
+                    cac.Show();
+                    break;
+                case "RM":
+                    this.Hide();
+                    PurchaseRequest pr = new PurchaseRequest(this);
+                    pr.Show();
+                    break;
             }
         }
     }

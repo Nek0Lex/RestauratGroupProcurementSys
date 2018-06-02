@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace ProcurementSystem
 {
-    public partial class Create_Purchase_Order : Form
+    public partial class CreatePurchaseRequest : Form
     {
-        public Create_Purchase_Order()
+        private PurchaseRequest pr;
+        public CreatePurchaseRequest(PurchaseRequest pr)
         {
             InitializeComponent();
+            this.pr = pr;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,6 +35,17 @@ namespace ProcurementSystem
             string quantity = qtn.Text.ToString();
             string addMsg = "Item : "+selectItem +"Quantity : "+quantity;
             purchaseList.Items.Insert(1,addMsg);
+        }
+
+        private void Create_Purchase_Order_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            pr.Show();
         }
     }
 }
