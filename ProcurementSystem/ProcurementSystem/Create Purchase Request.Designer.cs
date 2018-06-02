@@ -198,7 +198,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("新細明體", 11F);
-            this.btnAdd.Location = new System.Drawing.Point(577, 337);
+            this.btnAdd.Location = new System.Drawing.Point(573, 335);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 15;
