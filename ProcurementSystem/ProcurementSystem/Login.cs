@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace ProcurementSystem
 {
@@ -39,12 +41,28 @@ namespace ProcurementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;");
+            MySqlDataAdapter sda = new MySqlDataAdapter("select count(*) from Staff where StaffNo = '" + tbSN.Text + "' and Password = '" + tbPW.Text + "'", cnn);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            if (dt.Rows[0][0].ToString() == "1")
+            {
+                sda = new MySqlDataAdapter("select deptcode from Staff where StaffNo = '" + tbSN.Text + "';", cnn);
+                dt = new DataTable();
+                sda.Fill(dt);
+                String deptCode = dt.Rows[0][0].ToString();
+                cnn.Close();
+                this.Hide();
+                Menu m = new Menu(deptCode);
+                m.Show();
+            }
+            else
+                MessageBox.Show("Please enter the correct information", "alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }
