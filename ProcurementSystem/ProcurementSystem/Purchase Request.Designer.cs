@@ -34,6 +34,8 @@
             this.edditPRbtn = new System.Windows.Forms.Button();
             this.deletePRbtn = new System.Windows.Forms.Button();
             this.prBack = new System.Windows.Forms.Button();
+            this.textSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -96,11 +98,29 @@
             this.prBack.Text = "Back";
             this.prBack.UseVisualStyleBackColor = true;
             // 
+            // textSearch
+            // 
+            this.textSearch.Location = new System.Drawing.Point(535, 311);
+            this.textSearch.Name = "textSearch";
+            this.textSearch.Size = new System.Drawing.Size(123, 22);
+            this.textSearch.TabIndex = 6;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(664, 311);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 7;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.textSearch);
             this.Controls.Add(this.prBack);
             this.Controls.Add(this.deletePRbtn);
             this.Controls.Add(this.edditPRbtn);
@@ -122,5 +142,7 @@
         private System.Windows.Forms.Button edditPRbtn;
         private System.Windows.Forms.Button deletePRbtn;
         private System.Windows.Forms.Button prBack;
+        private System.Windows.Forms.TextBox textSearch;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

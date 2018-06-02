@@ -185,6 +185,10 @@
             // 
             this.itemList.Font = new System.Drawing.Font("新細明體", 11F);
             this.itemList.FormattingEnabled = true;
+            this.itemList.Items.AddRange(new object[] {
+            "/",
+            "Fishball",
+            "CurrySauce"});
             this.itemList.Location = new System.Drawing.Point(192, 336);
             this.itemList.Name = "itemList";
             this.itemList.Size = new System.Drawing.Size(136, 23);
@@ -235,6 +239,9 @@
             this.purchaseList.Font = new System.Drawing.Font("新細明體", 14.25F);
             this.purchaseList.FormattingEnabled = true;
             this.purchaseList.HorizontalScrollbar = true;
+            this.purchaseList.Items.AddRange(new object[] {
+            "Item : Fishball Quantity : 5",
+            "Item : Curry Sauce Quantity : 7"});
             this.purchaseList.Location = new System.Drawing.Point(141, 148);
             this.purchaseList.Name = "purchaseList";
             this.purchaseList.Size = new System.Drawing.Size(426, 129);
