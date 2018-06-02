@@ -47,8 +47,13 @@ namespace ProcurementSystem
             sda.Fill(dt);
             if (dt.Rows[0][0].ToString() == "1")
             {
+                sda = new MySqlDataAdapter("select deptcode from Staff where StaffNo = '" + tbSN.Text + "';", cnn);
+                dt = new DataTable();
+                sda.Fill(dt);
+                String deptCode = dt.Rows[0][0].ToString();
+                cnn.Close();
                 this.Hide();
-                Menu m = new Menu();
+                Menu m = new Menu(deptCode);
                 m.Show();
             }
             else
@@ -57,7 +62,7 @@ namespace ProcurementSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }
