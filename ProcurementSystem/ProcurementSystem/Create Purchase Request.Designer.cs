@@ -200,6 +200,7 @@
             this.btnAdd.TabIndex = 15;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtItem
             // 
@@ -233,15 +234,16 @@
             // 
             this.purchaseList.Font = new System.Drawing.Font("新細明體", 14.25F);
             this.purchaseList.FormattingEnabled = true;
-            this.purchaseList.Location = new System.Drawing.Point(192, 157);
+            this.purchaseList.HorizontalScrollbar = true;
+            this.purchaseList.Location = new System.Drawing.Point(141, 148);
             this.purchaseList.Name = "purchaseList";
-            this.purchaseList.Size = new System.Drawing.Size(375, 129);
+            this.purchaseList.Size = new System.Drawing.Size(426, 129);
             this.purchaseList.TabIndex = 19;
             // 
             // deleteItem
             // 
             this.deleteItem.Font = new System.Drawing.Font("新細明體", 11F);
-            this.deleteItem.Location = new System.Drawing.Point(573, 263);
+            this.deleteItem.Location = new System.Drawing.Point(573, 254);
             this.deleteItem.Name = "deleteItem";
             this.deleteItem.Size = new System.Drawing.Size(75, 23);
             this.deleteItem.TabIndex = 20;

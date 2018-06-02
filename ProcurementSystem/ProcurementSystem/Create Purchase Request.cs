@@ -26,5 +26,13 @@ namespace ProcurementSystem
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string selectItem = this.itemList.Text.ToString();
+            string quantity = qtn.Text.ToString();
+            string addMsg = "Item : "+selectItem +"Quantity : "+quantity;
+            purchaseList.Items.Insert(1,addMsg);
+        }
     }
 }
