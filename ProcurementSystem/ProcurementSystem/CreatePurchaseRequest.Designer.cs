@@ -48,6 +48,7 @@
             this.qtn = new System.Windows.Forms.TextBox();
             this.purchaseList = new System.Windows.Forms.CheckedListBox();
             this.deleteItem = new System.Windows.Forms.Button();
+            this.errorMsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // title
@@ -240,9 +241,6 @@
             this.purchaseList.Font = new System.Drawing.Font("新細明體", 14.25F);
             this.purchaseList.FormattingEnabled = true;
             this.purchaseList.HorizontalScrollbar = true;
-            this.purchaseList.Items.AddRange(new object[] {
-            "Item : Fishball Quantity : 5",
-            "Item : Curry Sauce Quantity : 7"});
             this.purchaseList.Location = new System.Drawing.Point(141, 148);
             this.purchaseList.Name = "purchaseList";
             this.purchaseList.Size = new System.Drawing.Size(426, 129);
@@ -257,12 +255,24 @@
             this.deleteItem.TabIndex = 20;
             this.deleteItem.Text = "Delete";
             this.deleteItem.UseVisualStyleBackColor = true;
+            this.deleteItem.Click += new System.EventHandler(this.deleteItem_Click);
             // 
-            // Create_Purchase_Order
+            // errorMsg
+            // 
+            this.errorMsg.AutoSize = true;
+            this.errorMsg.Font = new System.Drawing.Font("新細明體", 13F);
+            this.errorMsg.ForeColor = System.Drawing.Color.Red;
+            this.errorMsg.Location = new System.Drawing.Point(438, 367);
+            this.errorMsg.Name = "errorMsg";
+            this.errorMsg.Size = new System.Drawing.Size(0, 18);
+            this.errorMsg.TabIndex = 21;
+            // 
+            // CreatePurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.errorMsg);
             this.Controls.Add(this.deleteItem);
             this.Controls.Add(this.purchaseList);
             this.Controls.Add(this.qtn);
@@ -283,7 +293,7 @@
             this.Controls.Add(this.txtRestId);
             this.Controls.Add(this.txtRestName);
             this.Controls.Add(this.title);
-            this.Name = "Create_Purchase_Order";
+            this.Name = "CreatePurchaseRequest";
             this.Text = "Create_Purchase_Request";
             this.Load += new System.EventHandler(this.Create_Purchase_Order_Load);
             this.ResumeLayout(false);
@@ -313,5 +323,6 @@
         private System.Windows.Forms.TextBox qtn;
         private System.Windows.Forms.CheckedListBox purchaseList;
         private System.Windows.Forms.Button deleteItem;
+        private System.Windows.Forms.Label errorMsg;
     }
 }
