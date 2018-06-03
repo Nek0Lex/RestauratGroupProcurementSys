@@ -110,6 +110,7 @@ namespace ProcurementSystem
             tbFName.Text = String.Empty;
             tbLName.Text = String.Empty;
             tbPW.Text = String.Empty;
+            comboBox1.SelectedIndex = 1;
             comboBox1.SelectedIndex = 0;
         }
 
