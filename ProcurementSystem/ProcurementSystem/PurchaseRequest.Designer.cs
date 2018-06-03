@@ -53,10 +53,6 @@
             this.purchaseRequestList.Font = new System.Drawing.Font("新細明體", 11F);
             this.purchaseRequestList.FormattingEnabled = true;
             this.purchaseRequestList.HorizontalScrollbar = true;
-            this.purchaseRequestList.Items.AddRange(new object[] {
-            "Purchase Reuqest pr001",
-            "Purchase Request pr002",
-            "Purchase Request pr003"});
             this.purchaseRequestList.Location = new System.Drawing.Point(19, 68);
             this.purchaseRequestList.Name = "purchaseRequestList";
             this.purchaseRequestList.Size = new System.Drawing.Size(490, 344);

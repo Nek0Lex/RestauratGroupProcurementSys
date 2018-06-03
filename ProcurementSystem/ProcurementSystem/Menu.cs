@@ -67,13 +67,6 @@ namespace ProcurementSystem
             
         }
 
-        private void lingLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Close();
-            Login login = new Login();
-            login.Show();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             switch (deptCode)
@@ -85,10 +78,17 @@ namespace ProcurementSystem
                     break;
                 case "RM":
                     this.Hide();
-                    PurchaseRequest pr = new PurchaseRequest(this);
+                    PurchaseRequest pr = new PurchaseRequest(this,0001);
                     pr.Show();
                     break;
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Login login = new Login();
+            login.Show();
         }
     }
 }

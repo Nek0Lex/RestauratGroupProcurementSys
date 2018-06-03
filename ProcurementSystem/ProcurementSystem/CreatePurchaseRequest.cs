@@ -31,10 +31,25 @@ namespace ProcurementSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string selectItem = this.itemList.Text.ToString();
-            string quantity = qtn.Text.ToString();
-            string addMsg = "Item : "+selectItem +"Quantity : "+quantity;
-            purchaseList.Items.Insert(1,addMsg);
+            try
+            {
+                string selectItem = this.itemList.Text;
+                int quantity;
+                Boolean qtnNull = int.TryParse(qtn.Text,out quantity);
+                if ((quantity <= 0)||(qtnNull ==false))
+                {
+                    errorMsg.Text = "Check Your Input!";
+                }
+                else
+                {
+                    string addMsg = "Item : " + selectItem + " Quantity : " + quantity;
+                    purchaseList.Items.Insert(0, addMsg);
+                    errorMsg.Text = "";
+                }
+            }
+            catch (EntryPointNotFoundException ex) {
+                errorMsg.Text = "Something Wrong";
+            }
         }
 
         private void Create_Purchase_Order_Load(object sender, EventArgs e)
@@ -46,6 +61,22 @@ namespace ProcurementSystem
         {
             this.Close();
             pr.Show();
+        }
+
+        private void deleteItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i <= purchaseList.Items.Count; i++)
+                {
+                    if (purchaseList.GetItemChecked(i))
+                        purchaseList.Items.RemoveAt(i);
+                }
+            }
+            catch (Exception ex) {
+
+            }
+
         }
     }
 }

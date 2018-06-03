@@ -35,8 +35,11 @@
             this.btn3 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
-            this.lingLogout = new System.Windows.Forms.LinkLabel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -53,7 +56,6 @@
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.groupBox1.Controls.Add(this.lb1);
             this.groupBox1.Controls.Add(this.btn4);
             this.groupBox1.Controls.Add(this.btn3);
             this.groupBox1.Controls.Add(this.btn2);
@@ -75,11 +77,11 @@
             // lb1
             // 
             this.lb1.AutoSize = true;
-            this.lb1.Font = new System.Drawing.Font("Perpetua Titling MT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb1.Location = new System.Drawing.Point(125, 8);
+            this.lb1.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1.Location = new System.Drawing.Point(3, 52);
             this.lb1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(86, 28);
+            this.lb1.Size = new System.Drawing.Size(58, 19);
             this.lb1.TabIndex = 4;
             this.lb1.Text = "label1";
             this.lb1.UseWaitCursor = true;
@@ -87,6 +89,7 @@
             // 
             // btn4
             // 
+            this.btn4.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
             this.btn4.Location = new System.Drawing.Point(278, 220);
             this.btn4.Margin = new System.Windows.Forms.Padding(2);
             this.btn4.Name = "btn4";
@@ -98,6 +101,7 @@
             // 
             // btn3
             // 
+            this.btn3.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
             this.btn3.Location = new System.Drawing.Point(58, 220);
             this.btn3.Margin = new System.Windows.Forms.Padding(2);
             this.btn3.Name = "btn3";
@@ -109,6 +113,7 @@
             // 
             // btn2
             // 
+            this.btn2.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
             this.btn2.Location = new System.Drawing.Point(278, 56);
             this.btn2.Margin = new System.Windows.Forms.Padding(2);
             this.btn2.Name = "btn2";
@@ -131,31 +136,56 @@
             this.btn1.UseWaitCursor = true;
             this.btn1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // lingLogout
+            // button1
             // 
-            this.lingLogout.AutoSize = true;
-            this.lingLogout.Location = new System.Drawing.Point(493, 54);
-            this.lingLogout.Name = "lingLogout";
-            this.lingLogout.Size = new System.Drawing.Size(39, 12);
-            this.lingLogout.TabIndex = 10;
-            this.lingLogout.TabStop = true;
-            this.lingLogout.Text = "Logout";
-            this.lingLogout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lingLogout_LinkClicked);
+            this.button1.Location = new System.Drawing.Point(50, 419);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(197, 25);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Logout";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lb1);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel1.Location = new System.Drawing.Point(552, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(291, 465);
+            this.panel1.TabIndex = 33;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(2, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(163, 19);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "You are login as:";
+            this.label1.UseWaitCursor = true;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 495);
-            this.Controls.Add(this.lingLogout);
+            this.ClientSize = new System.Drawing.Size(855, 495);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,6 +200,8 @@
         private System.Windows.Forms.Button btn3;
         private System.Windows.Forms.Button btn2;
         private System.Windows.Forms.Button btn1;
-        private System.Windows.Forms.LinkLabel lingLogout;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
     }
 }
