@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Agreement 1",
-            "dd/mm/yyyy"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Agreement 2");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Agreement 3");
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.SPONo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SupplierNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CreationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.EffectiveDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BuyerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BillingAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BuyerAccount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.RestNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ExpectedDeliveryDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TermsAndCondition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,34 +77,24 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
+            this.SPONo,
+            this.SupplierNo,
+            this.CreationDate,
+            this.EffectiveDate,
+            this.BuyerName,
+            this.BillingAddress,
+            this.BuyerAccount,
+            this.RestNo,
+            this.ExpectedDeliveryDate,
+            this.TermsAndCondition});
             this.listView1.GridLines = true;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4,
-            listViewItem5,
-            listViewItem6});
             this.listView1.Location = new System.Drawing.Point(19, 22);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(521, 343);
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Agreement Name";
-            this.columnHeader1.Width = 350;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Date";
-            this.columnHeader2.Width = 80;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "option";
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // button4
             // 
@@ -145,6 +137,56 @@
             this.button1.Text = "Create New Standard Purchase";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // SPONo
+            // 
+            this.SPONo.Text = "SPONo";
+            this.SPONo.Width = 90;
+            // 
+            // SupplierNo
+            // 
+            this.SupplierNo.Text = "SupplierNo";
+            this.SupplierNo.Width = 90;
+            // 
+            // CreationDate
+            // 
+            this.CreationDate.Text = "CreationDate";
+            this.CreationDate.Width = 120;
+            // 
+            // EffectiveDate
+            // 
+            this.EffectiveDate.Text = "EffectiveDate";
+            this.EffectiveDate.Width = 120;
+            // 
+            // BuyerName
+            // 
+            this.BuyerName.Text = "BuyerName";
+            this.BuyerName.Width = 90;
+            // 
+            // BillingAddress
+            // 
+            this.BillingAddress.Text = "BillingAddress";
+            this.BillingAddress.Width = 90;
+            // 
+            // BuyerAccount
+            // 
+            this.BuyerAccount.Text = "BuyerAccount";
+            this.BuyerAccount.Width = 90;
+            // 
+            // RestNo
+            // 
+            this.RestNo.Text = "RestNo";
+            this.RestNo.Width = 90;
+            // 
+            // ExpectedDeliveryDate
+            // 
+            this.ExpectedDeliveryDate.Text = "ExpectedDeliveryDate";
+            this.ExpectedDeliveryDate.Width = 90;
+            // 
+            // TermsAndCondition
+            // 
+            this.TermsAndCondition.Text = "TermsAndCondition";
+            this.TermsAndCondition.Width = 90;
+            // 
             // SPO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -155,6 +197,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "SPO";
             this.Text = "SPO";
+            this.Load += new System.EventHandler(this.SPO_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,12 +209,19 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader SPONo;
+        private System.Windows.Forms.ColumnHeader SupplierNo;
+        private System.Windows.Forms.ColumnHeader CreationDate;
+        private System.Windows.Forms.ColumnHeader EffectiveDate;
+        private System.Windows.Forms.ColumnHeader BuyerName;
+        private System.Windows.Forms.ColumnHeader BillingAddress;
+        private System.Windows.Forms.ColumnHeader BuyerAccount;
+        private System.Windows.Forms.ColumnHeader RestNo;
+        private System.Windows.Forms.ColumnHeader ExpectedDeliveryDate;
+        private System.Windows.Forms.ColumnHeader TermsAndCondition;
     }
 }
