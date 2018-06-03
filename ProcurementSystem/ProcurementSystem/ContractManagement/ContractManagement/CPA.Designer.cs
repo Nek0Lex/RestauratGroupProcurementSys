@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Agreement 1",
-            "dd/mm/yyyy"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Agreement 2");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Agreement 3");
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.ContractNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SupplierNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CreationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.EffectiveDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BuyerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BillingAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TermsAndCondition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,34 +73,22 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
+            this.ContractNo,
+            this.SupplierNo,
+            this.CreationDate,
+            this.EffectiveDate,
+            this.BuyerName,
+            this.BillingAddress,
+            this.TermsAndCondition,
+            this.ItemID});
             this.listView1.GridLines = true;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
             this.listView1.Location = new System.Drawing.Point(19, 22);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(521, 343);
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Agreement Name";
-            this.columnHeader1.Width = 350;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Date";
-            this.columnHeader2.Width = 80;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "option";
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // button4
             // 
@@ -111,6 +99,7 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "back";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -142,6 +131,45 @@
             this.button1.Text = "Create New Contract Purchase Agreement";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // ContractNo
+            // 
+            this.ContractNo.Text = "ContractNo";
+            this.ContractNo.Width = 90;
+            // 
+            // SupplierNo
+            // 
+            this.SupplierNo.Text = "SupplierNo";
+            this.SupplierNo.Width = 90;
+            // 
+            // CreationDate
+            // 
+            this.CreationDate.Text = "CreationDate";
+            this.CreationDate.Width = 120;
+            // 
+            // EffectiveDate
+            // 
+            this.EffectiveDate.Text = "EffectiveDate";
+            this.EffectiveDate.Width = 120;
+            // 
+            // BuyerName
+            // 
+            this.BuyerName.Text = "BuyerName";
+            this.BuyerName.Width = 90;
+            // 
+            // BillingAddress
+            // 
+            this.BillingAddress.Text = "BillingAddress";
+            this.BillingAddress.Width = 90;
+            // 
+            // TermsAndCondition
+            // 
+            this.TermsAndCondition.Text = "TermsAndCondition";
+            this.TermsAndCondition.Width = 90;
+            // 
+            // ItemID
+            // 
+            this.ItemID.Text = "ItemID";
+            // 
             // CPA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -164,12 +192,17 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader ContractNo;
+        private System.Windows.Forms.ColumnHeader SupplierNo;
+        private System.Windows.Forms.ColumnHeader CreationDate;
+        private System.Windows.Forms.ColumnHeader EffectiveDate;
+        private System.Windows.Forms.ColumnHeader BuyerName;
+        private System.Windows.Forms.ColumnHeader BillingAddress;
+        private System.Windows.Forms.ColumnHeader TermsAndCondition;
+        private System.Windows.Forms.ColumnHeader ItemID;
     }
 }
