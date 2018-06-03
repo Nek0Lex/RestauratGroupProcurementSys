@@ -189,14 +189,12 @@
             this.itemList.Font = new System.Drawing.Font("新細明體", 11F);
             this.itemList.FormattingEnabled = true;
             this.itemList.Items.AddRange(new object[] {
-            "/",
             "Fishball",
             "CurrySauce"});
             this.itemList.Location = new System.Drawing.Point(192, 336);
             this.itemList.Name = "itemList";
             this.itemList.Size = new System.Drawing.Size(136, 23);
             this.itemList.TabIndex = 14;
-            this.itemList.Text = "item";
             // 
             // btnAdd
             // 

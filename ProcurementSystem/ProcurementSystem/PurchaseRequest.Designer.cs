@@ -93,6 +93,7 @@
             this.deletePRbtn.TabIndex = 4;
             this.deletePRbtn.Text = "Delete Purchase Request";
             this.deletePRbtn.UseVisualStyleBackColor = true;
+            this.deletePRbtn.Click += new System.EventHandler(this.deletePRbtn_Click);
             // 
             // prBack
             // 

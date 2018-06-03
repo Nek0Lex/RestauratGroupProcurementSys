@@ -21,6 +21,8 @@ namespace ProcurementSystem
             StfName.Text = staffName;
             RestId.Text = restNo;
             RestName.Text = restName;
+            DateTime today = DateTime.Now;
+            CreateDate.Text = today.ToString("d/M/yyyy");
         }
 
         private void label1_Click(object sender, EventArgs e)
