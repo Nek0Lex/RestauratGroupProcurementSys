@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace ContractManagement
 {
@@ -15,6 +17,31 @@ namespace ContractManagement
         public Form1()
         {
             InitializeComponent();
+            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+            cnn.Open();
+            String query = "select * from BlanketPurchaseAgreement ORDER BY BPANo ASC;";
+            MySqlCommand cmd = new MySqlCommand(query, cnn);
+            MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+            DataTable dt = new DataTable();
+            ada.Fill(dt);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow dr = dt.Rows[i];
+
+                ListViewItem listitem = new ListViewItem(dr["BPANo"].ToString());
+                listitem.SubItems.Add(dr["RequestNo"].ToString());
+                listitem.SubItems.Add(dr["PurchaseOrderRevision"].ToString());
+                listitem.SubItems.Add(dr["CreationDate"].ToString());
+                listitem.SubItems.Add(dr["EffectiveDate"].ToString());
+                listitem.SubItems.Add(dr["BuyerName"].ToString());
+                listitem.SubItems.Add(dr["BillingAddress"].ToString());
+                listitem.SubItems.Add(dr["AmountAgreed"].ToString());
+                listitem.SubItems.Add(dr["Currency"].ToString());
+                listitem.SubItems.Add(dr["TermsAndCondition"].ToString());
+
+                listView1.Items.Add(listitem);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -36,6 +63,11 @@ namespace ContractManagement
         {
             TypeofAgreementMenu menu = new TypeofAgreementMenu();
             this.Close();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -20,15 +20,15 @@ namespace ContractManagement
             InitializeComponent();
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
             cnn.Open();
-            String query = "select FirstName,LastName from Staff where StaffNo = 'AD000001';";
+            String query = "select LastName from Staff where StaffNo = 'AD000001';";
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             string _name = (string)cmd.ExecuteScalar();
-            textBox1.Text = _name;
+            textBox1.Text = "Hello! " +  _name;
         }
 
         public void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
