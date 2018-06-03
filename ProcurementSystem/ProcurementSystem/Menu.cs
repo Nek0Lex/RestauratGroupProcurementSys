@@ -29,7 +29,7 @@ namespace ProcurementSystem
                     break;
                 case "RM":
                     lb1.Text = "Restaurant Manager";
-                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;");
+                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
                     MySqlDataAdapter sda = new MySqlDataAdapter("select RestName from Staff,StaffRestaurant,Restaurant where Staff.StaffNo='"+StaffNo+"' and Staff.StaffNo = StaffRestaurant.StaffNo and StaffRestaurant.RestNo = Restaurant.RestNo;", cnn);
                     DataTable dt = new DataTable();
                     sda.Fill(dt);

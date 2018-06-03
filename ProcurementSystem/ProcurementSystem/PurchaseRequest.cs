@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
 using MySql.Data.MySqlClient;
 
 namespace ProcurementSystem
@@ -18,11 +19,11 @@ namespace ProcurementSystem
         {
             InitializeComponent();
             this.m = m;
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;");
+            MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
             MySqlDataAdapter sda = new MySqlDataAdapter("select * from PurchaseRequest where RestNo = '"+restNo+"'", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            foreach(DataRow dr in dt.Rows) {
+            foreach (DataRow dr in dt.Rows) {
                 purchaseRequestList.Items.Insert(0, dr["RequestNo"].ToString());
             }
         }
@@ -55,6 +56,11 @@ namespace ProcurementSystem
             CreatePurchaseRequest cpr = new CreatePurchaseRequest(this);
             this.Hide();
             cpr.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

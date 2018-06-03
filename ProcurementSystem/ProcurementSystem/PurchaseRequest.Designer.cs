@@ -47,6 +47,7 @@
             this.label1.Size = new System.Drawing.Size(278, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Purchase Request";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // purchaseRequestList
             // 

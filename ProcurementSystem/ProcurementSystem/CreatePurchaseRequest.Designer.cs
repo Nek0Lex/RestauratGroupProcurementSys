@@ -60,6 +60,7 @@
             this.title.Size = new System.Drawing.Size(385, 37);
             this.title.TabIndex = 0;
             this.title.Text = "Create Purchase Request";
+            this.title.Click += new System.EventHandler(this.title_Click);
             // 
             // txtRestName
             // 

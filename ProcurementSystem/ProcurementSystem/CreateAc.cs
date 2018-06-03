@@ -53,7 +53,7 @@ namespace ProcurementSystem
             //get the current maximum user id
             String deptCode = ((KeyValuePair<String, String>)comboBox1.SelectedItem).Value;
             int staffNo;
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;");
+            MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
             MySqlDataAdapter sda = new MySqlDataAdapter("select Max(StaffNo) from Staff where StaffNo like '" + deptCode + "%';", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -92,7 +92,7 @@ namespace ProcurementSystem
                 lName = tbLName.Text;
                 pw = tbPW.Text;
                 //insert all data into db
-                MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;");
+                MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
                 MySqlCommand command = cnn.CreateCommand();
                 command.CommandText = "insert into Staff values('" + uid + "','" + fName + "','" + lName + "','" + deptCode + "','" + pw + "')";
                 cnn.Open();
