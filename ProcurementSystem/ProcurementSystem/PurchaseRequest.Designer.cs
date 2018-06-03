@@ -41,6 +41,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.Font = new System.Drawing.Font("新細明體", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
@@ -51,6 +52,7 @@
             // 
             // purchaseRequestList
             // 
+            this.purchaseRequestList.Cursor = System.Windows.Forms.Cursors.Default;
             this.purchaseRequestList.Font = new System.Drawing.Font("新細明體", 11F);
             this.purchaseRequestList.FormattingEnabled = true;
             this.purchaseRequestList.HorizontalScrollbar = true;
@@ -62,6 +64,7 @@
             // 
             // createPRbtn
             // 
+            this.createPRbtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.createPRbtn.Location = new System.Drawing.Point(535, 68);
             this.createPRbtn.Name = "createPRbtn";
             this.createPRbtn.Size = new System.Drawing.Size(197, 26);
@@ -72,6 +75,7 @@
             // 
             // edditPRbtn
             // 
+            this.edditPRbtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.edditPRbtn.Location = new System.Drawing.Point(535, 147);
             this.edditPRbtn.Name = "edditPRbtn";
             this.edditPRbtn.Size = new System.Drawing.Size(197, 26);
@@ -82,6 +86,7 @@
             // 
             // deletePRbtn
             // 
+            this.deletePRbtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.deletePRbtn.Location = new System.Drawing.Point(535, 228);
             this.deletePRbtn.Name = "deletePRbtn";
             this.deletePRbtn.Size = new System.Drawing.Size(197, 26);
@@ -91,6 +96,7 @@
             // 
             // prBack
             // 
+            this.prBack.Cursor = System.Windows.Forms.Cursors.Default;
             this.prBack.Location = new System.Drawing.Point(535, 387);
             this.prBack.Name = "prBack";
             this.prBack.Size = new System.Drawing.Size(197, 25);
@@ -101,6 +107,7 @@
             // 
             // textSearch
             // 
+            this.textSearch.Cursor = System.Windows.Forms.Cursors.Default;
             this.textSearch.Location = new System.Drawing.Point(535, 311);
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(123, 22);
@@ -108,6 +115,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSearch.Location = new System.Drawing.Point(664, 311);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);

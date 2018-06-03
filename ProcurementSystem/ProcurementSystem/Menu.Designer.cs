@@ -45,6 +45,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
             this.label3.Font = new System.Drawing.Font("新細明體", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.Location = new System.Drawing.Point(30, 34);
             this.label3.Name = "label3";
@@ -61,7 +62,7 @@
             this.groupBox1.Controls.Add(this.btn3);
             this.groupBox1.Controls.Add(this.btn2);
             this.groupBox1.Controls.Add(this.btn1);
-            this.groupBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.groupBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.groupBox1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -72,7 +73,6 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
-            this.groupBox1.UseWaitCursor = true;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btn4
@@ -85,7 +85,6 @@
             this.btn4.TabIndex = 3;
             this.btn4.Text = "button4";
             this.btn4.UseVisualStyleBackColor = true;
-            this.btn4.UseWaitCursor = true;
             // 
             // btn3
             // 
@@ -97,7 +96,6 @@
             this.btn3.TabIndex = 2;
             this.btn3.Text = "button3";
             this.btn3.UseVisualStyleBackColor = true;
-            this.btn3.UseWaitCursor = true;
             // 
             // btn2
             // 
@@ -109,10 +107,10 @@
             this.btn2.TabIndex = 1;
             this.btn2.Text = "button2";
             this.btn2.UseVisualStyleBackColor = true;
-            this.btn2.UseWaitCursor = true;
             // 
             // btn1
             // 
+            this.btn1.Cursor = System.Windows.Forms.Cursors.Default;
             this.btn1.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn1.Location = new System.Drawing.Point(58, 56);
             this.btn1.Margin = new System.Windows.Forms.Padding(2);
@@ -121,7 +119,6 @@
             this.btn1.TabIndex = 0;
             this.btn1.Text = "button1";
             this.btn1.UseVisualStyleBackColor = true;
-            this.btn1.UseWaitCursor = true;
             this.btn1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lb1
@@ -134,7 +131,6 @@
             this.lb1.Size = new System.Drawing.Size(58, 19);
             this.lb1.TabIndex = 4;
             this.lb1.Text = "label1";
-            this.lb1.UseWaitCursor = true;
             this.lb1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
@@ -170,7 +166,6 @@
             this.label1.Size = new System.Drawing.Size(163, 19);
             this.label1.TabIndex = 33;
             this.label1.Text = "You are login as:";
-            this.label1.UseWaitCursor = true;
             // 
             // Menu
             // 

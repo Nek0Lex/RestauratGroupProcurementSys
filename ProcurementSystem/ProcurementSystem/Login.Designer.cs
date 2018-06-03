@@ -41,14 +41,13 @@
             // 
             // tbPW
             // 
-            this.tbPW.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.tbPW.Cursor = System.Windows.Forms.Cursors.Default;
             this.tbPW.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tbPW.ForeColor = System.Drawing.SystemColors.InfoText;
             this.tbPW.Location = new System.Drawing.Point(202, 151);
             this.tbPW.Name = "tbPW";
             this.tbPW.Size = new System.Drawing.Size(177, 27);
             this.tbPW.TabIndex = 1;
-            this.tbPW.UseWaitCursor = true;
             // 
             // label1
             // 
@@ -87,7 +86,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnLogin.Location = new System.Drawing.Point(202, 216);
@@ -96,12 +95,11 @@
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.UseWaitCursor = true;
             this.btnLogin.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnExit.Location = new System.Drawing.Point(304, 216);
@@ -110,7 +108,6 @@
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.UseWaitCursor = true;
             this.btnExit.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
@@ -123,7 +120,7 @@
             this.groupBox1.Controls.Add(this.tbSN);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.groupBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.groupBox1.Font = new System.Drawing.Font("Perpetua Titling MT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -134,19 +131,17 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
-            this.groupBox1.UseWaitCursor = true;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // tbSN
             // 
-            this.tbSN.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.tbSN.Cursor = System.Windows.Forms.Cursors.Default;
             this.tbSN.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tbSN.ForeColor = System.Drawing.SystemColors.InfoText;
             this.tbSN.Location = new System.Drawing.Point(202, 85);
             this.tbSN.Name = "tbSN";
             this.tbSN.Size = new System.Drawing.Size(177, 27);
             this.tbSN.TabIndex = 0;
-            this.tbSN.UseWaitCursor = true;
             this.tbSN.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Login
