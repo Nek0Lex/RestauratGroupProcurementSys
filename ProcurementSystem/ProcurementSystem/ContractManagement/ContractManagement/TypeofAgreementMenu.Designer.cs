@@ -31,9 +31,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.textBox1.Size = new System.Drawing.Size(776, 33);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Hello , user!";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // button1
             // 
@@ -73,6 +73,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Type of agreement";
             // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button4.Location = new System.Drawing.Point(429, 240);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(295, 66);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Contract Purchase Agreement";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -94,16 +105,6 @@
             this.button2.Text = "Standard Purchase Order";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(429, 240);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(295, 66);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Contract Purchase Agreement";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // TypeofAgreementMenu
             // 
