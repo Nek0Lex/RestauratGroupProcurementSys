@@ -30,11 +30,11 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lb1 = new System.Windows.Forms.Label();
             this.btn4 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
+            this.lb1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +51,7 @@
             this.label3.Size = new System.Drawing.Size(395, 37);
             this.label3.TabIndex = 5;
             this.label3.Text = "IVE Procurement System";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // groupBox1
             // 
@@ -73,19 +74,6 @@
             this.groupBox1.Text = "Menu";
             this.groupBox1.UseWaitCursor = true;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // lb1
-            // 
-            this.lb1.AutoSize = true;
-            this.lb1.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb1.Location = new System.Drawing.Point(3, 52);
-            this.lb1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(58, 19);
-            this.lb1.TabIndex = 4;
-            this.lb1.Text = "label1";
-            this.lb1.UseWaitCursor = true;
-            this.lb1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btn4
             // 
@@ -135,6 +123,19 @@
             this.btn1.UseVisualStyleBackColor = true;
             this.btn1.UseWaitCursor = true;
             this.btn1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lb1
+            // 
+            this.lb1.AutoSize = true;
+            this.lb1.Font = new System.Drawing.Font("Perpetua Titling MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1.Location = new System.Drawing.Point(3, 52);
+            this.lb1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb1.Name = "lb1";
+            this.lb1.Size = new System.Drawing.Size(58, 19);
+            this.lb1.TabIndex = 4;
+            this.lb1.Text = "label1";
+            this.lb1.UseWaitCursor = true;
+            this.lb1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 

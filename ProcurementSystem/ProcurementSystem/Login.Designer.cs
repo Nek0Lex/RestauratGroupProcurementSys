@@ -41,6 +41,7 @@
             // 
             // tbPW
             // 
+            this.tbPW.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.tbPW.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tbPW.ForeColor = System.Drawing.SystemColors.InfoText;
             this.tbPW.Location = new System.Drawing.Point(202, 151);
@@ -75,6 +76,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
             this.label3.Font = new System.Drawing.Font("新細明體", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.Location = new System.Drawing.Point(30, 34);
             this.label3.Name = "label3";
@@ -85,6 +87,7 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnLogin.Location = new System.Drawing.Point(202, 216);
@@ -98,6 +101,7 @@
             // 
             // btnExit
             // 
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnExit.Location = new System.Drawing.Point(304, 216);
@@ -135,6 +139,7 @@
             // 
             // tbSN
             // 
+            this.tbSN.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.tbSN.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tbSN.ForeColor = System.Drawing.SystemColors.InfoText;
             this.tbSN.Location = new System.Drawing.Point(202, 85);

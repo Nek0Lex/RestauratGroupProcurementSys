@@ -14,7 +14,7 @@ namespace ProcurementSystem
     public partial class PurchaseRequest : Form
     {
         private Menu m;
-        public PurchaseRequest(Menu m, int restNo)
+        public PurchaseRequest(Menu m, String restNo)
         {
             InitializeComponent();
             this.m = m;
