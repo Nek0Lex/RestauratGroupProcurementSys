@@ -66,7 +66,7 @@
             // 
             this.txtRestName.AutoSize = true;
             this.txtRestName.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtRestName.Location = new System.Drawing.Point(137, 81);
+            this.txtRestName.Location = new System.Drawing.Point(51, 81);
             this.txtRestName.Name = "txtRestName";
             this.txtRestName.Size = new System.Drawing.Size(161, 19);
             this.txtRestName.TabIndex = 1;
@@ -76,7 +76,7 @@
             // 
             this.txtRestId.AutoSize = true;
             this.txtRestId.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtRestId.Location = new System.Drawing.Point(137, 100);
+            this.txtRestId.Location = new System.Drawing.Point(51, 100);
             this.txtRestId.Name = "txtRestId";
             this.txtRestId.Size = new System.Drawing.Size(135, 19);
             this.txtRestId.TabIndex = 2;
@@ -107,7 +107,7 @@
             // 
             this.RestName.AutoSize = true;
             this.RestName.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.RestName.Location = new System.Drawing.Point(304, 81);
+            this.RestName.Location = new System.Drawing.Point(218, 81);
             this.RestName.Name = "RestName";
             this.RestName.Size = new System.Drawing.Size(94, 19);
             this.RestName.TabIndex = 5;
@@ -117,7 +117,7 @@
             // 
             this.RestId.AutoSize = true;
             this.RestId.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.RestId.Location = new System.Drawing.Point(278, 100);
+            this.RestId.Location = new System.Drawing.Point(192, 100);
             this.RestId.Name = "RestId";
             this.RestId.Size = new System.Drawing.Size(72, 19);
             this.RestId.TabIndex = 6;
@@ -147,7 +147,7 @@
             // 
             this.txtCreateDate.AutoSize = true;
             this.txtCreateDate.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtCreateDate.Location = new System.Drawing.Point(137, 119);
+            this.txtCreateDate.Location = new System.Drawing.Point(51, 119);
             this.txtCreateDate.Name = "txtCreateDate";
             this.txtCreateDate.Size = new System.Drawing.Size(118, 19);
             this.txtCreateDate.TabIndex = 9;
@@ -157,7 +157,7 @@
             // 
             this.CreateDate.AutoSize = true;
             this.CreateDate.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.CreateDate.Location = new System.Drawing.Point(261, 119);
+            this.CreateDate.Location = new System.Drawing.Point(175, 119);
             this.CreateDate.Name = "CreateDate";
             this.CreateDate.Size = new System.Drawing.Size(81, 19);
             this.CreateDate.TabIndex = 10;

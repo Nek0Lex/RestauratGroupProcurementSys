@@ -14,16 +14,24 @@ namespace ProcurementSystem
 {
     public partial class PurchaseRequest : Form
     {
+        private String staffNo;
         private Menu m;
-        public PurchaseRequest(Menu m, String restNo)
+        private String restName;
+        private String restNo;
+        private String staffName;
+        public PurchaseRequest(Menu m, String restNo, String staffNo)
         {
             InitializeComponent();
             this.m = m;
+            this.staffNo = staffNo;
+            this.restNo = restNo;
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
-            MySqlDataAdapter sda = new MySqlDataAdapter("select * from PurchaseRequest where RestNo = '"+restNo+"'", cnn);
+            MySqlDataAdapter sda = new MySqlDataAdapter("select RequestNo, FirstName, LastName, RestName, sr.RestNo, sr.StaffNo from Staff as s, PurchaseRequest as pr, StaffRestaurant as sr, Restaurant as r where pr.RestNo = '"+restNo+"' and pr.RestNo = sr.RestNo and sr.StaffNo = s.StaffNo and sr.RestNo = r.RestNo;", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             foreach (DataRow dr in dt.Rows) {
+                staffName = dr["FirstName"].ToString()+dr["LastName"].ToString();
+                restName = dr["RestName"].ToString();
                 purchaseRequestList.Items.Insert(0, dr["RequestNo"].ToString());
             }
         }
@@ -53,7 +61,7 @@ namespace ProcurementSystem
 
         private void createPRbtn_Click_1(object sender, EventArgs e)
         {
-            CreatePurchaseRequest cpr = new CreatePurchaseRequest(this);
+            CreatePurchaseRequest cpr = new CreatePurchaseRequest(this, staffNo, restNo, staffName, restName);
             this.Hide();
             cpr.Show();
         }

@@ -13,10 +13,14 @@ namespace ProcurementSystem
     public partial class CreatePurchaseRequest : Form
     {
         private PurchaseRequest pr;
-        public CreatePurchaseRequest(PurchaseRequest pr)
+        public CreatePurchaseRequest(PurchaseRequest pr, string staffNo, string restNo, string staffName, string restName)
         {
             InitializeComponent();
             this.pr = pr;
+            StfId.Text = staffNo;
+            StfName.Text = staffName;
+            RestId.Text = restNo;
+            RestName.Text = restName;
         }
 
         private void label1_Click(object sender, EventArgs e)
