@@ -22,7 +22,6 @@ namespace ProcurementSystem
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public PurchaseRequest(Menu m, String restNo, String staffNo)
         {
-            cnn.Open();
             InitializeComponent();
             this.m = m;
             this.staffNo = staffNo;
@@ -74,11 +73,24 @@ namespace ProcurementSystem
 
         private void deletePRbtn_Click(object sender, EventArgs e) {
             MySqlCommand del;
-            foreach (Object item in purchaseRequestList.CheckedItems)
+            errorMsg.Text = "";
+            for (int i =0; i<=purchaseRequestList.Items.Count; i++)
             {
-                del = new MySqlCommand("Delete form PurchaseRequest where RequestNo = '" + item.ToString() + "'", cnn);
-                del.ExecuteNonQuery();
+                try
+                {
+                    if (purchaseRequestList.GetItemChecked(i))
+                    {
+                        del = new MySqlCommand("Delete from PurchaseRequest where RequestNo = '" + purchaseRequestList.Items[i] + "'", cnn);
+                        del.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex) {
+                    errorMsg.Text = "Some of the request is handled, Cannot Edit of delete!";
+                    break;
+                }
+                //purchaseRequestList.Items.RemoveAt(i);
             }
+            this.Refresh();
         }
     }
 }
