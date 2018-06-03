@@ -77,7 +77,7 @@ namespace ProcurementSystem
                     break;
                 case "RM":
                     this.Hide();
-                    PurchaseRequest pr = new PurchaseRequest(this);
+                    PurchaseRequest pr = new PurchaseRequest(this,0001);
                     pr.Show();
                     break;
             }
