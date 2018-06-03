@@ -16,5 +16,10 @@ namespace ContractManagement
         {
             InitializeComponent();
         }
+
+        private void CPA_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

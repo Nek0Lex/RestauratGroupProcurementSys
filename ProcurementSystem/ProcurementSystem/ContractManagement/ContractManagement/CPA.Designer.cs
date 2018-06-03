@@ -152,6 +152,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "CPA";
             this.Text = "Contract Purchase Agreement";
+            this.Load += new System.EventHandler(this.CPA_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
