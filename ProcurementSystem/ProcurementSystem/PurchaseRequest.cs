@@ -19,16 +19,16 @@ namespace ProcurementSystem
         private String restName;
         private String restNo;
         private String staffName;
-        private DataTable dt;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public PurchaseRequest(Menu m, String restNo, String staffNo)
         {
+            cnn.Open();
             InitializeComponent();
             this.m = m;
             this.staffNo = staffNo;
             this.restNo = restNo;
-            dt = new DataTable();
-            MySqlDataAdapter sda = new MySqlDataAdapter("select Distinct RequestNo, FirstName, LastName, RestName, sr.RestNo, sr.StaffNo from Staff as s, PurchaseRequest as pr, StaffRestaurant as sr, Restaurant as r where pr.RestNo = '"+restNo+"' and pr.RestNo = sr.RestNo and sr.StaffNo = s.StaffNo and sr.RestNo = r.RestNo;", cnn);
+            DataTable dt = new DataTable();
+            MySqlDataAdapter sda = new MySqlDataAdapter("select pr.RequestNo, FirstName, LastName, RestName, sr.RestNo, sr.StaffNo from Staff as s, PurchaseRequest as pr, StaffRestaurant as sr, Restaurant as r where pr.RestNo = '"+restNo+ "' and pr.RestNo = sr.RestNo and sr.StaffNo = s.StaffNo and sr.RestNo = r.RestNo Group by pr.RequestNo;", cnn);
             sda.Fill(dt);
             foreach (DataRow dr in dt.Rows) {
                 staffName = dr["FirstName"].ToString()+dr["LastName"].ToString();
@@ -73,11 +73,11 @@ namespace ProcurementSystem
         }
 
         private void deletePRbtn_Click(object sender, EventArgs e) {
-            MySqlDataAdapter del;
-           foreach(Object item in purchaseRequestList.CheckedItems)
+            MySqlCommand del;
+            foreach (Object item in purchaseRequestList.CheckedItems)
             {
-                del = new MySqlDataAdapter("Delete form PurchaseRequest where RequestNo = '"+item.ToString()+"'",cnn);
-                del.Update(dt);
+                del = new MySqlCommand("Delete form PurchaseRequest where RequestNo = '" + item.ToString() + "'", cnn);
+                del.ExecuteNonQuery();
             }
         }
     }

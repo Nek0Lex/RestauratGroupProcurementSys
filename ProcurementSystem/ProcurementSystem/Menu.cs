@@ -79,7 +79,7 @@ namespace ProcurementSystem
                     break;
                 case "RM":
                     this.Hide();
-                    PurchaseRequest pr = new PurchaseRequest(this,"0001",StaffNo);
+                    PurchaseRequest pr = new PurchaseRequest(this,"R001",StaffNo);
                     pr.Show();
                     break;
             }
