@@ -56,7 +56,8 @@ namespace ContractManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            BPAAdd BPAAdd = new BPAAdd();
+            BPAAdd.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -67,7 +68,7 @@ namespace ContractManagement
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

@@ -34,15 +34,15 @@
             this.BPANo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RequestNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PurchaseOrderRevision = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CreationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.EffectiveDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BuyerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BillingAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.AmountAgreed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.EffectiveDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CreationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.BuyerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.BillingAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.AmountAgreed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,7 @@
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(776, 46);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Blanket Purchase Agreement";
@@ -109,6 +110,33 @@
             this.PurchaseOrderRevision.Text = "PurchaseOrderRevision";
             this.PurchaseOrderRevision.Width = 120;
             // 
+            // CreationDate
+            // 
+            this.CreationDate.DisplayIndex = 4;
+            this.CreationDate.Text = "CreationDate";
+            this.CreationDate.Width = 76;
+            // 
+            // EffectiveDate
+            // 
+            this.EffectiveDate.DisplayIndex = 3;
+            this.EffectiveDate.Text = "EffectiveDate";
+            this.EffectiveDate.Width = 79;
+            // 
+            // BuyerName
+            // 
+            this.BuyerName.Text = "BuyerName";
+            this.BuyerName.Width = 70;
+            // 
+            // BillingAddress
+            // 
+            this.BillingAddress.Text = "BillingAddress";
+            this.BillingAddress.Width = 86;
+            // 
+            // AmountAgreed
+            // 
+            this.AmountAgreed.Text = "AmountAgreed";
+            this.AmountAgreed.Width = 92;
+            // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -150,33 +178,6 @@
             this.button1.Text = "Create New Blanket Agreement";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // EffectiveDate
-            // 
-            this.EffectiveDate.DisplayIndex = 3;
-            this.EffectiveDate.Text = "EffectiveDate";
-            this.EffectiveDate.Width = 79;
-            // 
-            // CreationDate
-            // 
-            this.CreationDate.DisplayIndex = 4;
-            this.CreationDate.Text = "CreationDate";
-            this.CreationDate.Width = 76;
-            // 
-            // BuyerName
-            // 
-            this.BuyerName.Text = "BuyerName";
-            this.BuyerName.Width = 70;
-            // 
-            // BillingAddress
-            // 
-            this.BillingAddress.Text = "BillingAddress";
-            this.BillingAddress.Width = 86;
-            // 
-            // AmountAgreed
-            // 
-            this.AmountAgreed.Text = "AmountAgreed";
-            this.AmountAgreed.Width = 92;
             // 
             // Form1
             // 

@@ -62,6 +62,12 @@
     <Compile Include="CPA.Designer.cs">
       <DependentUpon>CPA.cs</DependentUpon>
     </Compile>
+    <Compile Include="BPAAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BPAAdd.Designer.cs">
+      <DependentUpon>BPAAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="PPO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BPA.resx">
       <DependentUpon>BPA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BPAAdd.resx">
+      <DependentUpon>BPAAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CPA.resx">
       <DependentUpon>CPA.cs</DependentUpon>
