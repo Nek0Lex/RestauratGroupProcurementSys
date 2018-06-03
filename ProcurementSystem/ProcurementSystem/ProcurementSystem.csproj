@@ -69,6 +69,12 @@
     <Compile Include="Category.Designer.cs">
       <DependentUpon>Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateRest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateRest.Designer.cs">
+      <DependentUpon>CreateRest.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditPurchaseRequest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CreateRest.resx">
+      <DependentUpon>CreateRest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditPurchaseRequest.resx">
       <DependentUpon>EditPurchaseRequest.cs</DependentUpon>
     </EmbeddedResource>

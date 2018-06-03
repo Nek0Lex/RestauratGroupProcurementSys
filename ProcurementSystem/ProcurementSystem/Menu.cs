@@ -48,6 +48,7 @@ namespace ProcurementSystem
                 case "AM":
                     lb1.Text = "ADMIN";
                     btn1.Text = "Create New User";
+                    btn2.Text = "Create New Restaurant";
                     break;
             }
         }
@@ -94,6 +95,18 @@ namespace ProcurementSystem
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            switch (deptCode)
+            {
+                case "AM":
+                    this.Hide();
+                    CreateRest crest = new CreateRest(this);
+                    crest.Show();
+                    break;
+            }
         }
     }
 }
