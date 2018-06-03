@@ -31,10 +31,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.ContractNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SupplierNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CreationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -43,6 +39,10 @@
             this.BillingAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TermsAndCondition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,7 @@
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(776, 46);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Contract Purchase Agreement";
@@ -89,6 +90,45 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // ContractNo
+            // 
+            this.ContractNo.Text = "ContractNo";
+            this.ContractNo.Width = 90;
+            // 
+            // SupplierNo
+            // 
+            this.SupplierNo.Text = "SupplierNo";
+            this.SupplierNo.Width = 90;
+            // 
+            // CreationDate
+            // 
+            this.CreationDate.Text = "CreationDate";
+            this.CreationDate.Width = 120;
+            // 
+            // EffectiveDate
+            // 
+            this.EffectiveDate.Text = "EffectiveDate";
+            this.EffectiveDate.Width = 120;
+            // 
+            // BuyerName
+            // 
+            this.BuyerName.Text = "BuyerName";
+            this.BuyerName.Width = 90;
+            // 
+            // BillingAddress
+            // 
+            this.BillingAddress.Text = "BillingAddress";
+            this.BillingAddress.Width = 90;
+            // 
+            // TermsAndCondition
+            // 
+            this.TermsAndCondition.Text = "TermsAndCondition";
+            this.TermsAndCondition.Width = 90;
+            // 
+            // ItemID
+            // 
+            this.ItemID.Text = "ItemID";
             // 
             // button4
             // 
@@ -130,45 +170,6 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Create New Contract Purchase Agreement";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // ContractNo
-            // 
-            this.ContractNo.Text = "ContractNo";
-            this.ContractNo.Width = 90;
-            // 
-            // SupplierNo
-            // 
-            this.SupplierNo.Text = "SupplierNo";
-            this.SupplierNo.Width = 90;
-            // 
-            // CreationDate
-            // 
-            this.CreationDate.Text = "CreationDate";
-            this.CreationDate.Width = 120;
-            // 
-            // EffectiveDate
-            // 
-            this.EffectiveDate.Text = "EffectiveDate";
-            this.EffectiveDate.Width = 120;
-            // 
-            // BuyerName
-            // 
-            this.BuyerName.Text = "BuyerName";
-            this.BuyerName.Width = 90;
-            // 
-            // BillingAddress
-            // 
-            this.BillingAddress.Text = "BillingAddress";
-            this.BillingAddress.Width = 90;
-            // 
-            // TermsAndCondition
-            // 
-            this.TermsAndCondition.Text = "TermsAndCondition";
-            this.TermsAndCondition.Width = 90;
-            // 
-            // ItemID
-            // 
-            this.ItemID.Text = "ItemID";
             // 
             // CPA
             // 

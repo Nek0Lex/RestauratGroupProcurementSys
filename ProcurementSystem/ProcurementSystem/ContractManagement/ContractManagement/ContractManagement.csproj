@@ -81,6 +81,12 @@
     <Compile Include="SPO.Designer.cs">
       <DependentUpon>SPO.cs</DependentUpon>
     </Compile>
+    <Compile Include="SPOAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPOAdd.Designer.cs">
+      <DependentUpon>SPOAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="TypeofAgreementMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SPO.resx">
       <DependentUpon>SPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPOAdd.resx">
+      <DependentUpon>SPOAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TypeofAgreementMenu.resx">
       <DependentUpon>TypeofAgreementMenu.cs</DependentUpon>
