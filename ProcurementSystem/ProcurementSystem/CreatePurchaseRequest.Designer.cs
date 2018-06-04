@@ -46,9 +46,13 @@
             this.txtItem = new System.Windows.Forms.Label();
             this.txtQtn = new System.Windows.Forms.Label();
             this.qtn = new System.Windows.Forms.TextBox();
-            this.purchaseList = new System.Windows.Forms.CheckedListBox();
             this.deleteItem = new System.Windows.Forms.Button();
             this.errorMsg = new System.Windows.Forms.Label();
+            this.purchaseList2 = new System.Windows.Forms.DataGridView();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseList2)).BeginInit();
             this.SuspendLayout();
             // 
             // title
@@ -236,20 +240,10 @@
             this.qtn.Size = new System.Drawing.Size(112, 28);
             this.qtn.TabIndex = 18;
             // 
-            // purchaseList
-            // 
-            this.purchaseList.Font = new System.Drawing.Font("新細明體", 14.25F);
-            this.purchaseList.FormattingEnabled = true;
-            this.purchaseList.HorizontalScrollbar = true;
-            this.purchaseList.Location = new System.Drawing.Point(141, 148);
-            this.purchaseList.Name = "purchaseList";
-            this.purchaseList.Size = new System.Drawing.Size(426, 129);
-            this.purchaseList.TabIndex = 19;
-            // 
             // deleteItem
             // 
             this.deleteItem.Font = new System.Drawing.Font("新細明體", 11F);
-            this.deleteItem.Location = new System.Drawing.Point(573, 254);
+            this.deleteItem.Location = new System.Drawing.Point(577, 266);
             this.deleteItem.Name = "deleteItem";
             this.deleteItem.Size = new System.Drawing.Size(75, 23);
             this.deleteItem.TabIndex = 20;
@@ -267,14 +261,48 @@
             this.errorMsg.Size = new System.Drawing.Size(0, 18);
             this.errorMsg.TabIndex = 21;
             // 
+            // purchaseList2
+            // 
+            this.purchaseList2.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.purchaseList2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.purchaseList2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemName,
+            this.ItemQuantity,
+            this.VItemId});
+            this.purchaseList2.Location = new System.Drawing.Point(139, 153);
+            this.purchaseList2.Name = "purchaseList2";
+            this.purchaseList2.ReadOnly = true;
+            this.purchaseList2.RowTemplate.Height = 24;
+            this.purchaseList2.Size = new System.Drawing.Size(418, 136);
+            this.purchaseList2.TabIndex = 22;
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            // 
+            // ItemQuantity
+            // 
+            this.ItemQuantity.HeaderText = "ItemQuantity";
+            this.ItemQuantity.Name = "ItemQuantity";
+            this.ItemQuantity.ReadOnly = true;
+            // 
+            // VItemId
+            // 
+            this.VItemId.HeaderText = "VItemId";
+            this.VItemId.Name = "VItemId";
+            this.VItemId.ReadOnly = true;
+            this.VItemId.Visible = false;
+            // 
             // CreatePurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.purchaseList2);
             this.Controls.Add(this.errorMsg);
             this.Controls.Add(this.deleteItem);
-            this.Controls.Add(this.purchaseList);
             this.Controls.Add(this.qtn);
             this.Controls.Add(this.txtQtn);
             this.Controls.Add(this.txtItem);
@@ -296,6 +324,7 @@
             this.Name = "CreatePurchaseRequest";
             this.Text = "Create_Purchase_Request";
             this.Load += new System.EventHandler(this.Create_Purchase_Order_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseList2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,8 +350,11 @@
         private System.Windows.Forms.Label txtItem;
         private System.Windows.Forms.Label txtQtn;
         private System.Windows.Forms.TextBox qtn;
-        private System.Windows.Forms.CheckedListBox purchaseList;
         private System.Windows.Forms.Button deleteItem;
         private System.Windows.Forms.Label errorMsg;
+        private System.Windows.Forms.DataGridView purchaseList2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VItemId;
     }
 }

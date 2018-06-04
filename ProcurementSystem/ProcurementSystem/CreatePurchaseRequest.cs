@@ -15,13 +15,12 @@ namespace ProcurementSystem
     public partial class CreatePurchaseRequest : Form
     {
         private PurchaseRequest pr;
-        private string[,] itemTable = new string[1000, 2];
-        private int nextItemPlace = 0;
         private string nowRequestNo;
         private DateTime today = DateTime.Now;
         private int quantity;
         private string staffNo;
         private string restNo;
+
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public CreatePurchaseRequest(PurchaseRequest pr, string staffNo, string restNo, string staffName, string restName)
         {
@@ -72,16 +71,13 @@ namespace ProcurementSystem
                 }
                 else
                 {
-                    string addMsg = "Item : " + selectItem + " Quantity : " + quantity;
-                    purchaseList.Items.Insert(0, addMsg);
                     if (selectItem == "Fishball") {
-                        itemTable[nextItemPlace, 0] = "000001";
-                    }else if (selectItem == "CurrySauce")
-                    {
-                        itemTable[nextItemPlace, 0] = "000002";
+                        purchaseList2.Rows.Add(selectItem, quantity, "000001");
                     }
-                    itemTable[nextItemPlace, 1] = quantity.ToString();
-                    nextItemPlace++;
+                    else if (selectItem == "CurrySauce")
+                    {
+                        purchaseList2.Rows.Add(selectItem, quantity, "000002");
+                    }
                     errorMsg.Text = "";
                 }
             }
@@ -105,16 +101,12 @@ namespace ProcurementSystem
         {
             try
             {
-                for (int i = 0; i <= purchaseList.Items.Count; i++)
+                foreach (DataGridViewRow row in purchaseList2.SelectedRows)
                 {
-                    if (purchaseList.GetItemChecked(i))
-                        purchaseList.Items.RemoveAt(i);
+                    purchaseList2.Rows.Remove(row);
                 }
             }
-            catch (Exception ex) {
-
-            }
-
+            catch (Exception ex) { }
         }
 
         private void title_Click(object sender, EventArgs e)
@@ -125,26 +117,24 @@ namespace ProcurementSystem
         private void btnCreate_Click(object sender, EventArgs e)
         {
             MySqlCommand add;
-            Boolean haveCreate = false;
-            for(int i=0; i<1000; i++)
+            uint qtnToInt;
+ 
+            for(int i=0; i<purchaseList2.RowCount; i++)
             {
-                if(itemTable[i, 0] == null)
+                try
                 {
-                    continue;
+                    if (purchaseList2.Rows[i].Cells[0] != null)
+                    {
+                        qtnToInt = Convert.ToUInt32(purchaseList2.Rows[i].Cells[1].Value.ToString());
+                        add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, Hierarchy, StaffNo, RestNo) Value ('" + nowRequestNo + "', '" + today.ToString("yyyy-MM-dd") + "', " + qtnToInt + ", 'NEW', '" + purchaseList2.Rows[i].Cells[2].Value.ToString() + "', 'Chinese', '" + staffNo + "', '" + restNo + "');", cnn);
+                        add.ExecuteNonQuery();
+                    }
                 }
-                else
-                {
-                    add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, Hierarchy, StaffNo, RestNo) Value ('"+nowRequestNo+"', '"+ today.ToString("yyyy-MM-dd") + "', "+itemTable[i, 1]+", 'NEW', '"+itemTable[i, 0]+"', 'Chinese', '"+staffNo+"', '"+restNo+"');",cnn);
-                    add.ExecuteNonQuery();
-                    haveCreate = true;
-                }
+                catch (Exception ex) { }
             }
-            if (haveCreate)
-            {
                 this.Close();
                 pr.Refresh();
                 pr.Show();
-            }
         }
     }
 }
