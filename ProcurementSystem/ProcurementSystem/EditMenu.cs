@@ -16,5 +16,10 @@ namespace ProcurementSystem
         {
             InitializeComponent();
         }
+
+        private void EditMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace ProcurementSystem
 {
     public partial class TypeofAgreementMenu : Form
     {
+        private Menu m;
         public TypeofAgreementMenu()
         {
             InitializeComponent();
@@ -23,7 +24,16 @@ namespace ProcurementSystem
             String query = "select LastName from Staff where StaffNo = 'AD000001';";
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             string _name = (string)cmd.ExecuteScalar();
-            textBox1.Text = "Hello! " +  _name;
+        }
+        public TypeofAgreementMenu(Menu m)
+        {
+            InitializeComponent();
+            this.m = m;
+            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+            cnn.Open();
+            String query = "select LastName from Staff where StaffNo = 'AD000001';";
+            MySqlCommand cmd = new MySqlCommand(query, cnn);
+            string _name = (string)cmd.ExecuteScalar();
         }
 
         public void TextBox1_TextChanged(object sender, EventArgs e)
@@ -61,6 +71,17 @@ namespace ProcurementSystem
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            m.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
