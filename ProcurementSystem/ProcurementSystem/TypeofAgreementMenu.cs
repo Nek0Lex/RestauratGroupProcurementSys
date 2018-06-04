@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
-namespace ContractManagement
+namespace ProcurementSystem
 {
     public partial class TypeofAgreementMenu : Form
     {
@@ -53,6 +53,16 @@ namespace ContractManagement
         {
             CPA CPA = new CPA();
             CPA.ShowDialog();
+        }
+
+        private void TypeofAgreementMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

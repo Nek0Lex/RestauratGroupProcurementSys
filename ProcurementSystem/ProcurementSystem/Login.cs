@@ -70,5 +70,11 @@ namespace ProcurementSystem
 
         }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            TypeofAgreementMenu tam = new TypeofAgreementMenu();
+            tam.Show();
+            this.Hide();
+        }
     }
 }

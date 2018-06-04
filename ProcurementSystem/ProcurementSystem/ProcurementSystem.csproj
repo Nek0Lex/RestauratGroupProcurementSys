@@ -115,6 +115,48 @@
     <Compile Include="CreatePurchaseRequest.Designer.cs">
       <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
     </Compile>
+    <Compile Include="TypeofAgreementMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TypeofAgreementMenu.Designer.cs">
+      <DependentUpon>TypeofAgreementMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BPA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BPA.Designer.cs">
+      <DependentUpon>BPA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BPAAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BPAAdd.Designer.cs">
+      <DependentUpon>BPAAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CPA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CPA.Designer.cs">
+      <DependentUpon>CPA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PPO.Designer.cs">
+      <DependentUpon>PPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPO.Designer.cs">
+      <DependentUpon>SPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPOAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPOAdd.Designer.cs">
+      <DependentUpon>SPOAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CreateRest.resx">
@@ -137,6 +179,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreatePurchaseRequest.resx">
       <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TypeofAgreementMenu.resx">
+      <DependentUpon>TypeofAgreementMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BPA.resx">
+      <DependentUpon>BPA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BPAAdd.resx">
+      <DependentUpon>BPAAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CPA.resx">
+      <DependentUpon>CPA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PPO.resx">
+      <DependentUpon>PPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPO.resx">
+      <DependentUpon>SPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPOAdd.resx">
+      <DependentUpon>SPOAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
