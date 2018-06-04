@@ -154,6 +154,11 @@ namespace ProcurementSystem
                     EditAc eac = new EditAc(deptCode, StaffNo, this);
                     eac.Show();
                     break;
+                case "AM":
+                    this.Hide();
+                    EditMenu em = new EditMenu(this, 1);
+                    em.Show();
+                    break;
             }
         }
 
@@ -165,6 +170,11 @@ namespace ProcurementSystem
                     this.Hide();
                     EditAc eac = new EditAc(deptCode, StaffNo, this);
                     eac.Show();
+                    break;
+                case "AM":
+                    this.Hide();
+                    EditMenu em = new EditMenu(this, 0);
+                    em.Show();
                     break;
             }
         }

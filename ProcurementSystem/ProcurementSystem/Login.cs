@@ -41,6 +41,7 @@ namespace ProcurementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            tbSN.Text.ToUpper();
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none");
             MySqlDataAdapter sda = new MySqlDataAdapter("select count(*) from Staff where StaffNo = '" + tbSN.Text + "' and Password = '" + tbPW.Text + "'", cnn);
             DataTable dt = new DataTable();
