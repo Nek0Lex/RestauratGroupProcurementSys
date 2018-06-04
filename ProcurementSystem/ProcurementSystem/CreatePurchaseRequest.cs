@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace ProcurementSystem
 {
@@ -16,7 +17,7 @@ namespace ProcurementSystem
         private PurchaseRequest pr;
         private string[,] itemTable = new string[1000, 2];
         private int nextItemPlace = 0;
-        private int newRequestNo;
+        private string nowRequestNo;
         private DateTime today = DateTime.Now;
         private int quantity;
         private string staffNo;
@@ -24,6 +25,7 @@ namespace ProcurementSystem
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public CreatePurchaseRequest(PurchaseRequest pr, string staffNo, string restNo, string staffName, string restName)
         {
+            cnn.Open();
             InitializeComponent();
             this.pr = pr;
             StfId.Text = staffNo;
@@ -32,9 +34,20 @@ namespace ProcurementSystem
             RestName.Text = restName;
             this.restNo = restNo;
             this.staffNo = staffNo;
-            MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(RequestNo) FROM purchaseRequest");
-            newRequestNo = getNextRequestNo.ExecuteNonQuery();
-            CreateDate.Text = today.ToString("d/M/yyyy");
+            MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(RequestNo) FROM PurchaseRequest",cnn);
+            nowRequestNo =(string) getNextRequestNo.ExecuteScalar();
+            if (nowRequestNo == null)
+            {
+                nowRequestNo = "00000000";
+            }
+            else
+            {
+                nowRequestNo = Regex.Match(nowRequestNo, @"\d+").Value;
+            }
+            int num = Int32.Parse(nowRequestNo);
+            num++;
+            nowRequestNo = num.ToString().PadLeft(8, '0');
+            CreateDate.Text = today.ToString("yyyy-MM-dd");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -96,8 +109,6 @@ namespace ProcurementSystem
                 {
                     if (purchaseList.GetItemChecked(i))
                         purchaseList.Items.RemoveAt(i);
-                    itemTable[i, 0] = null;
-                    itemTable[i, 1] = null;
                 }
             }
             catch (Exception ex) {
@@ -114,6 +125,7 @@ namespace ProcurementSystem
         private void btnCreate_Click(object sender, EventArgs e)
         {
             MySqlCommand add;
+            Boolean haveCreate = false;
             for(int i=0; i<1000; i++)
             {
                 if(itemTable[i, 0] == null)
@@ -122,9 +134,16 @@ namespace ProcurementSystem
                 }
                 else
                 {
-                    add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, Hierarchy, StaffNo, RestNo) Value ("+(newRequestNo++)+", "+ today.ToString("yyyy-mm-dd") + ", "+quantity+", new, "+itemTable[i, 0]+", Chinese, "+staffNo+", "+restNo+");",cnn);
+                    add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, Hierarchy, StaffNo, RestNo) Value ('"+nowRequestNo+"', '"+ today.ToString("yyyy-MM-dd") + "', "+itemTable[i, 1]+", 'NEW', '"+itemTable[i, 0]+"', 'Chinese', '"+staffNo+"', '"+restNo+"');",cnn);
+                    add.ExecuteNonQuery();
+                    haveCreate = true;
                 }
-
+            }
+            if (haveCreate)
+            {
+                this.Close();
+                pr.Refresh();
+                pr.Show();
             }
         }
     }
