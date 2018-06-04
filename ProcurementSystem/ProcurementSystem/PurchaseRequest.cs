@@ -74,7 +74,7 @@ namespace ProcurementSystem
         private void deletePRbtn_Click(object sender, EventArgs e) {
             MySqlCommand del;
             errorMsg.Text = "";
-            for (int i =0; i<=purchaseRequestList.Items.Count; i++)
+            for (int i = 0; i <= purchaseRequestList.Items.Count; i++)
             {
                 try
                 {
@@ -84,13 +84,17 @@ namespace ProcurementSystem
                         del.ExecuteNonQuery();
                     }
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     errorMsg.Text = "Some of the request is handled, Cannot Edit of delete!";
                     break;
                 }
                 //purchaseRequestList.Items.RemoveAt(i);
+                finally
+                {
+                    this.Refresh();
+                }
             }
-            this.Refresh();
         }
     }
 }
