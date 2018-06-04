@@ -98,6 +98,7 @@
             this.btn3.TabIndex = 2;
             this.btn3.Text = "button3";
             this.btn3.UseVisualStyleBackColor = true;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // btn2
             // 
@@ -175,7 +176,7 @@
             // 
             this.lbStaffName.AutoSize = true;
             this.lbStaffName.Font = new System.Drawing.Font("Perpetua Titling MT", 12F);
-            this.lbStaffName.Location = new System.Drawing.Point(5, 22);
+            this.lbStaffName.Location = new System.Drawing.Point(3, 22);
             this.lbStaffName.Name = "lbStaffName";
             this.lbStaffName.Size = new System.Drawing.Size(62, 19);
             this.lbStaffName.TabIndex = 34;

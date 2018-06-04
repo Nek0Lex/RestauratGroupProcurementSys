@@ -180,6 +180,9 @@
     <EmbeddedResource Include="CreateRest.resx">
       <DependentUpon>CreateRest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditAc.resx">
+      <DependentUpon>EditAc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditMenu.resx">
       <DependentUpon>EditMenu.cs</DependentUpon>
     </EmbeddedResource>

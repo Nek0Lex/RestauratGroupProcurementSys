@@ -35,6 +35,7 @@ namespace ProcurementSystem
                 case "PM":
                     lb1.Text = "Purchase Manager";
                     btn1.Text = "Agreement";
+                    btn4.Text = "Edit User Information";
                     break;
                 case "RM":
                     lb1.Text = "Restaurant Manager";
@@ -50,17 +51,20 @@ namespace ProcurementSystem
                     break;
                 case "CM":
                     lb1.Text = "Category Manager";
+                    btn4.Text = "Edit User Information";
                     break;
                 case "WC":
                     lb1.Text = "Warehouse Clerk";
                     btn1.Text = "Despatch Instruction";
                     btn2.Text = "Delivery Note";
                     btn3.Text = "Inventory";
+                    btn4.Text = "Edit User Information";
                     break;
                 case "AD":
                     lb1.Text = "Accounting Department";
                     btn1.Text = "Complete Payment";
                     btn2.Text = "Payment Record";
+                    btn4.Text = "Edit User Information";
                     break;
                 case "AM":
                     lb1.Text = "ADMIN";
@@ -141,6 +145,26 @@ namespace ProcurementSystem
                     this.Hide();
                     EditRest erest = new EditRest(restNo, this);
                     erest.Show();
+                    break;
+                case "PM":
+                case "CM":
+                case "WC":
+                case "AD":
+                    this.Hide();
+                    EditAc eac = new EditAc(deptCode, StaffNo, this);
+                    eac.Show();
+                    break;
+            }
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            switch (deptCode)
+            {
+                case "RM":
+                    this.Hide();
+                    EditAc eac = new EditAc(deptCode, StaffNo, this);
+                    eac.Show();
                     break;
             }
         }

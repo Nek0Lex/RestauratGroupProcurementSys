@@ -52,6 +52,7 @@
             this.tbRName.Name = "tbRName";
             this.tbRName.Size = new System.Drawing.Size(221, 27);
             this.tbRName.TabIndex = 62;
+            this.tbRName.TextChanged += new System.EventHandler(this.tbRName_TextChanged);
             // 
             // label4
             // 

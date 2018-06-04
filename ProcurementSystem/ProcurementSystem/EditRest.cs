@@ -49,6 +49,11 @@ namespace ProcurementSystem
             m.Show();
         }
 
+        private void tbRName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbRName.Text) || string.IsNullOrWhiteSpace(rtbAdd.Text) || string.IsNullOrWhiteSpace(tbHierachy.Text) || string.IsNullOrWhiteSpace(tbID.Text))
@@ -64,7 +69,7 @@ namespace ProcurementSystem
                 cnn.Open();
                 command.ExecuteNonQuery();
                 cnn.Close();
-                MessageBox.Show("Create Success!", "Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Update Success!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 m.Show();
             }

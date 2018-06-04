@@ -155,5 +155,10 @@ namespace ProcurementSystem
         {
             restNum = ((KeyValuePair<String, String>)comboBox2.SelectedItem).Value.Substring(0,4);
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
