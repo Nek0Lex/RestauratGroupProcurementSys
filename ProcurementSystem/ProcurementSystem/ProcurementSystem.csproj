@@ -180,8 +180,14 @@
     <EmbeddedResource Include="CreateRest.resx">
       <DependentUpon>CreateRest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditMenu.resx">
+      <DependentUpon>EditMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditPurchaseRequest.resx">
       <DependentUpon>EditPurchaseRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRest.resx">
+      <DependentUpon>EditRest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -76,7 +76,7 @@ namespace ProcurementSystem
                 //insert all data into db
                 MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
                 MySqlCommand command = cnn.CreateCommand();
-                command.CommandText = "insert into Restaurant values('" + rid + "','" + rAddress + "','" + hierachy + "','" + rName + "')";
+                command.CommandText = "insert into Restaurant values('" + rid + "','" + rName + "','" + rAddress + "','" + hierachy + "')";
                 cnn.Open();
                 command.ExecuteNonQuery();
                 cnn.Close();
@@ -98,6 +98,11 @@ namespace ProcurementSystem
             tbRName.Text = String.Empty;
             tbHierachy.Text = String.Empty;
             tbID.Text = rid;
+        }
+
+        private void rtbAdd_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

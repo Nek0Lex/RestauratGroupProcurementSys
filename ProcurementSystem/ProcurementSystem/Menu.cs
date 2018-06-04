@@ -15,41 +15,59 @@ namespace ProcurementSystem
 {
     public partial class Menu : Form
     {
+        private MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         private String StaffNo;
         private String deptCode;
+        private String restNo;
+        private String staffName;
+        private DataTable dt = new DataTable();
         public Menu(String StaffNo, String deptCode)
         {
             InitializeComponent();
             this.StaffNo = StaffNo;
             this.deptCode = deptCode;
+            MySqlDataAdapter sda = new MySqlDataAdapter("select FirstName, LastName from Staff where Staff.StaffNo='" + StaffNo + "';", cnn);
+            sda.Fill(dt);
+            staffName = dt.Rows[0][0].ToString() + " " + dt.Rows[0][1].ToString();
+            lbStaffName.Text = "Hello, " + staffName;
             switch (deptCode)
             {
                 case "PM":
                     lb1.Text = "Purchase Manager";
-                    btn1.Text = "Create New Agreement";
+                    btn1.Text = "Agreement";
                     break;
                 case "RM":
                     lb1.Text = "Restaurant Manager";
-                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
-                    MySqlDataAdapter sda = new MySqlDataAdapter("select RestName from Staff,StaffRestaurant,Restaurant where Staff.StaffNo='"+StaffNo+"' and Staff.StaffNo = StaffRestaurant.StaffNo and StaffRestaurant.RestNo = Restaurant.RestNo;", cnn);
-                    DataTable dt = new DataTable();
+                    sda = new MySqlDataAdapter("select RestName,Restaurant.RestNo from Staff,StaffRestaurant,Restaurant where Staff.StaffNo='"+StaffNo+"' and Staff.StaffNo = StaffRestaurant.StaffNo and StaffRestaurant.RestNo = Restaurant.RestNo;", cnn);
+                    dt = new DataTable();
                     sda.Fill(dt);
-                    lb1.Text = dt.Rows[0][0].ToString();
-                    btn1.Text = "Create Purchase Request";
+                    lb1.Text = "The Restaurant Manager of \n" + dt.Rows[0][0].ToString();
+                    this.restNo = dt.Rows[0][1].ToString();
+                    btn1.Text = "Purchase Request";
+                    btn2.Visible = false;
+                    btn3.Text = "Edit User Information";
+                    btn4.Text = "Edit Restaurant Information";
                     break;
                 case "CM":
                     lb1.Text = "Category Manager";
                     break;
                 case "WC":
                     lb1.Text = "Warehouse Clerk";
+                    btn1.Text = "Despatch Instruction";
+                    btn2.Text = "Delivery Note";
+                    btn3.Text = "Inventory";
                     break;
                 case "AD":
                     lb1.Text = "Accounting Department";
+                    btn1.Text = "Complete Payment";
+                    btn2.Text = "Payment Record";
                     break;
                 case "AM":
                     lb1.Text = "ADMIN";
                     btn1.Text = "Create New User";
                     btn2.Text = "Create New Restaurant";
+                    btn3.Text = "Edit Staff Information";
+                    btn4.Text = "Edit Restaurant Information";
                     break;
             }
         }
@@ -85,7 +103,7 @@ namespace ProcurementSystem
                     break;
                 case "PM":
                     this.Hide();
-                    TypeofAgreementMenu tam = new TypeofAgreementMenu();
+                    TypeofAgreementMenu tam = new TypeofAgreementMenu(this);
                     tam.Show();
                     break;
             }
@@ -111,6 +129,18 @@ namespace ProcurementSystem
                     this.Hide();
                     CreateRest crest = new CreateRest(this);
                     crest.Show();
+                    break;
+            }
+        }
+
+        private void btn4_Click(object sender, EventArgs e)
+        {
+            switch (deptCode)
+            {
+                case "RM":
+                    this.Hide();
+                    EditRest erest = new EditRest(restNo, this);
+                    erest.Show();
                     break;
             }
         }
