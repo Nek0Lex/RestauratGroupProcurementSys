@@ -56,7 +56,7 @@
       - ~~ui~~
 2. Add:x:
       - function
-      - ui
+      - ~~ui~~
 3. Edit:x:
       - function
       - ui

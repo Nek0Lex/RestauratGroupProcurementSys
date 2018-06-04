@@ -15,8 +15,10 @@ namespace ProcurementSystem
 {
     public partial class CreateAc : Form
     {
+        MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         private Menu m = null;
         private String uid;
+        private String restNum;
         public CreateAc(Menu m)
         {
             InitializeComponent();
@@ -31,6 +33,19 @@ namespace ProcurementSystem
             comboBox1.DataSource = new BindingSource(comboSource, null);
             comboBox1.DisplayMember = "Value";
             comboBox1.ValueMember = "Key";
+            Dictionary<String, String> comboSource2 = new Dictionary<String, String>();
+            MySqlDataAdapter sda = new MySqlDataAdapter("select RestNo, RestName from Restaurant;", cnn);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            int i=1;
+            foreach (DataRow dr in dt.Rows)
+            {
+                String restInfo = dr["RestNo"].ToString() + " - " + dr["RestName"].ToString();
+                comboSource2.Add(i++.ToString(), restInfo );
+            }
+            comboBox2.DataSource = new BindingSource(comboSource2, null);
+            comboBox2.DisplayMember = "Value";
+            comboBox2.ValueMember = "Key";
         }
 
         private void CreateAc_Load(object sender, EventArgs e)
@@ -53,7 +68,6 @@ namespace ProcurementSystem
             //get the current maximum user id
             String deptCode = ((KeyValuePair<String, String>)comboBox1.SelectedItem).Value;
             int staffNo;
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
             MySqlDataAdapter sda = new MySqlDataAdapter("select Max(StaffNo) from Staff where StaffNo like '" + deptCode + "%';", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -85,16 +99,18 @@ namespace ProcurementSystem
             else
             { 
                 String deptCode, fName, lName, pw;
-                int staffNo;
                 //get data from the inputs
                 deptCode = ((KeyValuePair<String, String>)comboBox1.SelectedItem).Value;
                 fName = tbFName.Text;
                 lName = tbLName.Text;
                 pw = tbPW.Text;
                 //insert all data into db
-                MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
                 MySqlCommand command = cnn.CreateCommand();
-                command.CommandText = "insert into Staff values('" + uid + "','" + fName + "','" + lName + "','" + deptCode + "','" + pw + "')";
+                command.CommandText = "insert into Staff values('" + uid + "','" + fName + "','" + lName + "','" + deptCode + "','" + pw + "');";
+                cnn.Open();
+                command.ExecuteNonQuery();
+                cnn.Close();
+                command.CommandText = "insert into StaffRestaurant values('" + uid + "','" + restNum + "');";
                 cnn.Open();
                 command.ExecuteNonQuery();
                 cnn.Close();
@@ -128,6 +144,16 @@ namespace ProcurementSystem
         {
             this.Close();
             m.Show();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            restNum = ((KeyValuePair<String, String>)comboBox2.SelectedItem).Value.Substring(0,4);
         }
     }
 }
