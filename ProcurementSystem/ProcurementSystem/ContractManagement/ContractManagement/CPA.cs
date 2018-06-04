@@ -58,5 +58,11 @@ namespace ContractManagement
             TypeofAgreementMenu menu = new TypeofAgreementMenu();
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CPAAdd CPAAdd = new CPAAdd();
+            CPAAdd.ShowDialog();
+        }
     }
 }

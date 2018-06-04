@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace ContractManagement
 {
-    public partial class PPOAdd : Form
+    public partial class CPAAdd : Form
     {
-        public PPOAdd()
+        public CPAAdd()
         {
             InitializeComponent();
-        }
-
-        private void PPOAdd_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)

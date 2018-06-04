@@ -56,5 +56,11 @@ namespace ContractManagement
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PPOAdd PPOAdd = new PPOAdd();
+            PPOAdd.ShowDialog();
+        }
     }
 }

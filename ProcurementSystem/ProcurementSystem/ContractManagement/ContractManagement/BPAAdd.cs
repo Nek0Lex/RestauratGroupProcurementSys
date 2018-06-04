@@ -48,5 +48,24 @@ namespace ContractManagement
         {
             groupBox1.Refresh();
         }
+
+        private void BPAAdd_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            String BPANoInput = BPANo.Text;
+            String RequestNoValue = RequestNo.Text;
+
+            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+            cnn.Open();
+            String query = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo)VALUES('BPANoInput', 'RequestNoValue'); ";
+            MySqlCommand cmd = new MySqlCommand(query, cnn);
+            MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+            cmd.ExecuteNonQuery();
+
+        }
     }
 }

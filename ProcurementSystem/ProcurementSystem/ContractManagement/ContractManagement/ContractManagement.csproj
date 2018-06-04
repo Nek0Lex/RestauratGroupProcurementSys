@@ -83,6 +83,12 @@
     <Compile Include="BPAAdd.Designer.cs">
       <DependentUpon>BPAAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="CPAAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CPAAdd.Designer.cs">
+      <DependentUpon>CPAAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="PPOAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CPA.resx">
       <DependentUpon>CPA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CPAAdd.resx">
+      <DependentUpon>CPAAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PPO.resx">
       <DependentUpon>PPO.cs</DependentUpon>
