@@ -26,6 +26,7 @@ namespace ProcurementSystem
             {
                 case "PM":
                     lb1.Text = "Purchase Manager";
+                    btn1.Text = "Create New Agreement";
                     break;
                 case "RM":
                     lb1.Text = "Restaurant Manager";
@@ -81,6 +82,11 @@ namespace ProcurementSystem
                     this.Hide();
                     PurchaseRequest pr = new PurchaseRequest(this,"R001",StaffNo);
                     pr.Show();
+                    break;
+                case "PM":
+                    this.Hide();
+                    TypeofAgreementMenu tam = new TypeofAgreementMenu();
+                    tam.Show();
                     break;
             }
         }
