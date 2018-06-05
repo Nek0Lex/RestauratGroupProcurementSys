@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.deleteItem = new System.Windows.Forms.Button();
-            this.purchaseList = new System.Windows.Forms.CheckedListBox();
             this.qtn = new System.Windows.Forms.TextBox();
             this.txtQtn = new System.Windows.Forms.Label();
             this.txtItem = new System.Windows.Forms.Label();
@@ -48,6 +47,11 @@
             this.txtRestId = new System.Windows.Forms.Label();
             this.txtRestName = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
+            this.purchaseList2 = new System.Windows.Forms.DataGridView();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseList2)).BeginInit();
             this.SuspendLayout();
             // 
             // deleteItem
@@ -59,19 +63,6 @@
             this.deleteItem.TabIndex = 40;
             this.deleteItem.Text = "Delete";
             this.deleteItem.UseVisualStyleBackColor = true;
-            // 
-            // purchaseList
-            // 
-            this.purchaseList.Font = new System.Drawing.Font("新細明體", 14.25F);
-            this.purchaseList.FormattingEnabled = true;
-            this.purchaseList.HorizontalScrollbar = true;
-            this.purchaseList.Items.AddRange(new object[] {
-            "Item : Fishball Quantity : 5",
-            "Item : Curry Sauce Quantity : 7"});
-            this.purchaseList.Location = new System.Drawing.Point(142, 148);
-            this.purchaseList.Name = "purchaseList";
-            this.purchaseList.Size = new System.Drawing.Size(426, 129);
-            this.purchaseList.TabIndex = 39;
             // 
             // qtn
             // 
@@ -146,7 +137,7 @@
             // 
             this.CreateDate.AutoSize = true;
             this.CreateDate.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.CreateDate.Location = new System.Drawing.Point(262, 119);
+            this.CreateDate.Location = new System.Drawing.Point(180, 119);
             this.CreateDate.Name = "CreateDate";
             this.CreateDate.Size = new System.Drawing.Size(81, 19);
             this.CreateDate.TabIndex = 31;
@@ -156,7 +147,7 @@
             // 
             this.txtCreateDate.AutoSize = true;
             this.txtCreateDate.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtCreateDate.Location = new System.Drawing.Point(138, 119);
+            this.txtCreateDate.Location = new System.Drawing.Point(56, 119);
             this.txtCreateDate.Name = "txtCreateDate";
             this.txtCreateDate.Size = new System.Drawing.Size(118, 19);
             this.txtCreateDate.TabIndex = 30;
@@ -186,7 +177,7 @@
             // 
             this.RestId.AutoSize = true;
             this.RestId.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.RestId.Location = new System.Drawing.Point(279, 100);
+            this.RestId.Location = new System.Drawing.Point(197, 100);
             this.RestId.Name = "RestId";
             this.RestId.Size = new System.Drawing.Size(72, 19);
             this.RestId.TabIndex = 27;
@@ -196,7 +187,7 @@
             // 
             this.RestName.AutoSize = true;
             this.RestName.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.RestName.Location = new System.Drawing.Point(305, 81);
+            this.RestName.Location = new System.Drawing.Point(223, 81);
             this.RestName.Name = "RestName";
             this.RestName.Size = new System.Drawing.Size(94, 19);
             this.RestName.TabIndex = 26;
@@ -226,7 +217,7 @@
             // 
             this.txtRestId.AutoSize = true;
             this.txtRestId.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtRestId.Location = new System.Drawing.Point(138, 100);
+            this.txtRestId.Location = new System.Drawing.Point(56, 100);
             this.txtRestId.Name = "txtRestId";
             this.txtRestId.Size = new System.Drawing.Size(135, 19);
             this.txtRestId.TabIndex = 23;
@@ -236,7 +227,7 @@
             // 
             this.txtRestName.AutoSize = true;
             this.txtRestName.Font = new System.Drawing.Font("新細明體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtRestName.Location = new System.Drawing.Point(138, 81);
+            this.txtRestName.Location = new System.Drawing.Point(56, 81);
             this.txtRestName.Name = "txtRestName";
             this.txtRestName.Size = new System.Drawing.Size(161, 19);
             this.txtRestName.TabIndex = 22;
@@ -252,13 +243,47 @@
             this.title.TabIndex = 21;
             this.title.Text = "Purchase Request pr001";
             // 
+            // purchaseList2
+            // 
+            this.purchaseList2.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.purchaseList2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.purchaseList2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemName,
+            this.ItemQuantity,
+            this.VItemId});
+            this.purchaseList2.Location = new System.Drawing.Point(135, 141);
+            this.purchaseList2.Name = "purchaseList2";
+            this.purchaseList2.ReadOnly = true;
+            this.purchaseList2.RowTemplate.Height = 24;
+            this.purchaseList2.Size = new System.Drawing.Size(418, 136);
+            this.purchaseList2.TabIndex = 41;
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            // 
+            // ItemQuantity
+            // 
+            this.ItemQuantity.HeaderText = "ItemQuantity";
+            this.ItemQuantity.Name = "ItemQuantity";
+            this.ItemQuantity.ReadOnly = true;
+            // 
+            // VItemId
+            // 
+            this.VItemId.HeaderText = "VItemId";
+            this.VItemId.Name = "VItemId";
+            this.VItemId.ReadOnly = true;
+            this.VItemId.Visible = false;
+            // 
             // EditPurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.purchaseList2);
             this.Controls.Add(this.deleteItem);
-            this.Controls.Add(this.purchaseList);
             this.Controls.Add(this.qtn);
             this.Controls.Add(this.txtQtn);
             this.Controls.Add(this.txtItem);
@@ -280,6 +305,7 @@
             this.Name = "EditPurchaseRequest";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseList2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,7 +314,6 @@
         #endregion
 
         private System.Windows.Forms.Button deleteItem;
-        private System.Windows.Forms.CheckedListBox purchaseList;
         private System.Windows.Forms.TextBox qtn;
         private System.Windows.Forms.Label txtQtn;
         private System.Windows.Forms.Label txtItem;
@@ -307,5 +332,9 @@
         private System.Windows.Forms.Label txtRestId;
         private System.Windows.Forms.Label txtRestName;
         private System.Windows.Forms.Label title;
+        private System.Windows.Forms.DataGridView purchaseList2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VItemId;
     }
 }

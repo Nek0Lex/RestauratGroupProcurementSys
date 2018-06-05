@@ -80,7 +80,7 @@ namespace ProcurementSystem
                 {
                     if (purchaseRequestList.GetItemChecked(i))
                     {
-                        del = new MySqlCommand("Delete from PurchaseRequest where RequestNo = '" + purchaseRequestList.Items[i] + "'", cnn);
+                        del = new MySqlCommand("Delete from PurchaseRequest where RequestNo = '" + purchaseRequestList.Items[i].ToString() + "'", cnn);
                         del.ExecuteNonQuery();
                     }
                 }
