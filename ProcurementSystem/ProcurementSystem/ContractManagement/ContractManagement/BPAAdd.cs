@@ -69,13 +69,21 @@ namespace ContractManagement
             String Currency = currency.Text;
             Double amount = Double.Parse(Amount.Text);
             String tac = TAC.Text;
+            try
+            {
+                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                cnn.Open();
+                //String query = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo)VALUES(bpaNo, requestNo, por, creationDate, effectiveDate, buyerName, billingAddress, amount, Currency, tac, supplierNo); ";
+                String query = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo)VALUES("+bpaNo+","+ requestNo+","+ por+","+ creationDate+","+ effectiveDate+","+ buyerName+","+ billAddress+","+ amount+","+ Currency+","+ tac+","+ supplierNo+"); ";
+                MySqlCommand cmd = new MySqlCommand(query, cnn);
+                //MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+                cmd.ExecuteNonQuery();
 
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-            cnn.Open();
-            String query = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo)VALUES(bpaNo, requestNo, por, creationDate, effectiveDate, buyerName, billingAddress, amount, Currency, tac, supplierNo); ";
-            MySqlCommand cmd = new MySqlCommand(query, cnn);
-            MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
-            cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
 
 
 
