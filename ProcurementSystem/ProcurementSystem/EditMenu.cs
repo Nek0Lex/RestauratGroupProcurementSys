@@ -85,13 +85,13 @@ namespace ProcurementSystem
             {
                 
                 EditAc ea = new EditAc(listViewUser.SelectedItems[0].SubItems[3].Text, listViewUser.SelectedItems[0].SubItems[0].Text, m);
-                this.Hide();
+                this.Close();
                 ea.Show();
             }
             else
             {
                 EditRest er = new EditRest(listViewRest.SelectedItems[0].SubItems[0].Text, m);
-                this.Hide();
+                this.Close();
                 er.Show();
             }            
         }
