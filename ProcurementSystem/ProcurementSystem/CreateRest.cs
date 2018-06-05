@@ -33,6 +33,18 @@ namespace ProcurementSystem
             restID += 1;
             rid = "R" + restID.ToString().PadLeft(3, '0');
             tbID.Text = rid;
+            Dictionary<String, String> comboSource = new Dictionary<String, String>();
+            MySqlDataAdapter sda2 = new MySqlDataAdapter("select name from Category where parent_id is not null;", cnn);
+            DataTable dt2 = new DataTable();
+            sda2.Fill(dt2);
+            int i = 1;
+            foreach (DataRow dr2 in dt2.Rows)
+            {
+                comboSource.Add(i++.ToString(), dr2["name"].ToString());
+            }
+            comboBox1.DataSource = new BindingSource(comboSource, null);
+            comboBox1.DisplayMember = "Value";
+            comboBox1.ValueMember = "Key";
         }
 
         private void CreateRest_Load(object sender, EventArgs e)
@@ -98,6 +110,7 @@ namespace ProcurementSystem
             tbRName.Text = String.Empty;
             tbHierachy.Text = String.Empty;
             tbID.Text = rid;
+            comboBox1.SelectedIndex = 0;
         }
 
         private void rtbAdd_TextChanged(object sender, EventArgs e)

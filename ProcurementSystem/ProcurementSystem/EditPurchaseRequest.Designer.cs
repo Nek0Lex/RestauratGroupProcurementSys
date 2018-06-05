@@ -142,6 +142,7 @@
             this.CreateDate.Size = new System.Drawing.Size(81, 19);
             this.CreateDate.TabIndex = 31;
             this.CreateDate.Text = "//sysdate";
+            this.CreateDate.Click += new System.EventHandler(this.CreateDate_Click);
             // 
             // txtCreateDate
             // 
@@ -172,6 +173,7 @@
             this.StfId.Size = new System.Drawing.Size(79, 19);
             this.StfId.TabIndex = 28;
             this.StfId.Text = "//staffID";
+            this.StfId.Click += new System.EventHandler(this.StfId_Click);
             // 
             // RestId
             // 

@@ -21,6 +21,18 @@ namespace ProcurementSystem
         {
             InitializeComponent();
             this.restNo = restNo;
+            Dictionary<String, String> comboSource = new Dictionary<String, String>();
+            MySqlDataAdapter sda = new MySqlDataAdapter("select name from Category where parent_id is not null;", cnn);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            int i = 1;
+            foreach (DataRow dr in dt.Rows)
+            {
+                comboSource.Add(i++.ToString(), dr["name"].ToString());
+            }
+            comboBox1.DataSource = new BindingSource(comboSource, null);
+            comboBox1.DisplayMember = "Value";
+            comboBox1.ValueMember = "Key";
             setData();
             this.m = m;
         }
@@ -35,7 +47,7 @@ namespace ProcurementSystem
             hierarchy = dt.Rows[0][3].ToString();
             tbRName.Text = name;
             rtbAdd.Text = address;
-            tbHierachy.Text = hierarchy;
+            comboBox1.Text = hierarchy;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -54,9 +66,14 @@ namespace ProcurementSystem
 
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbRName.Text) || string.IsNullOrWhiteSpace(rtbAdd.Text) || string.IsNullOrWhiteSpace(tbHierachy.Text) || string.IsNullOrWhiteSpace(tbID.Text))
+            if (string.IsNullOrWhiteSpace(tbRName.Text) || string.IsNullOrWhiteSpace(rtbAdd.Text) || string.IsNullOrWhiteSpace(tbID.Text))
             {
                 MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -64,7 +81,7 @@ namespace ProcurementSystem
             {
                 name = tbRName.Text;
                 address = rtbAdd.Text;
-                hierarchy = tbHierachy.Text;
+                hierarchy = comboBox1.Text;
                 MySqlCommand command = new MySqlCommand("UPDATE Restaurant SET RestName = '" + name + "', RestAddress = '" + address + "', Hierarchy = '" + hierarchy + "' WHERE RestNo = '" + restNo + "';",cnn);
                 cnn.Open();
                 command.ExecuteNonQuery();

@@ -15,16 +15,17 @@ namespace ProcurementSystem
         private string staffNo;
         private string restNo;
         private PurchaseRequest pr;
-        public EditPurchaseRequest(PurchaseRequest pr, string staffNo, string restNo, string staffName, string restName, string selectedRequest)
+        public EditPurchaseRequest(PurchaseRequest pr, string staffNo, string restNo, string staffName, string restName, string selectedRequest, string createdDate)
         {
+            InitializeComponent();
             StfId.Text = staffNo;
             StfName.Text = staffName;
             RestId.Text = restNo;
             RestName.Text = restName;
+            CreateDate.Text = createdDate;
             this.restNo = restNo;
             this.staffNo = staffNo;
             title.Text = "Purchase Request " + selectedRequest;
-            InitializeComponent();
             this.pr = pr;
         }
 
@@ -37,6 +38,16 @@ namespace ProcurementSystem
         {
             this.Close();
             pr.Show();
+        }
+
+        private void StfId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateDate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

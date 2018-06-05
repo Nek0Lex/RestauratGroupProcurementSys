@@ -36,11 +36,11 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbHierachy = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // tbRName
@@ -134,16 +134,6 @@
             this.label6.TabIndex = 55;
             this.label6.Text = "Restaurant Address";
             // 
-            // tbHierachy
-            // 
-            this.tbHierachy.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbHierachy.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbHierachy.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.tbHierachy.Location = new System.Drawing.Point(180, 370);
-            this.tbHierachy.Name = "tbHierachy";
-            this.tbHierachy.Size = new System.Drawing.Size(120, 27);
-            this.tbHierachy.TabIndex = 53;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -188,11 +178,22 @@
             this.label3.TabIndex = 50;
             this.label3.Text = "IVE Procurement System";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("新細明體", 12F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(178, 370);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(150, 24);
+            this.comboBox1.TabIndex = 63;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // EditRest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 505);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tbRName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.rtbAdd);
@@ -201,7 +202,6 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.tbHierachy);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -224,10 +224,10 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tbHierachy;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

@@ -116,6 +116,11 @@ namespace ProcurementSystem
             }
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             restNo = ((KeyValuePair<String, String>)comboBox2.SelectedItem).Value.Substring(0, 4);
