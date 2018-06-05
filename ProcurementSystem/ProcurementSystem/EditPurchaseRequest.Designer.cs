@@ -51,6 +51,7 @@
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseList2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -250,7 +251,8 @@
             this.purchaseList2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemName,
             this.ItemQuantity,
-            this.VItemId});
+            this.VItemId,
+            this.category_id});
             this.purchaseList2.Location = new System.Drawing.Point(135, 141);
             this.purchaseList2.Name = "purchaseList2";
             this.purchaseList2.ReadOnly = true;
@@ -276,6 +278,13 @@
             this.VItemId.Name = "VItemId";
             this.VItemId.ReadOnly = true;
             this.VItemId.Visible = false;
+            // 
+            // category_id
+            // 
+            this.category_id.HeaderText = "category_id";
+            this.category_id.Name = "category_id";
+            this.category_id.ReadOnly = true;
+            this.category_id.Visible = false;
             // 
             // EditPurchaseRequest
             // 
@@ -336,5 +345,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn VItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category_id;
     }
 }
