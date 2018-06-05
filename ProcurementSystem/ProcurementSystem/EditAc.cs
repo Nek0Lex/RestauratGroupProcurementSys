@@ -40,7 +40,7 @@ namespace ProcurementSystem
         {
             comboBox1.Text = deptCode;
             tbID.Text = Regex.Match(StaffNo, @"\d+").Value;
-            if (deptCode == "RM" || deptCode == "AM")
+            if (deptCode == "RM")
             {
                 MySqlDataAdapter sda = new MySqlDataAdapter("select Password, FirstName, LastName, RestName from Staff as s, StaffRestaurant as sr, Restaurant as r where s.StaffNo = '" + StaffNo + "' and s.StaffNo = sr.StaffNo and sr.RestNo = r.RestNo;", cnn);
                 DataTable dt = new DataTable();
