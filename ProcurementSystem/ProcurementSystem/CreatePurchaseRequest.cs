@@ -83,28 +83,26 @@ namespace ProcurementSystem
             {
                 string selectItem = this.itemList.Text;
                 //new
-                MySqlCommand getVItemID = new MySqlCommand("SELECT v.VItemID FROM VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND c.name ='" + restHierarchy + "' AND i.ItemName = '"+ selectItem +"';", cnn);
+                MySqlCommand getVItemID = new MySqlCommand("SELECT v.VItemID FROM VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND c.name ='" + restHierarchy + "' AND i.ItemName = '" + selectItem + "';", cnn);
                 string VItemID = (string)getVItemID.ExecuteScalar();
                 MySqlCommand getCategory_id = new MySqlCommand("SELECT v.category_id FROM VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND c.name ='" + restHierarchy + "' AND i.ItemName = '" + selectItem + "';", cnn);
                 string category_id = getCategory_id.ExecuteScalar().ToString();
                 //
-                Boolean qtnNull = int.TryParse(qtn.Text,out quantity);
-                if ((quantity <= 0)||(qtnNull ==false))
+                Boolean qtnNull = int.TryParse(qtn.Text, out quantity);
+                Boolean haveItem = false;
+                for (int i = 0; i < purchaseList2.RowCount - 1; i++)
+                {
+                    if (purchaseList2.Rows[i].Cells[0].Value.ToString() == selectItem)
+                    {
+                        haveItem = true;
+                    }
+                }
+                if ((quantity <= 0) || (qtnNull == false)|| (haveItem))
                 {
                     errorMsg.Text = "Check Your Input!";
                 }
                 else
                 {
-                    
-                    /*
-                    if (selectItem == " ball") {
-                        purchaseList2.Rows.Add(selectItem, quantity, "000001");
-                    }
-                    else if (selectItem == "CurrySauce")
-                    {
-                        purchaseList2.Rows.Add(selectItem, quantity, "000002");
-                    }
-                    */
                     purchaseList2.Rows.Add(selectItem, quantity, VItemID, category_id);
                     errorMsg.Text = "";
                 }
