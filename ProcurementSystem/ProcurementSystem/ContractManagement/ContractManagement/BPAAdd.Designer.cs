@@ -126,6 +126,7 @@ namespace ContractManagement
             this.SupplierNo.Name = "SupplierNo";
             this.SupplierNo.Size = new System.Drawing.Size(134, 22);
             this.SupplierNo.TabIndex = 22;
+            this.SupplierNo.Text = "0001";
             // 
             // textBox2
             // 
@@ -283,6 +284,7 @@ namespace ContractManagement
             this.RequestNo.Name = "RequestNo";
             this.RequestNo.Size = new System.Drawing.Size(134, 22);
             this.RequestNo.TabIndex = 3;
+            this.RequestNo.Text = "0000000";
             this.RequestNo.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox4
@@ -302,6 +304,7 @@ namespace ContractManagement
             this.BPANo.Name = "BPANo";
             this.BPANo.Size = new System.Drawing.Size(134, 22);
             this.BPANo.TabIndex = 1;
+            this.BPANo.Text = "BPA";
             // 
             // BPA
             // 

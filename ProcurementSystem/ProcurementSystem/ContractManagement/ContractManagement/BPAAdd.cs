@@ -72,13 +72,12 @@ namespace ContractManagement
 
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
             cnn.Open();
-            String query = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo)VALUES(bpaNo, requestNo, por, creationDate, effectiveDate, buyerName, billingAddress, amount, Currency, tac, supplierNo); ";
+            String query = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo)VALUES('" + bpaNo + "', '" + requestNo + "', '" + por + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + amount + "', '" + Currency + "', '" + tac + "', '" + supplierNo + "'); ";
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
             cmd.ExecuteNonQuery();
-
-
-
+            MessageBox.Show("Add successful");
+            this.Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

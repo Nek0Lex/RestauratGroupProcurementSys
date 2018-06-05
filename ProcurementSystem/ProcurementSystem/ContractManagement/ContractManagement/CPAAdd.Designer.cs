@@ -201,6 +201,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(116, 22);
             this.textBox5.TabIndex = 3;
+            this.textBox5.Text = "0000000";
             // 
             // textBox4
             // 
