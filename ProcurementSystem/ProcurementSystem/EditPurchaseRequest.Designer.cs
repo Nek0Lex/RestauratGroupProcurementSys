@@ -237,7 +237,7 @@
             // 
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("新細明體", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.title.Location = new System.Drawing.Point(194, 27);
+            this.title.Location = new System.Drawing.Point(158, 24);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(374, 37);
             this.title.TabIndex = 21;
