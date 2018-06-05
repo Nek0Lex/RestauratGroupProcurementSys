@@ -75,6 +75,7 @@
             // 
             // listView1
             // 
+            this.listView1.CheckBoxes = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.BPANo,
             this.RequestNo,
@@ -112,13 +113,11 @@
             // 
             // CreationDate
             // 
-            this.CreationDate.DisplayIndex = 4;
             this.CreationDate.Text = "CreationDate";
             this.CreationDate.Width = 76;
             // 
             // EffectiveDate
             // 
-            this.EffectiveDate.DisplayIndex = 3;
             this.EffectiveDate.Text = "EffectiveDate";
             this.EffectiveDate.Width = 79;
             // 
@@ -157,6 +156,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Delete Selected Blanket Agreement";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 

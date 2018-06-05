@@ -70,5 +70,16 @@ namespace ContractManagement
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {   
+            
+            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+            cnn.Open();
+            String query = "select * from BlanketPurchaseAgreement ORDER BY BPANo ASC;";
+            MySqlCommand cmd = new MySqlCommand(query, cnn);
+            MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace ContractManagement
+﻿using System;
+
+namespace ContractManagement
 {
     partial class BPAAdd
     {
@@ -30,9 +32,11 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.currency = new System.Windows.Forms.ComboBox();
+            this.SupplierNo = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.TAC = new System.Windows.Forms.RichTextBox();
-            this.currency = new System.Windows.Forms.DomainUpDown();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.Amount = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
@@ -67,12 +71,15 @@
             this.textBox1.Size = new System.Drawing.Size(776, 36);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "New Blanket Purchase Agreement";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.currency);
+            this.groupBox1.Controls.Add(this.SupplierNo);
+            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox16);
             this.groupBox1.Controls.Add(this.TAC);
-            this.groupBox1.Controls.Add(this.currency);
             this.groupBox1.Controls.Add(this.textBox15);
             this.groupBox1.Controls.Add(this.Amount);
             this.groupBox1.Controls.Add(this.textBox13);
@@ -97,6 +104,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new agreement";
             // 
+            // currency
+            // 
+            this.currency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.currency.FormattingEnabled = true;
+            this.currency.Items.AddRange(new object[] {
+            "HKD",
+            "RMB",
+            "USD",
+            "JPY",
+            "AUS"});
+            this.currency.Location = new System.Drawing.Point(460, 191);
+            this.currency.Name = "currency";
+            this.currency.Size = new System.Drawing.Size(139, 20);
+            this.currency.TabIndex = 23;
+            this.currency.SelectedIndexChanged += new System.EventHandler(this.currency_SelectedIndexChanged);
+            // 
+            // SupplierNo
+            // 
+            this.SupplierNo.Location = new System.Drawing.Point(105, 285);
+            this.SupplierNo.Name = "SupplierNo";
+            this.SupplierNo.Size = new System.Drawing.Size(134, 22);
+            this.SupplierNo.TabIndex = 22;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox2.Location = new System.Drawing.Point(17, 285);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(82, 18);
+            this.textBox2.TabIndex = 21;
+            this.textBox2.Text = "Supplier No:";
+            // 
             // textBox16
             // 
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -115,23 +156,6 @@
             this.TAC.Size = new System.Drawing.Size(259, 103);
             this.TAC.TabIndex = 18;
             this.TAC.Text = "";
-            // 
-            // currency
-            // 
-            this.currency.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.currency.Items.Add("HKD");
-            this.currency.Items.Add("USD");
-            this.currency.Items.Add("AUS");
-            this.currency.Items.Add("EUR");
-            this.currency.Items.Add("RMB");
-            this.currency.Items.Add("JPY");
-            this.currency.Location = new System.Drawing.Point(460, 191);
-            this.currency.Name = "currency";
-            this.currency.ReadOnly = true;
-            this.currency.Size = new System.Drawing.Size(139, 25);
-            this.currency.TabIndex = 16;
-            this.currency.Text = "choose currency...";
-            this.currency.SelectedItemChanged += new System.EventHandler(this.domainUpDown1_SelectedItemChanged);
             // 
             // textBox15
             // 
@@ -344,6 +368,7 @@
 
         }
 
+
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
@@ -363,7 +388,6 @@
         private System.Windows.Forms.RichTextBox BillingAddress;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.DomainUpDown currency;
         private System.Windows.Forms.TextBox Amount;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.TextBox textBox16;
@@ -371,5 +395,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox SupplierNo;
+        private System.Windows.Forms.TextBox textBox2;
+        private EventHandler groupBox1_Enter;
+        private System.Windows.Forms.ComboBox currency;
     }
 }
