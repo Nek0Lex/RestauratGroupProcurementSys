@@ -40,7 +40,7 @@ namespace ContractManagement
                 listitem.SubItems.Add(dr["SRNo"].ToString());
                 listitem.SubItems.Add(dr["Amount"].ToString());
                 listitem.SubItems.Add(dr["Currency"].ToString());
-                listitem.SubItems.Add(dr["Terms and condition"].ToString());
+                listitem.SubItems.Add(dr["TermsAndCondition"].ToString());
 
                 listView1.Items.Add(listitem);
             }

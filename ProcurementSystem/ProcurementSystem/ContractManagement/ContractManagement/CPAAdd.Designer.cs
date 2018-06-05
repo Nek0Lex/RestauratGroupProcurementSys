@@ -30,22 +30,22 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.TAC = new System.Windows.Forms.RichTextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.ItemID = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.BillingAddress = new System.Windows.Forms.RichTextBox();
+            this.BuyerName = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.EffectiveDate = new System.Windows.Forms.DateTimePicker();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.CreationDate = new System.Windows.Forms.DateTimePicker();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.SupplierNo = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.ContractNo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -67,22 +67,22 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.richTextBox2);
+            this.groupBox1.Controls.Add(this.TAC);
             this.groupBox1.Controls.Add(this.textBox16);
-            this.groupBox1.Controls.Add(this.textBox14);
+            this.groupBox1.Controls.Add(this.ItemID);
             this.groupBox1.Controls.Add(this.textBox13);
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Controls.Add(this.textBox10);
+            this.groupBox1.Controls.Add(this.BillingAddress);
+            this.groupBox1.Controls.Add(this.BuyerName);
             this.groupBox1.Controls.Add(this.textBox9);
             this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.EffectiveDate);
             this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.CreationDate);
             this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.SupplierNo);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.ContractNo);
             this.groupBox1.Location = new System.Drawing.Point(12, 57);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
@@ -92,14 +92,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new CPA";
             // 
-            // richTextBox2
+            // TAC
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(166, 323);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(761, 119);
-            this.richTextBox2.TabIndex = 22;
-            this.richTextBox2.Text = "";
+            this.TAC.Location = new System.Drawing.Point(166, 323);
+            this.TAC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TAC.Name = "TAC";
+            this.TAC.Size = new System.Drawing.Size(761, 119);
+            this.TAC.TabIndex = 22;
+            this.TAC.Text = "";
             // 
             // textBox16
             // 
@@ -113,22 +113,43 @@
             this.textBox16.TabIndex = 21;
             this.textBox16.Text = "Terms And Condition:";
             // 
-            // richTextBox1
+            // ItemID
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(523, 54);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(332, 94);
-            this.richTextBox1.TabIndex = 14;
-            this.richTextBox1.Text = "";
+            this.ItemID.Location = new System.Drawing.Point(461, 262);
+            this.ItemID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ItemID.Name = "ItemID";
+            this.ItemID.Size = new System.Drawing.Size(112, 22);
+            this.ItemID.TabIndex = 18;
+            this.ItemID.Text = "F0000001";
             // 
-            // textBox10
+            // textBox13
             // 
-            this.textBox10.Location = new System.Drawing.Point(492, 195);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(157, 22);
-            this.textBox10.TabIndex = 11;
+            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox13.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox13.Location = new System.Drawing.Point(402, 262);
+            this.textBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
+            this.textBox13.Size = new System.Drawing.Size(53, 18);
+            this.textBox13.TabIndex = 17;
+            this.textBox13.Text = "Item ID:";
+            // 
+            // BillingAddress
+            // 
+            this.BillingAddress.Location = new System.Drawing.Point(523, 54);
+            this.BillingAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BillingAddress.Name = "BillingAddress";
+            this.BillingAddress.Size = new System.Drawing.Size(332, 94);
+            this.BillingAddress.TabIndex = 14;
+            this.BillingAddress.Text = "";
+            // 
+            // BuyerName
+            // 
+            this.BuyerName.Location = new System.Drawing.Point(492, 195);
+            this.BuyerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BuyerName.Name = "BuyerName";
+            this.BuyerName.Size = new System.Drawing.Size(157, 22);
+            this.BuyerName.TabIndex = 11;
             // 
             // textBox9
             // 
@@ -154,13 +175,14 @@
             this.textBox8.TabIndex = 9;
             this.textBox8.Text = "Buyer Name:";
             // 
-            // dateTimePicker2
+            // EffectiveDate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(144, 262);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(132, 22);
-            this.dateTimePicker2.TabIndex = 8;
+            this.EffectiveDate.Location = new System.Drawing.Point(144, 262);
+            this.EffectiveDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.EffectiveDate.Name = "EffectiveDate";
+            this.EffectiveDate.Size = new System.Drawing.Size(132, 22);
+            this.EffectiveDate.TabIndex = 8;
+            this.EffectiveDate.Value = new System.DateTime(2018, 6, 5, 0, 0, 0, 0);
             // 
             // textBox6
             // 
@@ -174,13 +196,14 @@
             this.textBox6.TabIndex = 7;
             this.textBox6.Text = "Effective Date:";
             // 
-            // dateTimePicker1
+            // CreationDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(144, 191);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(132, 22);
-            this.dateTimePicker1.TabIndex = 6;
+            this.CreationDate.Location = new System.Drawing.Point(144, 191);
+            this.CreationDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CreationDate.Name = "CreationDate";
+            this.CreationDate.Size = new System.Drawing.Size(132, 22);
+            this.CreationDate.TabIndex = 6;
+            this.CreationDate.Value = new System.DateTime(2018, 6, 5, 0, 0, 0, 0);
             // 
             // textBox7
             // 
@@ -194,14 +217,14 @@
             this.textBox7.TabIndex = 5;
             this.textBox7.Text = "Creation Date:";
             // 
-            // textBox5
+            // SupplierNo
             // 
-            this.textBox5.Location = new System.Drawing.Point(103, 126);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(116, 22);
-            this.textBox5.TabIndex = 3;
-            this.textBox5.Text = "0000000";
+            this.SupplierNo.Location = new System.Drawing.Point(103, 126);
+            this.SupplierNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SupplierNo.Name = "SupplierNo";
+            this.SupplierNo.Size = new System.Drawing.Size(116, 22);
+            this.SupplierNo.TabIndex = 3;
+            this.SupplierNo.Text = "0001";
             // 
             // textBox4
             // 
@@ -227,33 +250,14 @@
             this.textBox3.TabIndex = 1;
             this.textBox3.Text = "Contract No:";
             // 
-            // textBox2
+            // ContractNo
             // 
-            this.textBox2.Location = new System.Drawing.Point(103, 50);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(116, 22);
-            this.textBox2.TabIndex = 0;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(461, 262);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(112, 22);
-            this.textBox14.TabIndex = 18;
-            // 
-            // textBox13
-            // 
-            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox13.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox13.Location = new System.Drawing.Point(402, 262);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(53, 18);
-            this.textBox13.TabIndex = 17;
-            this.textBox13.Text = "Item ID:";
+            this.ContractNo.Location = new System.Drawing.Point(103, 50);
+            this.ContractNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ContractNo.Name = "ContractNo";
+            this.ContractNo.Size = new System.Drawing.Size(116, 22);
+            this.ContractNo.TabIndex = 0;
+            this.ContractNo.Text = "CPA";
             // 
             // button1
             // 
@@ -288,6 +292,7 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "Submit";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // CPAAdd
             // 
@@ -313,21 +318,21 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox TAC;
         private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.RichTextBox BillingAddress;
+        private System.Windows.Forms.TextBox BuyerName;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker EffectiveDate;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker CreationDate;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox SupplierNo;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox ContractNo;
+        private System.Windows.Forms.TextBox ItemID;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

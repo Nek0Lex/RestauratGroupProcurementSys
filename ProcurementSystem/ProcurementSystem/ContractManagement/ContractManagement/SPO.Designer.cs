@@ -45,6 +45,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +65,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
@@ -189,6 +191,17 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("微軟正黑體", 9F);
+            this.button5.Location = new System.Drawing.Point(565, 220);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(193, 39);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Refresh";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // SPO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -225,5 +238,6 @@
         private System.Windows.Forms.ColumnHeader RestNo;
         private System.Windows.Forms.ColumnHeader ExpectedDeliveryDate;
         private System.Windows.Forms.ColumnHeader TermsAndCondition;
+        private System.Windows.Forms.Button button5;
     }
 }
