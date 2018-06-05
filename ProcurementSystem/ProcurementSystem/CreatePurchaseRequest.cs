@@ -20,6 +20,7 @@ namespace ProcurementSystem
         private int quantity;
         private string staffNo;
         private string restNo;
+        private string restHierarchy;
 
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public CreatePurchaseRequest(PurchaseRequest pr, string staffNo, string restNo, string staffName, string restName)
@@ -33,6 +34,10 @@ namespace ProcurementSystem
             RestName.Text = restName;
             this.restNo = restNo;
             this.staffNo = staffNo;
+            //new
+            MySqlCommand getRestaurantHierarchy = new MySqlCommand("SELECT Hierarchy FROM Restaurant WHERE RestNo = '" + restNo + "';", cnn);
+            restHierarchy = (string)getRestaurantHierarchy.ExecuteScalar();
+            //
             MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(RequestNo) FROM PurchaseRequest",cnn);
             nowRequestNo =(string) getNextRequestNo.ExecuteScalar();
             if (nowRequestNo == null)
@@ -47,6 +52,19 @@ namespace ProcurementSystem
             num++;
             nowRequestNo = num.ToString().PadLeft(8, '0');
             CreateDate.Text = today.ToString("yyyy-MM-dd");
+
+
+            //new
+            MySqlDataAdapter sda = new MySqlDataAdapter("SELECT i.ItemName FROM VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND c.name = '" + restHierarchy +"'; ", cnn);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            //itemList.DataSource = sda;
+            //itemList.DisplayMember = "ItemName";
+            foreach (DataRow dr in dt.Rows)
+            {
+                itemList.Items.Add(dr["ItemName"].ToString());
+            }
+            //
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -64,6 +82,12 @@ namespace ProcurementSystem
             try
             {
                 string selectItem = this.itemList.Text;
+                //new
+                MySqlCommand getVItemID = new MySqlCommand("SELECT v.VItemID FROM VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND c.name ='" + restHierarchy + "' AND i.ItemName = '"+ selectItem +"';", cnn);
+                string VItemID = (string)getVItemID.ExecuteScalar();
+                MySqlCommand getCategory_id = new MySqlCommand("SELECT v.category_id FROM VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND c.name ='" + restHierarchy + "' AND i.ItemName = '" + selectItem + "';", cnn);
+                string category_id = getCategory_id.ExecuteScalar().ToString();
+                //
                 Boolean qtnNull = int.TryParse(qtn.Text,out quantity);
                 if ((quantity <= 0)||(qtnNull ==false))
                 {
@@ -71,13 +95,17 @@ namespace ProcurementSystem
                 }
                 else
                 {
-                    if (selectItem == "Fishball") {
+                    
+                    /*
+                    if (selectItem == " ball") {
                         purchaseList2.Rows.Add(selectItem, quantity, "000001");
                     }
                     else if (selectItem == "CurrySauce")
                     {
                         purchaseList2.Rows.Add(selectItem, quantity, "000002");
                     }
+                    */
+                    purchaseList2.Rows.Add(selectItem, quantity, VItemID, category_id);
                     errorMsg.Text = "";
                 }
             }
@@ -116,25 +144,33 @@ namespace ProcurementSystem
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            MySqlCommand add;
-            uint qtnToInt;
- 
-            for(int i=0; i<purchaseList2.RowCount; i++)
+            //MySqlCommand add;
+            //uint qtnToInt;
+
+            for (int i=0; i<purchaseList2.RowCount-1; i++)
             {
                 try
                 {
                     if (purchaseList2.Rows[i].Cells[0] != null)
                     {
-                        qtnToInt = Convert.ToUInt32(purchaseList2.Rows[i].Cells[1].Value.ToString());
-                        add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, Hierarchy, StaffNo, RestNo) Value ('" + nowRequestNo + "', '" + today.ToString("yyyy-MM-dd") + "', " + qtnToInt + ", 'NEW', '" + purchaseList2.Rows[i].Cells[2].Value.ToString() + "', 'Chinese', '" + staffNo + "', '" + restNo + "');", cnn);
+                        //qtnToInt = Convert.ToUInt32(purchaseList2.Rows[i].Cells[1].Value.ToString());
+                        //add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, Hierarchy, StaffNo, RestNo) Value ('" + nowRequestNo + "', '" + today.ToString("yyyy-MM-dd") + "', " + qtnToInt + ", 'NEW', '" + purchaseList2.Rows[i].Cells[2].Value.ToString() + "', 'Chinese', '" + staffNo + "', '" + restNo + "');", cnn);
+                        MySqlCommand add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, category_id, StaffNo, RestNo) Value ('" + nowRequestNo + "', '" + today.ToString("yyyy-MM-dd") + "', " + purchaseList2.Rows[i].Cells[1].Value.ToString() + ", 'NEW', '" + purchaseList2.Rows[i].Cells[2].Value+ "', "+ purchaseList2.Rows[i].Cells[3].Value + ", '" + staffNo + "', '" + restNo + "');", cnn);
                         add.ExecuteNonQuery();
                     }
                 }
-                catch (Exception ex) { }
+                catch (Exception ex) {
+                    Console.WriteLine(ex.ToString());
+                }
             }
                 this.Close();
                 pr.Refresh();
                 pr.Show();
+        }
+
+        private void itemList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
