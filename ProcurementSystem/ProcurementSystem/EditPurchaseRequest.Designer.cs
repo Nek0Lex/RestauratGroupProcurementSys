@@ -51,6 +51,8 @@
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorMsg = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseList2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,6 +65,7 @@
             this.deleteItem.TabIndex = 40;
             this.deleteItem.Text = "Delete";
             this.deleteItem.UseVisualStyleBackColor = true;
+            this.deleteItem.Click += new System.EventHandler(this.deleteItem_Click);
             // 
             // qtn
             // 
@@ -101,16 +104,17 @@
             this.btnAdd.TabIndex = 35;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // itemList
             // 
+            this.itemList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemList.Font = new System.Drawing.Font("新細明體", 11F);
             this.itemList.FormattingEnabled = true;
             this.itemList.Location = new System.Drawing.Point(193, 336);
             this.itemList.Name = "itemList";
             this.itemList.Size = new System.Drawing.Size(136, 23);
             this.itemList.TabIndex = 34;
-            this.itemList.Text = "item";
             // 
             // btnCancel
             // 
@@ -252,7 +256,8 @@
             this.purchaseList2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemName,
             this.ItemQuantity,
-            this.VItemId});
+            this.VItemId,
+            this.category_id});
             this.purchaseList2.Location = new System.Drawing.Point(135, 141);
             this.purchaseList2.Name = "purchaseList2";
             this.purchaseList2.ReadOnly = true;
@@ -279,11 +284,29 @@
             this.VItemId.ReadOnly = true;
             this.VItemId.Visible = false;
             // 
+            // category_id
+            // 
+            this.category_id.HeaderText = "category_id";
+            this.category_id.Name = "category_id";
+            this.category_id.ReadOnly = true;
+            this.category_id.Visible = false;
+            // 
+            // errorMsg
+            // 
+            this.errorMsg.AutoSize = true;
+            this.errorMsg.Font = new System.Drawing.Font("新細明體", 13F);
+            this.errorMsg.ForeColor = System.Drawing.Color.Red;
+            this.errorMsg.Location = new System.Drawing.Point(438, 365);
+            this.errorMsg.Name = "errorMsg";
+            this.errorMsg.Size = new System.Drawing.Size(0, 18);
+            this.errorMsg.TabIndex = 42;
+            // 
             // EditPurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.errorMsg);
             this.Controls.Add(this.purchaseList2);
             this.Controls.Add(this.deleteItem);
             this.Controls.Add(this.qtn);
@@ -338,5 +361,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn VItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category_id;
+        private System.Windows.Forms.Label errorMsg;
     }
 }

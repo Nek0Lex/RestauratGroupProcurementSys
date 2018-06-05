@@ -57,7 +57,7 @@ namespace ProcurementSystem
         private void edditPRbtn_Click(object sender, EventArgs e)
         {
             selCount = 0;
-            string createStaffName= null;
+            string createStaffName=null;
             string createStaffId=null;
             string creationDate = null;
             for (int i = 0; i < purchaseRequestList.Items.Count; i++)
@@ -74,7 +74,7 @@ namespace ProcurementSystem
             }
             else
             {
-                MySqlDataAdapter getRequest = new MySqlDataAdapter("SELECT pr.RequestNo, FirstName, LastName, RestName, sr.RestNo, sr.StaffNo, CreationDate from Staff as s, PurchaseRequest as pr, StaffRestaurant as sr, Restaurant as r where pr.RequestNo = '" + selectedRequest + "' and pr.RestNo = sr.RestNo and sr.StaffNo = s.StaffNo and sr.RestNo = r.RestNo Group by pr.RequestNo;", cnn);
+                MySqlDataAdapter getRequest = new MySqlDataAdapter("SELECT pr.RequestNo, FirstName, LastName, RestName, pr.RestNo, pr.StaffNo, pr.CreationDate from Staff as s, PurchaseRequest as pr, StaffRestaurant as sr, Restaurant as r where pr.RequestNo = '" + selectedRequest + "' and pr.RestNo = sr.RestNo and sr.StaffNo = s.StaffNo and sr.RestNo = r.RestNo Group by pr.RequestNo;", cnn);
                 DataTable dt2 = new DataTable();
                 getRequest.Fill(dt2);
                 foreach (DataRow dr2 in dt2.Rows) {
