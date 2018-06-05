@@ -75,7 +75,7 @@ namespace ProcurementSystem
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbID.Text) || string.IsNullOrWhiteSpace(rtbAdd.Text) || string.IsNullOrWhiteSpace(tbHierachy.Text) || string.IsNullOrWhiteSpace(tbRName.Text))
+            if (string.IsNullOrWhiteSpace(tbID.Text) || string.IsNullOrWhiteSpace(rtbAdd.Text) || string.IsNullOrWhiteSpace(tbRName.Text))
             {
                 MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -84,7 +84,7 @@ namespace ProcurementSystem
                 String rAddress, rName, hierachy;
                 rAddress = rtbAdd.Text;
                 rName = tbRName.Text;
-                hierachy = tbHierachy.Text;
+                hierachy = comboBox1.Text;
                 //insert all data into db
                 MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
                 MySqlCommand command = cnn.CreateCommand();
@@ -108,7 +108,6 @@ namespace ProcurementSystem
         {
             rtbAdd.Text = String.Empty;
             tbRName.Text = String.Empty;
-            tbHierachy.Text = String.Empty;
             tbID.Text = rid;
             comboBox1.SelectedIndex = 0;
         }

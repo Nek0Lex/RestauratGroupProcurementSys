@@ -27,6 +27,7 @@ namespace ProcurementSystem
             if (deptCode == "AM")
             {
                 comboBox2.Enabled = true;
+                comboBox2.Visible = true;
             }
             else
             {
