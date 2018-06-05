@@ -33,6 +33,18 @@ namespace ProcurementSystem
             restID += 1;
             rid = "R" + restID.ToString().PadLeft(3, '0');
             tbID.Text = rid;
+            Dictionary<String, String> comboSource = new Dictionary<String, String>();
+            MySqlDataAdapter sda2 = new MySqlDataAdapter("select name from Category where parent_id is not null;", cnn);
+            DataTable dt2 = new DataTable();
+            sda2.Fill(dt2);
+            int i = 1;
+            foreach (DataRow dr2 in dt2.Rows)
+            {
+                comboSource.Add(i++.ToString(), dr2["name"].ToString());
+            }
+            comboBox1.DataSource = new BindingSource(comboSource, null);
+            comboBox1.DisplayMember = "Value";
+            comboBox1.ValueMember = "Key";
         }
 
         private void CreateRest_Load(object sender, EventArgs e)
@@ -63,7 +75,7 @@ namespace ProcurementSystem
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbID.Text) || string.IsNullOrWhiteSpace(rtbAdd.Text) || string.IsNullOrWhiteSpace(tbHierachy.Text) || string.IsNullOrWhiteSpace(tbRName.Text))
+            if (string.IsNullOrWhiteSpace(tbID.Text) || string.IsNullOrWhiteSpace(rtbAdd.Text) || string.IsNullOrWhiteSpace(tbRName.Text))
             {
                 MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -72,7 +84,7 @@ namespace ProcurementSystem
                 String rAddress, rName, hierachy;
                 rAddress = rtbAdd.Text;
                 rName = tbRName.Text;
-                hierachy = tbHierachy.Text;
+                hierachy = comboBox1.Text;
                 //insert all data into db
                 MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
                 MySqlCommand command = cnn.CreateCommand();
@@ -96,8 +108,8 @@ namespace ProcurementSystem
         {
             rtbAdd.Text = String.Empty;
             tbRName.Text = String.Empty;
-            tbHierachy.Text = String.Empty;
             tbID.Text = rid;
+            comboBox1.SelectedIndex = 0;
         }
 
         private void rtbAdd_TextChanged(object sender, EventArgs e)

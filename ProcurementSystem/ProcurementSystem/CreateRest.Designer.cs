@@ -33,7 +33,6 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbHierachy = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.rtbAdd = new System.Windows.Forms.RichTextBox();
             this.tbRName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
@@ -99,16 +99,6 @@
             this.label6.TabIndex = 41;
             this.label6.Text = "Restaurant Address";
             this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // tbHierachy
-            // 
-            this.tbHierachy.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tbHierachy.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbHierachy.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.tbHierachy.Location = new System.Drawing.Point(180, 370);
-            this.tbHierachy.Name = "tbHierachy";
-            this.tbHierachy.Size = new System.Drawing.Size(120, 27);
-            this.tbHierachy.TabIndex = 38;
             // 
             // label5
             // 
@@ -190,11 +180,21 @@
             this.label4.TabIndex = 48;
             this.label4.Text = "Restaurant Name";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("新細明體", 12F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(178, 370);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(150, 24);
+            this.comboBox1.TabIndex = 50;
+            // 
             // CreateRest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 505);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tbRName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.rtbAdd);
@@ -203,7 +203,6 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.tbHierachy);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -223,7 +222,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tbHierachy;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -231,5 +229,6 @@
         private System.Windows.Forms.RichTextBox rtbAdd;
         private System.Windows.Forms.TextBox tbRName;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

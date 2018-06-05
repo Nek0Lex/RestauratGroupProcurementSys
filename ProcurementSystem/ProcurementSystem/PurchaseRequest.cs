@@ -57,11 +57,16 @@ namespace ProcurementSystem
         private void edditPRbtn_Click(object sender, EventArgs e)
         {
             selCount = 0;
+            string createStaffName=null;
+            string createStaffId=null;
+            string creationDate = null;
             for (int i = 0; i < purchaseRequestList.Items.Count; i++)
             {
                 if (purchaseRequestList.GetItemChecked(i))
+                {
                     selCount++;
-                selectedRequest = purchaseRequestList.Items[0].ToString();
+                    selectedRequest = purchaseRequestList.Items[i].ToString();
+                }
             }
             if (selCount !=1)
             {
@@ -69,8 +74,15 @@ namespace ProcurementSystem
             }
             else
             {
-                MySqlCommand getRequest = new MySqlCommand("SELECT pr.RequestNo, FirstName, LastName, RestName, sr.RestNo, sr.StaffNo, pr.CreationDate from Staff as s, PurchaseRequest as pr, StaffRestaurant as sr, Restaurant as r where pr.RequestNo = '" + selectedRequest + "' and pr.RestNo = sr.RestNo and sr.StaffNo = s.StaffNo and sr.RestNo = r.RestNo Group by pr.RequestNo;", cnn);
-                EditPurchaseRequest epr = new EditPurchaseRequest(this, staffNo, restNo, staffName, restName, selectedRequest);
+                MySqlDataAdapter getRequest = new MySqlDataAdapter("SELECT pr.RequestNo, FirstName, LastName, RestName, pr.RestNo, pr.StaffNo, pr.CreationDate from Staff as s, PurchaseRequest as pr, StaffRestaurant as sr, Restaurant as r where pr.RequestNo = '" + selectedRequest + "' and pr.RestNo = sr.RestNo and sr.StaffNo = s.StaffNo and sr.RestNo = r.RestNo Group by pr.RequestNo;", cnn);
+                DataTable dt2 = new DataTable();
+                getRequest.Fill(dt2);
+                foreach (DataRow dr2 in dt2.Rows) {
+                    createStaffName = dr2["FirstName"].ToString() + dr2["LastName"].ToString();
+                    createStaffId = dr2["StaffNo"].ToString();
+                    creationDate = Convert.ToDateTime(dr2["CreationDate"]).ToString("dd-MM-yyyy");
+                }
+                EditPurchaseRequest epr = new EditPurchaseRequest(this, createStaffId, restNo, createStaffName, restName, selectedRequest,creationDate);
                 this.Hide();
                 epr.Show();
             }
