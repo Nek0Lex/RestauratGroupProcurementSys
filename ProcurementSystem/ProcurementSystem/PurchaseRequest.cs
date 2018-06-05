@@ -19,6 +19,8 @@ namespace ProcurementSystem
         private String restName;
         private String restNo;
         private String staffName;
+        private int selCount;
+        private String selectedRequest;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public PurchaseRequest(Menu m, String restNo, String staffNo)
         {
@@ -54,9 +56,25 @@ namespace ProcurementSystem
 
         private void edditPRbtn_Click(object sender, EventArgs e)
         {
-            EditPurchaseRequest epr = new EditPurchaseRequest(this);
-            this.Hide();
-            epr.Show();
+            selCount = 0;
+            for (int i = 0; i < purchaseRequestList.Items.Count; i++)
+            {
+                if (purchaseRequestList.GetItemChecked(i))
+                    selCount++;
+                selectedRequest = purchaseRequestList.Items[0].ToString();
+            }
+            if (selCount !=1)
+            {
+                errorEditMsg.Text = "Please select only ONE request!";
+            }
+            else
+            {
+                MySqlCommand getRequest = new MySqlCommand("SELECT pr.RequestNo, FirstName, LastName, RestName, sr.RestNo, sr.StaffNo, pr.CreationDate from Staff as s, PurchaseRequest as pr, StaffRestaurant as sr, Restaurant as r where pr.RequestNo = '" + selectedRequest + "' and pr.RestNo = sr.RestNo and sr.StaffNo = s.StaffNo and sr.RestNo = r.RestNo Group by pr.RequestNo;", cnn);
+                EditPurchaseRequest epr = new EditPurchaseRequest(this, staffNo, restNo, staffName, restName, selectedRequest);
+                this.Hide();
+                epr.Show();
+            }
+
         }
 
         private void createPRbtn_Click_1(object sender, EventArgs e)

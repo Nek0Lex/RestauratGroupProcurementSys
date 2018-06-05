@@ -37,6 +37,7 @@
             this.textSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.errorMsg = new System.Windows.Forms.Label();
+            this.errorEditMsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -134,11 +135,21 @@
             this.errorMsg.Size = new System.Drawing.Size(0, 12);
             this.errorMsg.TabIndex = 8;
             // 
+            // errorEditMsg
+            // 
+            this.errorEditMsg.AutoSize = true;
+            this.errorEditMsg.ForeColor = System.Drawing.Color.Red;
+            this.errorEditMsg.Location = new System.Drawing.Point(533, 176);
+            this.errorEditMsg.Name = "errorEditMsg";
+            this.errorEditMsg.Size = new System.Drawing.Size(0, 12);
+            this.errorEditMsg.TabIndex = 9;
+            // 
             // PurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.errorEditMsg);
             this.Controls.Add(this.errorMsg);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.textSearch);
@@ -167,5 +178,6 @@
         private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label errorMsg;
+        private System.Windows.Forms.Label errorEditMsg;
     }
 }
