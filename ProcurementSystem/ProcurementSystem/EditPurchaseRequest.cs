@@ -15,10 +15,13 @@ namespace ProcurementSystem
     {
         private string staffNo;
         private string restNo;
+        private int quantity;
+        private string restHierarchy;
         private PurchaseRequest pr;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public EditPurchaseRequest(PurchaseRequest pr, string staffNo, string restNo, string staffName, string restName, string selectedRequest, string createDate)
         {
+            cnn.Open();
             InitializeComponent();
             StfId.Text = staffNo;
             StfName.Text = staffName;
@@ -28,7 +31,23 @@ namespace ProcurementSystem
             this.restNo = restNo;
             this.staffNo = staffNo;
             title.Text = "Purchase Request " + selectedRequest;
-            MySqlCommand showList = new MySqlCommand("select ");
+            MySqlDataAdapter showList = new MySqlDataAdapter("SELECT i.ItemName, pr.Quantity, v.VItemID, c.category_id FROM VItem v,Item i ,Category c,PurchaseRequest pr WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND pr.VItemID = v.VItemID AND pr.category_id = v.category_id AND pr.RequestNo = '"+ selectedRequest+ "';",cnn);
+            DataTable dt = new DataTable();
+            showList.Fill(dt);
+            foreach (DataRow dr in dt.Rows) {
+                purchaseList2.Rows.Add(dr["itemName"].ToString(), dr["Quantity"].ToString(), dr["VItemID"].ToString(), dr["Category_id"].ToString());
+            }
+
+            MySqlCommand getRestaurantHierarchy = new MySqlCommand("SELECT Hierarchy FROM Restaurant WHERE RestNo = '" + restNo + "';", cnn);
+            restHierarchy = (string)getRestaurantHierarchy.ExecuteScalar();
+
+            MySqlDataAdapter sda = new MySqlDataAdapter("SELECT i.ItemName FROM VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND c.name = '" + restHierarchy + "'; ", cnn);
+            DataTable dt2 = new DataTable();
+            sda.Fill(dt2);
+            foreach (DataRow dr in dt2.Rows)
+            {
+                itemList.Items.Add(dr["ItemName"].ToString());
+            }
             this.pr = pr;
         }
 
@@ -41,6 +60,54 @@ namespace ProcurementSystem
         {
             this.Close();
             pr.Show();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectItem = this.itemList.Text;
+                //new
+                MySqlCommand getVItemID = new MySqlCommand("SELECT v.VItemID FROM VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND c.name ='" + restHierarchy + "' AND i.ItemName = '" + selectItem + "';", cnn);
+                string VItemID = (string)getVItemID.ExecuteScalar();
+                MySqlCommand getCategory_id = new MySqlCommand("SELECT v.category_id FROM VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND c.name ='" + restHierarchy + "' AND i.ItemName = '" + selectItem + "';", cnn);
+                string category_id = getCategory_id.ExecuteScalar().ToString();
+                //
+                Boolean qtnNull = int.TryParse(qtn.Text, out quantity);
+                Boolean haveItem = false;
+                for (int i = 0; i < purchaseList2.RowCount - 1; i++)
+                {
+                    if (purchaseList2.Rows[i].Cells[0].Value.ToString() == selectItem)
+                    {
+                        haveItem = true;
+                    }
+                }
+                if ((quantity <= 0) || (qtnNull == false) || (haveItem))
+                {
+                    errorMsg.Text = "Check Your Input!";
+                }
+                else
+                {
+                    purchaseList2.Rows.Add(selectItem, quantity, VItemID, category_id);
+                    errorMsg.Text = "";
+                }
+            }
+            catch (EntryPointNotFoundException ex)
+            {
+                errorMsg.Text = "Something Wrong";
+            }
+        }
+
+        private void deleteItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (DataGridViewRow row in purchaseList2.SelectedRows)
+                {
+                    purchaseList2.Rows.Remove(row);
+                }
+            }
+            catch (Exception ex) { }
         }
     }
 }
