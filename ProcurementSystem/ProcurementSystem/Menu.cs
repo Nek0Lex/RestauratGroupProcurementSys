@@ -24,7 +24,7 @@ namespace ProcurementSystem
         public Menu(String StaffNo, String deptCode)
         {
             InitializeComponent();
-            this.StaffNo = StaffNo;
+            this.StaffNo = StaffNo.ToUpper();
             this.deptCode = deptCode;
             MySqlDataAdapter sda = new MySqlDataAdapter("select FirstName, LastName from Staff where Staff.StaffNo='" + StaffNo + "';", cnn);
             sda.Fill(dt);
