@@ -6,8 +6,8 @@
 1. ~~MainUI~~:heavy_check_mark:
     - ~~function~~
     - ~~ui~~
-2. Add:x:
-      - function
+2. Add:heavy_check_mark:
+      - ~~function~~
       - ~~ui~~
 3. Edit:x:
       - function
@@ -22,9 +22,9 @@
 1. ~~MainUI~~:heavy_check_mark:
       - ~~function~~
       - ~~ui~~
-2. Add:x:
-      - function
-      - ui
+2. ~~Add~~:heavy_check_mark:
+      - ~~function~~
+      - ~~ui~~
 3. Edit:x:
       - function
       - ui
@@ -38,9 +38,9 @@
 1. ~~MainUI~~:heavy_check_mark:
       - ~~function~~
       - ~~ui~~
-2. Add:x:
-      - function
-      - ui
+2. Add:heavy_check_mark:
+      - ~~function~~
+      - ~~ui~~
 3. Edit:x:
       - function
       - ui
@@ -54,8 +54,8 @@
 1. ~~MainUI~~:heavy_check_mark:
       - ~~function~~
       - ~~ui~~
-2. Add:x:
-      - function
+2. Add:heavy_check_mark:
+      - ~~function~~
       - ~~ui~~
 3. Edit:x:
       - function
