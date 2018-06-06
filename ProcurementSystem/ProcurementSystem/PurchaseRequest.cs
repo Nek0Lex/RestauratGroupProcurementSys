@@ -142,5 +142,20 @@ namespace ProcurementSystem
                 purchaseRequestList.Items.Insert(0, dr["RequestNo"].ToString());
             }
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void searchByRequestNo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchByStatus_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
