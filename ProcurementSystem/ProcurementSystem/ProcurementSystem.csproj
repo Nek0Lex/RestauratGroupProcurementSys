@@ -79,6 +79,12 @@
     <Compile Include="CreateRest.Designer.cs">
       <DependentUpon>CreateRest.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateSupp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateSupp.Designer.cs">
+      <DependentUpon>CreateSupp.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditAc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,12 @@
     </Compile>
     <Compile Include="EditRest.Designer.cs">
       <DependentUpon>EditRest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditSupp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSupp.Designer.cs">
+      <DependentUpon>EditSupp.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -138,6 +150,12 @@
     </Compile>
     <Compile Include="SearchResult.Designer.cs">
       <DependentUpon>SearchResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierMenu.Designer.cs">
+      <DependentUpon>SupplierMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="TypeofAgreementMenu.cs">
       <SubType>Form</SubType>
