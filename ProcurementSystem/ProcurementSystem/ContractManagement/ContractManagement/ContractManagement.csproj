@@ -71,6 +71,12 @@
     <Compile Include="BPA.Designer.cs">
       <DependentUpon>BPA.cs</DependentUpon>
     </Compile>
+    <Compile Include="BPAEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BPAEdit.Designer.cs">
+      <DependentUpon>BPAEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="CPA.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     <EmbeddedResource Include="BPAAdd.resx">
       <DependentUpon>BPAAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BPAEdit.resx">
+      <DependentUpon>BPAEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CPA.resx">
       <DependentUpon>CPA.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +166,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\BPAAdd.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

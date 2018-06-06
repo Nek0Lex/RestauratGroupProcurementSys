@@ -66,7 +66,7 @@
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 58);
+            this.groupBox1.Location = new System.Drawing.Point(14, 58);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(776, 380);
             this.groupBox1.TabIndex = 1;
@@ -88,9 +88,10 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.Location = new System.Drawing.Point(16, 22);
+            this.listView1.Location = new System.Drawing.Point(16, 137);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(541, 343);
+            this.listView1.Size = new System.Drawing.Size(742, 228);
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -139,9 +140,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(577, 322);
+            this.button4.Location = new System.Drawing.Point(16, 79);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(181, 43);
+            this.button4.Size = new System.Drawing.Size(124, 27);
             this.button4.TabIndex = 4;
             this.button4.Text = "back";
             this.button4.UseVisualStyleBackColor = true;
@@ -150,7 +151,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(577, 147);
+            this.button3.Location = new System.Drawing.Point(432, 21);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(181, 27);
             this.button3.TabIndex = 3;
@@ -161,17 +162,18 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(577, 83);
+            this.button2.Location = new System.Drawing.Point(229, 21);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(181, 27);
             this.button2.TabIndex = 2;
             this.button2.Text = "Edit Blanket Agreement";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(577, 21);
+            this.button1.Location = new System.Drawing.Point(16, 21);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 27);
             this.button1.TabIndex = 1;

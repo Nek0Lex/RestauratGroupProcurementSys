@@ -81,5 +81,20 @@ namespace ContractManagement
             MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nothing Selected", "ERROR");
+                return;
+            }
+            else
+            {
+                BPAEdit bPAEdit = new BPAEdit();
+                bPAEdit.ShowDialog();
+            }
+
+        }
     }
 }
