@@ -34,11 +34,16 @@
             this.edditPRbtn = new System.Windows.Forms.Button();
             this.deletePRbtn = new System.Windows.Forms.Button();
             this.prBack = new System.Windows.Forms.Button();
-            this.textSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.errorMsg = new System.Windows.Forms.Label();
             this.errorEditMsg = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.searchByRequestNo = new System.Windows.Forms.RadioButton();
+            this.searchByStatus = new System.Windows.Forms.RadioButton();
+            this.searchByStaffNo = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.searchText = new System.Windows.Forms.ComboBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -61,16 +66,16 @@
             this.purchaseRequestList.HorizontalScrollbar = true;
             this.purchaseRequestList.Location = new System.Drawing.Point(19, 68);
             this.purchaseRequestList.Name = "purchaseRequestList";
-            this.purchaseRequestList.Size = new System.Drawing.Size(490, 344);
+            this.purchaseRequestList.Size = new System.Drawing.Size(256, 344);
             this.purchaseRequestList.TabIndex = 1;
             this.purchaseRequestList.SelectedIndexChanged += new System.EventHandler(this.purchaseRequestList_SelectedIndexChanged);
             // 
             // createPRbtn
             // 
             this.createPRbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.createPRbtn.Location = new System.Drawing.Point(535, 68);
+            this.createPRbtn.Location = new System.Drawing.Point(312, 68);
             this.createPRbtn.Name = "createPRbtn";
-            this.createPRbtn.Size = new System.Drawing.Size(197, 26);
+            this.createPRbtn.Size = new System.Drawing.Size(197, 48);
             this.createPRbtn.TabIndex = 2;
             this.createPRbtn.Text = "Create Purchase Request";
             this.createPRbtn.UseVisualStyleBackColor = true;
@@ -79,9 +84,9 @@
             // edditPRbtn
             // 
             this.edditPRbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.edditPRbtn.Location = new System.Drawing.Point(535, 147);
+            this.edditPRbtn.Location = new System.Drawing.Point(312, 159);
             this.edditPRbtn.Name = "edditPRbtn";
-            this.edditPRbtn.Size = new System.Drawing.Size(197, 26);
+            this.edditPRbtn.Size = new System.Drawing.Size(197, 46);
             this.edditPRbtn.TabIndex = 3;
             this.edditPRbtn.Text = "Edit Purchase Request";
             this.edditPRbtn.UseVisualStyleBackColor = true;
@@ -90,9 +95,9 @@
             // deletePRbtn
             // 
             this.deletePRbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.deletePRbtn.Location = new System.Drawing.Point(535, 228);
+            this.deletePRbtn.Location = new System.Drawing.Point(312, 239);
             this.deletePRbtn.Name = "deletePRbtn";
-            this.deletePRbtn.Size = new System.Drawing.Size(197, 26);
+            this.deletePRbtn.Size = new System.Drawing.Size(197, 48);
             this.deletePRbtn.TabIndex = 4;
             this.deletePRbtn.Text = "Delete Purchase Request";
             this.deletePRbtn.UseVisualStyleBackColor = true;
@@ -101,7 +106,7 @@
             // prBack
             // 
             this.prBack.Cursor = System.Windows.Forms.Cursors.Default;
-            this.prBack.Location = new System.Drawing.Point(535, 336);
+            this.prBack.Location = new System.Drawing.Point(312, 387);
             this.prBack.Name = "prBack";
             this.prBack.Size = new System.Drawing.Size(197, 25);
             this.prBack.TabIndex = 5;
@@ -109,23 +114,16 @@
             this.prBack.UseVisualStyleBackColor = true;
             this.prBack.Click += new System.EventHandler(this.prBack_Click);
             // 
-            // textSearch
-            // 
-            this.textSearch.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textSearch.Location = new System.Drawing.Point(535, 287);
-            this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(123, 22);
-            this.textSearch.TabIndex = 6;
-            // 
             // btnSearch
             // 
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSearch.Location = new System.Drawing.Point(664, 287);
+            this.btnSearch.Location = new System.Drawing.Point(684, 196);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // errorMsg
             // 
@@ -147,7 +145,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(535, 389);
+            this.btnRefresh.Location = new System.Drawing.Point(312, 323);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(138, 23);
             this.btnRefresh.TabIndex = 10;
@@ -155,16 +153,72 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // searchByRequestNo
+            // 
+            this.searchByRequestNo.AutoSize = true;
+            this.searchByRequestNo.Location = new System.Drawing.Point(14, 14);
+            this.searchByRequestNo.Name = "searchByRequestNo";
+            this.searchByRequestNo.Size = new System.Drawing.Size(77, 16);
+            this.searchByRequestNo.TabIndex = 11;
+            this.searchByRequestNo.TabStop = true;
+            this.searchByRequestNo.Text = "Request No";
+            this.searchByRequestNo.UseVisualStyleBackColor = true;
+            this.searchByRequestNo.CheckedChanged += new System.EventHandler(this.searchByRequestNo_CheckedChanged);
+            // 
+            // searchByStatus
+            // 
+            this.searchByStatus.AutoSize = true;
+            this.searchByStatus.Location = new System.Drawing.Point(132, 14);
+            this.searchByStatus.Name = "searchByStatus";
+            this.searchByStatus.Size = new System.Drawing.Size(50, 16);
+            this.searchByStatus.TabIndex = 12;
+            this.searchByStatus.TabStop = true;
+            this.searchByStatus.Text = "Status";
+            this.searchByStatus.UseVisualStyleBackColor = true;
+            this.searchByStatus.CheckedChanged += new System.EventHandler(this.searchByStatus_CheckedChanged);
+            // 
+            // searchByStaffNo
+            // 
+            this.searchByStaffNo.AutoSize = true;
+            this.searchByStaffNo.Location = new System.Drawing.Point(14, 36);
+            this.searchByStaffNo.Name = "searchByStaffNo";
+            this.searchByStaffNo.Size = new System.Drawing.Size(62, 16);
+            this.searchByStaffNo.TabIndex = 13;
+            this.searchByStaffNo.TabStop = true;
+            this.searchByStaffNo.Text = "Staff No";
+            this.searchByStaffNo.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.searchByStaffNo);
+            this.groupBox1.Controls.Add(this.searchByStatus);
+            this.groupBox1.Controls.Add(this.searchByRequestNo);
+            this.groupBox1.Location = new System.Drawing.Point(535, 107);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(224, 59);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            // 
+            // searchText
+            // 
+            this.searchText.FormattingEnabled = true;
+            this.searchText.Location = new System.Drawing.Point(535, 196);
+            this.searchText.Name = "searchText";
+            this.searchText.Size = new System.Drawing.Size(121, 20);
+            this.searchText.TabIndex = 16;
+            // 
             // PurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.searchText);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.errorEditMsg);
             this.Controls.Add(this.errorMsg);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.textSearch);
             this.Controls.Add(this.prBack);
             this.Controls.Add(this.deletePRbtn);
             this.Controls.Add(this.edditPRbtn);
@@ -174,6 +228,8 @@
             this.Name = "PurchaseRequest";
             this.Text = "Purchase Request";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,10 +243,14 @@
         private System.Windows.Forms.Button edditPRbtn;
         private System.Windows.Forms.Button deletePRbtn;
         private System.Windows.Forms.Button prBack;
-        private System.Windows.Forms.TextBox textSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label errorMsg;
         private System.Windows.Forms.Label errorEditMsg;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.RadioButton searchByRequestNo;
+        private System.Windows.Forms.RadioButton searchByStatus;
+        private System.Windows.Forms.RadioButton searchByStaffNo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox searchText;
     }
 }

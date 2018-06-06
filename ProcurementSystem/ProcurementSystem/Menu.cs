@@ -52,6 +52,7 @@ namespace ProcurementSystem
                     break;
                 case "CM":
                     lb1.Text = "Category Manager";
+                    btn1.Text = "Category";
                     btn4.Text = "Edit User Information";
                     break;
                 case "WC":
@@ -110,6 +111,11 @@ namespace ProcurementSystem
                     this.Hide();
                     TypeofAgreementMenu tam = new TypeofAgreementMenu(this);
                     tam.Show();
+                    break;
+                case "CM":
+                    this.Hide();
+                    Category cat = new Category(this);
+                    cat.Show();
                     break;
             }
         }
