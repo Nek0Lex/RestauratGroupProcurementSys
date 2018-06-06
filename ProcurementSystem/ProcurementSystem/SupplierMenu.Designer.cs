@@ -31,11 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listViewSupplier = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnBack = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -54,7 +55,8 @@
             this.listViewSupplier.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4});
             this.listViewSupplier.FullRowSelect = true;
             this.listViewSupplier.GridLines = true;
             this.listViewSupplier.Location = new System.Drawing.Point(20, 67);
@@ -69,17 +71,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Supplier Number";
-            this.columnHeader1.Width = 104;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Supplier Contact";
-            this.columnHeader2.Width = 105;
+            this.columnHeader1.Width = 95;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Supplier Address";
-            this.columnHeader3.Width = 365;
+            this.columnHeader3.Text = "Contact";
+            this.columnHeader3.Width = 91;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Address";
+            this.columnHeader4.Width = 365;
             // 
             // btnBack
             // 
@@ -114,6 +116,11 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Name";
+            this.columnHeader2.Width = 166;
+            // 
             // SupplierMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -137,10 +144,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listViewSupplier;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

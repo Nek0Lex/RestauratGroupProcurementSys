@@ -43,6 +43,7 @@ namespace ProcurementSystem
         private void btnClear_Click(object sender, EventArgs e)
         {
             tbNo.Text = String.Empty;
+            tbName.Text = String.Empty;
             tbContact.Text = String.Empty;
             rtbAdd.Text = String.Empty;
 
@@ -50,20 +51,21 @@ namespace ProcurementSystem
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbNo.Text) || string.IsNullOrWhiteSpace(tbContact.Text) || string.IsNullOrWhiteSpace(rtbAdd.Text))
+            if (string.IsNullOrWhiteSpace(tbNo.Text) || string.IsNullOrWhiteSpace(tbName.Text) || string.IsNullOrWhiteSpace(tbContact.Text))
             {
                 MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                String SNo, SContact, SAddress;
+                String SNo, SName, SContact, SAddress;
                 //get data from the inputs
                 SNo = tbNo.Text;
                 SContact = tbContact.Text;
+                SName = tbName.Text;
                 SAddress = rtbAdd.Text;
                 //insert all data into db
                 MySqlCommand command = cnn.CreateCommand();
-                command.CommandText = "insert into Supplier values('" + SNo + "','" + SAddress + "','" + SContact + "');";
+                command.CommandText = "insert into Supplier values('" + SNo + "','" + SName + "','" + SContact + "','" + SAddress + "');";
                 cnn.Open();
                 command.ExecuteNonQuery();
                 cnn.Close();
