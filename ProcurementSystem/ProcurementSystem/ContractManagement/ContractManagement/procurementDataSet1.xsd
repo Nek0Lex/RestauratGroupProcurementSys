@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="procurementDataSet" targetNamespace="http://tempuri.org/procurementDataSet1.xsd" xmlns:mstns="http://tempuri.org/procurementDataSet1.xsd" xmlns="http://tempuri.org/procurementDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="server=code4cat.me;user id=jackysc;database=procurement" IsAppSettingsProperty="false" Modifier="Assembly" Name="code4cat.me(procurement)" ParameterPrefix="@" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BlanketPurchaseAgreementTableAdapter" GeneratorDataComponentClassName="BlanketPurchaseAgreementTableAdapter" Name="BlanketPurchaseAgreement" UserDataComponentName="BlanketPurchaseAgreementTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.BlanketPurchaseAgreement" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo FROM BlanketPurchaseAgreement</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BlanketPurchaseReleaseTableAdapter" GeneratorDataComponentClassName="BlanketPurchaseReleaseTableAdapter" Name="BlanketPurchaseRelease" UserDataComponentName="BlanketPurchaseReleaseTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.BlanketPurchaseRelease" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ReleaseNo, RequestNo, BPANo, CreationDate, RestNo, DeliveryDate, Account, ActualAmount, ActualQuantity FROM BlanketPurchaseRelease</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BPALinesTableAdapter" GeneratorDataComponentClassName="BPALinesTableAdapter" Name="BPALines" UserDataComponentName="BPALinesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.BPALines" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT BPANo, ItemID, PromisedQuantity, UOM, MoQ, Price, Amount, Categiry, Reference FROM BPALines</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BPReleaseLinesTableAdapter" GeneratorDataComponentClassName="BPReleaseLinesTableAdapter" Name="BPReleaseLines" UserDataComponentName="BPReleaseLinesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.BPReleaseLines" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ReleaseNo, ItemID, Quantity FROM BPReleaseLines</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CategoryTableAdapter" GeneratorDataComponentClassName="CategoryTableAdapter" Name="Category" UserDataComponentName="CategoryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.Category" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT category_id, name, parent_id FROM Category</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Category_oldTableAdapter" GeneratorDataComponentClassName="Category_oldTableAdapter" Name="Category_old" UserDataComponentName="Category_oldTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.Category_old" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Category, Hierarchy FROM Category_old</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CPATableAdapter" GeneratorDataComponentClassName="CPATableAdapter" Name="CPA" UserDataComponentName="CPATableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.CPA" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ContractNo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, TermsAndCondition, ItemID FROM CPA</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DeliveryNoteTableAdapter" GeneratorDataComponentClassName="DeliveryNoteTableAdapter" Name="DeliveryNote" UserDataComponentName="DeliveryNoteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.DeliveryNote" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT DeliveryID, RequestNo, DesID, ItemID, Quantity, RestNo, Driver, ArriveDate, Status FROM DeliveryNote</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DespatchInstructionTableAdapter" GeneratorDataComponentClassName="DespatchInstructionTableAdapter" Name="DespatchInstruction" UserDataComponentName="DespatchInstructionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.DespatchInstruction" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT DesID, RequestNo, ItemID, CreationDate, WarehouseNo FROM DespatchInstruction</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ItemTableAdapter" GeneratorDataComponentClassName="ItemTableAdapter" Name="Item" UserDataComponentName="ItemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.Item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ItemID, ItemName, ItemDescription FROM Item</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Item_oldTableAdapter" GeneratorDataComponentClassName="Item_oldTableAdapter" Name="Item_old" UserDataComponentName="Item_oldTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.Item_old" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ItemID, ItemName, ItemDescription, VItemID, Hierarchy, Category FROM Item_old</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PPOTableAdapter" GeneratorDataComponentClassName="PPOTableAdapter" Name="PPO" UserDataComponentName="PPOTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.PPO" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PPONo, SupplierNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, SRNo, Amount, Currency, TermsAndCondition FROM PPO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PPOLinesTableAdapter" GeneratorDataComponentClassName="PPOLinesTableAdapter" Name="PPOLines" UserDataComponentName="PPOLinesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.PPOLines" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PPONo, SupplierItemID, ItemDescription, Quantity, UOM, Price, Amount, Category, Reference FROM PPOLines</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PriceBreakTableAdapter" GeneratorDataComponentClassName="PriceBreakTableAdapter" Name="PriceBreak" UserDataComponentName="PriceBreakTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.PriceBreak" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PricebreakNo, ItemID, BPANo, PricebreakDetail, Discount, EffectiveDate FROM PriceBreak</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PurchaseRequestTableAdapter" GeneratorDataComponentClassName="PurchaseRequestTableAdapter" Name="PurchaseRequest" UserDataComponentName="PurchaseRequestTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.PurchaseRequest" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT RequestNo, CreationDate, MappingDate, Quantity, DeliveryDate, Status, remark, VItemID, category_id, StaffNo, RestNo FROM PurchaseRequest</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PurchaseRequest_oldTableAdapter" GeneratorDataComponentClassName="PurchaseRequest_oldTableAdapter" Name="PurchaseRequest_old" UserDataComponentName="PurchaseRequest_oldTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.PurchaseRequest_old" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT RequestNo, CreationDate, MappingDate, Quantity, DeliveryDate, Status, remark, VItemID, Hierarchy, StaffNo, RestNo FROM PurchaseRequest_old</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RestaurantTableAdapter" GeneratorDataComponentClassName="RestaurantTableAdapter" Name="Restaurant" UserDataComponentName="RestaurantTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.Restaurant" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT RestNo, RestName, RestAddress, Hierarchy FROM Restaurant</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RestaurantItemTableAdapter" GeneratorDataComponentClassName="RestaurantItemTableAdapter" Name="RestaurantItem" UserDataComponentName="RestaurantItemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.RestaurantItem" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT RestNo, ItemID, quantity FROM RestaurantItem</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SheduleReleaseTableAdapter" GeneratorDataComponentClassName="SheduleReleaseTableAdapter" Name="SheduleRelease" UserDataComponentName="SheduleReleaseTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.SheduleRelease" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SRNo, RequestNo, CreationDate, EffectiveDate FROM SheduleRelease</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SheduleReleaseLinesTableAdapter" GeneratorDataComponentClassName="SheduleReleaseLinesTableAdapter" Name="SheduleReleaseLines" UserDataComponentName="SheduleReleaseLinesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.SheduleReleaseLines" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SRNo, PPONo FROM SheduleReleaseLines</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SPOTableAdapter" GeneratorDataComponentClassName="SPOTableAdapter" Name="SPO" UserDataComponentName="SPOTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.SPO" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SPONo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, RestNo, ExpectedDeliveryDate, TermsAndCondition FROM SPO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SPOLinesTableAdapter" GeneratorDataComponentClassName="SPOLinesTableAdapter" Name="SPOLines" UserDataComponentName="SPOLinesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.SPOLines" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SPONo, SupplierItemID, Quantity, UOM, Price, Amount, Category, Quotation, Reference, ContractNo FROM SPOLines</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StaffTableAdapter" GeneratorDataComponentClassName="StaffTableAdapter" Name="Staff" UserDataComponentName="StaffTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.Staff" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT StaffNo, FirstName, LastName, DeptCode, Password FROM Staff</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StaffRestaurantTableAdapter" GeneratorDataComponentClassName="StaffRestaurantTableAdapter" Name="StaffRestaurant" UserDataComponentName="StaffRestaurantTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.StaffRestaurant" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT StaffNo, RestNo FROM StaffRestaurant</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SupplierTableAdapter" GeneratorDataComponentClassName="SupplierTableAdapter" Name="Supplier" UserDataComponentName="SupplierTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.Supplier" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SupplierNo, SupplierAddress, SupplierContact FROM Supplier</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SupplierItemTableAdapter" GeneratorDataComponentClassName="SupplierItemTableAdapter" Name="SupplierItem" UserDataComponentName="SupplierItemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.SupplierItem" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SupplierNo, SupplierItemID, ItemID FROM SupplierItem</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VItemTableAdapter" GeneratorDataComponentClassName="VItemTableAdapter" Name="VItem" UserDataComponentName="VItemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.VItem" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT VItemID, category_id, ItemID FROM VItem</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VItem_oldTableAdapter" GeneratorDataComponentClassName="VItem_oldTableAdapter" Name="VItem_old" UserDataComponentName="VItem_oldTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.VItem_old" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT VItemID, Hierarchy, ItemID FROM VItem_old</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WarehouseTableAdapter" GeneratorDataComponentClassName="WarehouseTableAdapter" Name="Warehouse" UserDataComponentName="WarehouseTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="code4cat.me(procurement)" DbObjectName="procurement.Warehouse" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT WarehouseNo, WarehouseAddress FROM Warehouse</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="procurementDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="procurementDataSet" msprop:Generator_UserDSName="procurementDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BlanketPurchaseAgreement" msprop:Generator_TableClassName="BlanketPurchaseAgreementDataTable" msprop:Generator_TableVarName="tableBlanketPurchaseAgreement" msprop:Generator_TablePropName="BlanketPurchaseAgreement" msprop:Generator_RowDeletingName="BlanketPurchaseAgreementRowDeleting" msprop:Generator_RowChangingName="BlanketPurchaseAgreementRowChanging" msprop:Generator_RowEvHandlerName="BlanketPurchaseAgreementRowChangeEventHandler" msprop:Generator_RowDeletedName="BlanketPurchaseAgreementRowDeleted" msprop:Generator_UserTableName="BlanketPurchaseAgreement" msprop:Generator_RowChangedName="BlanketPurchaseAgreementRowChanged" msprop:Generator_RowEvArgName="BlanketPurchaseAgreementRowChangeEvent" msprop:Generator_RowClassName="BlanketPurchaseAgreementRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BlanketPurchaseRelease" msprop:Generator_TableClassName="BlanketPurchaseReleaseDataTable" msprop:Generator_TableVarName="tableBlanketPurchaseRelease" msprop:Generator_TablePropName="BlanketPurchaseRelease" msprop:Generator_RowDeletingName="BlanketPurchaseReleaseRowDeleting" msprop:Generator_RowChangingName="BlanketPurchaseReleaseRowChanging" msprop:Generator_RowEvHandlerName="BlanketPurchaseReleaseRowChangeEventHandler" msprop:Generator_RowDeletedName="BlanketPurchaseReleaseRowDeleted" msprop:Generator_UserTableName="BlanketPurchaseRelease" msprop:Generator_RowChangedName="BlanketPurchaseReleaseRowChanged" msprop:Generator_RowEvArgName="BlanketPurchaseReleaseRowChangeEvent" msprop:Generator_RowClassName="BlanketPurchaseReleaseRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BPALines" msprop:Generator_TableClassName="BPALinesDataTable" msprop:Generator_TableVarName="tableBPALines" msprop:Generator_TablePropName="BPALines" msprop:Generator_RowDeletingName="BPALinesRowDeleting" msprop:Generator_RowChangingName="BPALinesRowChanging" msprop:Generator_RowEvHandlerName="BPALinesRowChangeEventHandler" msprop:Generator_RowDeletedName="BPALinesRowDeleted" msprop:Generator_UserTableName="BPALines" msprop:Generator_RowChangedName="BPALinesRowChanged" msprop:Generator_RowEvArgName="BPALinesRowChangeEvent" msprop:Generator_RowClassName="BPALinesRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BPReleaseLines" msprop:Generator_TableClassName="BPReleaseLinesDataTable" msprop:Generator_TableVarName="tableBPReleaseLines" msprop:Generator_TablePropName="BPReleaseLines" msprop:Generator_RowDeletingName="BPReleaseLinesRowDeleting" msprop:Generator_RowChangingName="BPReleaseLinesRowChanging" msprop:Generator_RowEvHandlerName="BPReleaseLinesRowChangeEventHandler" msprop:Generator_RowDeletedName="BPReleaseLinesRowDeleted" msprop:Generator_UserTableName="BPReleaseLines" msprop:Generator_RowChangedName="BPReleaseLinesRowChanged" msprop:Generator_RowEvArgName="BPReleaseLinesRowChangeEvent" msprop:Generator_RowClassName="BPReleaseLinesRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Category" msprop:Generator_TableClassName="CategoryDataTable" msprop:Generator_TableVarName="tableCategory" msprop:Generator_TablePropName="Category" msprop:Generator_RowDeletingName="CategoryRowDeleting" msprop:Generator_RowChangingName="CategoryRowChanging" msprop:Generator_RowEvHandlerName="CategoryRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoryRowDeleted" msprop:Generator_UserTableName="Category" msprop:Generator_RowChangedName="CategoryRowChanged" msprop:Generator_RowEvArgName="CategoryRowChangeEvent" msprop:Generator_RowClassName="CategoryRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Category_old" msprop:Generator_TableClassName="Category_oldDataTable" msprop:Generator_TableVarName="tableCategory_old" msprop:Generator_TablePropName="Category_old" msprop:Generator_RowDeletingName="Category_oldRowDeleting" msprop:Generator_RowChangingName="Category_oldRowChanging" msprop:Generator_RowEvHandlerName="Category_oldRowChangeEventHandler" msprop:Generator_RowDeletedName="Category_oldRowDeleted" msprop:Generator_UserTableName="Category_old" msprop:Generator_RowChangedName="Category_oldRowChanged" msprop:Generator_RowEvArgName="Category_oldRowChangeEvent" msprop:Generator_RowClassName="Category_oldRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CPA" msprop:Generator_TableClassName="CPADataTable" msprop:Generator_TableVarName="tableCPA" msprop:Generator_TablePropName="CPA" msprop:Generator_RowDeletingName="CPARowDeleting" msprop:Generator_RowChangingName="CPARowChanging" msprop:Generator_RowEvHandlerName="CPARowChangeEventHandler" msprop:Generator_RowDeletedName="CPARowDeleted" msprop:Generator_UserTableName="CPA" msprop:Generator_RowChangedName="CPARowChanged" msprop:Generator_RowEvArgName="CPARowChangeEvent" msprop:Generator_RowClassName="CPARow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DeliveryNote" msprop:Generator_TableClassName="DeliveryNoteDataTable" msprop:Generator_TableVarName="tableDeliveryNote" msprop:Generator_TablePropName="DeliveryNote" msprop:Generator_RowDeletingName="DeliveryNoteRowDeleting" msprop:Generator_RowChangingName="DeliveryNoteRowChanging" msprop:Generator_RowEvHandlerName="DeliveryNoteRowChangeEventHandler" msprop:Generator_RowDeletedName="DeliveryNoteRowDeleted" msprop:Generator_UserTableName="DeliveryNote" msprop:Generator_RowChangedName="DeliveryNoteRowChanged" msprop:Generator_RowEvArgName="DeliveryNoteRowChangeEvent" msprop:Generator_RowClassName="DeliveryNoteRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DespatchInstruction" msprop:Generator_TableClassName="DespatchInstructionDataTable" msprop:Generator_TableVarName="tableDespatchInstruction" msprop:Generator_TablePropName="DespatchInstruction" msprop:Generator_RowDeletingName="DespatchInstructionRowDeleting" msprop:Generator_RowChangingName="DespatchInstructionRowChanging" msprop:Generator_RowEvHandlerName="DespatchInstructionRowChangeEventHandler" msprop:Generator_RowDeletedName="DespatchInstructionRowDeleted" msprop:Generator_UserTableName="DespatchInstruction" msprop:Generator_RowChangedName="DespatchInstructionRowChanged" msprop:Generator_RowEvArgName="DespatchInstructionRowChangeEvent" msprop:Generator_RowClassName="DespatchInstructionRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Item" msprop:Generator_TableClassName="ItemDataTable" msprop:Generator_TableVarName="tableItem" msprop:Generator_TablePropName="Item" msprop:Generator_RowDeletingName="ItemRowDeleting" msprop:Generator_RowChangingName="ItemRowChanging" msprop:Generator_RowEvHandlerName="ItemRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemRowDeleted" msprop:Generator_UserTableName="Item" msprop:Generator_RowChangedName="ItemRowChanged" msprop:Generator_RowEvArgName="ItemRowChangeEvent" msprop:Generator_RowClassName="ItemRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Item_old" msprop:Generator_TableClassName="Item_oldDataTable" msprop:Generator_TableVarName="tableItem_old" msprop:Generator_TablePropName="Item_old" msprop:Generator_RowDeletingName="Item_oldRowDeleting" msprop:Generator_RowChangingName="Item_oldRowChanging" msprop:Generator_RowEvHandlerName="Item_oldRowChangeEventHandler" msprop:Generator_RowDeletedName="Item_oldRowDeleted" msprop:Generator_UserTableName="Item_old" msprop:Generator_RowChangedName="Item_oldRowChanged" msprop:Generator_RowEvArgName="Item_oldRowChangeEvent" msprop:Generator_RowClassName="Item_oldRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PPO" msprop:Generator_TableClassName="PPODataTable" msprop:Generator_TableVarName="tablePPO" msprop:Generator_TablePropName="PPO" msprop:Generator_RowDeletingName="PPORowDeleting" msprop:Generator_RowChangingName="PPORowChanging" msprop:Generator_RowEvHandlerName="PPORowChangeEventHandler" msprop:Generator_RowDeletedName="PPORowDeleted" msprop:Generator_UserTableName="PPO" msprop:Generator_RowChangedName="PPORowChanged" msprop:Generator_RowEvArgName="PPORowChangeEvent" msprop:Generator_RowClassName="PPORow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PPOLines" msprop:Generator_TableClassName="PPOLinesDataTable" msprop:Generator_TableVarName="tablePPOLines" msprop:Generator_TablePropName="PPOLines" msprop:Generator_RowDeletingName="PPOLinesRowDeleting" msprop:Generator_RowChangingName="PPOLinesRowChanging" msprop:Generator_RowEvHandlerName="PPOLinesRowChangeEventHandler" msprop:Generator_RowDeletedName="PPOLinesRowDeleted" msprop:Generator_UserTableName="PPOLines" msprop:Generator_RowChangedName="PPOLinesRowChanged" msprop:Generator_RowEvArgName="PPOLinesRowChangeEvent" msprop:Generator_RowClassName="PPOLinesRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PriceBreak" msprop:Generator_TableClassName="PriceBreakDataTable" msprop:Generator_TableVarName="tablePriceBreak" msprop:Generator_TablePropName="PriceBreak" msprop:Generator_RowDeletingName="PriceBreakRowDeleting" msprop:Generator_RowChangingName="PriceBreakRowChanging" msprop:Generator_RowEvHandlerName="PriceBreakRowChangeEventHandler" msprop:Generator_RowDeletedName="PriceBreakRowDeleted" msprop:Generator_UserTableName="PriceBreak" msprop:Generator_RowChangedName="PriceBreakRowChanged" msprop:Generator_RowEvArgName="PriceBreakRowChangeEvent" msprop:Generator_RowClassName="PriceBreakRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PurchaseRequest" msprop:Generator_TableClassName="PurchaseRequestDataTable" msprop:Generator_TableVarName="tablePurchaseRequest" msprop:Generator_TablePropName="PurchaseRequest" msprop:Generator_RowDeletingName="PurchaseRequestRowDeleting" msprop:Generator_RowChangingName="PurchaseRequestRowChanging" msprop:Generator_RowEvHandlerName="PurchaseRequestRowChangeEventHandler" msprop:Generator_RowDeletedName="PurchaseRequestRowDeleted" msprop:Generator_UserTableName="PurchaseRequest" msprop:Generator_RowChangedName="PurchaseRequestRowChanged" msprop:Generator_RowEvArgName="PurchaseRequestRowChangeEvent" msprop:Generator_RowClassName="PurchaseRequestRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PurchaseRequest_old" msprop:Generator_TableClassName="PurchaseRequest_oldDataTable" msprop:Generator_TableVarName="tablePurchaseRequest_old" msprop:Generator_TablePropName="PurchaseRequest_old" msprop:Generator_RowDeletingName="PurchaseRequest_oldRowDeleting" msprop:Generator_RowChangingName="PurchaseRequest_oldRowChanging" msprop:Generator_RowEvHandlerName="PurchaseRequest_oldRowChangeEventHandler" msprop:Generator_RowDeletedName="PurchaseRequest_oldRowDeleted" msprop:Generator_UserTableName="PurchaseRequest_old" msprop:Generator_RowChangedName="PurchaseRequest_oldRowChanged" msprop:Generator_RowEvArgName="PurchaseRequest_oldRowChangeEvent" msprop:Generator_RowClassName="PurchaseRequest_oldRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Restaurant" msprop:Generator_TableClassName="RestaurantDataTable" msprop:Generator_TableVarName="tableRestaurant" msprop:Generator_TablePropName="Restaurant" msprop:Generator_RowDeletingName="RestaurantRowDeleting" msprop:Generator_RowChangingName="RestaurantRowChanging" msprop:Generator_RowEvHandlerName="RestaurantRowChangeEventHandler" msprop:Generator_RowDeletedName="RestaurantRowDeleted" msprop:Generator_UserTableName="Restaurant" msprop:Generator_RowChangedName="RestaurantRowChanged" msprop:Generator_RowEvArgName="RestaurantRowChangeEvent" msprop:Generator_RowClassName="RestaurantRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RestaurantItem" msprop:Generator_TableClassName="RestaurantItemDataTable" msprop:Generator_TableVarName="tableRestaurantItem" msprop:Generator_TablePropName="RestaurantItem" msprop:Generator_RowDeletingName="RestaurantItemRowDeleting" msprop:Generator_RowChangingName="RestaurantItemRowChanging" msprop:Generator_RowEvHandlerName="RestaurantItemRowChangeEventHandler" msprop:Generator_RowDeletedName="RestaurantItemRowDeleted" msprop:Generator_UserTableName="RestaurantItem" msprop:Generator_RowChangedName="RestaurantItemRowChanged" msprop:Generator_RowEvArgName="RestaurantItemRowChangeEvent" msprop:Generator_RowClassName="RestaurantItemRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SheduleRelease" msprop:Generator_TableClassName="SheduleReleaseDataTable" msprop:Generator_TableVarName="tableSheduleRelease" msprop:Generator_TablePropName="SheduleRelease" msprop:Generator_RowDeletingName="SheduleReleaseRowDeleting" msprop:Generator_RowChangingName="SheduleReleaseRowChanging" msprop:Generator_RowEvHandlerName="SheduleReleaseRowChangeEventHandler" msprop:Generator_RowDeletedName="SheduleReleaseRowDeleted" msprop:Generator_UserTableName="SheduleRelease" msprop:Generator_RowChangedName="SheduleReleaseRowChanged" msprop:Generator_RowEvArgName="SheduleReleaseRowChangeEvent" msprop:Generator_RowClassName="SheduleReleaseRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SheduleReleaseLines" msprop:Generator_TableClassName="SheduleReleaseLinesDataTable" msprop:Generator_TableVarName="tableSheduleReleaseLines" msprop:Generator_TablePropName="SheduleReleaseLines" msprop:Generator_RowDeletingName="SheduleReleaseLinesRowDeleting" msprop:Generator_RowChangingName="SheduleReleaseLinesRowChanging" msprop:Generator_RowEvHandlerName="SheduleReleaseLinesRowChangeEventHandler" msprop:Generator_RowDeletedName="SheduleReleaseLinesRowDeleted" msprop:Generator_UserTableName="SheduleReleaseLines" msprop:Generator_RowChangedName="SheduleReleaseLinesRowChanged" msprop:Generator_RowEvArgName="SheduleReleaseLinesRowChangeEvent" msprop:Generator_RowClassName="SheduleReleaseLinesRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SPO" msprop:Generator_TableClassName="SPODataTable" msprop:Generator_TableVarName="tableSPO" msprop:Generator_TablePropName="SPO" msprop:Generator_RowDeletingName="SPORowDeleting" msprop:Generator_RowChangingName="SPORowChanging" msprop:Generator_RowEvHandlerName="SPORowChangeEventHandler" msprop:Generator_RowDeletedName="SPORowDeleted" msprop:Generator_UserTableName="SPO" msprop:Generator_RowChangedName="SPORowChanged" msprop:Generator_RowEvArgName="SPORowChangeEvent" msprop:Generator_RowClassName="SPORow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SPOLines" msprop:Generator_TableClassName="SPOLinesDataTable" msprop:Generator_TableVarName="tableSPOLines" msprop:Generator_TablePropName="SPOLines" msprop:Generator_RowDeletingName="SPOLinesRowDeleting" msprop:Generator_RowChangingName="SPOLinesRowChanging" msprop:Generator_RowEvHandlerName="SPOLinesRowChangeEventHandler" msprop:Generator_RowDeletedName="SPOLinesRowDeleted" msprop:Generator_UserTableName="SPOLines" msprop:Generator_RowChangedName="SPOLinesRowChanged" msprop:Generator_RowEvArgName="SPOLinesRowChangeEvent" msprop:Generator_RowClassName="SPOLinesRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Staff" msprop:Generator_TableClassName="StaffDataTable" msprop:Generator_TableVarName="tableStaff" msprop:Generator_TablePropName="Staff" msprop:Generator_RowDeletingName="StaffRowDeleting" msprop:Generator_RowChangingName="StaffRowChanging" msprop:Generator_RowEvHandlerName="StaffRowChangeEventHandler" msprop:Generator_RowDeletedName="StaffRowDeleted" msprop:Generator_UserTableName="Staff" msprop:Generator_RowChangedName="StaffRowChanged" msprop:Generator_RowEvArgName="StaffRowChangeEvent" msprop:Generator_RowClassName="StaffRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="StaffRestaurant" msprop:Generator_TableClassName="StaffRestaurantDataTable" msprop:Generator_TableVarName="tableStaffRestaurant" msprop:Generator_TablePropName="StaffRestaurant" msprop:Generator_RowDeletingName="StaffRestaurantRowDeleting" msprop:Generator_RowChangingName="StaffRestaurantRowChanging" msprop:Generator_RowEvHandlerName="StaffRestaurantRowChangeEventHandler" msprop:Generator_RowDeletedName="StaffRestaurantRowDeleted" msprop:Generator_UserTableName="StaffRestaurant" msprop:Generator_RowChangedName="StaffRestaurantRowChanged" msprop:Generator_RowEvArgName="StaffRestaurantRowChangeEvent" msprop:Generator_RowClassName="StaffRestaurantRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Supplier" msprop:Generator_TableClassName="SupplierDataTable" msprop:Generator_TableVarName="tableSupplier" msprop:Generator_TablePropName="Supplier" msprop:Generator_RowDeletingName="SupplierRowDeleting" msprop:Generator_RowChangingName="SupplierRowChanging" msprop:Generator_RowEvHandlerName="SupplierRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplierRowDeleted" msprop:Generator_UserTableName="Supplier" msprop:Generator_RowChangedName="SupplierRowChanged" msprop:Generator_RowEvArgName="SupplierRowChangeEvent" msprop:Generator_RowClassName="SupplierRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SupplierItem" msprop:Generator_TableClassName="SupplierItemDataTable" msprop:Generator_TableVarName="tableSupplierItem" msprop:Generator_TablePropName="SupplierItem" msprop:Generator_RowDeletingName="SupplierItemRowDeleting" msprop:Generator_RowChangingName="SupplierItemRowChanging" msprop:Generator_RowEvHandlerName="SupplierItemRowChangeEventHandler" msprop:Generator_RowDeletedName="SupplierItemRowDeleted" msprop:Generator_UserTableName="SupplierItem" msprop:Generator_RowChangedName="SupplierItemRowChanged" msprop:Generator_RowEvArgName="SupplierItemRowChangeEvent" msprop:Generator_RowClassName="SupplierItemRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VItem" msprop:Generator_TableClassName="VItemDataTable" msprop:Generator_TableVarName="tableVItem" msprop:Generator_TablePropName="VItem" msprop:Generator_RowDeletingName="VItemRowDeleting" msprop:Generator_RowChangingName="VItemRowChanging" msprop:Generator_RowEvHandlerName="VItemRowChangeEventHandler" msprop:Generator_RowDeletedName="VItemRowDeleted" msprop:Generator_UserTableName="VItem" msprop:Generator_RowChangedName="VItemRowChanged" msprop:Generator_RowEvArgName="VItemRowChangeEvent" msprop:Generator_RowClassName="VItemRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VItem_old" msprop:Generator_TableClassName="VItem_oldDataTable" msprop:Generator_TableVarName="tableVItem_old" msprop:Generator_TablePropName="VItem_old" msprop:Generator_RowDeletingName="VItem_oldRowDeleting" msprop:Generator_RowChangingName="VItem_oldRowChanging" msprop:Generator_RowEvHandlerName="VItem_oldRowChangeEventHandler" msprop:Generator_RowDeletedName="VItem_oldRowDeleted" msprop:Generator_UserTableName="VItem_old" msprop:Generator_RowChangedName="VItem_oldRowChanged" msprop:Generator_RowEvArgName="VItem_oldRowChangeEvent" msprop:Generator_RowClassName="VItem_oldRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Warehouse" msprop:Generator_TableClassName="WarehouseDataTable" msprop:Generator_TableVarName="tableWarehouse" msprop:Generator_TablePropName="Warehouse" msprop:Generator_RowDeletingName="WarehouseRowDeleting" msprop:Generator_RowChangingName="WarehouseRowChanging" msprop:Generator_RowEvHandlerName="WarehouseRowChangeEventHandler" msprop:Generator_RowDeletedName="WarehouseRowDeleted" msprop:Generator_UserTableName="Warehouse" msprop:Generator_RowChangedName="WarehouseRowChanged" msprop:Generator_RowEvArgName="WarehouseRowChangeEvent" msprop:Generator_RowClassName="WarehouseRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

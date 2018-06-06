@@ -1,6 +1,6 @@
 ﻿namespace ContractManagement
 {
-    partial class CPAAdd
+    partial class CPAEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -46,9 +46,8 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.ContractNo = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Button();
+            this.submit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +62,8 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(776, 36);
             this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "New Contract Purchase Agreement";
+            this.textBox1.Text = "Edit Contract Purchase Agreement";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 
@@ -88,7 +88,7 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Size = new System.Drawing.Size(962, 470);
-            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new CPA";
             // 
@@ -254,61 +254,47 @@
             // 
             this.ContractNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ContractNo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ContractNo.Location = new System.Drawing.Point(103, 54);
+            this.ContractNo.Location = new System.Drawing.Point(103, 55);
             this.ContractNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ContractNo.Name = "ContractNo";
+            this.ContractNo.ReadOnly = true;
             this.ContractNo.Size = new System.Drawing.Size(116, 18);
             this.ContractNo.TabIndex = 0;
             this.ContractNo.Text = "CPA";
             // 
-            // button1
+            // back
             // 
-            this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(114, 568);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 58);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "<Back";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.back.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.back.Location = new System.Drawing.Point(270, 563);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(149, 44);
+            this.back.TabIndex = 23;
+            this.back.Text = "<Back";
+            this.back.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // submit
             // 
-            this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(398, 568);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(174, 58);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
+            this.submit.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.submit.Location = new System.Drawing.Point(535, 563);
+            this.submit.Name = "submit";
+            this.submit.Size = new System.Drawing.Size(149, 44);
+            this.submit.TabIndex = 24;
+            this.submit.Text = "Submit";
+            this.submit.UseVisualStyleBackColor = true;
+            this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(693, 568);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(174, 58);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Submit";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // CPAAdd
+            // CPAEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(986, 667);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(987, 635);
+            this.Controls.Add(this.submit);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
-            this.Name = "CPAAdd";
-            this.Text = "CPAAdd";
+            this.Name = "CPAEdit";
+            this.Text = "CPAEdit";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -322,6 +308,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox TAC;
         private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox ItemID;
+        private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.RichTextBox BillingAddress;
         private System.Windows.Forms.TextBox BuyerName;
         private System.Windows.Forms.TextBox textBox9;
@@ -334,10 +322,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox ContractNo;
-        private System.Windows.Forms.TextBox ItemID;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Button submit;
     }
 }

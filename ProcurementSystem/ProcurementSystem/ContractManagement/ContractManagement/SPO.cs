@@ -100,5 +100,19 @@ namespace ContractManagement
                 listView1.Items.Add(listitem);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nothing Selected", "ERROR");
+                return;
+            }
+            else
+            {
+                SPOEdit spoEdit = new SPOEdit(this, listView1);
+                spoEdit.ShowDialog();
+            }
+        }
     }
 }

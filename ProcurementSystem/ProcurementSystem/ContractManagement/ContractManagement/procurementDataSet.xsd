@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="procurementDataSet" targetNamespace="http://tempuri.org/procurementDataSet.xsd" xmlns:mstns="http://tempuri.org/procurementDataSet.xsd" xmlns="http://tempuri.org/procurementDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="procurementConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="procurementConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ContractManagement.Properties.Settings.GlobalReference.Default.procurementConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BlanketPurchaseAgreementTableAdapter" GeneratorDataComponentClassName="BlanketPurchaseAgreementTableAdapter" Name="BlanketPurchaseAgreement" UserDataComponentName="BlanketPurchaseAgreementTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="procurementConnectionString (Settings)" DbObjectName="procurement.BlanketPurchaseAgreement" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo FROM BlanketPurchaseAgreement</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="procurementDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="procurementDataSet" msprop:Generator_UserDSName="procurementDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BlanketPurchaseAgreement" msprop:Generator_TableClassName="BlanketPurchaseAgreementDataTable" msprop:Generator_TableVarName="tableBlanketPurchaseAgreement" msprop:Generator_TablePropName="BlanketPurchaseAgreement" msprop:Generator_RowDeletingName="BlanketPurchaseAgreementRowDeleting" msprop:Generator_RowChangingName="BlanketPurchaseAgreementRowChanging" msprop:Generator_RowEvHandlerName="BlanketPurchaseAgreementRowChangeEventHandler" msprop:Generator_RowDeletedName="BlanketPurchaseAgreementRowDeleted" msprop:Generator_UserTableName="BlanketPurchaseAgreement" msprop:Generator_RowChangedName="BlanketPurchaseAgreementRowChanged" msprop:Generator_RowEvArgName="BlanketPurchaseAgreementRowChangeEvent" msprop:Generator_RowClassName="BlanketPurchaseAgreementRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

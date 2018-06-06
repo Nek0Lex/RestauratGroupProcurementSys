@@ -32,7 +32,6 @@ namespace ContractManagement
             String effectiveDate = EffectiveDate.Value.ToString("yyyy-MM-dd");
             String buyerName = BuyerName.Text;
             String billAddress = BillingAddress.Text;
-
             String itemID = ItemID.Text;
             String tac = TAC.Text;
 

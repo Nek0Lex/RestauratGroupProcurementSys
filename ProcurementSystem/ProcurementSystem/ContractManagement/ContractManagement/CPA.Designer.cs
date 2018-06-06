@@ -39,10 +39,11 @@
             this.BillingAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TermsAndCondition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.Button();
+            this.Edit = new System.Windows.Forms.Button();
+            this.Create = new System.Windows.Forms.Button();
+            this.refresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,20 +55,20 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(776, 46);
+            this.textBox1.Size = new System.Drawing.Size(786, 46);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Contract Purchase Agreement";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.refresh);
             this.groupBox1.Controls.Add(this.listView1);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.Delete);
+            this.groupBox1.Controls.Add(this.Edit);
+            this.groupBox1.Controls.Add(this.Create);
             this.groupBox1.Location = new System.Drawing.Point(12, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 380);
+            this.groupBox1.Size = new System.Drawing.Size(786, 380);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
@@ -82,10 +83,13 @@
             this.BillingAddress,
             this.TermsAndCondition,
             this.ItemID});
+            this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(19, 22);
+            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listView1.Location = new System.Drawing.Point(19, 147);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(521, 343);
+            this.listView1.Size = new System.Drawing.Size(757, 218);
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -130,54 +134,67 @@
             // 
             this.ItemID.Text = "ItemID";
             // 
-            // button4
+            // back
             // 
-            this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(577, 322);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(181, 43);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "back";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.back.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.back.Location = new System.Drawing.Point(606, 17);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(164, 33);
+            this.back.TabIndex = 4;
+            this.back.Text = "back";
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // Delete
             // 
-            this.button3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(577, 147);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(181, 42);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Delete Contract Purchase Agreement";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Delete.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Delete.Location = new System.Drawing.Point(469, 20);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(181, 42);
+            this.Delete.TabIndex = 3;
+            this.Delete.Text = "Delete Contract Purchase Agreement";
+            this.Delete.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // Edit
             // 
-            this.button2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(577, 83);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(181, 40);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Edit Contract Purchase Agreement";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Edit.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Edit.Location = new System.Drawing.Point(243, 21);
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(181, 40);
+            this.Edit.TabIndex = 2;
+            this.Edit.Text = "Edit Contract Purchase Agreement";
+            this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
             // 
-            // button1
+            // Create
             // 
-            this.button1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(577, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 42);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Create New Contract Purchase Agreement";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Create.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Create.Location = new System.Drawing.Point(19, 21);
+            this.Create.Name = "Create";
+            this.Create.Size = new System.Drawing.Size(181, 42);
+            this.Create.TabIndex = 1;
+            this.Create.Text = "Create New Contract Purchase Agreement";
+            this.Create.UseVisualStyleBackColor = true;
+            this.Create.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // refresh
+            // 
+            this.refresh.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.refresh.Location = new System.Drawing.Point(19, 87);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(181, 33);
+            this.refresh.TabIndex = 5;
+            this.refresh.Text = "Refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // CPA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Name = "CPA";
@@ -194,10 +211,10 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Button Delete;
+        private System.Windows.Forms.Button Edit;
+        private System.Windows.Forms.Button Create;
         private System.Windows.Forms.ColumnHeader ContractNo;
         private System.Windows.Forms.ColumnHeader SupplierNo;
         private System.Windows.Forms.ColumnHeader CreationDate;
@@ -206,5 +223,6 @@
         private System.Windows.Forms.ColumnHeader BillingAddress;
         private System.Windows.Forms.ColumnHeader TermsAndCondition;
         private System.Windows.Forms.ColumnHeader ItemID;
+        private System.Windows.Forms.Button refresh;
     }
 }

@@ -39,6 +39,7 @@ namespace ContractManagement
                 listitem.SubItems.Add(dr["AmountAgreed"].ToString());
                 listitem.SubItems.Add(dr["Currency"].ToString());
                 listitem.SubItems.Add(dr["TermsAndCondition"].ToString());
+                listitem.SubItems.Add(dr["SupplierNo"].ToString());
 
                 listView1.Items.Add(listitem);
             }
@@ -91,10 +92,46 @@ namespace ContractManagement
             }
             else
             {
-                BPAEdit bPAEdit = new BPAEdit();
+                BPAEdit bPAEdit = new BPAEdit(this, listView1);
                 bPAEdit.ShowDialog();
             }
 
+        }
+
+        public string bpaNo
+        {
+           get { return listView1.SelectedItems[0].Text; }
+        }
+
+        private void refresh_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+            cnn.Open();
+            String query = "select * from BlanketPurchaseAgreement ORDER BY BPANo ASC;";
+            MySqlCommand cmd = new MySqlCommand(query, cnn);
+            MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+            DataTable dt = new DataTable();
+            ada.Fill(dt);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow dr = dt.Rows[i];
+
+                ListViewItem listitem = new ListViewItem(dr["BPANo"].ToString());
+                listitem.SubItems.Add(dr["RequestNo"].ToString());
+                listitem.SubItems.Add(dr["PurchaseOrderRevision"].ToString());
+                listitem.SubItems.Add(dr["CreationDate"].ToString());
+                listitem.SubItems.Add(dr["EffectiveDate"].ToString());
+                listitem.SubItems.Add(dr["BuyerName"].ToString());
+                listitem.SubItems.Add(dr["BillingAddress"].ToString());
+                listitem.SubItems.Add(dr["AmountAgreed"].ToString());
+                listitem.SubItems.Add(dr["Currency"].ToString());
+                listitem.SubItems.Add(dr["TermsAndCondition"].ToString());
+                listitem.SubItems.Add(dr["SupplierNo"].ToString());
+
+                listView1.Items.Add(listitem);
+            }
         }
     }
 }

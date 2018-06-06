@@ -95,6 +95,12 @@
     <Compile Include="CPAAdd.Designer.cs">
       <DependentUpon>CPAAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="CPAEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CPAEdit.Designer.cs">
+      <DependentUpon>CPAEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="PPOAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,12 @@
       <DependentUpon>PPO.cs</DependentUpon>
     </Compile>
     <Compile Include="MainProgram.cs" />
+    <Compile Include="PPOEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PPOEdit.Designer.cs">
+      <DependentUpon>PPOEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="SPO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +131,12 @@
     </Compile>
     <Compile Include="SPOAdd.Designer.cs">
       <DependentUpon>SPOAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPOEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPOEdit.Designer.cs">
+      <DependentUpon>SPOEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="TypeofAgreementMenu.cs">
       <SubType>Form</SubType>
@@ -142,17 +160,26 @@
     <EmbeddedResource Include="CPAAdd.resx">
       <DependentUpon>CPAAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CPAEdit.resx">
+      <DependentUpon>CPAEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PPO.resx">
       <DependentUpon>PPO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PPOAdd.resx">
       <DependentUpon>PPOAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PPOEdit.resx">
+      <DependentUpon>PPOEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SPO.resx">
       <DependentUpon>SPO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SPOAdd.resx">
       <DependentUpon>SPOAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPOEdit.resx">
+      <DependentUpon>SPOEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TypeofAgreementMenu.resx">
       <DependentUpon>TypeofAgreementMenu.cs</DependentUpon>
@@ -166,7 +193,28 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="procurementDataSet.xsc">
+      <DependentUpon>procurementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="procurementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="procurementDataSet.xss">
+      <DependentUpon>procurementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="procurementDataSet1.xsc">
+      <DependentUpon>procurementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="procurementDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="procurementDataSet1.xss">
+      <DependentUpon>procurementDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\BPAAdd.datasource" />
+    <None Include="Properties\DataSources\Form1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

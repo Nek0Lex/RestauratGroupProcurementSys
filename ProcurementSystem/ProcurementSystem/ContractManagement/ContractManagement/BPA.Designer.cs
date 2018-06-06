@@ -43,6 +43,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.Currency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TAC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SupplierNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.refresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,8 +65,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.refresh);
             this.groupBox1.Controls.Add(this.listView1);
-            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
@@ -75,7 +79,6 @@
             // 
             // listView1
             // 
-            this.listView1.CheckBoxes = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.BPANo,
             this.RequestNo,
@@ -84,7 +87,10 @@
             this.EffectiveDate,
             this.BuyerName,
             this.BillingAddress,
-            this.AmountAgreed});
+            this.AmountAgreed,
+            this.Currency,
+            this.TAC,
+            this.SupplierNo});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -100,7 +106,7 @@
             // BPANo
             // 
             this.BPANo.Text = "BPANo";
-            this.BPANo.Width = 53;
+            this.BPANo.Width = 80;
             // 
             // RequestNo
             // 
@@ -140,9 +146,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(16, 79);
+            this.button4.Location = new System.Drawing.Point(620, 20);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(124, 27);
+            this.button4.Size = new System.Drawing.Size(170, 27);
             this.button4.TabIndex = 4;
             this.button4.Text = "back";
             this.button4.UseVisualStyleBackColor = true;
@@ -181,12 +187,36 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Currency
+            // 
+            this.Currency.Text = "Currency";
+            // 
+            // TAC
+            // 
+            this.TAC.Text = "TermAndCondition";
+            // 
+            // SupplierNo
+            // 
+            this.SupplierNo.Text = "SupplierNo";
+            // 
+            // refresh
+            // 
+            this.refresh.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.refresh.Location = new System.Drawing.Point(16, 78);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(181, 27);
+            this.refresh.TabIndex = 6;
+            this.refresh.Text = "Refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
@@ -214,6 +244,10 @@
         private System.Windows.Forms.ColumnHeader BuyerName;
         private System.Windows.Forms.ColumnHeader BillingAddress;
         private System.Windows.Forms.ColumnHeader AmountAgreed;
+        private System.Windows.Forms.ColumnHeader Currency;
+        private System.Windows.Forms.ColumnHeader TAC;
+        private System.Windows.Forms.ColumnHeader SupplierNo;
+        private System.Windows.Forms.Button refresh;
     }
 }
 

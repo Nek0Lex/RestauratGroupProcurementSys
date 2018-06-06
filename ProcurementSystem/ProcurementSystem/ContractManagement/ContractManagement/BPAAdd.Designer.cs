@@ -300,10 +300,13 @@ namespace ContractManagement
             // 
             // BPANo
             // 
-            this.BPANo.Location = new System.Drawing.Point(73, 36);
+            this.BPANo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BPANo.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.BPANo.Location = new System.Drawing.Point(73, 41);
             this.BPANo.Name = "BPANo";
+            this.BPANo.ReadOnly = true;
             this.BPANo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.BPANo.Size = new System.Drawing.Size(134, 22);
+            this.BPANo.Size = new System.Drawing.Size(134, 16);
             this.BPANo.TabIndex = 1;
             this.BPANo.Text = "BPA";
             // 
@@ -401,7 +404,7 @@ namespace ContractManagement
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox SupplierNo;
         private System.Windows.Forms.TextBox textBox2;
-        private EventHandler groupBox1_Enter;
+        //private EventHandler groupBox1_Enter;
         private System.Windows.Forms.ComboBox currency;
     }
 }

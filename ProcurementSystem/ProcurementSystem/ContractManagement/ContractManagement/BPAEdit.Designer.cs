@@ -52,6 +52,8 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.BPANo = new System.Windows.Forms.TextBox();
             this.BPA = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -293,11 +295,15 @@
             // 
             // BPANo
             // 
-            this.BPANo.Location = new System.Drawing.Point(73, 36);
+            this.BPANo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BPANo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.BPANo.Location = new System.Drawing.Point(73, 41);
             this.BPANo.Name = "BPANo";
-            this.BPANo.Size = new System.Drawing.Size(134, 22);
+            this.BPANo.ReadOnly = true;
+            this.BPANo.Size = new System.Drawing.Size(134, 18);
             this.BPANo.TabIndex = 1;
             this.BPANo.Text = "BPA";
+            this.BPANo.TextChanged += new System.EventHandler(this.BPANo_TextChanged);
             // 
             // BPA
             // 
@@ -310,12 +316,36 @@
             this.BPA.TabIndex = 0;
             this.BPA.Text = "BPANo:";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button1.Location = new System.Drawing.Point(230, 444);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(149, 44);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "<Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button3.Location = new System.Drawing.Point(472, 444);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(149, 44);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Submit";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // BPAEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(846, 492);
+            this.ClientSize = new System.Drawing.Size(846, 524);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Name = "BPAEdit";
@@ -353,5 +383,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox BPANo;
         private System.Windows.Forms.TextBox BPA;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
     }
 }
