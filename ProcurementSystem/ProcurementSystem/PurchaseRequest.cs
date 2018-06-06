@@ -128,6 +128,19 @@ namespace ProcurementSystem
                     this.Refresh();
                 }
             }
+            btnRefresh_Click(sender, e);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            purchaseRequestList.Items.Clear();
+            DataTable dt2 = new DataTable();
+            MySqlDataAdapter sda = new MySqlDataAdapter("select pr.RequestNo from Staff as s, PurchaseRequest as pr, StaffRestaurant as sr, Restaurant as r where pr.RestNo = '" + restNo + "' and pr.RestNo = sr.RestNo and sr.StaffNo = s.StaffNo and sr.RestNo = r.RestNo Group by pr.RequestNo;", cnn);
+            sda.Fill(dt2);
+            foreach (DataRow dr in dt2.Rows)
+            {
+                purchaseRequestList.Items.Insert(0, dr["RequestNo"].ToString());
+            }
         }
     }
 }

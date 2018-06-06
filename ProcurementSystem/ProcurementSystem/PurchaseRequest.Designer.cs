@@ -38,6 +38,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.errorMsg = new System.Windows.Forms.Label();
             this.errorEditMsg = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -47,9 +48,9 @@
             this.label1.Font = new System.Drawing.Font("新細明體", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(278, 37);
+            this.label1.Size = new System.Drawing.Size(348, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Purchase Request";
+            this.label1.Text = "Purchase Request List";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // purchaseRequestList
@@ -100,7 +101,7 @@
             // prBack
             // 
             this.prBack.Cursor = System.Windows.Forms.Cursors.Default;
-            this.prBack.Location = new System.Drawing.Point(535, 387);
+            this.prBack.Location = new System.Drawing.Point(535, 336);
             this.prBack.Name = "prBack";
             this.prBack.Size = new System.Drawing.Size(197, 25);
             this.prBack.TabIndex = 5;
@@ -111,7 +112,7 @@
             // textSearch
             // 
             this.textSearch.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textSearch.Location = new System.Drawing.Point(535, 311);
+            this.textSearch.Location = new System.Drawing.Point(535, 287);
             this.textSearch.Name = "textSearch";
             this.textSearch.Size = new System.Drawing.Size(123, 22);
             this.textSearch.TabIndex = 6;
@@ -119,7 +120,7 @@
             // btnSearch
             // 
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSearch.Location = new System.Drawing.Point(664, 311);
+            this.btnSearch.Location = new System.Drawing.Point(664, 287);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 7;
@@ -144,11 +145,22 @@
             this.errorEditMsg.Size = new System.Drawing.Size(0, 12);
             this.errorEditMsg.TabIndex = 9;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(535, 389);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(138, 23);
+            this.btnRefresh.TabIndex = 10;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // PurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.errorEditMsg);
             this.Controls.Add(this.errorMsg);
             this.Controls.Add(this.btnSearch);
@@ -179,5 +191,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label errorMsg;
         private System.Windows.Forms.Label errorEditMsg;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
