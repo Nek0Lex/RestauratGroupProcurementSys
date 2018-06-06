@@ -9,9 +9,9 @@
 2. Add:heavy_check_mark:
       - ~~function~~
       - ~~ui~~
-3. Edit:x:
-      - function
-      - ui
+3. Edit:heavy_check_mark:
+      - ~~function~~
+      - ~~ui~~
 4. Delete:x:
       - function
       - ui
@@ -25,9 +25,9 @@
 2. ~~Add~~:heavy_check_mark:
       - ~~function~~
       - ~~ui~~
-3. Edit:x:
-      - function
-      - ui
+3. Edit:heavy_check_mark:
+      - ~~function~~
+      - ~~ui~~
 4. Delete:x:
       - function
       - ui
@@ -41,9 +41,9 @@
 2. Add:heavy_check_mark:
       - ~~function~~
       - ~~ui~~
-3. Edit:x:
-      - function
-      - ui
+3. Edit:heavy_check_mark:
+      - ~~function~~
+      - ~~ui~~
 4. Delete:x:
       - function
       - ui
@@ -57,9 +57,9 @@
 2. Add:heavy_check_mark:
       - ~~function~~
       - ~~ui~~
-3. Edit:x:
-      - function
-      - ui
+3. Edit:heavy_check_mark:
+      - ~~function~~
+      - ~~ui~~
 4. Delete:x:
       - function
       - ui
