@@ -43,6 +43,7 @@
             this.searchByStaffNo = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.searchText = new System.Windows.Forms.ComboBox();
+            this.errorSearchMsg = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,9 +118,9 @@
             // btnSearch
             // 
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSearch.Location = new System.Drawing.Point(684, 196);
+            this.btnSearch.Location = new System.Drawing.Point(681, 196);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(78, 23);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -129,7 +130,7 @@
             // 
             this.errorMsg.AutoSize = true;
             this.errorMsg.ForeColor = System.Drawing.Color.Red;
-            this.errorMsg.Location = new System.Drawing.Point(533, 257);
+            this.errorMsg.Location = new System.Drawing.Point(310, 290);
             this.errorMsg.Name = "errorMsg";
             this.errorMsg.Size = new System.Drawing.Size(0, 12);
             this.errorMsg.TabIndex = 8;
@@ -138,7 +139,7 @@
             // 
             this.errorEditMsg.AutoSize = true;
             this.errorEditMsg.ForeColor = System.Drawing.Color.Red;
-            this.errorEditMsg.Location = new System.Drawing.Point(533, 176);
+            this.errorEditMsg.Location = new System.Drawing.Point(310, 207);
             this.errorEditMsg.Name = "errorEditMsg";
             this.errorEditMsg.Size = new System.Drawing.Size(0, 12);
             this.errorEditMsg.TabIndex = 9;
@@ -187,6 +188,7 @@
             this.searchByStaffNo.TabStop = true;
             this.searchByStaffNo.Text = "Staff No";
             this.searchByStaffNo.UseVisualStyleBackColor = true;
+            this.searchByStaffNo.CheckedChanged += new System.EventHandler(this.searchByStaffNo_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -205,14 +207,24 @@
             this.searchText.FormattingEnabled = true;
             this.searchText.Location = new System.Drawing.Point(535, 196);
             this.searchText.Name = "searchText";
-            this.searchText.Size = new System.Drawing.Size(121, 20);
+            this.searchText.Size = new System.Drawing.Size(140, 20);
             this.searchText.TabIndex = 16;
+            // 
+            // errorSearchMsg
+            // 
+            this.errorSearchMsg.AutoSize = true;
+            this.errorSearchMsg.ForeColor = System.Drawing.Color.Red;
+            this.errorSearchMsg.Location = new System.Drawing.Point(533, 176);
+            this.errorSearchMsg.Name = "errorSearchMsg";
+            this.errorSearchMsg.Size = new System.Drawing.Size(0, 12);
+            this.errorSearchMsg.TabIndex = 17;
             // 
             // PurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.errorSearchMsg);
             this.Controls.Add(this.searchText);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnRefresh);
@@ -252,5 +264,6 @@
         private System.Windows.Forms.RadioButton searchByStaffNo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox searchText;
+        private System.Windows.Forms.Label errorSearchMsg;
     }
 }

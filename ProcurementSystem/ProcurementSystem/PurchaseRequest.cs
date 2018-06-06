@@ -145,17 +145,76 @@ namespace ProcurementSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
+            if (searchText.Text == null)
+            {
+                errorSearchMsg.Text = "Search Item cannot be null";
+            }
+            else {
+                if (searchByRequestNo.Checked)
+                {
+                    MySqlDataAdapter searchRequestNo = new MySqlDataAdapter("Select RequestNo from PurchaseRequest where RequestNo ='" + searchText.Text+ "' Group By RequestNo;", cnn);
+                    DataTable result = new DataTable();
+                    searchRequestNo.Fill(result);
+                    purchaseRequestList.Items.Clear();
+                    foreach (DataRow dr in result.Rows)
+                    {
+                        purchaseRequestList.Items.Insert(0, dr["RequestNo"].ToString());
+                    }
+                }
+                else if (searchByStaffNo.Checked)
+                {
+                    MySqlDataAdapter searchRequestNo = new MySqlDataAdapter("Select RequestNo from PurchaseRequest where StaffNo ='" + searchText.Text + "';", cnn);
+                    DataTable result = new DataTable();
+                    searchRequestNo.Fill(result);
+                    purchaseRequestList.Items.Clear();
+                    foreach (DataRow dr in result.Rows)
+                    {
+                        purchaseRequestList.Items.Insert(0, dr["RequestNo"].ToString());
+                    }
+                }
+                else if (searchByStatus.Checked) {
+                    MySqlDataAdapter searchRequestNo = new MySqlDataAdapter("Select RequestNo from PurchaseRequest where Status ='" + searchText.Text + "';", cnn);
+                    DataTable result = new DataTable();
+                    searchRequestNo.Fill(result);
+                    purchaseRequestList.Items.Clear();
+                    foreach (DataRow dr in result.Rows)
+                    {
+                        purchaseRequestList.Items.Insert(0, dr["RequestNo"].ToString());
+                    }
+                }
+            }
         }
 
         private void searchByRequestNo_CheckedChanged(object sender, EventArgs e)
         {
-
+            searchText.Text = null;
+            searchText.Items.Clear();
+            searchText.DropDownStyle = ComboBoxStyle.DropDown;
         }
 
         private void searchByStatus_CheckedChanged(object sender, EventArgs e)
         {
+            searchText.Text = null;
+            searchText.Items.Clear();
+            searchText.DropDownStyle = ComboBoxStyle.DropDownList;
+            string[] statusList = {"NEW", "PSS", "DLI", "CAN", "PPO", "SPO", "BPA", "COM" };
+            foreach (string status in statusList)
+            {
+                searchText.Items.Add(status);
+            }
+        }
 
+        private void searchByStaffNo_CheckedChanged(object sender, EventArgs e)
+        {
+            searchText.Text = null;
+            searchText.Items.Clear();
+            searchText.DropDownStyle = ComboBoxStyle.DropDownList;
+            MySqlDataAdapter staffList = new MySqlDataAdapter("select sr.StaffNo from Staff as s, StaffRestaurant as sr, Restaurant as r where sr.StaffNo = s.StaffNo and sr.RestNo = r.RestNo and sr.RestNo = '"+restNo+"';", cnn);
+            DataTable staff = new DataTable();
+            staffList.Fill(staff);
+            foreach (DataRow dr in staff.Rows) {
+                searchText.Items.Add(dr["StaffNo"].ToString());
+            }
         }
     }
 }
