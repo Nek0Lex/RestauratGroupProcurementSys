@@ -34,7 +34,7 @@ namespace ProcurementSystem
             rid = "R" + restID.ToString().PadLeft(3, '0');
             tbID.Text = rid;
             Dictionary<String, String> comboSource = new Dictionary<String, String>();
-            MySqlDataAdapter sda2 = new MySqlDataAdapter("select name from Category where parent_id is not null;", cnn);
+            MySqlDataAdapter sda2 = new MySqlDataAdapter("select distinct name from Category where parent_id is not null;", cnn);
             DataTable dt2 = new DataTable();
             sda2.Fill(dt2);
             int i = 1;
