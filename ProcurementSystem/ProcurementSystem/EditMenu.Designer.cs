@@ -112,6 +112,7 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.listViewUser.FullRowSelect = true;
             this.listViewUser.GridLines = true;
             this.listViewUser.Location = new System.Drawing.Point(20, 67);
             this.listViewUser.MultiSelect = false;
@@ -155,8 +156,9 @@
             this.label1.Font = new System.Drawing.Font("新細明體", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(13, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 37);
+            this.label1.Size = new System.Drawing.Size(403, 37);
             this.label1.TabIndex = 10;
+            this.label1.Text = "Edit Supplier Information";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // EditMenu

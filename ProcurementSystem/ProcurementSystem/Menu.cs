@@ -35,6 +35,7 @@ namespace ProcurementSystem
                 case "PM":
                     lb1.Text = "Purchase Manager";
                     btn1.Text = "Agreement";
+                    btn2.Text = "Supplier";
                     btn4.Text = "Edit User Information";
                     break;
                 case "RM":
@@ -133,6 +134,11 @@ namespace ProcurementSystem
                     this.Hide();
                     CreateRest crest = new CreateRest(this);
                     crest.Show();
+                    break;
+                case "PM":
+                    this.Hide();
+                    SupplierMenu sm = new SupplierMenu(this);
+                    sm.Show();
                     break;
             }
         }

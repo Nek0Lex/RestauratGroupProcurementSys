@@ -207,6 +207,9 @@
     <EmbeddedResource Include="CreateRest.resx">
       <DependentUpon>CreateRest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateSupp.resx">
+      <DependentUpon>CreateSupp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditAc.resx">
       <DependentUpon>EditAc.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditRest.resx">
       <DependentUpon>EditRest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSupp.resx">
+      <DependentUpon>EditSupp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreatePurchaseRequest.resx">
       <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierMenu.resx">
+      <DependentUpon>SupplierMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TypeofAgreementMenu.resx">
       <DependentUpon>TypeofAgreementMenu.cs</DependentUpon>
