@@ -17,6 +17,8 @@ namespace ProcurementSystem
         private string restNo;
         private int quantity;
         private string restHierarchy;
+        private string selectedRequest;
+        private DateTime createDate;
         private PurchaseRequest pr;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public EditPurchaseRequest(PurchaseRequest pr, string staffNo, string restNo, string staffName, string restName, string selectedRequest, string createDate)
@@ -28,6 +30,8 @@ namespace ProcurementSystem
             RestId.Text = restNo;
             RestName.Text = restName;
             CreateDate.Text = createDate.Substring(0,10);
+            this.createDate = DateTime.Parse(createDate);
+            this.selectedRequest = selectedRequest;
             this.restNo = restNo;
             this.staffNo = staffNo;
             title.Text = "Purchase Request " + selectedRequest;
@@ -108,6 +112,30 @@ namespace ProcurementSystem
                 }
             }
             catch (Exception ex) { }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            MySqlCommand delOld = new MySqlCommand("delete from PurchaseRequest where RequestNo ='"+ selectedRequest + "';",cnn);
+            delOld.ExecuteNonQuery();
+            for (int i = 0; i < purchaseList2.RowCount - 1; i++)
+            {
+                try
+                {
+                    if (purchaseList2.Rows[i].Cells[0] != null)
+                    {
+                        MySqlCommand add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, category_id, StaffNo, RestNo) Value ('" + selectedRequest + "', '" + createDate.ToString("yyyy-MM-dd")+ "', " + purchaseList2.Rows[i].Cells[1].Value.ToString() + ", 'NEW', '" + purchaseList2.Rows[i].Cells[2].Value + "', " + purchaseList2.Rows[i].Cells[3].Value + ", '" + staffNo + "', '" + restNo + "');", cnn);
+                        add.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+            this.Close();
+            pr.Refresh();
+            pr.Show();
         }
     }
 }
