@@ -22,7 +22,7 @@ namespace ProcurementSystem
             InitializeComponent();
             this.restNo = restNo;
             Dictionary<String, String> comboSource = new Dictionary<String, String>();
-            MySqlDataAdapter sda = new MySqlDataAdapter("select name from Category where parent_id is not null;", cnn);
+            MySqlDataAdapter sda = new MySqlDataAdapter("select distinct name from Category where parent_id is not null;", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             int i = 1;
