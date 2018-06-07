@@ -44,6 +44,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.searchText = new System.Windows.Forms.ComboBox();
             this.errorSearchMsg = new System.Windows.Forms.Label();
+            this.currentLogin = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -219,11 +220,23 @@
             this.errorSearchMsg.Size = new System.Drawing.Size(0, 12);
             this.errorSearchMsg.TabIndex = 17;
             // 
+            // currentLogin
+            // 
+            this.currentLogin.AutoSize = true;
+            this.currentLogin.Cursor = System.Windows.Forms.Cursors.Default;
+            this.currentLogin.Font = new System.Drawing.Font("新細明體", 20F, System.Drawing.FontStyle.Bold);
+            this.currentLogin.Location = new System.Drawing.Point(530, 19);
+            this.currentLogin.Name = "currentLogin";
+            this.currentLogin.Size = new System.Drawing.Size(157, 27);
+            this.currentLogin.TabIndex = 18;
+            this.currentLogin.Text = "Hello, //Staff";
+            // 
             // PurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.currentLogin);
             this.Controls.Add(this.errorSearchMsg);
             this.Controls.Add(this.searchText);
             this.Controls.Add(this.groupBox1);
@@ -265,5 +278,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox searchText;
         private System.Windows.Forms.Label errorSearchMsg;
+        private System.Windows.Forms.Label currentLogin;
     }
 }
