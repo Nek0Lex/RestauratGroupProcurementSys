@@ -15,9 +15,9 @@ namespace ProcurementSystem
 {
     public partial class CreateSupp : Form
     {
-        private Menu m;
+        private SupplierMenu m;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-        public CreateSupp(String SNo, Menu m)
+        public CreateSupp(String SNo, SupplierMenu m)
         {
             InitializeComponent();
             this.m = m;

@@ -15,10 +15,10 @@ namespace ProcurementSystem
 {
     public partial class EditSupp : Form
     {
-        private Menu m;
+        private SupplierMenu m;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
         private String SNo, SName, SContact, SAddress;
-        public EditSupp(String SNo, String SName, String SContact, String SAddress, Menu m)
+        public EditSupp(String SNo, String SName, String SContact, String SAddress, SupplierMenu m)
         {
             InitializeComponent();
             this.m = m;

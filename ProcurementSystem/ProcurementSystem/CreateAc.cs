@@ -16,10 +16,10 @@ namespace ProcurementSystem
     public partial class CreateAc : Form
     {
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
-        private Menu m = null;
+        private EditMenu m = null;
         private String uid;
         private String restNum;
-        public CreateAc(Menu m)
+        public CreateAc(EditMenu m)
         {
             InitializeComponent();
             this.m = m;
@@ -78,6 +78,19 @@ namespace ProcurementSystem
             staffNo += 1;
             uid = deptCode + staffNo.ToString().PadLeft(6, '0');
             tbID.Text = staffNo.ToString().PadLeft(6, '0');
+
+            if (((KeyValuePair<String, String>)comboBox1.SelectedItem).Value == "RM")
+            {
+                comboBox2.Enabled = true;
+                comboBox2.Visible = true;
+                label7.Visible = true;
+            }
+            else
+            {
+                comboBox2.Enabled = false;
+                comboBox2.Visible = false;
+                label7.Visible = false;
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -110,10 +123,13 @@ namespace ProcurementSystem
                 cnn.Open();
                 command.ExecuteNonQuery();
                 cnn.Close();
-                command.CommandText = "insert into StaffRestaurant values('" + uid + "','" + restNum + "');";
-                cnn.Open();
-                command.ExecuteNonQuery();
-                cnn.Close();
+                if (((KeyValuePair<String, String>)comboBox1.SelectedItem).Value == "RM")
+                {
+                    command.CommandText = "insert into StaffRestaurant values('" + uid + "','" + restNum + "');";
+                    cnn.Open();
+                    command.ExecuteNonQuery();
+                    cnn.Close();
+                }
                 //show create success message
                 MessageBox.Show("Create Success!", "Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

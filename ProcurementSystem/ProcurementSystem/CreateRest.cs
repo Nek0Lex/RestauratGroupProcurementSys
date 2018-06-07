@@ -15,9 +15,9 @@ namespace ProcurementSystem
 {
     public partial class CreateRest : Form
     {
-        private Menu m;
+        private EditMenu m;
         private String rid;
-        public CreateRest(Menu m)
+        public CreateRest(EditMenu m)
         {
             InitializeComponent();
             this.m = m;

@@ -70,10 +70,9 @@ namespace ProcurementSystem
                     break;
                 case "AM":
                     lb1.Text = "ADMIN";
-                    btn1.Text = "Create New User";
-                    btn2.Text = "Create New Restaurant";
-                    btn3.Text = "Edit Staff Information";
-                    btn4.Text = "Edit Restaurant Information";
+                    btn1.Text = "User";
+                    btn2.Text = "Restaurant";
+                    btn3.Text = "Supplier";
                     break;
             }
         }
@@ -99,8 +98,8 @@ namespace ProcurementSystem
             {
                 case "AM":
                     this.Hide();
-                    CreateAc cac = new CreateAc(this);
-                    cac.Show();
+                    EditMenu em = new EditMenu(this, 0);
+                    em.Show();
                     break;
                 case "RM":
                     this.Hide();
@@ -138,8 +137,8 @@ namespace ProcurementSystem
             {
                 case "AM":
                     this.Hide();
-                    CreateRest crest = new CreateRest(this);
-                    crest.Show();
+                    EditMenu em = new EditMenu(this, 1);
+                    em.Show();
                     break;
                 case "PM":
                     this.Hide();
@@ -166,11 +165,6 @@ namespace ProcurementSystem
                     EditAc eac = new EditAc(deptCode, StaffNo, this);
                     eac.Show();
                     break;
-                case "AM":
-                    this.Hide();
-                    EditMenu em = new EditMenu(this, 1);
-                    em.Show();
-                    break;
             }
         }
 
@@ -185,8 +179,8 @@ namespace ProcurementSystem
                     break;
                 case "AM":
                     this.Hide();
-                    EditMenu em = new EditMenu(this, 0);
-                    em.Show();
+                    SupplierMenu sm = new SupplierMenu(this);
+                    sm.Show();
                     break;
             }
         }

@@ -16,8 +16,27 @@ namespace ProcurementSystem
     public partial class EditAc : Form
     {
         private String deptCode, StaffNo, restNo;
-        private Menu m;
+        private EditMenu em=null;
+        private Menu m = null;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
+        public EditAc(String deptCode, String StaffNo, EditMenu em)
+        {
+            InitializeComponent();
+            this.StaffNo = StaffNo;
+            this.deptCode = deptCode;
+            this.em = em;
+            if (deptCode == "AM")
+            {
+                comboBox2.Enabled = true;
+                comboBox2.Visible = true;
+            }
+            else
+            {
+                comboBox2.Visible = false;
+                label7.Visible = false;
+            }
+            setData();
+        }
         public EditAc(String deptCode, String StaffNo, Menu m)
         {
             InitializeComponent();
@@ -74,13 +93,17 @@ namespace ProcurementSystem
                 comboBox2.DataSource = new BindingSource(comboSource2, null);
                 comboBox2.DisplayMember = "Value";
                 comboBox2.ValueMember = "Key";
+
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            m.Show();
+            if (em != null)
+                em.Show();
+            else
+                m.Show();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -106,20 +129,37 @@ namespace ProcurementSystem
                 cnn.Close();
                 if (deptCode == "AM")
                 {
-                    command = new MySqlCommand("UPDATE StaffRestaurant SET StaffNo = '" + StaffNo + "', RestNo = '" + restNo + "' WHERE StaffNo = '" + StaffNo + "';", cnn);
-                    cnn.Open();
-                    command.ExecuteNonQuery();
-                    cnn.Close();
+                    if (((KeyValuePair<String, String>)comboBox1.SelectedItem).Value == "RM")
+                    {
+                        command = new MySqlCommand("UPDATE StaffRestaurant SET StaffNo = '" + StaffNo + "', RestNo = '" + restNo + "' WHERE StaffNo = '" + StaffNo + "';", cnn);
+                        cnn.Open();
+                        command.ExecuteNonQuery();
+                        cnn.Close();
+                    }
                 }
                 MessageBox.Show("Update Success!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                m.Show();
+                if (em != null)
+                    em.Show();
+                else
+                    m.Show();
             }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (((KeyValuePair<String, String>)comboBox1.SelectedItem).Value == "RM")
+            {
+                comboBox2.Enabled = true;
+                comboBox2.Visible = true;
+                label7.Visible = true;
+            }
+            else
+            {
+                comboBox2.Enabled = false;
+                comboBox2.Visible = false;
+                label7.Visible = false;
+            }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

@@ -16,7 +16,28 @@ namespace ProcurementSystem
     {
         private MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         private String restNo, name, address, hierarchy;
-        private Menu m;
+        private EditMenu em = null;
+        private Menu m = null;
+        public EditRest(String restNo, EditMenu em)
+        {
+            InitializeComponent();
+            this.restNo = restNo;
+            Dictionary<String, String> comboSource = new Dictionary<String, String>();
+            MySqlDataAdapter sda = new MySqlDataAdapter("select distinct name from Category where parent_id is not null;", cnn);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            int i = 1;
+            foreach (DataRow dr in dt.Rows)
+            {
+                comboSource.Add(i++.ToString(), dr["name"].ToString());
+            }
+            comboBox1.DataSource = new BindingSource(comboSource, null);
+            comboBox1.DisplayMember = "Value";
+            comboBox1.ValueMember = "Key";
+            setData();
+            this.em = em;
+        }
+
         public EditRest(String restNo, Menu m)
         {
             InitializeComponent();
@@ -36,6 +57,7 @@ namespace ProcurementSystem
             setData();
             this.m = m;
         }
+
         public void setData()
         {
             tbID.Text = restNo;
@@ -57,8 +79,11 @@ namespace ProcurementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (em != null)
+                em.Show();
+            else
+                m.Show();
             this.Close();
-            m.Show();
         }
 
         private void tbRName_TextChanged(object sender, EventArgs e)
@@ -88,7 +113,10 @@ namespace ProcurementSystem
                 cnn.Close();
                 MessageBox.Show("Update Success!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                m.Show();
+                if (em != null)
+                    em.Show();
+                else
+                    m.Show();
             }
          }
 
