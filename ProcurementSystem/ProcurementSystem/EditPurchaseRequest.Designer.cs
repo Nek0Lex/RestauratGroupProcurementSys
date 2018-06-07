@@ -59,7 +59,7 @@
             // deleteItem
             // 
             this.deleteItem.Font = new System.Drawing.Font("新細明體", 11F);
-            this.deleteItem.Location = new System.Drawing.Point(574, 254);
+            this.deleteItem.Location = new System.Drawing.Point(557, 264);
             this.deleteItem.Name = "deleteItem";
             this.deleteItem.Size = new System.Drawing.Size(75, 23);
             this.deleteItem.TabIndex = 40;
@@ -70,7 +70,7 @@
             // qtn
             // 
             this.qtn.Font = new System.Drawing.Font("新細明體", 13F);
-            this.qtn.Location = new System.Drawing.Point(441, 334);
+            this.qtn.Location = new System.Drawing.Point(424, 344);
             this.qtn.Name = "qtn";
             this.qtn.Size = new System.Drawing.Size(112, 28);
             this.qtn.TabIndex = 38;
@@ -79,7 +79,7 @@
             // 
             this.txtQtn.AutoSize = true;
             this.txtQtn.Font = new System.Drawing.Font("新細明體", 13F);
-            this.txtQtn.Location = new System.Drawing.Point(358, 337);
+            this.txtQtn.Location = new System.Drawing.Point(341, 347);
             this.txtQtn.Name = "txtQtn";
             this.txtQtn.Size = new System.Drawing.Size(77, 18);
             this.txtQtn.TabIndex = 37;
@@ -89,7 +89,7 @@
             // 
             this.txtItem.AutoSize = true;
             this.txtItem.Font = new System.Drawing.Font("新細明體", 13F);
-            this.txtItem.Location = new System.Drawing.Point(137, 337);
+            this.txtItem.Location = new System.Drawing.Point(120, 347);
             this.txtItem.Name = "txtItem";
             this.txtItem.Size = new System.Drawing.Size(50, 18);
             this.txtItem.TabIndex = 36;
@@ -98,7 +98,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("新細明體", 11F);
-            this.btnAdd.Location = new System.Drawing.Point(578, 337);
+            this.btnAdd.Location = new System.Drawing.Point(561, 347);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 35;
@@ -111,7 +111,7 @@
             this.itemList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemList.Font = new System.Drawing.Font("新細明體", 11F);
             this.itemList.FormattingEnabled = true;
-            this.itemList.Location = new System.Drawing.Point(193, 336);
+            this.itemList.Location = new System.Drawing.Point(176, 346);
             this.itemList.Name = "itemList";
             this.itemList.Size = new System.Drawing.Size(136, 23);
             this.itemList.TabIndex = 34;
@@ -257,7 +257,7 @@
             this.ItemQuantity,
             this.VItemId,
             this.category_id});
-            this.purchaseList2.Location = new System.Drawing.Point(135, 141);
+            this.purchaseList2.Location = new System.Drawing.Point(118, 151);
             this.purchaseList2.Name = "purchaseList2";
             this.purchaseList2.ReadOnly = true;
             this.purchaseList2.RowTemplate.Height = 24;
@@ -295,7 +295,7 @@
             this.errorMsg.AutoSize = true;
             this.errorMsg.Font = new System.Drawing.Font("新細明體", 13F);
             this.errorMsg.ForeColor = System.Drawing.Color.Red;
-            this.errorMsg.Location = new System.Drawing.Point(438, 365);
+            this.errorMsg.Location = new System.Drawing.Point(421, 375);
             this.errorMsg.Name = "errorMsg";
             this.errorMsg.Size = new System.Drawing.Size(0, 18);
             this.errorMsg.TabIndex = 42;

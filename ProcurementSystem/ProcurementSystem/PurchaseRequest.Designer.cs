@@ -97,7 +97,7 @@
             // deletePRbtn
             // 
             this.deletePRbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.deletePRbtn.Location = new System.Drawing.Point(312, 239);
+            this.deletePRbtn.Location = new System.Drawing.Point(312, 254);
             this.deletePRbtn.Name = "deletePRbtn";
             this.deletePRbtn.Size = new System.Drawing.Size(197, 48);
             this.deletePRbtn.TabIndex = 4;
@@ -108,7 +108,7 @@
             // prBack
             // 
             this.prBack.Cursor = System.Windows.Forms.Cursors.Default;
-            this.prBack.Location = new System.Drawing.Point(312, 387);
+            this.prBack.Location = new System.Drawing.Point(591, 413);
             this.prBack.Name = "prBack";
             this.prBack.Size = new System.Drawing.Size(197, 25);
             this.prBack.TabIndex = 5;
@@ -147,9 +147,9 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(312, 323);
+            this.btnRefresh.Location = new System.Drawing.Point(312, 366);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(138, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(131, 46);
             this.btnRefresh.TabIndex = 10;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
