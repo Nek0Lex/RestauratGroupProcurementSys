@@ -113,7 +113,22 @@ namespace ProcurementSystem
 
         private void EditCategory_Click(object sender, EventArgs e)
         {
+            MySqlCommand edit;
+            cnn.Open();
+            try
+            {
+                edit = new MySqlCommand("UPDATE Category SET name = '" + textBox1.Text + "' WHERE category_id = " + treeView1.SelectedNode.Tag.ToString() +"; ", cnn);
+                edit.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
 
+            }
+            finally
+            {
+                cnn.Close();
+            }
+            ReloadCategory();
         }
     }
 
