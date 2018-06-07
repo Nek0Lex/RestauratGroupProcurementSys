@@ -127,6 +127,12 @@
     <Compile Include="EditSupp.Designer.cs">
       <DependentUpon>EditSupp.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditVIDMapping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditVIDMapping.Designer.cs">
+      <DependentUpon>EditVIDMapping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Item.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -17,6 +17,7 @@ namespace ProcurementSystem
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         private Menu m = null;
         DataTable itemInfo;
+        string currentCategory;
         //List<object> cat;
 
         public Category(Menu m)
@@ -57,6 +58,17 @@ namespace ProcurementSystem
             cnn.Close();
         }
 
+        public void ReloadVItem()
+        {
+            cnn.Open();
+            currentCategory = treeView1.SelectedNode.Tag.ToString();
+            MySqlDataAdapter sda = new MySqlDataAdapter("SELECT VItemID, i.ItemID, ItemName,ItemDescription FROM VItem v, Item i where v.ItemId=i.ItemID AND v.category_id = " + currentCategory + "; ", cnn);
+            itemInfo = new DataTable();
+            sda.Fill(itemInfo);
+            dataGridView1.DataSource = itemInfo;
+            cnn.Close();
+        }
+
         private void Category_Load(object sender, EventArgs e)
         {
             ReloadCategory();
@@ -64,22 +76,18 @@ namespace ProcurementSystem
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            cnn.Open();
-            MySqlDataAdapter sda = new MySqlDataAdapter("SELECT VItemID, i.ItemID, ItemName,ItemDescription FROM VItem v, Item i where v.ItemId=i.ItemID AND v.category_id = " + treeView1.SelectedNode.Tag.ToString() + "; ", cnn);
-            itemInfo = new DataTable();
-            sda.Fill(itemInfo);
-            dataGridView1.DataSource = itemInfo;
-            cnn.Close();
+            ReloadVItem();
         }
 
         private void AddCategory_Click(object sender, EventArgs e)
         {
+            currentCategory = treeView1.SelectedNode.Tag.ToString();
             //textBox1.Visible = !textBox1.Visible;
             //MessageBox.Show(treeView1.SelectedNode.Tag.ToString());
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
                 cnn.Open();
-                MySqlCommand add = new MySqlCommand("INSERT INTO Category (name, parent_id) Value ('" + textBox1.Text.ToString() + "', " + treeView1.SelectedNode.Tag.ToString() + ");", cnn);
+                MySqlCommand add = new MySqlCommand("INSERT INTO Category (name, parent_id) Value ('" + textBox1.Text.ToString() + "', " + currentCategory + ");", cnn);
                 add.ExecuteNonQuery();
                 cnn.Close();
                 ReloadCategory();
@@ -95,10 +103,11 @@ namespace ProcurementSystem
         private void DeleteCategory_Click(object sender, EventArgs e)
         {
             MySqlCommand del;
+            currentCategory = treeView1.SelectedNode.Tag.ToString();
             cnn.Open();
             try
             {
-                del = new MySqlCommand("DELETE FROM Category WHERE category_id = " + treeView1.SelectedNode.Tag.ToString() + "; ", cnn);
+                del = new MySqlCommand("DELETE FROM Category WHERE category_id = " + currentCategory + "; ", cnn);
                 del.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -115,10 +124,11 @@ namespace ProcurementSystem
         private void EditCategory_Click(object sender, EventArgs e)
         {
             MySqlCommand edit;
+            currentCategory = treeView1.SelectedNode.Tag.ToString();
             cnn.Open();
             try
             {
-                edit = new MySqlCommand("UPDATE Category SET name = '" + textBox1.Text + "' WHERE category_id = " + treeView1.SelectedNode.Tag.ToString() +"; ", cnn);
+                edit = new MySqlCommand("UPDATE Category SET name = '" + textBox1.Text + "' WHERE category_id = " + currentCategory + "; ", cnn);
                 edit.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -134,7 +144,43 @@ namespace ProcurementSystem
 
         private void UpdateVIDMapping_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                string VItemID = row.Cells[0].Value.ToString();
+                string ItemID = row.Cells[1].Value.ToString();
+                string ItemName = row.Cells[2].Value.ToString();
+                string ItemDescription = row.Cells[3].Value.ToString();
+            }
+        }
 
+        private void CreateVIDMapping_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteVIDMapping_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                string VItemID = row.Cells[0].Value.ToString();
+                MySqlCommand del;
+                currentCategory = treeView1.SelectedNode.Tag.ToString();
+                cnn.Open();
+                try
+                {
+                    del = new MySqlCommand("DELETE FROM VItem WHERE VItemID = '" + VItemID + "' AND category_id = " + currentCategory + "; ", cnn);
+                    del.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                ReloadVItem();
+            }
         }
     }
 
