@@ -35,7 +35,9 @@
             this.DeleteCategory = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.EditCategory = new System.Windows.Forms.Button();
-            this.UpdateVIDMapping = new System.Windows.Forms.Button();
+            this.Update = new System.Windows.Forms.Button();
+            this.DeleteVIDMapping = new System.Windows.Forms.Button();
+            this.CreateVIDMapping = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,9 +73,9 @@
             // 
             // Back
             // 
-            this.Back.Location = new System.Drawing.Point(905, 497);
+            this.Back.Location = new System.Drawing.Point(905, 522);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(104, 23);
+            this.Back.Size = new System.Drawing.Size(104, 33);
             this.Back.TabIndex = 3;
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = true;
@@ -106,22 +108,44 @@
             this.EditCategory.UseVisualStyleBackColor = true;
             this.EditCategory.Click += new System.EventHandler(this.EditCategory_Click);
             // 
-            // UpdateVIDMapping
+            // Update
             // 
-            this.UpdateVIDMapping.Location = new System.Drawing.Point(637, 497);
-            this.UpdateVIDMapping.Name = "UpdateVIDMapping";
-            this.UpdateVIDMapping.Size = new System.Drawing.Size(124, 23);
-            this.UpdateVIDMapping.TabIndex = 7;
-            this.UpdateVIDMapping.Text = "Update Record";
-            this.UpdateVIDMapping.UseVisualStyleBackColor = true;
-            this.UpdateVIDMapping.Click += new System.EventHandler(this.UpdateVIDMapping_Click);
+            this.Update.Location = new System.Drawing.Point(564, 497);
+            this.Update.Name = "Update";
+            this.Update.Size = new System.Drawing.Size(124, 33);
+            this.Update.TabIndex = 7;
+            this.Update.Text = "Update";
+            this.Update.UseVisualStyleBackColor = true;
+            this.Update.Click += new System.EventHandler(this.UpdateVIDMapping_Click);
+            // 
+            // DeleteVIDMapping
+            // 
+            this.DeleteVIDMapping.Location = new System.Drawing.Point(727, 497);
+            this.DeleteVIDMapping.Name = "DeleteVIDMapping";
+            this.DeleteVIDMapping.Size = new System.Drawing.Size(124, 33);
+            this.DeleteVIDMapping.TabIndex = 8;
+            this.DeleteVIDMapping.Text = "Delete";
+            this.DeleteVIDMapping.UseVisualStyleBackColor = true;
+            this.DeleteVIDMapping.Click += new System.EventHandler(this.DeleteVIDMapping_Click);
+            // 
+            // CreateVIDMapping
+            // 
+            this.CreateVIDMapping.Location = new System.Drawing.Point(402, 497);
+            this.CreateVIDMapping.Name = "CreateVIDMapping";
+            this.CreateVIDMapping.Size = new System.Drawing.Size(124, 33);
+            this.CreateVIDMapping.TabIndex = 9;
+            this.CreateVIDMapping.Text = "Create";
+            this.CreateVIDMapping.UseVisualStyleBackColor = true;
+            this.CreateVIDMapping.Click += new System.EventHandler(this.CreateVIDMapping_Click);
             // 
             // Category
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 562);
-            this.Controls.Add(this.UpdateVIDMapping);
+            this.Controls.Add(this.CreateVIDMapping);
+            this.Controls.Add(this.DeleteVIDMapping);
+            this.Controls.Add(this.Update);
             this.Controls.Add(this.EditCategory);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.DeleteCategory);
@@ -147,6 +171,8 @@
         private System.Windows.Forms.Button DeleteCategory;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button EditCategory;
-        private System.Windows.Forms.Button UpdateVIDMapping;
+        private System.Windows.Forms.Button Update;
+        private System.Windows.Forms.Button DeleteVIDMapping;
+        private System.Windows.Forms.Button CreateVIDMapping;
     }
 }
