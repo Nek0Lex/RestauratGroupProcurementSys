@@ -111,7 +111,7 @@
             "USD",
             "JPY",
             "AUS"});
-            this.currency.Location = new System.Drawing.Point(460, 191);
+            this.currency.Location = new System.Drawing.Point(460, 193);
             this.currency.Name = "currency";
             this.currency.Size = new System.Drawing.Size(139, 20);
             this.currency.TabIndex = 23;

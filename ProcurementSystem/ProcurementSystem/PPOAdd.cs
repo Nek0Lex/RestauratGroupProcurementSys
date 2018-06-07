@@ -52,7 +52,7 @@ namespace ProcurementSystem
             String tac = TAC.Text;
 
 
-            if (string.IsNullOrWhiteSpace(ppoNo) || string.IsNullOrWhiteSpace(supplierNo) || string.IsNullOrWhiteSpace(currency) || string.IsNullOrWhiteSpace(billAddress))
+            if (!string.IsNullOrWhiteSpace(ppoNo) || !string.IsNullOrWhiteSpace(supplierNo) || !string.IsNullOrWhiteSpace(currency) || !string.IsNullOrWhiteSpace(billAddress))
             {
                 MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

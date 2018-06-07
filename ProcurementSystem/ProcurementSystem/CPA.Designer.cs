@@ -30,6 +30,7 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.refresh = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.ContractNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SupplierNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -39,11 +40,11 @@
             this.BillingAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TermsAndCondition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.back = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.Create = new System.Windows.Forms.Button();
-            this.refresh = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Button();
+            this.status = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +62,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.status);
             this.groupBox1.Controls.Add(this.refresh);
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.Delete);
@@ -71,6 +73,17 @@
             this.groupBox1.Size = new System.Drawing.Size(786, 380);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // refresh
+            // 
+            this.refresh.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.refresh.Location = new System.Drawing.Point(19, 87);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(181, 33);
+            this.refresh.TabIndex = 5;
+            this.refresh.Text = "Refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // listView1
             // 
@@ -134,23 +147,12 @@
             // 
             this.ItemID.Text = "ItemID";
             // 
-            // back
-            // 
-            this.back.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.back.Location = new System.Drawing.Point(606, 17);
-            this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(164, 33);
-            this.back.TabIndex = 4;
-            this.back.Text = "back";
-            this.back.UseVisualStyleBackColor = true;
-            this.back.Click += new System.EventHandler(this.button4_Click);
-            // 
             // Delete
             // 
             this.Delete.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Delete.Location = new System.Drawing.Point(469, 20);
+            this.Delete.Location = new System.Drawing.Point(420, 20);
             this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(181, 42);
+            this.Delete.Size = new System.Drawing.Size(155, 42);
             this.Delete.TabIndex = 3;
             this.Delete.Text = "Delete Contract Purchase Agreement";
             this.Delete.UseVisualStyleBackColor = true;
@@ -158,9 +160,9 @@
             // Edit
             // 
             this.Edit.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Edit.Location = new System.Drawing.Point(243, 21);
+            this.Edit.Location = new System.Drawing.Point(235, 22);
             this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(181, 40);
+            this.Edit.Size = new System.Drawing.Size(147, 40);
             this.Edit.TabIndex = 2;
             this.Edit.Text = "Edit Contract Purchase Agreement";
             this.Edit.UseVisualStyleBackColor = true;
@@ -177,16 +179,27 @@
             this.Create.UseVisualStyleBackColor = true;
             this.Create.Click += new System.EventHandler(this.button1_Click);
             // 
-            // refresh
+            // back
             // 
-            this.refresh.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.refresh.Location = new System.Drawing.Point(19, 87);
-            this.refresh.Name = "refresh";
-            this.refresh.Size = new System.Drawing.Size(181, 33);
-            this.refresh.TabIndex = 5;
-            this.refresh.Text = "Refresh";
-            this.refresh.UseVisualStyleBackColor = true;
-            this.refresh.Click += new System.EventHandler(this.refresh_Click);
+            this.back.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.back.Location = new System.Drawing.Point(606, 17);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(164, 33);
+            this.back.TabIndex = 4;
+            this.back.Text = "back";
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // status
+            // 
+            this.status.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.status.Location = new System.Drawing.Point(614, 21);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(144, 42);
+            this.status.TabIndex = 6;
+            this.status.Text = "Status of Contract Purchase Agreement";
+            this.status.UseVisualStyleBackColor = true;
+            this.status.Click += new System.EventHandler(this.status_Click_1);
             // 
             // CPA
             // 
@@ -224,5 +237,6 @@
         private System.Windows.Forms.ColumnHeader TermsAndCondition;
         private System.Windows.Forms.ColumnHeader ItemID;
         private System.Windows.Forms.Button refresh;
+        private System.Windows.Forms.Button status;
     }
 }

@@ -130,5 +130,19 @@ namespace ProcurementSystem
                 ppoEdit.ShowDialog();
             }
         }
+
+        private void status_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nothing Selected", "ERROR");
+                return;
+            }
+            else
+            {
+                PPOStatus ppoStatus = new PPOStatus(this, listView1);
+                ppoStatus.ShowDialog();
+            }
+        }
     }
 }

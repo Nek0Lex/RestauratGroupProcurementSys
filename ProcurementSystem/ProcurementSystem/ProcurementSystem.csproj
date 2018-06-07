@@ -79,6 +79,12 @@
     <Compile Include="Category.Designer.cs">
       <DependentUpon>Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="CPAStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CPAStatus.Designer.cs">
+      <DependentUpon>CPAStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateRest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,12 @@
     <Compile Include="CreateAc.Designer.cs">
       <DependentUpon>CreateAc.cs</DependentUpon>
     </Compile>
+    <Compile Include="PPOStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PPOStatus.Designer.cs">
+      <DependentUpon>PPOStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="PurchaseRequest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +174,12 @@
     </Compile>
     <Compile Include="CreatePurchaseRequest.Designer.cs">
       <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPOStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPOStatus.Designer.cs">
+      <DependentUpon>SPOStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="VIDMapping.cs">
       <SubType>Form</SubType>
@@ -267,6 +285,9 @@
     <EmbeddedResource Include="Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CPAStatus.resx">
+      <DependentUpon>CPAStatus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateRest.resx">
       <DependentUpon>CreateRest.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,11 +318,17 @@
     <EmbeddedResource Include="CreateAc.resx">
       <DependentUpon>CreateAc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PPOStatus.resx">
+      <DependentUpon>PPOStatus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PurchaseRequest.resx">
       <DependentUpon>PurchaseRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreatePurchaseRequest.resx">
       <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPOStatus.resx">
+      <DependentUpon>SPOStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIDMapping.resx">
       <DependentUpon>VIDMapping.cs</DependentUpon>
