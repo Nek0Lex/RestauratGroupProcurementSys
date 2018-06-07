@@ -327,7 +327,7 @@
             this.Controls.Add(this.txtRestName);
             this.Controls.Add(this.title);
             this.Name = "EditPurchaseRequest";
-            this.Text = "Form2";
+            this.Text = "EditPurchaseRequest";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.purchaseList2)).EndInit();
             this.ResumeLayout(false);

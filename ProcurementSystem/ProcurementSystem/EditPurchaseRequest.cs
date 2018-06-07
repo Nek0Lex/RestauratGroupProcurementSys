@@ -134,7 +134,6 @@ namespace ProcurementSystem
                 }
             }
             this.Close();
-            pr.Refresh();
             pr.Show();
         }
     }

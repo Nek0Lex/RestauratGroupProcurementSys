@@ -238,7 +238,7 @@
             this.Controls.Add(this.purchaseRequestList);
             this.Controls.Add(this.label1);
             this.Name = "PurchaseRequest";
-            this.Text = "Purchase Request";
+            this.Text = "PurchaseRequest";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

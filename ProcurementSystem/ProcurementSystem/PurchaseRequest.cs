@@ -129,7 +129,7 @@ namespace ProcurementSystem
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
-                    errorMsg.Text = "Some of the request is handled, Cannot Edit of delete!";
+                    errorMsg.Text = "Some of the request is handled, Cannot Edit or delete!";
                     break;
                 }
                 //purchaseRequestList.Items.RemoveAt(i);
