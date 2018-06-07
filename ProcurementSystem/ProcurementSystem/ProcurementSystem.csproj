@@ -303,6 +303,9 @@
     <EmbeddedResource Include="EditSupp.resx">
       <DependentUpon>EditSupp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Item.resx">
+      <DependentUpon>Item.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
