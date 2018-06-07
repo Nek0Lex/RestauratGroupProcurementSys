@@ -121,6 +121,12 @@
     <Compile Include="EditSupp.Designer.cs">
       <DependentUpon>EditSupp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item.Designer.cs">
+      <DependentUpon>Item.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

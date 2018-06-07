@@ -16,6 +16,7 @@ namespace ProcurementSystem
     {
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         private Menu m = null;
+        DataTable itemInfo;
         //List<object> cat;
 
         public Category(Menu m)
@@ -65,9 +66,9 @@ namespace ProcurementSystem
         {
             cnn.Open();
             MySqlDataAdapter sda = new MySqlDataAdapter("SELECT VItemID, i.ItemID, ItemName,ItemDescription FROM VItem v, Item i where v.ItemId=i.ItemID AND v.category_id = " + treeView1.SelectedNode.Tag.ToString() + "; ", cnn);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            dataGridView1.DataSource = dt;
+            itemInfo = new DataTable();
+            sda.Fill(itemInfo);
+            dataGridView1.DataSource = itemInfo;
             cnn.Close();
         }
 
@@ -129,6 +130,11 @@ namespace ProcurementSystem
                 cnn.Close();
             }
             ReloadCategory();
+        }
+
+        private void UpdateVIDMapping_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

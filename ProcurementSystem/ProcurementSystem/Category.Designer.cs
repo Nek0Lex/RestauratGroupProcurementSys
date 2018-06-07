@@ -35,6 +35,7 @@
             this.DeleteCategory = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.EditCategory = new System.Windows.Forms.Button();
+            this.UpdateVIDMapping = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,11 +106,22 @@
             this.EditCategory.UseVisualStyleBackColor = true;
             this.EditCategory.Click += new System.EventHandler(this.EditCategory_Click);
             // 
+            // UpdateVIDMapping
+            // 
+            this.UpdateVIDMapping.Location = new System.Drawing.Point(637, 497);
+            this.UpdateVIDMapping.Name = "UpdateVIDMapping";
+            this.UpdateVIDMapping.Size = new System.Drawing.Size(124, 23);
+            this.UpdateVIDMapping.TabIndex = 7;
+            this.UpdateVIDMapping.Text = "Update Record";
+            this.UpdateVIDMapping.UseVisualStyleBackColor = true;
+            this.UpdateVIDMapping.Click += new System.EventHandler(this.UpdateVIDMapping_Click);
+            // 
             // Category
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 562);
+            this.Controls.Add(this.UpdateVIDMapping);
             this.Controls.Add(this.EditCategory);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.DeleteCategory);
@@ -135,5 +147,6 @@
         private System.Windows.Forms.Button DeleteCategory;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button EditCategory;
+        private System.Windows.Forms.Button UpdateVIDMapping;
     }
 }
