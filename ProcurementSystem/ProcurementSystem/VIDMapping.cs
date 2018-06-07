@@ -25,8 +25,14 @@ namespace ProcurementSystem
         public VIDMapping()
         {
             InitializeComponent();
+        }
+
+        public VIDMapping(string currentCategory)
+        {
+            InitializeComponent();
             mode = 0; //Create mode
             LoadItem();
+            this.currentCategory = currentCategory;
         }
 
         public VIDMapping(string currentCategory, DataGridViewSelectedRowCollection selectedRow)
@@ -85,6 +91,46 @@ namespace ProcurementSystem
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+
+            switch (mode)
+            {
+                case 0:
+                    CreateMapping();
+                    break;
+                case 1:
+                    UpdateMapping();
+                    break;
+            }
+            
+            this.Close();
+        }
+
+        public void CreateMapping()
+        {
+            if (!string.IsNullOrWhiteSpace(textBox_VItemID.Text) && !string.IsNullOrWhiteSpace(textBox_ItemID.Text))
+            {
+                cnn.Open();
+                string insert = "INSERT INTO VItem (VItemID, category_id, ItemID) VALUES ('" + textBox_VItemID.Text + "', " + currentCategory + ", '" + textBox_ItemID.Text + "'); ";
+                //string insert = "INSERT INTO VItem (VItemID, category_id, ItemID) VALUES ('FTEST', 10, 'F00000002'; ";
+                MySqlCommand cmd = new MySqlCommand(insert, cnn);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Insert Failed: Duplicate with existing Mapping");
+                    Console.WriteLine(ex.ToString());
+                    cnn.Close();
+                    return;
+                }
+                MessageBox.Show("Update Success!");
+            }
+            cnn.Close();
+        }
+
+        public void UpdateMapping()
+        {
             cnn.Open();
             string update = "UPDATE VItem SET VItemID = '" + textBox_VItemID.Text + "', ItemID = '" + textBox_ItemID.Text + "' WHERE VItemID = '" + VItemID + "' AND category_id = " + currentCategory + ";";
             MySqlCommand cmd = new MySqlCommand(update, cnn);
@@ -92,14 +138,15 @@ namespace ProcurementSystem
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (MySqlException ex) {
-                MessageBox.Show("Update Failed: Virtual ID Duplicated");
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Update Failed: Duplicate with existing Mapping");
+                Console.WriteLine(ex.ToString());
                 cnn.Close();
                 return;
             }
             MessageBox.Show("Update Success!");
             cnn.Close();
-            this.Close();
         }
     }
 }
