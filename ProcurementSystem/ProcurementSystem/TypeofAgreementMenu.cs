@@ -16,24 +16,11 @@ namespace ProcurementSystem
     public partial class TypeofAgreementMenu : Form
     {
         private Menu m;
-        public TypeofAgreementMenu()
-        {
-            InitializeComponent();
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-            cnn.Open();
-            String query = "select LastName from Staff where StaffNo = 'AD000001';";
-            MySqlCommand cmd = new MySqlCommand(query, cnn);
-            string _name = (string)cmd.ExecuteScalar();
-        }
-        public TypeofAgreementMenu(Menu m)
+        public TypeofAgreementMenu(String staffName, Menu m)
         {
             InitializeComponent();
             this.m = m;
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-            cnn.Open();
-            String query = "select LastName from Staff where StaffNo = 'AD000001';";
-            MySqlCommand cmd = new MySqlCommand(query, cnn);
-            string _name = (string)cmd.ExecuteScalar();
+            textBox1.Text = "Hello, " + staffName;
         }
 
         public void TextBox1_TextChanged(object sender, EventArgs e)
@@ -43,25 +30,25 @@ namespace ProcurementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 BPA = new Form1();
+            Form1 BPA = new Form1(this);
             BPA.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SPO SPO = new SPO();
+            SPO SPO = new SPO(this);
             SPO.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            PPO PPO = new PPO();
+            PPO PPO = new PPO(this);
             PPO.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            CPA CPA = new CPA();
+            CPA CPA = new CPA(this);
             CPA.ShowDialog();
         }
 
@@ -79,11 +66,6 @@ namespace ProcurementSystem
         {
             this.Close();
             m.Show();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
