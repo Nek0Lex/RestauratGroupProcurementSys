@@ -89,7 +89,7 @@
             this.edditPRbtn.Name = "edditPRbtn";
             this.edditPRbtn.Size = new System.Drawing.Size(197, 46);
             this.edditPRbtn.TabIndex = 3;
-            this.edditPRbtn.Text = "Edit Purchase Request";
+            this.edditPRbtn.Text = "Edit/View Purchase Request";
             this.edditPRbtn.UseVisualStyleBackColor = true;
             this.edditPRbtn.Click += new System.EventHandler(this.edditPRbtn_Click);
             // 
