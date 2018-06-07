@@ -109,7 +109,7 @@ namespace ProcurementSystem
                     break;
                 case "PM":
                     this.Hide();
-                    TypeofAgreementMenu tam = new TypeofAgreementMenu(this);
+                    TypeofAgreementMenu tam = new TypeofAgreementMenu(staffName, this);
                     tam.Show();
                     break;
                 case "CM":

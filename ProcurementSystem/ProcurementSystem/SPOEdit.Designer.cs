@@ -1,6 +1,6 @@
 ﻿namespace ProcurementSystem
 {
-    partial class SPOAdd
+    partial class SPOEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -50,9 +50,8 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.SPONo = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Button();
+            this.submit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,13 +60,13 @@
             this.textBox1.BackColor = System.Drawing.SystemColors.Window;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox1.Location = new System.Drawing.Point(14, 16);
+            this.textBox1.Location = new System.Drawing.Point(12, 13);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(966, 36);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "New Stanard Purchase Order";
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "Edit Stanard Purchase Order";
             // 
             // groupBox1
             // 
@@ -91,15 +90,14 @@
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.SPONo);
-            this.groupBox1.Location = new System.Drawing.Point(14, 72);
+            this.groupBox1.Location = new System.Drawing.Point(12, 57);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Size = new System.Drawing.Size(966, 558);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new SPO";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // TAC
             // 
@@ -121,14 +119,13 @@
             this.textBox16.Size = new System.Drawing.Size(157, 18);
             this.textBox16.TabIndex = 21;
             this.textBox16.Text = "Terms And Condition:";
-            this.textBox16.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
             // 
             // ExpectedDeliveryDate
             // 
             this.ExpectedDeliveryDate.Location = new System.Drawing.Point(206, 334);
             this.ExpectedDeliveryDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ExpectedDeliveryDate.Name = "ExpectedDeliveryDate";
-            this.ExpectedDeliveryDate.Size = new System.Drawing.Size(132, 23);
+            this.ExpectedDeliveryDate.Size = new System.Drawing.Size(132, 22);
             this.ExpectedDeliveryDate.TabIndex = 20;
             // 
             // textBox15
@@ -148,7 +145,7 @@
             this.RestNo.Location = new System.Drawing.Point(472, 328);
             this.RestNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RestNo.Name = "RestNo";
-            this.RestNo.Size = new System.Drawing.Size(165, 23);
+            this.RestNo.Size = new System.Drawing.Size(165, 22);
             this.RestNo.TabIndex = 18;
             // 
             // textBox13
@@ -168,7 +165,7 @@
             this.BuyerAccount.Location = new System.Drawing.Point(523, 210);
             this.BuyerAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BuyerAccount.Name = "BuyerAccount";
-            this.BuyerAccount.Size = new System.Drawing.Size(165, 23);
+            this.BuyerAccount.Size = new System.Drawing.Size(165, 22);
             this.BuyerAccount.TabIndex = 16;
             // 
             // textBox11
@@ -197,7 +194,7 @@
             this.BuyerName.Location = new System.Drawing.Point(511, 262);
             this.BuyerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BuyerName.Name = "BuyerName";
-            this.BuyerName.Size = new System.Drawing.Size(157, 23);
+            this.BuyerName.Size = new System.Drawing.Size(157, 22);
             this.BuyerName.TabIndex = 11;
             // 
             // textBox9
@@ -229,7 +226,7 @@
             this.EffectiveDate.Location = new System.Drawing.Point(146, 262);
             this.EffectiveDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EffectiveDate.Name = "EffectiveDate";
-            this.EffectiveDate.Size = new System.Drawing.Size(132, 23);
+            this.EffectiveDate.Size = new System.Drawing.Size(132, 22);
             this.EffectiveDate.TabIndex = 8;
             // 
             // textBox6
@@ -249,7 +246,7 @@
             this.CreationDate.Location = new System.Drawing.Point(146, 194);
             this.CreationDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreationDate.Name = "CreationDate";
-            this.CreationDate.Size = new System.Drawing.Size(132, 23);
+            this.CreationDate.Size = new System.Drawing.Size(132, 22);
             this.CreationDate.TabIndex = 6;
             // 
             // textBox7
@@ -269,7 +266,7 @@
             this.SupplierNo.Location = new System.Drawing.Point(129, 122);
             this.SupplierNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SupplierNo.Name = "SupplierNo";
-            this.SupplierNo.Size = new System.Drawing.Size(116, 23);
+            this.SupplierNo.Size = new System.Drawing.Size(116, 22);
             this.SupplierNo.TabIndex = 3;
             // 
             // textBox4
@@ -298,65 +295,49 @@
             // 
             // SPONo
             // 
-            this.SPONo.Location = new System.Drawing.Point(94, 54);
+            this.SPONo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SPONo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.SPONo.Location = new System.Drawing.Point(93, 60);
             this.SPONo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SPONo.Name = "SPONo";
-            this.SPONo.Size = new System.Drawing.Size(116, 23);
+            this.SPONo.ReadOnly = true;
+            this.SPONo.Size = new System.Drawing.Size(116, 18);
             this.SPONo.TabIndex = 0;
             // 
-            // button1
+            // back
             // 
-            this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(97, 670);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 58);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "<Back";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.back.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.back.Location = new System.Drawing.Point(297, 640);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(149, 44);
+            this.back.TabIndex = 23;
+            this.back.Text = "<Back";
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
             // 
-            // button2
+            // submit
             // 
-            this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(383, 670);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(174, 58);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.submit.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.submit.Location = new System.Drawing.Point(551, 640);
+            this.submit.Name = "submit";
+            this.submit.Size = new System.Drawing.Size(149, 44);
+            this.submit.TabIndex = 24;
+            this.submit.Text = "Submit";
+            this.submit.UseVisualStyleBackColor = true;
+            this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
-            // button3
+            // SPOEdit
             // 
-            this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(649, 670);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(174, 58);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Submit";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // SPOAdd
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(992, 758);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(992, 713);
+            this.Controls.Add(this.submit);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
-            this.Font = new System.Drawing.Font("微軟正黑體", 9F);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "SPOAdd";
-            this.Text = "SPOAdd";
-            this.Load += new System.EventHandler(this.SPUAdd_Load);
+            this.Name = "SPOEdit";
+            this.Text = "SPOEdit";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -368,28 +349,27 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox SPONo;
-        private System.Windows.Forms.TextBox SupplierNo;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.RichTextBox TAC;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.DateTimePicker ExpectedDeliveryDate;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox RestNo;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox BuyerAccount;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.RichTextBox BillingAddress;
+        private System.Windows.Forms.TextBox BuyerName;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.DateTimePicker EffectiveDate;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.DateTimePicker CreationDate;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox BuyerName;
-        private System.Windows.Forms.TextBox RestNo;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox BuyerAccount;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.RichTextBox BillingAddress;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.DateTimePicker ExpectedDeliveryDate;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.RichTextBox TAC;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox SupplierNo;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox SPONo;
+        private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Button submit;
     }
 }

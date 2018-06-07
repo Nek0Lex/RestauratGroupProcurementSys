@@ -12,26 +12,11 @@ using MySql.Data.MySqlClient;
 
 namespace ProcurementSystem
 {
-    public partial class SPOAdd : Form
+    public partial class CPAAdd : Form
     {
-        public SPOAdd()
+        public CPAAdd()
         {
             InitializeComponent();
-        }
-
-        private void SPUAdd_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox16_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,19 +26,16 @@ namespace ProcurementSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            String spoNo = SPONo.Text;
+            String contractNo = ContractNo.Text;
             String supplierNo = SupplierNo.Text;
             String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
             String effectiveDate = EffectiveDate.Value.ToString("yyyy-MM-dd");
-            String edd = ExpectedDeliveryDate.Value.ToString("yyyy-MM-dd");
-            String billAddress = BillingAddress.Text;
-            int buyerAccount = int.Parse(BuyerAccount.Text);
             String buyerName = BuyerName.Text;
-            String restNo = RestNo.Text;
+            String billAddress = BillingAddress.Text;
+            String itemID = ItemID.Text;
             String tac = TAC.Text;
 
-
-            if (string.IsNullOrWhiteSpace(spoNo) || string.IsNullOrWhiteSpace(supplierNo) || string.IsNullOrWhiteSpace(restNo) || string.IsNullOrWhiteSpace(billAddress))
+            if (string.IsNullOrWhiteSpace(billAddress) || string.IsNullOrWhiteSpace(contractNo) || string.IsNullOrWhiteSpace(supplierNo))
             {
                 MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -61,7 +43,7 @@ namespace ProcurementSystem
             {
                 MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
                 cnn.Open();
-                String query = "INSERT INTO SPO (SPONo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, RestNo, ExpectedDeliveryDate, TermsAndCondition)VALUES('" + spoNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + restNo + "', '" + edd + "', '" + tac + "'); ";
+                String query = "INSERT INTO CPA (ContractNo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, TermsAndCondition, ItemID)VALUES('" + contractNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + tac + "', '" + itemID + "'); ";
                 MySqlCommand cmd = new MySqlCommand(query, cnn);
                 MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
                 cmd.ExecuteNonQuery();
@@ -69,12 +51,5 @@ namespace ProcurementSystem
                 this.Close();
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

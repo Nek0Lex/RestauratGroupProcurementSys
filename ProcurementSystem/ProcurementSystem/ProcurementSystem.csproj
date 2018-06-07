@@ -175,17 +175,47 @@
     <Compile Include="BPAAdd.Designer.cs">
       <DependentUpon>BPAAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="BPAEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BPAEdit.Designer.cs">
+      <DependentUpon>BPAEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="CPA.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CPA.Designer.cs">
       <DependentUpon>CPA.cs</DependentUpon>
     </Compile>
+    <Compile Include="CPAAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CPAAdd.Designer.cs">
+      <DependentUpon>CPAAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CPAEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CPAEdit.Designer.cs">
+      <DependentUpon>CPAEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="PPO.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PPO.Designer.cs">
       <DependentUpon>PPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PPOAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PPOAdd.Designer.cs">
+      <DependentUpon>PPOAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PPOEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PPOEdit.Designer.cs">
+      <DependentUpon>PPOEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="SPO.cs">
       <SubType>Form</SubType>
@@ -198,6 +228,12 @@
     </Compile>
     <Compile Include="SPOAdd.Designer.cs">
       <DependentUpon>SPOAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPOEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPOEdit.Designer.cs">
+      <DependentUpon>SPOEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -255,17 +291,35 @@
     <EmbeddedResource Include="BPAAdd.resx">
       <DependentUpon>BPAAdd.cs</DependentUpon>
     </EmbeddedResource>
+        <EmbeddedResource Include="BPAEdit.resx">
+      <DependentUpon>BPAEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CPA.resx">
       <DependentUpon>CPA.cs</DependentUpon>
     </EmbeddedResource>
+     <EmbeddedResource Include="CPAAdd.resx">
+      <DependentUpon>CPAAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CPAEdit.resx">
+      <DependentUpon>CPAEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PPO.resx">
       <DependentUpon>PPO.cs</DependentUpon>
+    </EmbeddedResource>
+     <EmbeddedResource Include="PPOAdd.resx">
+      <DependentUpon>PPOAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PPOEdit.resx">
+      <DependentUpon>PPOEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SPO.resx">
       <DependentUpon>SPO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SPOAdd.resx">
       <DependentUpon>SPOAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPOEdit.resx">
+      <DependentUpon>SPOEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
