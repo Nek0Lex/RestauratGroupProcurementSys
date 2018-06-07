@@ -41,24 +41,32 @@ namespace ProcurementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tbSN.Text.ToUpper();
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none");
-            MySqlDataAdapter sda = new MySqlDataAdapter("select count(*) from Staff where StaffNo = '" + tbSN.Text + "' and Password = '" + tbPW.Text + "'", cnn);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1")
+            try
             {
-                sda = new MySqlDataAdapter("select deptcode from Staff where StaffNo = '" + tbSN.Text + "';", cnn);
-                dt = new DataTable();
+                tbSN.Text.ToUpper();
+                MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none");
+                MySqlDataAdapter sda = new MySqlDataAdapter("select count(*) from Staff where StaffNo = '" + tbSN.Text + "' and Password = '" + tbPW.Text + "'", cnn);
+                DataTable dt = new DataTable();
                 sda.Fill(dt);
-                String deptCode = dt.Rows[0][0].ToString();
-                cnn.Close();
-                this.Hide();
-                Menu m = new Menu(tbSN.Text, deptCode);
-                m.Show();
+                if (dt.Rows[0][0].ToString() == "1")
+                {
+                    sda = new MySqlDataAdapter("select deptcode from Staff where StaffNo = '" + tbSN.Text + "';", cnn);
+                    dt = new DataTable();
+                    sda.Fill(dt);
+                    String deptCode = dt.Rows[0][0].ToString();
+                    cnn.Close();
+                    this.Hide();
+                    Menu m = new Menu(tbSN.Text, deptCode);
+                    m.Show();
+                }
+                else
+                    MessageBox.Show("Account Not Found", "alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
-                MessageBox.Show("Please enter the correct information", "alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            catch(Exception ex)
+            {
+                MessageBox.Show("Account Not Found", "alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -67,6 +75,11 @@ namespace ProcurementSystem
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPW_TextChanged(object sender, EventArgs e)
         {
 
         }
