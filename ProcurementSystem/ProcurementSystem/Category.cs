@@ -144,6 +144,18 @@ namespace ProcurementSystem
 
         private void UpdateVIDMapping_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count <= 0)
+            {
+               
+            } else
+            {
+                DataGridViewSelectedRowCollection selectedRow = dataGridView1.SelectedRows;
+                VIDMapping editVID = new VIDMapping(currentCategory, selectedRow);
+                editVID.Show();
+            }
+                
+            
+            /*
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 string VItemID = row.Cells[0].Value.ToString();
@@ -151,6 +163,7 @@ namespace ProcurementSystem
                 string ItemName = row.Cells[2].Value.ToString();
                 string ItemDescription = row.Cells[3].Value.ToString();
             }
+            */
         }
 
         private void CreateVIDMapping_Click(object sender, EventArgs e)

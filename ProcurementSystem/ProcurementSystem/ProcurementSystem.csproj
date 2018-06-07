@@ -303,6 +303,9 @@
     <EmbeddedResource Include="CreatePurchaseRequest.resx">
       <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VIDMapping.resx">
+      <DependentUpon>VIDMapping.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewRequest.resx">
       <DependentUpon>ViewRequest.cs</DependentUpon>
     </EmbeddedResource>
