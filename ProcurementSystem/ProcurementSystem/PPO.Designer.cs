@@ -30,6 +30,7 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.refresh = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.PPONo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SupplierNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -43,11 +44,11 @@
             this.Amount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Currency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Termsandcondition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.refresh = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.status = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +67,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.status);
             this.groupBox1.Controls.Add(this.refresh);
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.button3);
@@ -76,6 +78,17 @@
             this.groupBox1.Size = new System.Drawing.Size(856, 399);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // refresh
+            // 
+            this.refresh.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.refresh.Location = new System.Drawing.Point(19, 88);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(181, 29);
+            this.refresh.TabIndex = 5;
+            this.refresh.Text = "refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // listView1
             // 
@@ -162,21 +175,10 @@
             // 
             this.Termsandcondition.Text = "Termsandcondition";
             // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(687, 19);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(181, 29);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "back";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(484, 20);
+            this.button3.Location = new System.Drawing.Point(443, 20);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(181, 44);
             this.button3.TabIndex = 3;
@@ -186,7 +188,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(253, 21);
+            this.button2.Location = new System.Drawing.Point(230, 21);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(181, 43);
             this.button2.TabIndex = 2;
@@ -205,16 +207,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // refresh
+            // button4
             // 
-            this.refresh.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.refresh.Location = new System.Drawing.Point(19, 88);
-            this.refresh.Name = "refresh";
-            this.refresh.Size = new System.Drawing.Size(181, 29);
-            this.refresh.TabIndex = 5;
-            this.refresh.Text = "refresh";
-            this.refresh.UseVisualStyleBackColor = true;
-            this.refresh.Click += new System.EventHandler(this.refresh_Click);
+            this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button4.Location = new System.Drawing.Point(687, 19);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(181, 29);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "back";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // status
+            // 
+            this.status.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.status.Location = new System.Drawing.Point(657, 20);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(181, 44);
+            this.status.TabIndex = 6;
+            this.status.Text = "Status Of Selected Planned Purchase Order";
+            this.status.UseVisualStyleBackColor = true;
+            this.status.Click += new System.EventHandler(this.status_Click);
             // 
             // PPO
             // 
@@ -255,5 +268,6 @@
         private System.Windows.Forms.ColumnHeader Currency;
         private System.Windows.Forms.ColumnHeader Termsandcondition;
         private System.Windows.Forms.Button refresh;
+        private System.Windows.Forms.Button status;
     }
 }

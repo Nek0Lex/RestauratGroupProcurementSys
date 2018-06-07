@@ -129,5 +129,19 @@ namespace ProcurementSystem
             }
             dateTimeCompare();
         }
+
+        private void status_Click_1(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nothing Selected", "ERROR");
+                return;
+            }
+            else
+            {
+                CPAStatus cpaStatus = new CPAStatus(this, listView1);
+                cpaStatus.ShowDialog();
+            }
+        }
     }
 }

@@ -42,10 +42,11 @@
             this.RestNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ExpectedDeliveryDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TermsAndCondition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.status = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +66,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.status);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.button3);
@@ -161,6 +163,38 @@
             this.TermsAndCondition.Text = "TermsAndCondition";
             this.TermsAndCondition.Width = 90;
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button3.Location = new System.Drawing.Point(387, 21);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(166, 41);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Delete Selected Standard Purchase";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button2.Location = new System.Drawing.Point(206, 21);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(163, 41);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Edit Standard Purchase Order\r\n";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button1.Location = new System.Drawing.Point(30, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(157, 41);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Create New Standard Purchase";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -172,37 +206,16 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // status
             // 
-            this.button3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(472, 21);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(222, 27);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Delete Selected Standard Purchase";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(250, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(193, 27);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Edit Standard Purchase Order\r\n";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(30, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(193, 27);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Create New Standard Purchase";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.status.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.status.Location = new System.Drawing.Point(573, 21);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(171, 41);
+            this.status.TabIndex = 7;
+            this.status.Text = "Status of Standard Purchase Order\r\n";
+            this.status.UseVisualStyleBackColor = true;
+            this.status.Click += new System.EventHandler(this.status_Click);
             // 
             // SPO
             // 
@@ -242,5 +255,6 @@
         private System.Windows.Forms.ColumnHeader ExpectedDeliveryDate;
         private System.Windows.Forms.ColumnHeader TermsAndCondition;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button status;
     }
 }

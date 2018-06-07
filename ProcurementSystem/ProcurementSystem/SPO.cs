@@ -135,5 +135,19 @@ namespace ProcurementSystem
                 spoEdit.ShowDialog();
             }
         }
+
+        private void status_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nothing Selected", "ERROR");
+                return;
+            }
+            else
+            {
+                SPOStatus spoStatus = new SPOStatus(this, listView1);
+                spoStatus.ShowDialog();
+            }
+        }
     }
 }

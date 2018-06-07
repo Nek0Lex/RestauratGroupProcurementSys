@@ -10,31 +10,32 @@ using System.Windows.Forms;
 
 namespace ProcurementSystem
 {
-    public partial class BPAStatus : Form
+    public partial class PPOStatus : Form
     {
-        Form f1;
+        Form PPO;
         ListView lv;
-        public BPAStatus(Form1 BPA, ListView listView1)
+        public PPOStatus(PPO ppo, ListView listView1)
         {
-            this.f1 = BPA;
+            this.PPO = ppo;
             this.lv = listView1;
             InitializeComponent();
-            BPANo.Text = lv.SelectedItems[0].Text;
-            RequestNo.Text = lv.SelectedItems[0].SubItems[1].Text;
+            PPONo.Text = lv.SelectedItems[0].Text;
+            SupplierNo.Text = lv.SelectedItems[0].SubItems[1].Text;
             PurchaseOrderRevision.Text = lv.SelectedItems[0].SubItems[2].Text;
             CreationDate.Text = lv.SelectedItems[0].SubItems[3].Text;
-            Effective.Text = lv.SelectedItems[0].SubItems[4].Text;
+            EffectiveDate.Text = lv.SelectedItems[0].SubItems[4].Text;
             BuyerName.Text = lv.SelectedItems[0].SubItems[5].Text;
             BillingAddress.Text = lv.SelectedItems[0].SubItems[6].Text;
-            Amount.Text = lv.SelectedItems[0].SubItems[7].Text;
-            currency.Text = lv.SelectedItems[0].SubItems[8].Text;
-            TAC.Text = lv.SelectedItems[0].SubItems[9].Text;
-            SupplierNo.Text = lv.SelectedItems[0].SubItems[10].Text;
+            BuyerAccount.Text = lv.SelectedItems[0].SubItems[7].Text;
+            SRNo.Text = lv.SelectedItems[0].SubItems[8].Text;
+            Amount.Text = lv.SelectedItems[0].SubItems[9].Text;
+            Currency.Text = lv.SelectedItems[0].SubItems[10].Text;
+            TAC.Text = lv.SelectedItems[0].SubItems[11].Text;
 
             SetReadonlyControls(groupBox1.Controls);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void back_Click(object sender, EventArgs e)
         {
             this.Close();
         }
