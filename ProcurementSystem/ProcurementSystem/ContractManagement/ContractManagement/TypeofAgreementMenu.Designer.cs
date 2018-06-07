@@ -122,7 +122,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Name = "TypeofAgreementMenu";
-            this.Text = "ChooseMenu";
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

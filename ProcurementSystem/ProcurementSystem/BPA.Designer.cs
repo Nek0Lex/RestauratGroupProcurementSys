@@ -30,6 +30,7 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.refresh = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.BPANo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RequestNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -39,14 +40,14 @@
             this.BuyerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BillingAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AmountAgreed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.Currency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TAC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SupplierNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.refresh = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +66,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.refresh);
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.button3);
@@ -76,6 +78,17 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // refresh
+            // 
+            this.refresh.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.refresh.Location = new System.Drawing.Point(16, 78);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(181, 27);
+            this.refresh.TabIndex = 6;
+            this.refresh.Text = "Refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // listView1
             // 
@@ -143,21 +156,22 @@
             this.AmountAgreed.Text = "AmountAgreed";
             this.AmountAgreed.Width = 92;
             // 
-            // button4
+            // Currency
             // 
-            this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(620, 20);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(170, 27);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "back";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.Currency.Text = "Currency";
+            // 
+            // TAC
+            // 
+            this.TAC.Text = "TermAndCondition";
+            // 
+            // SupplierNo
+            // 
+            this.SupplierNo.Text = "SupplierNo";
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(432, 21);
+            this.button3.Location = new System.Drawing.Point(229, 78);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(181, 27);
             this.button3.TabIndex = 3;
@@ -187,28 +201,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Currency
+            // button4
             // 
-            this.Currency.Text = "Currency";
+            this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button4.Location = new System.Drawing.Point(620, 20);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(170, 27);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "back";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // TAC
+            // button5
             // 
-            this.TAC.Text = "TermAndCondition";
-            // 
-            // SupplierNo
-            // 
-            this.SupplierNo.Text = "SupplierNo";
-            // 
-            // refresh
-            // 
-            this.refresh.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.refresh.Location = new System.Drawing.Point(16, 78);
-            this.refresh.Name = "refresh";
-            this.refresh.Size = new System.Drawing.Size(181, 27);
-            this.refresh.TabIndex = 6;
-            this.refresh.Text = "Refresh";
-            this.refresh.UseVisualStyleBackColor = true;
-            this.refresh.Click += new System.EventHandler(this.refresh_Click);
+            this.button5.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button5.Location = new System.Drawing.Point(440, 21);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(181, 27);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Status of Selected Blanket Agreement";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
@@ -248,6 +261,7 @@
         private System.Windows.Forms.ColumnHeader TAC;
         private System.Windows.Forms.ColumnHeader SupplierNo;
         private System.Windows.Forms.Button refresh;
+        private System.Windows.Forms.Button button5;
     }
 }
 

@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BPAStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BPAStatus.Designer.cs">
+      <DependentUpon>BPAStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +243,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BPAStatus.resx">
+      <DependentUpon>BPAStatus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,13 +297,13 @@
     <EmbeddedResource Include="BPAAdd.resx">
       <DependentUpon>BPAAdd.cs</DependentUpon>
     </EmbeddedResource>
-        <EmbeddedResource Include="BPAEdit.resx">
+    <EmbeddedResource Include="BPAEdit.resx">
       <DependentUpon>BPAEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CPA.resx">
       <DependentUpon>CPA.cs</DependentUpon>
     </EmbeddedResource>
-     <EmbeddedResource Include="CPAAdd.resx">
+    <EmbeddedResource Include="CPAAdd.resx">
       <DependentUpon>CPAAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CPAEdit.resx">
@@ -303,7 +312,7 @@
     <EmbeddedResource Include="PPO.resx">
       <DependentUpon>PPO.cs</DependentUpon>
     </EmbeddedResource>
-     <EmbeddedResource Include="PPOAdd.resx">
+    <EmbeddedResource Include="PPOAdd.resx">
       <DependentUpon>PPOAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PPOEdit.resx">

@@ -104,7 +104,8 @@
             // prBack
             // 
             this.prBack.Cursor = System.Windows.Forms.Cursors.Default;
-            this.prBack.Location = new System.Drawing.Point(591, 20);
+            this.prBack.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.prBack.Location = new System.Drawing.Point(577, 20);
             this.prBack.Name = "prBack";
             this.prBack.Size = new System.Drawing.Size(197, 25);
             this.prBack.TabIndex = 6;
@@ -114,13 +115,14 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 20F, System.Drawing.FontStyle.Bold);
-            this.textBox1.Location = new System.Drawing.Point(7, 10);
+            this.textBox1.Location = new System.Drawing.Point(12, 10);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(786, 46);
+            this.textBox1.Size = new System.Drawing.Size(776, 46);
             this.textBox1.TabIndex = 7;
             // 
             // TypeofAgreementMenu
@@ -129,9 +131,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.prBack);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.textBox1);
             this.Name = "TypeofAgreementMenu";
             this.Text = "ChooseMenu";
             this.Load += new System.EventHandler(this.TypeofAgreementMenu_Load);

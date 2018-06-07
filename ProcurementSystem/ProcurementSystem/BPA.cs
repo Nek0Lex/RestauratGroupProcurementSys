@@ -135,5 +135,19 @@ namespace ProcurementSystem
                 listView1.Items.Add(listitem);
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nothing Selected", "ERROR");
+                return;
+            }
+            else
+            {
+                BPAStatus bPAStatus = new BPAStatus(this, listView1);
+                bPAStatus.ShowDialog();
+            }
+        }
     }
 }
