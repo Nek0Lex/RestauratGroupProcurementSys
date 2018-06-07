@@ -44,6 +44,43 @@ namespace ProcurementSystem
                 listitem.SubItems.Add(dr["SupplierNo"].ToString());
 
                 listView1.Items.Add(listitem);
+                
+                
+            }
+
+            DateTime now = DateTime.Now;
+            DateTime effectiveDate;
+            int datecompare;
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                effectiveDate = DateTime.Parse(listView1.Items[i].SubItems[4].Text);
+                datecompare = DateTime.Compare(now, effectiveDate);
+                if (datecompare > 0)
+                {
+                    listView1.Items[i].BackColor = Color.Yellow;
+                }
+                else
+                    continue;
+            }
+            //textBox1.Text = datecompare.ToString();
+
+        }
+
+        public void dateTimeCompare()
+        {
+            DateTime now = DateTime.Now;
+            DateTime effectiveDate;
+            int datecompare;
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                effectiveDate = DateTime.Parse(listView1.Items[i].SubItems[4].Text);
+                datecompare = DateTime.Compare(now, effectiveDate);
+                if (datecompare > 0)
+                {
+                    listView1.Items[i].BackColor = Color.Yellow;
+                }
+                else
+                    continue;
             }
         }
 
@@ -71,7 +108,9 @@ namespace ProcurementSystem
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
+            
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -134,6 +173,8 @@ namespace ProcurementSystem
 
                 listView1.Items.Add(listitem);
             }
+
+            dateTimeCompare();
         }
 
         private void button5_Click(object sender, EventArgs e)

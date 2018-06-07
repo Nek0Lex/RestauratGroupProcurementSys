@@ -103,6 +103,7 @@
             // currency
             // 
             this.currency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.currency.Enabled = false;
             this.currency.FormattingEnabled = true;
             this.currency.Items.AddRange(new object[] {
             "HKD",
@@ -117,9 +118,11 @@
             // 
             // SupplierNo
             // 
+            this.SupplierNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SupplierNo.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.SupplierNo.Location = new System.Drawing.Point(105, 285);
             this.SupplierNo.Name = "SupplierNo";
-            this.SupplierNo.Size = new System.Drawing.Size(134, 22);
+            this.SupplierNo.Size = new System.Drawing.Size(134, 16);
             this.SupplierNo.TabIndex = 22;
             this.SupplierNo.Text = "0001";
             // 
@@ -149,6 +152,7 @@
             // 
             this.TAC.Location = new System.Drawing.Point(535, 240);
             this.TAC.Name = "TAC";
+            this.TAC.ReadOnly = true;
             this.TAC.Size = new System.Drawing.Size(259, 103);
             this.TAC.TabIndex = 18;
             this.TAC.Text = "";
@@ -166,9 +170,11 @@
             // 
             // Amount
             // 
-            this.Amount.Location = new System.Drawing.Point(501, 156);
+            this.Amount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Amount.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Amount.Location = new System.Drawing.Point(501, 160);
             this.Amount.Name = "Amount";
-            this.Amount.Size = new System.Drawing.Size(134, 22);
+            this.Amount.Size = new System.Drawing.Size(134, 16);
             this.Amount.TabIndex = 15;
             // 
             // textBox13
@@ -184,8 +190,11 @@
             // 
             // BillingAddress
             // 
+            this.BillingAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BillingAddress.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.BillingAddress.Location = new System.Drawing.Point(501, 36);
             this.BillingAddress.Name = "BillingAddress";
+            this.BillingAddress.ReadOnly = true;
             this.BillingAddress.Size = new System.Drawing.Size(293, 102);
             this.BillingAddress.TabIndex = 13;
             this.BillingAddress.Text = "";
@@ -203,9 +212,11 @@
             // 
             // BuyerName
             // 
-            this.BuyerName.Location = new System.Drawing.Point(119, 240);
+            this.BuyerName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BuyerName.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.BuyerName.Location = new System.Drawing.Point(105, 241);
             this.BuyerName.Name = "BuyerName";
-            this.BuyerName.Size = new System.Drawing.Size(134, 22);
+            this.BuyerName.Size = new System.Drawing.Size(134, 16);
             this.BuyerName.TabIndex = 11;
             // 
             // textBox10
@@ -221,6 +232,7 @@
             // 
             // Effective
             // 
+            this.Effective.Enabled = false;
             this.Effective.Location = new System.Drawing.Point(119, 198);
             this.Effective.Name = "Effective";
             this.Effective.Size = new System.Drawing.Size(114, 22);
@@ -239,6 +251,7 @@
             // 
             // CreationDate
             // 
+            this.CreationDate.Enabled = false;
             this.CreationDate.Location = new System.Drawing.Point(119, 160);
             this.CreationDate.Name = "CreationDate";
             this.CreationDate.Size = new System.Drawing.Size(114, 22);
@@ -257,9 +270,11 @@
             // 
             // PurchaseOrderRevision
             // 
-            this.PurchaseOrderRevision.Location = new System.Drawing.Point(181, 116);
+            this.PurchaseOrderRevision.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PurchaseOrderRevision.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.PurchaseOrderRevision.Location = new System.Drawing.Point(181, 120);
             this.PurchaseOrderRevision.Name = "PurchaseOrderRevision";
-            this.PurchaseOrderRevision.Size = new System.Drawing.Size(134, 22);
+            this.PurchaseOrderRevision.Size = new System.Drawing.Size(134, 16);
             this.PurchaseOrderRevision.TabIndex = 5;
             // 
             // textBox6
@@ -275,9 +290,11 @@
             // 
             // RequestNo
             // 
-            this.RequestNo.Location = new System.Drawing.Point(99, 77);
+            this.RequestNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RequestNo.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.RequestNo.Location = new System.Drawing.Point(99, 83);
             this.RequestNo.Name = "RequestNo";
-            this.RequestNo.Size = new System.Drawing.Size(134, 22);
+            this.RequestNo.Size = new System.Drawing.Size(134, 16);
             this.RequestNo.TabIndex = 3;
             this.RequestNo.Text = "0000000";
             // 
@@ -323,13 +340,14 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "<Back";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BPAStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(847, 498);
+            this.ClientSize = new System.Drawing.Size(847, 502);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);

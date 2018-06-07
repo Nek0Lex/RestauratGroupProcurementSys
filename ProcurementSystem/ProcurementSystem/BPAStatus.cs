@@ -31,5 +31,10 @@ namespace ProcurementSystem
             TAC.Text = lv.SelectedItems[0].SubItems[9].Text;
             SupplierNo.Text = lv.SelectedItems[0].SubItems[10].Text;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

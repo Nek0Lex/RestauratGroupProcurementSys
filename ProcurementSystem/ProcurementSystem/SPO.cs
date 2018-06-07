@@ -44,6 +44,24 @@ namespace ProcurementSystem
 
                 listView1.Items.Add(listitem);
             }
+            dateTimeCompare();
+        }
+        public void dateTimeCompare()
+        {
+            DateTime now = DateTime.Now;
+            DateTime effectiveDate;
+            int datecompare;
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                effectiveDate = DateTime.Parse(listView1.Items[i].SubItems[3].Text);
+                datecompare = DateTime.Compare(now, effectiveDate);
+                if (datecompare > 0)
+                {
+                    listView1.Items[i].BackColor = Color.Yellow;
+                }
+                else
+                    continue;
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -101,6 +119,7 @@ namespace ProcurementSystem
 
                 listView1.Items.Add(listitem);
             }
+            dateTimeCompare();
         }
 
         private void button2_Click(object sender, EventArgs e)
