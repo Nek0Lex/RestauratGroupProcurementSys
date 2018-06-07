@@ -151,11 +151,11 @@
     <Compile Include="CreatePurchaseRequest.Designer.cs">
       <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchResult.cs">
+    <Compile Include="ViewRequest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchResult.Designer.cs">
-      <DependentUpon>SearchResult.cs</DependentUpon>
+    <Compile Include="ViewRequest.Designer.cs">
+      <DependentUpon>ViewRequest.cs</DependentUpon>
     </Compile>
     <Compile Include="SupplierMenu.cs">
       <SubType>Form</SubType>
@@ -284,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreatePurchaseRequest.resx">
       <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewRequest.resx">
+      <DependentUpon>ViewRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SupplierMenu.resx">
       <DependentUpon>SupplierMenu.cs</DependentUpon>
