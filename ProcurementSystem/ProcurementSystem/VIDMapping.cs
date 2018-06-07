@@ -10,9 +10,13 @@ using System.Windows.Forms;
 
 namespace ProcurementSystem
 {
-    public partial class CreateVIDMapping : Form
+    public partial class VIDMapping : Form
     {
-        public CreateVIDMapping()
+        public VIDMapping()
+        {
+            InitializeComponent();
+        }
+        public VIDMapping(string asdg)
         {
             InitializeComponent();
         }

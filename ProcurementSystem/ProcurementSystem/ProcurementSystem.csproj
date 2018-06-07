@@ -163,11 +163,11 @@
     <Compile Include="CreatePurchaseRequest.Designer.cs">
       <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateVIDMapping.cs">
+    <Compile Include="VIDMapping.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateVIDMapping.Designer.cs">
-      <DependentUpon>CreateVIDMapping.cs</DependentUpon>
+    <Compile Include="VIDMapping.Designer.cs">
+      <DependentUpon>VIDMapping.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewRequest.cs">
       <SubType>Form</SubType>

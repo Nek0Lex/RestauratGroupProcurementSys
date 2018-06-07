@@ -1,6 +1,6 @@
 ﻿namespace ProcurementSystem
 {
-    partial class CreateVIDMapping
+    partial class VIDMapping
     {
         /// <summary>
         /// Required designer variable.
