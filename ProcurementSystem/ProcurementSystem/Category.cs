@@ -24,14 +24,14 @@ namespace ProcurementSystem
             this.m = m;
         }
 
-        private void Category_Load(object sender, EventArgs e)
+        public void ReloadCategory()
         {
+            treeView1.Nodes.Clear();
             cnn.Open();
             MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM Category;", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             //cat = dt.AsEnumerable().ToList<object>();
-            //treeView1.DataSource = sda;
             foreach (DataRow dr in dt.Rows)
             {
                 if (dr["parent_id"].ToString().Equals(""))
@@ -52,7 +52,13 @@ namespace ProcurementSystem
 
                 }
             }
+            treeView1.ExpandAll();
             cnn.Close();
+        }
+
+        private void Category_Load(object sender, EventArgs e)
+        {
+            ReloadCategory();
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -67,12 +73,48 @@ namespace ProcurementSystem
 
         private void AddCategory_Click(object sender, EventArgs e)
         {
+            //textBox1.Visible = !textBox1.Visible;
             //MessageBox.Show(treeView1.SelectedNode.Tag.ToString());
-            //string categoryName;
-            //MySqlCommand add = new MySqlCommand("INSERT INTO Category (name, parent_id) Value (" + categoryName + ", " + treeView1.SelectedNode.Tag.ToString() + ");", cnn);
-            //add.ExecuteNonQuery();
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                cnn.Open();
+                MySqlCommand add = new MySqlCommand("INSERT INTO Category (name, parent_id) Value ('" + textBox1.Text.ToString() + "', " + treeView1.SelectedNode.Tag.ToString() + ");", cnn);
+                add.ExecuteNonQuery();
+                cnn.Close();
+                ReloadCategory();
+            }
         }
-        
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            m.Show();
+        }
+
+        private void DeleteCategory_Click(object sender, EventArgs e)
+        {
+            MySqlCommand del;
+            cnn.Open();
+            try
+            {
+                del = new MySqlCommand("DELETE FROM Category WHERE category_id = " + treeView1.SelectedNode.Tag.ToString() + "; ", cnn);
+                del.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                cnn.Close();
+            }
+            ReloadCategory();
+        }
+
+        private void EditCategory_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

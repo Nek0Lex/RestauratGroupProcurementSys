@@ -151,6 +151,12 @@
     <Compile Include="CreatePurchaseRequest.Designer.cs">
       <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIDMapping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIDMapping.Designer.cs">
+      <DependentUpon>VIDMapping.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewRequest.cs">
       <SubType>Form</SubType>
     </Compile>
