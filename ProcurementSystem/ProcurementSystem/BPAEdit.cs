@@ -52,17 +52,22 @@ namespace ProcurementSystem
             String Currency = currency.Text;
             Double amount = Double.Parse(Amount.Text);
             String tac = TAC.Text;
-
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-            cnn.Open();
-            String delete = "DELETE FROM BlanketPurchaseAgreement WHERE BPANo = '"+bpaNo+"'; ";
-            MySqlCommand cmd = new MySqlCommand(delete, cnn);
-            cmd.ExecuteNonQuery();
-            String add = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo)VALUES('" + bpaNo + "', '" + requestNo + "', '" + por + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + amount + "', '" + Currency + "', '" + tac + "', '" + supplierNo + "'); ";
-            MySqlCommand cmd2 = new MySqlCommand(add, cnn);
-            cmd2.ExecuteNonQuery();
-            MessageBox.Show("Change successful");
-            this.Close();
+            if (!string.IsNullOrWhiteSpace(billAddress) || !string.IsNullOrWhiteSpace(requestNo) || !string.IsNullOrWhiteSpace(supplierNo))
+            {
+                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                cnn.Open();
+                String delete = "DELETE FROM BlanketPurchaseAgreement WHERE BPANo = '" + bpaNo + "'; ";
+                MySqlCommand cmd = new MySqlCommand(delete, cnn);
+                cmd.ExecuteNonQuery();
+                String add = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo)VALUES('" + bpaNo + "', '" + requestNo + "', '" + por + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + amount + "', '" + Currency + "', '" + tac + "', '" + supplierNo + "'); ";
+                MySqlCommand cmd2 = new MySqlCommand(add, cnn);
+                cmd2.ExecuteNonQuery();
+                MessageBox.Show("Change successful");
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Cant be null of info you submit!", "ERROR");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

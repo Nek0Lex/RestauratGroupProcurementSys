@@ -47,16 +47,23 @@ namespace ProcurementSystem
             String itemID = ItemID.Text;
             String tac = TAC.Text;
 
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-            cnn.Open();
-            String delete = "DELETE FROM CPA WHERE ContractNo = '" + contractNo + "'; ";
-            MySqlCommand cmd = new MySqlCommand(delete, cnn);
-            cmd.ExecuteNonQuery();
-            String add = "INSERT INTO CPA (ContractNo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, TermsAndCondition, ItemID)VALUES('" + contractNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + tac + "', '" + itemID + "'); ";
-            MySqlCommand cmd2 = new MySqlCommand(add, cnn);
-            cmd2.ExecuteNonQuery();
-            MessageBox.Show("Change successful");
-            this.Close();
+            if (!string.IsNullOrWhiteSpace(billAddress) || !string.IsNullOrWhiteSpace(contractNo) || !string.IsNullOrWhiteSpace(supplierNo))
+            {
+                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                cnn.Open();
+                String delete = "DELETE FROM CPA WHERE ContractNo = '" + contractNo + "'; ";
+                MySqlCommand cmd = new MySqlCommand(delete, cnn);
+                cmd.ExecuteNonQuery();
+                String add = "INSERT INTO CPA (ContractNo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, TermsAndCondition, ItemID)VALUES('" + contractNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + tac + "', '" + itemID + "'); ";
+                MySqlCommand cmd2 = new MySqlCommand(add, cnn);
+                cmd2.ExecuteNonQuery();
+                MessageBox.Show("Change successful");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
