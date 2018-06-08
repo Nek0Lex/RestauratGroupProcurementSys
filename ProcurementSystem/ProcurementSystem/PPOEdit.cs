@@ -51,16 +51,23 @@ namespace ProcurementSystem
             String currency = Currency.Text;
             String tac = TAC.Text;
 
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-            cnn.Open();
-            String delete = "DELETE FROM PPO WHERE ppoNo = '" + ppoNo + "'; ";
-            MySqlCommand cmd = new MySqlCommand(delete, cnn);
-            cmd.ExecuteNonQuery();
-            String add = "INSERT INTO PPO (PPONo, SupplierNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, SRNo, Amount, Currency, TermsAndCondition)VALUES('" + ppoNo + "', '" + supplierNo + "', '" + purchaseOrderRevision + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + srNo + "', " + amount + ", '" + currency + "', '" + tac + "'); ";
-            MySqlCommand cmd2 = new MySqlCommand(add, cnn);
-            cmd2.ExecuteNonQuery();
-            MessageBox.Show("Change successful");
-            this.Close();
+            if (!string.IsNullOrWhiteSpace(billAddress) || !string.IsNullOrWhiteSpace(ppoNo) || !string.IsNullOrWhiteSpace(supplierNo))
+            {
+                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                cnn.Open();
+                String delete = "DELETE FROM PPO WHERE ppoNo = '" + ppoNo + "'; ";
+                MySqlCommand cmd = new MySqlCommand(delete, cnn);
+                cmd.ExecuteNonQuery();
+                String add = "INSERT INTO PPO (PPONo, SupplierNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, SRNo, Amount, Currency, TermsAndCondition)VALUES('" + ppoNo + "', '" + supplierNo + "', '" + purchaseOrderRevision + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + srNo + "', " + amount + ", '" + currency + "', '" + tac + "'); ";
+                MySqlCommand cmd2 = new MySqlCommand(add, cnn);
+                cmd2.ExecuteNonQuery();
+                MessageBox.Show("Change successful");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void back_Click(object sender, EventArgs e)
