@@ -102,6 +102,47 @@ namespace ProcurementSystem
 
         private void refresh_Click(object sender, EventArgs e)
         {
+            refreshFunction();
+            dateTimeCompare();
+        }
+
+        private void status_Click_1(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nothing Selected", "ERROR");
+                return;
+            }
+            else
+            {
+                CPAStatus cpaStatus = new CPAStatus(this, listView1);
+                cpaStatus.ShowDialog();
+            }
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Nothing Selected", "ERROR");
+                return;
+            }
+            else
+            {
+                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                cnn.Open();
+                String deleteitem = listView1.SelectedItems[0].SubItems[0].Text;
+                String query = "DELETE from CPA where ContractNo = '" + deleteitem + "'; ";
+                MySqlCommand cmd = new MySqlCommand(query, cnn);
+                MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Remove success!");
+                refreshFunction();
+            }
+        }
+
+        private void refreshFunction()
+        {
             listView1.Items.Clear();
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
             cnn.Open();
@@ -128,20 +169,6 @@ namespace ProcurementSystem
                 listView1.Items.Add(listitem);
             }
             dateTimeCompare();
-        }
-
-        private void status_Click_1(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Nothing Selected", "ERROR");
-                return;
-            }
-            else
-            {
-                CPAStatus cpaStatus = new CPAStatus(this, listView1);
-                cpaStatus.ShowDialog();
-            }
         }
     }
 }

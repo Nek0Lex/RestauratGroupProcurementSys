@@ -30,6 +30,7 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.status = new System.Windows.Forms.Button();
             this.refresh = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.PPONo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,7 +49,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.status = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +78,17 @@
             this.groupBox1.Size = new System.Drawing.Size(856, 399);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // status
+            // 
+            this.status.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.status.Location = new System.Drawing.Point(657, 20);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(181, 44);
+            this.status.TabIndex = 6;
+            this.status.Text = "Status Of Selected Planned Purchase Order";
+            this.status.UseVisualStyleBackColor = true;
+            this.status.Click += new System.EventHandler(this.status_Click);
             // 
             // refresh
             // 
@@ -184,6 +195,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Delete Selected Planned Purchase Order";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -217,17 +229,6 @@
             this.button4.Text = "back";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // status
-            // 
-            this.status.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.status.Location = new System.Drawing.Point(657, 20);
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(181, 44);
-            this.status.TabIndex = 6;
-            this.status.Text = "Status Of Selected Planned Purchase Order";
-            this.status.UseVisualStyleBackColor = true;
-            this.status.Click += new System.EventHandler(this.status_Click);
             // 
             // PPO
             // 

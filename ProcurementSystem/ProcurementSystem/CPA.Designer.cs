@@ -30,6 +30,7 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.status = new System.Windows.Forms.Button();
             this.refresh = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.ContractNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,7 +45,6 @@
             this.Edit = new System.Windows.Forms.Button();
             this.Create = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
-            this.status = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,17 @@
             this.groupBox1.Size = new System.Drawing.Size(786, 380);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // status
+            // 
+            this.status.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.status.Location = new System.Drawing.Point(614, 21);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(144, 42);
+            this.status.TabIndex = 6;
+            this.status.Text = "Status of Contract Purchase Agreement";
+            this.status.UseVisualStyleBackColor = true;
+            this.status.Click += new System.EventHandler(this.status_Click_1);
             // 
             // refresh
             // 
@@ -156,6 +167,7 @@
             this.Delete.TabIndex = 3;
             this.Delete.Text = "Delete Contract Purchase Agreement";
             this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // Edit
             // 
@@ -189,17 +201,6 @@
             this.back.Text = "back";
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // status
-            // 
-            this.status.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.status.Location = new System.Drawing.Point(614, 21);
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(144, 42);
-            this.status.TabIndex = 6;
-            this.status.Text = "Status of Contract Purchase Agreement";
-            this.status.UseVisualStyleBackColor = true;
-            this.status.Click += new System.EventHandler(this.status_Click_1);
             // 
             // CPA
             // 
