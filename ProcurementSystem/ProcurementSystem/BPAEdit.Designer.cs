@@ -240,6 +240,7 @@
             this.Effective.Name = "Effective";
             this.Effective.Size = new System.Drawing.Size(114, 23);
             this.Effective.TabIndex = 9;
+            this.Effective.Value = new System.DateTime(2018, 6, 8, 0, 0, 0, 0);
             // 
             // textBox9
             // 
@@ -259,6 +260,7 @@
             this.CreationDate.Name = "CreationDate";
             this.CreationDate.Size = new System.Drawing.Size(114, 23);
             this.CreationDate.TabIndex = 7;
+            this.CreationDate.Value = new System.DateTime(2018, 6, 8, 0, 0, 0, 0);
             // 
             // textBox8
             // 

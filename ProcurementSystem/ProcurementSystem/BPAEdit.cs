@@ -50,7 +50,7 @@ namespace ProcurementSystem
                 String effectiveDate = Effective.Value.ToString("yyyy-MM-dd");
                 String buyerName = BuyerName.Text;
                 String billAddress = BillingAddress.Text;
-                String supplierNo = "S" + SupplierNo.Text;
+                String supplierNo = SupplierNo.Text;
                 String Currency = currency.Text;
                 Double amount = Double.Parse(Amount.Text);
                 String tac = TAC.Text;
@@ -76,10 +76,10 @@ namespace ProcurementSystem
             {
                 MessageBox.Show("Please input whole form!");
             }
-            catch (MySqlException)
-            {
-                MessageBox.Show("Please check your supplierNo!");
-            }
+            //catch (MySqlException)
+            //{
+                //MessageBox.Show("Please check your supplierNo!");
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)

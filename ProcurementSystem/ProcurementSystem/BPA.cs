@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,8 @@ namespace ProcurementSystem
             MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
             DataTable dt = new DataTable();
             ada.Fill(dt);
+            CultureInfo arSA = new CultureInfo("ar-SA");
+            arSA.DateTimeFormat.Calendar = new UmAlQuraCalendar();
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
