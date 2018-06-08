@@ -26,7 +26,7 @@ namespace ProcurementSystem
             this.m = m;
         }
 
-        public void ReloadCategory()
+        private void ReloadCategory()
         {
             treeView1.Nodes.Clear();
             cnn.Open();
@@ -58,7 +58,7 @@ namespace ProcurementSystem
             cnn.Close();
         }
 
-        public void ReloadVItem()
+        private void ReloadVItem()
         {
             cnn.Open();
             currentCategory = treeView1.SelectedNode.Tag.ToString();
@@ -144,18 +144,25 @@ namespace ProcurementSystem
 
         private void UpdateVIDMapping_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            if (dataGridView1.SelectedRows.Count <= 0)
             {
-                string VItemID = row.Cells[0].Value.ToString();
-                string ItemID = row.Cells[1].Value.ToString();
-                string ItemName = row.Cells[2].Value.ToString();
-                string ItemDescription = row.Cells[3].Value.ToString();
+               
+            } else
+            {
+                DataGridViewSelectedRowCollection selectedRow = dataGridView1.SelectedRows;
+                VIDMapping editVID = new VIDMapping(currentCategory, selectedRow);
+                editVID.FormClosing += new FormClosingEventHandler(this.VIDMapping_FormClosing);
+                editVID.Show();
             }
+            ReloadVItem();
+
         }
 
         private void CreateVIDMapping_Click(object sender, EventArgs e)
         {
-
+            VIDMapping createVID = new VIDMapping(currentCategory);
+            createVID.FormClosing += new FormClosingEventHandler(this.VIDMapping_FormClosing);
+            createVID.Show();
         }
 
         private void DeleteVIDMapping_Click(object sender, EventArgs e)
@@ -181,6 +188,11 @@ namespace ProcurementSystem
                 }
                 ReloadVItem();
             }
+        }
+
+        private void VIDMapping_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ReloadVItem();
         }
     }
 

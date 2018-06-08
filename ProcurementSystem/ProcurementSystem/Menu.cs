@@ -53,6 +53,7 @@ namespace ProcurementSystem
                 case "CM":
                     lb1.Text = "Category Manager";
                     btn1.Text = "Category";
+                    btn2.Text = "Item";
                     btn4.Text = "Edit User Information";
                     break;
                 case "WC":
@@ -144,6 +145,11 @@ namespace ProcurementSystem
                     this.Hide();
                     SupplierMenu sm = new SupplierMenu(this);
                     sm.Show();
+                    break;
+                case "CM":
+                    this.Hide();
+                    Item itm = new Item(this);
+                    itm.Show();
                     break;
             }
         }

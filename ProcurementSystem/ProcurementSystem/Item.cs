@@ -12,9 +12,11 @@ namespace ProcurementSystem
 {
     public partial class Item : Form
     {
-        public Item()
+        Menu m;
+        public Item(Menu m)
         {
             InitializeComponent();
+            this.m = m;
         }
     }
 }
