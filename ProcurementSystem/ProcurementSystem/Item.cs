@@ -51,16 +51,12 @@ namespace ProcurementSystem
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count <= 0)
-            {
-
-            }
-            else
+            if (dataGridView1.SelectedRows.Count > 0 && !dataGridView1.SelectedRows[0].IsNewRow)
             {
                 DataGridViewSelectedRowCollection selectedRow = dataGridView1.SelectedRows;
-                ItemManagement createItem = new ItemManagement(selectedRow);
-                createItem.FormClosing += new FormClosingEventHandler(this.ItemManagement_FormClosing);
-                createItem.Show();
+                ItemManagement editItem = new ItemManagement(selectedRow);
+                editItem.FormClosing += new FormClosingEventHandler(this.ItemManagement_FormClosing);
+                editItem.Show();
             }
         }
 

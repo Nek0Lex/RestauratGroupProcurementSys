@@ -351,6 +351,9 @@
     <EmbeddedResource Include="Stock.resx">
       <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StockManagement.resx">
+      <DependentUpon>StockManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIDMapping.resx">
       <DependentUpon>VIDMapping.cs</DependentUpon>
     </EmbeddedResource>

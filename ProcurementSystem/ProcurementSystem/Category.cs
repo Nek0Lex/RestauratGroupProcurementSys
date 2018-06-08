@@ -143,8 +143,11 @@ namespace ProcurementSystem
             cnn.Open();
             try
             {
-                edit = new MySqlCommand("UPDATE Category SET name = '" + textBox1.Text + "' WHERE category_id = " + currentCategory + "; ", cnn);
-                edit.ExecuteNonQuery();
+                if (!String.IsNullOrEmpty(textBox1.Text))
+                {
+                    edit = new MySqlCommand("UPDATE Category SET name = '" + textBox1.Text + "' WHERE category_id = " + currentCategory + "; ", cnn);
+                    edit.ExecuteNonQuery();
+                }
             }
             catch (Exception ex)
             {
@@ -159,10 +162,7 @@ namespace ProcurementSystem
 
         private void UpdateVIDMapping_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count <= 0)
-            {
-               
-            } else
+            if (dataGridView1.SelectedRows.Count > 0 && !dataGridView1.SelectedRows[0].IsNewRow)
             {
                 DataGridViewSelectedRowCollection selectedRow = dataGridView1.SelectedRows;
                 VIDMapping editVID = new VIDMapping(currentCategory, selectedRow);
@@ -181,26 +181,29 @@ namespace ProcurementSystem
 
         private void DeleteVIDMapping_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            if (dataGridView1.SelectedRows.Count > 0 && !dataGridView1.SelectedRows[0].IsNewRow)
             {
-                string VItemID = row.Cells[0].Value.ToString();
-                MySqlCommand del;
-                currentCategory = treeView1.SelectedNode.Tag.ToString();
-                cnn.Open();
-                try
+                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                 {
-                    del = new MySqlCommand("DELETE FROM VItem WHERE VItemID = '" + VItemID + "' AND category_id = " + currentCategory + "; ", cnn);
-                    del.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
+                    string VItemID = row.Cells[0].Value.ToString();
+                    MySqlCommand del;
+                    currentCategory = treeView1.SelectedNode.Tag.ToString();
+                    cnn.Open();
+                    try
+                    {
+                        del = new MySqlCommand("DELETE FROM VItem WHERE VItemID = '" + VItemID + "' AND category_id = " + currentCategory + "; ", cnn);
+                        del.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
 
+                    }
+                    finally
+                    {
+                        cnn.Close();
+                    }
+                    ReloadVItem();
                 }
-                finally
-                {
-                    cnn.Close();
-                }
-                ReloadVItem();
             }
         }
 

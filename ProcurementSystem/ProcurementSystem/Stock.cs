@@ -26,8 +26,7 @@ namespace ProcurementSystem
         private void ReloadStock()
         {
             cnn.Open();
-            //MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM WarehouseStock;", cnn);
-            MySqlDataAdapter sda = new MySqlDataAdapter("SELECT ws.StockID, ws.ItemID, i.ItemName, ws.Quantity, w.WarehouseAddress, r.RestName FROM WarehouseStock ws, Item i, Warehouse w, Restaurant r WHERE ws.ItemID = i.ItemID AND ws.Location = w.warehouseNo AND ws.Owner = r.RestNo;", cnn);
+            MySqlDataAdapter sda = new MySqlDataAdapter("SELECT * FROM WarehouseStock;", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -42,17 +41,51 @@ namespace ProcurementSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            StockManagement addStock = new StockManagement();
+            addStock.FormClosing += new FormClosingEventHandler(this.StockManagement_FormClosing);
+            addStock.Show();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            if (dataGridView1.SelectedRows.Count > 0 && !dataGridView1.SelectedRows[0].IsNewRow)
+            {
+                DataGridViewSelectedRowCollection selectedRow = dataGridView1.SelectedRows;
+                StockManagement editStock = new StockManagement(selectedRow);
+                editStock.FormClosing += new FormClosingEventHandler(this.StockManagement_FormClosing);
+                editStock.Show();
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                try
+                {
+                    string StockID = row.Cells[0].Value.ToString();
+                    string ItemID = row.Cells[1].Value.ToString();
+                
+                    MySqlCommand del;
+                    cnn.Open();
+                    del = new MySqlCommand("DELETE FROM WarehouseStock WHERE StockID = '" + StockID + "' AND ItemID = '" + ItemID + "'; ", cnn);
+                    del.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
 
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                ReloadStock();
+            }
+        }
+
+        private void StockManagement_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ReloadStock();
         }
     }
 }

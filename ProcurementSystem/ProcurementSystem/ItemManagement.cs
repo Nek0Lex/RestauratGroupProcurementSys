@@ -87,7 +87,7 @@ namespace ProcurementSystem
                     cnn.Close();
                     return;
                 }
-                MessageBox.Show("Update Success!");
+                MessageBox.Show("Create Success!");
             }
         }
 
