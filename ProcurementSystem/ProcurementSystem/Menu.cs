@@ -55,7 +55,7 @@ namespace ProcurementSystem
                     lb1.Text = "Category Manager";
                     btn1.Text = "Category";
                     btn2.Text = "Item";
-                    btn3.Visible = false; //to be added function or keep invisible
+                    btn3.Text = "Stock";
                     btn4.Text = "Edit User Information";
                     break;
                 case "WC":
@@ -191,6 +191,11 @@ namespace ProcurementSystem
                     this.Hide();
                     SupplierMenu sm = new SupplierMenu(this);
                     sm.Show();
+                    break;
+                case "CM":
+                    this.Hide();
+                    Stock stk = new Stock(this);
+                    stk.Show();
                     break;
             }
         }

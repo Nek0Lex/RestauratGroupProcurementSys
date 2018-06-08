@@ -187,6 +187,12 @@
     <Compile Include="Stock.Designer.cs">
       <DependentUpon>Stock.cs</DependentUpon>
     </Compile>
+    <Compile Include="StockManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockManagement.Designer.cs">
+      <DependentUpon>StockManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIDMapping.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -341,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SPOStatus.resx">
       <DependentUpon>SPOStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock.resx">
+      <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIDMapping.resx">
       <DependentUpon>VIDMapping.cs</DependentUpon>
