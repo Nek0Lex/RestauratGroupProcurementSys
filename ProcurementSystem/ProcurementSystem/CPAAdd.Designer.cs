@@ -30,6 +30,8 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.TAC = new System.Windows.Forms.RichTextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.ItemID = new System.Windows.Forms.TextBox();
@@ -67,6 +69,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.TAC);
             this.groupBox1.Controls.Add(this.textBox16);
             this.groupBox1.Controls.Add(this.ItemID);
@@ -91,6 +95,30 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new CPA";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox5.Location = new System.Drawing.Point(102, 126);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(10, 18);
+            this.textBox5.TabIndex = 24;
+            this.textBox5.Text = "S";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox2.Location = new System.Drawing.Point(102, 54);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(35, 18);
+            this.textBox2.TabIndex = 23;
+            this.textBox2.Text = "CPA";
             // 
             // TAC
             // 
@@ -219,7 +247,7 @@
             // 
             // SupplierNo
             // 
-            this.SupplierNo.Location = new System.Drawing.Point(103, 126);
+            this.SupplierNo.Location = new System.Drawing.Point(119, 126);
             this.SupplierNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SupplierNo.Name = "SupplierNo";
             this.SupplierNo.Size = new System.Drawing.Size(116, 22);
@@ -252,14 +280,13 @@
             // 
             // ContractNo
             // 
-            this.ContractNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ContractNo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ContractNo.Location = new System.Drawing.Point(103, 54);
+            this.ContractNo.Location = new System.Drawing.Point(143, 51);
             this.ContractNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ContractNo.Name = "ContractNo";
-            this.ContractNo.Size = new System.Drawing.Size(116, 18);
+            this.ContractNo.Size = new System.Drawing.Size(116, 25);
             this.ContractNo.TabIndex = 0;
-            this.ContractNo.Text = "CPA";
+            this.ContractNo.TextChanged += new System.EventHandler(this.ContractNo_TextChanged);
             // 
             // button1
             // 
@@ -283,6 +310,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.clear_Click);
             // 
             // button3
             // 
@@ -339,5 +367,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

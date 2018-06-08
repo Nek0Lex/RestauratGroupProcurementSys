@@ -48,6 +48,7 @@
             this.ContractNo = new System.Windows.Forms.TextBox();
             this.back = new System.Windows.Forms.Button();
             this.submit = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +68,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.TAC);
             this.groupBox1.Controls.Add(this.textBox16);
             this.groupBox1.Controls.Add(this.ItemID);
@@ -219,7 +221,7 @@
             // 
             // SupplierNo
             // 
-            this.SupplierNo.Location = new System.Drawing.Point(103, 126);
+            this.SupplierNo.Location = new System.Drawing.Point(119, 126);
             this.SupplierNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SupplierNo.Name = "SupplierNo";
             this.SupplierNo.Size = new System.Drawing.Size(116, 22);
@@ -283,6 +285,19 @@
             this.submit.UseVisualStyleBackColor = true;
             this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox2.Location = new System.Drawing.Point(103, 126);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(10, 18);
+            this.textBox2.TabIndex = 23;
+            this.textBox2.Text = "S";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // CPAEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -324,5 +339,6 @@
         private System.Windows.Forms.TextBox ContractNo;
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Button submit;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

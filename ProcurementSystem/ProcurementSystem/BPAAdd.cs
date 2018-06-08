@@ -46,9 +46,9 @@ namespace ProcurementSystem
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void clear_Click(object sender, EventArgs e)
         {
-            groupBox1.Refresh();
+            SetClearControls(groupBox1.Controls);
         }
 
         private void BPAAdd_Load(object sender, EventArgs e)
@@ -87,6 +87,7 @@ namespace ProcurementSystem
                 {
                     MessageBox.Show("Cant be null of info you submit!", "ERROR");
                 }
+
             }
             catch (FormatException)
             {
@@ -116,6 +117,34 @@ namespace ProcurementSystem
         private void SupplierNo_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Amount_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void SetClearControls(Control.ControlCollection controlCollection)
+        {
+            if (controlCollection == null)
+            {
+                return;
+            }
+            foreach (DateTimePicker d in controlCollection.OfType<DateTimePicker>())
+            {
+                continue;
+            }
+            foreach (ComboBox c in controlCollection.OfType<ComboBox>())
+            {
+                c.Text = "";
+            }
+            foreach (TextBoxBase c in controlCollection.OfType<TextBoxBase>())
+            {
+                if (!c.ReadOnly)
+                {
+                    c.Text = "";
+                }
+            }
         }
     }
 }

@@ -48,7 +48,7 @@ namespace ProcurementSystem
             String effectiveDate = Effective.Value.ToString("yyyy-MM-dd");
             String buyerName = BuyerName.Text;
             String billAddress = BillingAddress.Text;
-            String supplierNo = SupplierNo.Text;
+            String supplierNo = "S" + SupplierNo.Text;
             String Currency = currency.Text;
             Double amount = Double.Parse(Amount.Text);
             String tac = TAC.Text;

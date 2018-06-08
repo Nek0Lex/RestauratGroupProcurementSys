@@ -41,15 +41,15 @@ namespace ProcurementSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            String spoNo = SPONo.Text;
-            String supplierNo = SupplierNo.Text;
+            String spoNo = "SPO" + SPONo.Text;
+            String supplierNo = "S" + SupplierNo.Text;
             String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
             String effectiveDate = EffectiveDate.Value.ToString("yyyy-MM-dd");
             String edd = ExpectedDeliveryDate.Value.ToString("yyyy-MM-dd");
             String billAddress = BillingAddress.Text;
             int buyerAccount = int.Parse(BuyerAccount.Text);
             String buyerName = BuyerName.Text;
-            String restNo = RestNo.Text;
+            String restNo = "R" + RestNo.Text;
             String tac = TAC.Text;
 
 
@@ -70,11 +70,37 @@ namespace ProcurementSystem
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void clear_Click(object sender, EventArgs e)
+        {
+            SetClearControls(groupBox1.Controls);
+        }
+
+        private void SetClearControls(Control.ControlCollection controlCollection)
+        {
+            if (controlCollection == null)
+            {
+                return;
+            }
+            foreach (DateTimePicker d in controlCollection.OfType<DateTimePicker>())
+            {
+                continue;
+            }
+            foreach (ComboBox c in controlCollection.OfType<ComboBox>())
+            {
+                c.Text = "";
+            }
+            foreach (TextBoxBase c in controlCollection.OfType<TextBoxBase>())
+            {
+                if (!c.ReadOnly)
+                {
+                    c.Text = "";
+                }
+            }
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
         {
 
         }
-
-
     }
 }

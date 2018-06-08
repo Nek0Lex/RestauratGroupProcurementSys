@@ -30,6 +30,11 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Currency = new System.Windows.Forms.ComboBox();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.Amount = new System.Windows.Forms.TextBox();
             this.textBox19 = new System.Windows.Forms.TextBox();
@@ -56,7 +61,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.Currency = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +79,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox12);
+            this.groupBox1.Controls.Add(this.textBox10);
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.Currency);
             this.groupBox1.Controls.Add(this.textBox21);
             this.groupBox1.Controls.Add(this.Amount);
@@ -108,6 +116,69 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new PPO";
             // 
+            // textBox12
+            // 
+            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox12.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox12.Location = new System.Drawing.Point(443, 328);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            this.textBox12.Size = new System.Drawing.Size(16, 18);
+            this.textBox12.TabIndex = 32;
+            this.textBox12.Text = "SR";
+            // 
+            // textBox10
+            // 
+            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox10.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox10.Location = new System.Drawing.Point(456, 386);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(10, 18);
+            this.textBox10.TabIndex = 31;
+            this.textBox10.Text = "$";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox5.Location = new System.Drawing.Point(97, 126);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(10, 18);
+            this.textBox5.TabIndex = 30;
+            this.textBox5.Text = "S";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox2.Location = new System.Drawing.Point(82, 54);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(29, 18);
+            this.textBox2.TabIndex = 29;
+            this.textBox2.Text = "PPO";
+            // 
+            // Currency
+            // 
+            this.Currency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Currency.FormattingEnabled = true;
+            this.Currency.Items.AddRange(new object[] {
+            "HKD",
+            "RMB",
+            "USD",
+            "JPY",
+            "AUS"});
+            this.Currency.Location = new System.Drawing.Point(456, 443);
+            this.Currency.Name = "Currency";
+            this.Currency.Size = new System.Drawing.Size(139, 20);
+            this.Currency.TabIndex = 28;
+            // 
             // textBox21
             // 
             this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -122,7 +193,7 @@
             // 
             // Amount
             // 
-            this.Amount.Location = new System.Drawing.Point(456, 386);
+            this.Amount.Location = new System.Drawing.Point(472, 386);
             this.Amount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(99, 22);
@@ -183,7 +254,7 @@
             // 
             // SRNo
             // 
-            this.SRNo.Location = new System.Drawing.Point(443, 324);
+            this.SRNo.Location = new System.Drawing.Point(465, 326);
             this.SRNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SRNo.Name = "SRNo";
             this.SRNo.Size = new System.Drawing.Size(112, 22);
@@ -305,7 +376,7 @@
             // 
             // SupplierNo
             // 
-            this.SupplierNo.Location = new System.Drawing.Point(117, 122);
+            this.SupplierNo.Location = new System.Drawing.Point(113, 126);
             this.SupplierNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SupplierNo.Name = "SupplierNo";
             this.SupplierNo.Size = new System.Drawing.Size(116, 22);
@@ -319,7 +390,7 @@
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(93, 18);
+            this.textBox4.Size = new System.Drawing.Size(73, 18);
             this.textBox4.TabIndex = 2;
             this.textBox4.Text = "SupplierNo:";
             // 
@@ -337,7 +408,7 @@
             // 
             // PPONo
             // 
-            this.PPONo.Location = new System.Drawing.Point(82, 54);
+            this.PPONo.Location = new System.Drawing.Point(117, 54);
             this.PPONo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PPONo.Name = "PPONo";
             this.PPONo.Size = new System.Drawing.Size(116, 22);
@@ -365,6 +436,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.clear_Click);
             // 
             // button3
             // 
@@ -377,21 +449,6 @@
             this.button3.Text = "submit";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // Currency
-            // 
-            this.Currency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Currency.FormattingEnabled = true;
-            this.Currency.Items.AddRange(new object[] {
-            "HKD",
-            "RMB",
-            "USD",
-            "JPY",
-            "AUS"});
-            this.Currency.Location = new System.Drawing.Point(456, 443);
-            this.Currency.Name = "Currency";
-            this.Currency.Size = new System.Drawing.Size(139, 20);
-            this.Currency.TabIndex = 28;
             // 
             // PPOAdd
             // 
@@ -445,5 +502,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox Currency;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox12;
     }
 }

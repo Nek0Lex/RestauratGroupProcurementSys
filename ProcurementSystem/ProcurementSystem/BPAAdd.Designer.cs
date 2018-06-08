@@ -32,6 +32,8 @@ namespace ProcurementSystem
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.currency = new System.Windows.Forms.ComboBox();
             this.SupplierNo = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -57,8 +59,6 @@ namespace ProcurementSystem
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,6 +107,28 @@ namespace ProcurementSystem
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new agreement";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox5.Location = new System.Drawing.Point(105, 285);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(10, 18);
+            this.textBox5.TabIndex = 25;
+            this.textBox5.Text = "S";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox3.Location = new System.Drawing.Point(73, 40);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(26, 18);
+            this.textBox3.TabIndex = 24;
+            this.textBox3.Text = "BPA";
             // 
             // currency
             // 
@@ -179,6 +201,7 @@ namespace ProcurementSystem
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(134, 22);
             this.Amount.TabIndex = 15;
+            this.Amount.TextChanged += new System.EventHandler(this.Amount_TextChanged);
             // 
             // textBox13
             // 
@@ -342,7 +365,7 @@ namespace ProcurementSystem
             this.button2.TabIndex = 3;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.clear_Click);
             // 
             // button3
             // 
@@ -354,28 +377,6 @@ namespace ProcurementSystem
             this.button3.Text = "Submit";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox3.Location = new System.Drawing.Point(73, 40);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(26, 18);
-            this.textBox3.TabIndex = 24;
-            this.textBox3.Text = "BPA";
-            // 
-            // textBox5
-            // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox5.Location = new System.Drawing.Point(105, 285);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(10, 18);
-            this.textBox5.TabIndex = 25;
-            this.textBox5.Text = "S";
             // 
             // BPAAdd
             // 

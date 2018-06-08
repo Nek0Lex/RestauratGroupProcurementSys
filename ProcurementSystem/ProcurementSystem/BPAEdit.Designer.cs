@@ -54,6 +54,8 @@
             this.BPA = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +74,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.currency);
             this.groupBox1.Controls.Add(this.SupplierNo);
             this.groupBox1.Controls.Add(this.textBox2);
@@ -118,7 +122,7 @@
             // 
             // SupplierNo
             // 
-            this.SupplierNo.Location = new System.Drawing.Point(105, 285);
+            this.SupplierNo.Location = new System.Drawing.Point(121, 285);
             this.SupplierNo.Name = "SupplierNo";
             this.SupplierNo.Size = new System.Drawing.Size(134, 22);
             this.SupplierNo.TabIndex = 22;
@@ -167,7 +171,7 @@
             // 
             // Amount
             // 
-            this.Amount.Location = new System.Drawing.Point(501, 156);
+            this.Amount.Location = new System.Drawing.Point(521, 160);
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(134, 22);
             this.Amount.TabIndex = 15;
@@ -280,7 +284,7 @@
             // RequestNo
             // 
             this.RequestNo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.RequestNo.Location = new System.Drawing.Point(99, 81);
+            this.RequestNo.Location = new System.Drawing.Point(99, 78);
             this.RequestNo.Name = "RequestNo";
             this.RequestNo.Size = new System.Drawing.Size(134, 25);
             this.RequestNo.TabIndex = 3;
@@ -342,6 +346,28 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox3.Location = new System.Drawing.Point(105, 285);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(10, 18);
+            this.textBox3.TabIndex = 24;
+            this.textBox3.Text = "S";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox5.Location = new System.Drawing.Point(501, 160);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(14, 18);
+            this.textBox5.TabIndex = 25;
+            this.textBox5.Text = "$";
+            // 
             // BPAEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -389,5 +415,7 @@
         private System.Windows.Forms.TextBox BPA;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }
