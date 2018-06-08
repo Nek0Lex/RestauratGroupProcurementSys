@@ -15,17 +15,18 @@ namespace ProcurementSystem
 {
     public partial class EditAc : Form
     {
-        private String deptCode, StaffNo, restNo;
+        private String deptCode, StaffNo, userDept, restNo;
         private EditMenu em=null;
         private Menu m = null;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
-        public EditAc(String deptCode, String StaffNo, EditMenu em)
+        public EditAc(String deptCode, String userDept, String StaffNo, EditMenu em)
         {
             InitializeComponent();
             this.StaffNo = StaffNo;
             this.deptCode = deptCode;
             this.em = em;
-            if (deptCode == "AM")
+            this.userDept = userDept;
+            if (userDept == "AM" && deptCode == "RM")
             {
                 comboBox2.Enabled = true;
                 comboBox2.Visible = true;
@@ -42,24 +43,17 @@ namespace ProcurementSystem
             InitializeComponent();
             this.StaffNo = StaffNo;
             this.deptCode = deptCode;
+            this.userDept = deptCode;
             this.m = m;
-            if (deptCode == "AM")
-            {
-                comboBox2.Enabled = true;
-                comboBox2.Visible = true;
-            }
-            else
-            {
-                comboBox2.Visible = false;
-                label7.Visible = false;
-            }
+            comboBox2.Visible = false;
+            label7.Visible = false;
             setData();
         }
         public void setData()
         {
             comboBox1.Text = deptCode;
             tbID.Text = Regex.Match(StaffNo, @"\d+").Value;
-            if (deptCode == "RM")
+            if (userDept == "AM" && deptCode == "RM")
             {
                 MySqlDataAdapter sda = new MySqlDataAdapter("select Password, FirstName, LastName, RestName from Staff as s, StaffRestaurant as sr, Restaurant as r where s.StaffNo = '" + StaffNo + "' and s.StaffNo = sr.StaffNo and sr.RestNo = r.RestNo;", cnn);
                 DataTable dt = new DataTable();
@@ -78,7 +72,7 @@ namespace ProcurementSystem
                 tbLName.Text = dt.Rows[0][2].ToString();
             }
             
-            if (deptCode == "AM")
+            if (userDept == "AM" && deptCode == "RM")
             {
                 Dictionary<String, String> comboSource2 = new Dictionary<String, String>();
                 MySqlDataAdapter sda2 = new MySqlDataAdapter("select RestNo, RestName from Restaurant;", cnn);
@@ -127,15 +121,12 @@ namespace ProcurementSystem
                 cnn.Open();
                 command.ExecuteNonQuery();
                 cnn.Close();
-                if (deptCode == "AM")
+                if (userDept == "AM" && deptCode == "RM")
                 {
-                    if (((KeyValuePair<String, String>)comboBox1.SelectedItem).Value == "RM")
-                    {
-                        command = new MySqlCommand("UPDATE StaffRestaurant SET StaffNo = '" + StaffNo + "', RestNo = '" + restNo + "' WHERE StaffNo = '" + StaffNo + "';", cnn);
-                        cnn.Open();
-                        command.ExecuteNonQuery();
-                        cnn.Close();
-                    }
+                    command = new MySqlCommand("UPDATE StaffRestaurant SET StaffNo = '" + StaffNo + "', RestNo = '" + restNo + "' WHERE StaffNo = '" + StaffNo + "';", cnn);
+                    cnn.Open();
+                    command.ExecuteNonQuery();
+                    cnn.Close();
                 }
                 MessageBox.Show("Update Success!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

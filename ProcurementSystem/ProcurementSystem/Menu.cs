@@ -36,6 +36,7 @@ namespace ProcurementSystem
                     lb1.Text = "Purchase Manager";
                     btn1.Text = "Agreement";
                     btn2.Text = "Supplier";
+                    btn3.Visible = false; //to be added function or keep invisible
                     btn4.Text = "Edit User Information";
                     break;
                 case "RM":
@@ -46,7 +47,7 @@ namespace ProcurementSystem
                     lb1.Text = "The Restaurant Manager of \n" + dt.Rows[0][0].ToString();
                     this.restNo = dt.Rows[0][1].ToString();
                     btn1.Text = "Purchase Request";
-                    btn2.Visible = false;
+                    btn2.Visible = false; //to be added function or keep invisible
                     btn3.Text = "Edit User Information";
                     btn4.Text = "Edit Restaurant Information";
                     break;
@@ -54,6 +55,7 @@ namespace ProcurementSystem
                     lb1.Text = "Category Manager";
                     btn1.Text = "Category";
                     btn2.Text = "Item";
+                    btn3.Visible = false; //to be added function or keep invisible
                     btn4.Text = "Edit User Information";
                     break;
                 case "WC":
@@ -67,6 +69,7 @@ namespace ProcurementSystem
                     lb1.Text = "Accounting Department";
                     btn1.Text = "Complete Payment";
                     btn2.Text = "Payment Record";
+                    btn3.Visible = false; //to be added function or keep invisible
                     btn4.Text = "Edit User Information";
                     break;
                 case "AM":
@@ -74,6 +77,7 @@ namespace ProcurementSystem
                     btn1.Text = "User";
                     btn2.Text = "Restaurant";
                     btn3.Text = "Supplier";
+                    btn4.Visible = false; //to be added function or keep invisible
                     break;
             }
         }

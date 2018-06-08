@@ -93,7 +93,7 @@ namespace ProcurementSystem
                 if (target == 0)
                 {
                 
-                    EditAc ea = new EditAc(listViewUser.SelectedItems[0].SubItems[3].Text, listViewUser.SelectedItems[0].SubItems[0].Text, this);
+                    EditAc ea = new EditAc(listViewUser.SelectedItems[0].SubItems[3].Text, "AM", listViewUser.SelectedItems[0].SubItems[0].Text, this);
                     this.Hide();
                     ea.Show();
                 }
