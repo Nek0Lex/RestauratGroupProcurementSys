@@ -181,6 +181,12 @@
     <Compile Include="SPOStatus.Designer.cs">
       <DependentUpon>SPOStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock.Designer.cs">
+      <DependentUpon>Stock.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIDMapping.cs">
       <SubType>Form</SubType>
     </Compile>
