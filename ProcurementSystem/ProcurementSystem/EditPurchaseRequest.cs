@@ -116,25 +116,33 @@ namespace ProcurementSystem
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            MySqlCommand delOld = new MySqlCommand("delete from PurchaseRequest where RequestNo ='"+ selectedRequest + "';",cnn);
-            delOld.ExecuteNonQuery();
-            for (int i = 0; i < purchaseList2.RowCount - 1; i++)
+            
+            if (purchaseList2.Rows[0].Cells[0].Value == null)
             {
-                try
+                MessageBox.Show("No item has been added into the list");
+            }
+            else
+            {
+                MySqlCommand delOld = new MySqlCommand("delete from PurchaseRequest where RequestNo ='" + selectedRequest + "';", cnn);
+                delOld.ExecuteNonQuery();
+                for (int i = 0; i < purchaseList2.RowCount - 1; i++)
                 {
-                    if (purchaseList2.Rows[i].Cells[0] != null)
+                    try
                     {
-                        MySqlCommand add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, category_id, StaffNo, RestNo) Value ('" + selectedRequest + "', '" + createDate.ToString("yyyy-MM-dd")+ "', " + purchaseList2.Rows[i].Cells[1].Value.ToString() + ", 'NEW', '" + purchaseList2.Rows[i].Cells[2].Value + "', " + purchaseList2.Rows[i].Cells[3].Value + ", '" + staffNo + "', '" + restNo + "');", cnn);
-                        add.ExecuteNonQuery();
+                        if (purchaseList2.Rows[i].Cells[0] != null)
+                        {
+                            MySqlCommand add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, category_id, StaffNo, RestNo) Value ('" + selectedRequest + "', '" + createDate.ToString("yyyy-MM-dd") + "', " + purchaseList2.Rows[i].Cells[1].Value.ToString() + ", 'NEW', '" + purchaseList2.Rows[i].Cells[2].Value + "', " + purchaseList2.Rows[i].Cells[3].Value + ", '" + staffNo + "', '" + restNo + "');", cnn);
+                            add.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
                     }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
+                this.Close();
+                pr.Show();
             }
-            this.Close();
-            pr.Show();
         }
     }
 }

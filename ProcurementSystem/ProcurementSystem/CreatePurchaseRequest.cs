@@ -144,26 +144,33 @@ namespace ProcurementSystem
         {
             //MySqlCommand add;
             //uint qtnToInt;
-
-            for (int i=0; i<purchaseList2.RowCount-1; i++)
+            if (purchaseList2.Rows[0].Cells[0].Value == null)
             {
-                try
+                MessageBox.Show("No item has been added into the list");
+            }else
+            {
+                for (int i = 0; i < purchaseList2.RowCount - 1; i++)
                 {
-                    if (purchaseList2.Rows[i].Cells[0] != null)
+                    try
                     {
-                        //qtnToInt = Convert.ToUInt32(purchaseList2.Rows[i].Cells[1].Value.ToString());
-                        //add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, Hierarchy, StaffNo, RestNo) Value ('" + nowRequestNo + "', '" + today.ToString("yyyy-MM-dd") + "', " + qtnToInt + ", 'NEW', '" + purchaseList2.Rows[i].Cells[2].Value.ToString() + "', 'Chinese', '" + staffNo + "', '" + restNo + "');", cnn);
-                        MySqlCommand add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, category_id, StaffNo, RestNo) Value ('" + nowRequestNo + "', '" + today.ToString("yyyy-MM-dd") + "', " + purchaseList2.Rows[i].Cells[1].Value.ToString() + ", 'NEW', '" + purchaseList2.Rows[i].Cells[2].Value+ "', "+ purchaseList2.Rows[i].Cells[3].Value + ", '" + staffNo + "', '" + restNo + "');", cnn);
-                        add.ExecuteNonQuery();
+                        if (purchaseList2.Rows[i].Cells[0] != null)
+                        {
+                            //qtnToInt = Convert.ToUInt32(purchaseList2.Rows[i].Cells[1].Value.ToString());
+                            //add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, Hierarchy, StaffNo, RestNo) Value ('" + nowRequestNo + "', '" + today.ToString("yyyy-MM-dd") + "', " + qtnToInt + ", 'NEW', '" + purchaseList2.Rows[i].Cells[2].Value.ToString() + "', 'Chinese', '" + staffNo + "', '" + restNo + "');", cnn);
+                            MySqlCommand add = new MySqlCommand("INSERT INTO PurchaseRequest (RequestNo, CreationDate, Quantity, status, VItemID, category_id, StaffNo, RestNo) Value ('" + nowRequestNo + "', '" + today.ToString("yyyy-MM-dd") + "', " + purchaseList2.Rows[i].Cells[1].Value.ToString() + ", 'NEW', '" + purchaseList2.Rows[i].Cells[2].Value + "', " + purchaseList2.Rows[i].Cells[3].Value + ", '" + staffNo + "', '" + restNo + "');", cnn);
+                            add.ExecuteNonQuery();
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
                     }
                 }
-                catch (Exception ex) {
-                    Console.WriteLine(ex.ToString());
-                }
-            }
                 this.Close();
                 pr.Refresh();
                 pr.Show();
+            }
         }
 
         private void itemList_SelectedIndexChanged(object sender, EventArgs e)

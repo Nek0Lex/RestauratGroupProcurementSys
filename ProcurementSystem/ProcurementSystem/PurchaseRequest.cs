@@ -78,6 +78,9 @@ namespace ProcurementSystem
             }
             else
             {
+                errorEditMsg.Text = "";
+                errorMsg.Text = "";
+                errorSearchMsg.Text = "";
                 MySqlDataAdapter getRequest = new MySqlDataAdapter("SELECT pr.RequestNo, FirstName, LastName, RestName, pr.RestNo, pr.StaffNo, pr.CreationDate, pr.Status from Staff as s, PurchaseRequest as pr, StaffRestaurant as sr, Restaurant as r where pr.RequestNo = '" + selectedRequest + "' and pr.RestNo = sr.RestNo and sr.StaffNo = s.StaffNo and sr.RestNo = r.RestNo Group by pr.RequestNo;", cnn);
                 DataTable dt2 = new DataTable();
                 getRequest.Fill(dt2);
@@ -104,6 +107,9 @@ namespace ProcurementSystem
 
         private void createPRbtn_Click_1(object sender, EventArgs e)
         {
+            errorEditMsg.Text = "";
+            errorMsg.Text = "";
+            errorSearchMsg.Text = "";
             CreatePurchaseRequest cpr = new CreatePurchaseRequest(this, staffNo, restNo, staffName, restName);
             this.Hide();
             cpr.Show();
@@ -116,7 +122,9 @@ namespace ProcurementSystem
 
         private void deletePRbtn_Click(object sender, EventArgs e) {
             MySqlCommand del;
+            errorEditMsg.Text = "";
             errorMsg.Text = "";
+            errorSearchMsg.Text = "";
 
             for (int i = 0; i < purchaseRequestList.Items.Count; i++)
             {
@@ -162,6 +170,9 @@ namespace ProcurementSystem
                 errorSearchMsg.Text = "Search Item cannot be null";
             }
             else {
+                errorEditMsg.Text = "";
+                errorMsg.Text = "";
+                errorSearchMsg.Text = "";
                 if (searchByRequestNo.Checked)
                 {
                     MySqlDataAdapter searchRequestNo = new MySqlDataAdapter("Select RequestNo from PurchaseRequest where RequestNo ='" + searchText.Text+ "' Group By RequestNo;", cnn);
