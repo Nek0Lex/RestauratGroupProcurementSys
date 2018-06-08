@@ -68,6 +68,7 @@ namespace ProcurementSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            errorMsg.Text = "";
             try
             {
                 string selectItem = this.itemList.Text;
@@ -86,7 +87,12 @@ namespace ProcurementSystem
                         haveItem = true;
                     }
                 }
-                if ((quantity <= 0) || (qtnNull == false) || (haveItem))
+                if (haveItem)
+                {
+                    errorMsg.Text = "Item is already in the list";
+                }
+                else
+                if ((quantity <= 0) || (qtnNull == false))
                 {
                     errorMsg.Text = "Check Your Input!";
                 }
@@ -104,6 +110,7 @@ namespace ProcurementSystem
 
         private void deleteItem_Click(object sender, EventArgs e)
         {
+            errorMsg.Text = "";
             try
             {
                 foreach (DataGridViewRow row in purchaseList2.SelectedRows)
