@@ -41,32 +41,39 @@ namespace ProcurementSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            String spoNo = "SPO" + SPONo.Text;
-            String supplierNo = "S" + SupplierNo.Text;
-            String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
-            String effectiveDate = EffectiveDate.Value.ToString("yyyy-MM-dd");
-            String edd = ExpectedDeliveryDate.Value.ToString("yyyy-MM-dd");
-            String billAddress = BillingAddress.Text;
-            int buyerAccount = int.Parse(BuyerAccount.Text);
-            String buyerName = BuyerName.Text;
-            String restNo = "R" + RestNo.Text;
-            String tac = TAC.Text;
-
-
-            if (string.IsNullOrWhiteSpace(spoNo) || string.IsNullOrWhiteSpace(supplierNo) || string.IsNullOrWhiteSpace(restNo) || string.IsNullOrWhiteSpace(billAddress))
+            try
             {
-                MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                String spoNo = "SPO" + SPONo.Text;
+                String supplierNo = "S" + SupplierNo.Text;
+                String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
+                String effectiveDate = EffectiveDate.Value.ToString("yyyy-MM-dd");
+                String edd = ExpectedDeliveryDate.Value.ToString("yyyy-MM-dd");
+                String billAddress = BillingAddress.Text;
+                int buyerAccount = int.Parse(BuyerAccount.Text);
+                String buyerName = BuyerName.Text;
+                String restNo = "R" + RestNo.Text;
+                String tac = TAC.Text;
+
+
+                if (string.IsNullOrWhiteSpace(spoNo) || string.IsNullOrWhiteSpace(supplierNo) || string.IsNullOrWhiteSpace(restNo) || string.IsNullOrWhiteSpace(billAddress))
+                {
+                    MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                    cnn.Open();
+                    String query = "INSERT INTO SPO (SPONo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, RestNo, ExpectedDeliveryDate, TermsAndCondition)VALUES('" + spoNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + restNo + "', '" + edd + "', '" + tac + "'); ";
+                    MySqlCommand cmd = new MySqlCommand(query, cnn);
+                    MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Add successful");
+                    this.Close();
+                }
             }
-            else
+            catch (Exception)
             {
-                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-                cnn.Open();
-                String query = "INSERT INTO SPO (SPONo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, RestNo, ExpectedDeliveryDate, TermsAndCondition)VALUES('" + spoNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + restNo + "', '" + edd + "', '" + tac + "'); ";
-                MySqlCommand cmd = new MySqlCommand(query, cnn);
-                MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Add successful");
-                this.Close();
+                MessageBox.Show("Recheck your input!");
             }
         }
 

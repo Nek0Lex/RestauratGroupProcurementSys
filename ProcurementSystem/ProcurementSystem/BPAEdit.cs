@@ -41,32 +41,44 @@ namespace ProcurementSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            String bpaNo = BPANo.Text;
-            String requestNo = RequestNo.Text;
-            String por = PurchaseOrderRevision.Text;
-            String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
-            String effectiveDate = Effective.Value.ToString("yyyy-MM-dd");
-            String buyerName = BuyerName.Text;
-            String billAddress = BillingAddress.Text;
-            String supplierNo = "S" + SupplierNo.Text;
-            String Currency = currency.Text;
-            Double amount = Double.Parse(Amount.Text);
-            String tac = TAC.Text;
-            if (!string.IsNullOrWhiteSpace(billAddress) || !string.IsNullOrWhiteSpace(requestNo) || !string.IsNullOrWhiteSpace(supplierNo))
+            try
             {
-                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-                cnn.Open();
-                String delete = "DELETE FROM BlanketPurchaseAgreement WHERE BPANo = '" + bpaNo + "'; ";
-                MySqlCommand cmd = new MySqlCommand(delete, cnn);
-                cmd.ExecuteNonQuery();
-                String add = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo)VALUES('" + bpaNo + "', '" + requestNo + "', '" + por + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + amount + "', '" + Currency + "', '" + tac + "', '" + supplierNo + "'); ";
-                MySqlCommand cmd2 = new MySqlCommand(add, cnn);
-                cmd2.ExecuteNonQuery();
-                MessageBox.Show("Change successful");
-                this.Close();
-            } else
+                String bpaNo = BPANo.Text;
+                String requestNo = RequestNo.Text;
+                String por = PurchaseOrderRevision.Text;
+                String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
+                String effectiveDate = Effective.Value.ToString("yyyy-MM-dd");
+                String buyerName = BuyerName.Text;
+                String billAddress = BillingAddress.Text;
+                String supplierNo = "S" + SupplierNo.Text;
+                String Currency = currency.Text;
+                Double amount = Double.Parse(Amount.Text);
+                String tac = TAC.Text;
+                if (!string.IsNullOrWhiteSpace(billAddress) || !string.IsNullOrWhiteSpace(requestNo) || !string.IsNullOrWhiteSpace(supplierNo))
+                {
+                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                    cnn.Open();
+                    String delete = "DELETE FROM BlanketPurchaseAgreement WHERE BPANo = '" + bpaNo + "'; ";
+                    MySqlCommand cmd = new MySqlCommand(delete, cnn);
+                    cmd.ExecuteNonQuery();
+                    String add = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo)VALUES('" + bpaNo + "', '" + requestNo + "', '" + por + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + amount + "', '" + Currency + "', '" + tac + "', '" + supplierNo + "'); ";
+                    MySqlCommand cmd2 = new MySqlCommand(add, cnn);
+                    cmd2.ExecuteNonQuery();
+                    MessageBox.Show("Change successful");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Cant be null of info you submit!", "ERROR");
+                }
+            }
+            catch (FormatException)
             {
-                MessageBox.Show("Cant be null of info you submit!", "ERROR");
+                MessageBox.Show("Please input whole form!");
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Please check your supplierNo!");
             }
         }
 

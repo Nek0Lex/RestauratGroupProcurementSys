@@ -38,34 +38,41 @@ namespace ProcurementSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            String ppoNo = "PPO" + PPONo.Text;
-            String supplierNo = "S" + SupplierNo.Text;
-            String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
-            String effectiveDate = EffectiveDate.Value.ToString("yyyy-MM-dd");
-            String billAddress = BillingAddress.Text;
-            String purchaseOrderRevision = PurchaseOrderRevision.Text;
-            int buyerAccount = int.Parse(BuyerAccount.Text);
-            String buyerName = BuyerName.Text;
-            String srNo = "SR" + SRNo.Text;
-            int amount = int.Parse(Amount.Text);
-            String currency = Currency.Text;
-            String tac = TAC.Text;
+            try
+            {
+                String ppoNo = "PPO" + PPONo.Text;
+                String supplierNo = "S" + SupplierNo.Text;
+                String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
+                String effectiveDate = EffectiveDate.Value.ToString("yyyy-MM-dd");
+                String billAddress = BillingAddress.Text;
+                String purchaseOrderRevision = PurchaseOrderRevision.Text;
+                int buyerAccount = int.Parse(BuyerAccount.Text);
+                String buyerName = BuyerName.Text;
+                String srNo = "SR" + SRNo.Text;
+                int amount = int.Parse(Amount.Text);
+                String currency = Currency.Text;
+                String tac = TAC.Text;
 
 
-            if (!string.IsNullOrWhiteSpace(ppoNo) || !string.IsNullOrWhiteSpace(supplierNo) || !string.IsNullOrWhiteSpace(currency) || !string.IsNullOrWhiteSpace(billAddress))
+                if (!string.IsNullOrWhiteSpace(ppoNo) || !string.IsNullOrWhiteSpace(supplierNo) || !string.IsNullOrWhiteSpace(currency) || !string.IsNullOrWhiteSpace(billAddress))
+                {
+                    MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                    cnn.Open();
+                    String query = "INSERT INTO PPO (PPONo, SupplierNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, SRNo, Amount, Currency, TermsAndCondition)VALUES('" + ppoNo + "', '" + supplierNo + "', '" + purchaseOrderRevision + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + srNo + "', " + amount + ", '" + currency + "', '" + tac + "'); ";
+                    MySqlCommand cmd = new MySqlCommand(query, cnn);
+                    MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Add successful");
+                    this.Close();
+                }
+            } 
+            catch(Exception)
             {
-                MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-                cnn.Open();
-                String query = "INSERT INTO PPO (PPONo, SupplierNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, SRNo, Amount, Currency, TermsAndCondition)VALUES('" + ppoNo + "', '" + supplierNo + "', '" + purchaseOrderRevision + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + srNo + "', " + amount + ", '" + currency + "', '" + tac + "'); ";
-                MySqlCommand cmd = new MySqlCommand(query, cnn);
-                MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Add successful");
-                this.Close();
+                MessageBox.Show("Recheck your input!");
             }
         }
 

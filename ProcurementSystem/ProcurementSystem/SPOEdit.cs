@@ -40,35 +40,41 @@ namespace ProcurementSystem
 
         private void submit_Click(object sender, EventArgs e)
         {
-
-            String spoNo = SPONo.Text;
-            String supplierNo = SupplierNo.Text;
-            String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
-            String effectiveDate = EffectiveDate.Value.ToString("yyyy-MM-dd");
-            String edd = ExpectedDeliveryDate.Value.ToString("yyyy-MM-dd");
-            String billAddress = BillingAddress.Text;
-            int buyerAccount = int.Parse(BuyerAccount.Text);
-            String buyerName = BuyerName.Text;
-            String restNo = RestNo.Text;
-            String tac = TAC.Text;
-
-
-            if (!string.IsNullOrWhiteSpace(spoNo) || !string.IsNullOrWhiteSpace(supplierNo) || string.IsNullOrWhiteSpace(restNo) || !string.IsNullOrWhiteSpace(billAddress))
+            try
             {
-                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-                cnn.Open();
-                String delete = "DELETE FROM SPO WHERE SPONo = '" + spoNo + "'; ";
-                MySqlCommand cmd = new MySqlCommand(delete, cnn);
-                cmd.ExecuteNonQuery();
-                String add = "INSERT INTO SPO (SPONo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, RestNo, ExpectedDeliveryDate, TermsAndCondition)VALUES('" + spoNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + restNo + "', '" + edd + "', '" + tac + "'); ";
-                MySqlCommand cmd2 = new MySqlCommand(add, cnn);
-                cmd2.ExecuteNonQuery();
-                MessageBox.Show("Change successful");
-                this.Close();
+                String spoNo = SPONo.Text;
+                String supplierNo = SupplierNo.Text;
+                String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
+                String effectiveDate = EffectiveDate.Value.ToString("yyyy-MM-dd");
+                String edd = ExpectedDeliveryDate.Value.ToString("yyyy-MM-dd");
+                String billAddress = BillingAddress.Text;
+                int buyerAccount = int.Parse(BuyerAccount.Text);
+                String buyerName = BuyerName.Text;
+                String restNo = RestNo.Text;
+                String tac = TAC.Text;
+
+
+                if (!string.IsNullOrWhiteSpace(spoNo) || !string.IsNullOrWhiteSpace(supplierNo) || string.IsNullOrWhiteSpace(restNo) || !string.IsNullOrWhiteSpace(billAddress))
+                {
+                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                    cnn.Open();
+                    String delete = "DELETE FROM SPO WHERE SPONo = '" + spoNo + "'; ";
+                    MySqlCommand cmd = new MySqlCommand(delete, cnn);
+                    cmd.ExecuteNonQuery();
+                    String add = "INSERT INTO SPO (SPONo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, RestNo, ExpectedDeliveryDate, TermsAndCondition)VALUES('" + spoNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + restNo + "', '" + edd + "', '" + tac + "'); ";
+                    MySqlCommand cmd2 = new MySqlCommand(add, cnn);
+                    cmd2.ExecuteNonQuery();
+                    MessageBox.Show("Change successful");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Recheck your input");
             }
         }
     }

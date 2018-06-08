@@ -26,29 +26,36 @@ namespace ProcurementSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            String contractNo = "CPA" + ContractNo.Text;
-            String supplierNo = "S" + SupplierNo.Text;
-            String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
-            String effectiveDate = EffectiveDate.Value.ToString("yyyy-MM-dd");
-            String buyerName = BuyerName.Text;
-            String billAddress = BillingAddress.Text;
-            String itemID = ItemID.Text;
-            String tac = TAC.Text;
+            try
+            {
+                String contractNo = "CPA" + ContractNo.Text;
+                String supplierNo = "S" + SupplierNo.Text;
+                String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
+                String effectiveDate = EffectiveDate.Value.ToString("yyyy-MM-dd");
+                String buyerName = BuyerName.Text;
+                String billAddress = BillingAddress.Text;
+                String itemID = ItemID.Text;
+                String tac = TAC.Text;
 
-            if (string.IsNullOrWhiteSpace(billAddress) || string.IsNullOrWhiteSpace(contractNo) || string.IsNullOrWhiteSpace(supplierNo))
-            {
-                MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (string.IsNullOrWhiteSpace(billAddress) || string.IsNullOrWhiteSpace(contractNo) || string.IsNullOrWhiteSpace(supplierNo))
+                {
+                    MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                    cnn.Open();
+                    String query = "INSERT INTO CPA (ContractNo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, TermsAndCondition, ItemID)VALUES('" + contractNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + tac + "', '" + itemID + "'); ";
+                    MySqlCommand cmd = new MySqlCommand(query, cnn);
+                    MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Add successful");
+                    this.Close();
+                }
             }
-            else
+            catch(Exception)
             {
-                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-                cnn.Open();
-                String query = "INSERT INTO CPA (ContractNo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, TermsAndCondition, ItemID)VALUES('" + contractNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + tac + "', '" + itemID + "'); ";
-                MySqlCommand cmd = new MySqlCommand(query, cnn);
-                MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Add successful");
-                this.Close();
+                MessageBox.Show("Recheck your input!");
             }
         }
 
@@ -84,5 +91,7 @@ namespace ProcurementSystem
                 }
             }
         }
+
+
     }
 }
