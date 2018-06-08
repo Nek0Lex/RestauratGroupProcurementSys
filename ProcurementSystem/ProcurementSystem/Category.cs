@@ -81,7 +81,14 @@ namespace ProcurementSystem
 
         private void AddCategory_Click(object sender, EventArgs e)
         {
-            currentCategory = treeView1.SelectedNode.Tag.ToString();
+            try
+            {
+                currentCategory = treeView1.SelectedNode.Tag.ToString();
+            }
+            catch (NullReferenceException ex)
+            {
+
+            }
             //textBox1.Visible = !textBox1.Visible;
             //MessageBox.Show(treeView1.SelectedNode.Tag.ToString());
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
@@ -103,7 +110,11 @@ namespace ProcurementSystem
         private void DeleteCategory_Click(object sender, EventArgs e)
         {
             MySqlCommand del;
-            currentCategory = treeView1.SelectedNode.Tag.ToString();
+            try
+            {
+                currentCategory = treeView1.SelectedNode.Tag.ToString();
+            }
+            catch (NullReferenceException ex){ };
             cnn.Open();
             try
             {
@@ -124,7 +135,11 @@ namespace ProcurementSystem
         private void EditCategory_Click(object sender, EventArgs e)
         {
             MySqlCommand edit;
-            currentCategory = treeView1.SelectedNode.Tag.ToString();
+            try
+            {
+                currentCategory = treeView1.SelectedNode.Tag.ToString();
+            }
+            catch (NullReferenceException ex) { };
             cnn.Open();
             try
             {
@@ -154,7 +169,6 @@ namespace ProcurementSystem
                 editVID.FormClosing += new FormClosingEventHandler(this.VIDMapping_FormClosing);
                 editVID.Show();
             }
-            ReloadVItem();
 
         }
 

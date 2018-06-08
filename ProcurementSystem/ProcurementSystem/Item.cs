@@ -44,17 +44,53 @@ namespace ProcurementSystem
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-
+            ItemManagement createItem = new ItemManagement();
+            createItem.FormClosing += new FormClosingEventHandler(this.ItemManagement_FormClosing);
+            createItem.Show();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count <= 0)
+            {
 
+            }
+            else
+            {
+                DataGridViewSelectedRowCollection selectedRow = dataGridView1.SelectedRows;
+                ItemManagement createItem = new ItemManagement(selectedRow);
+                createItem.FormClosing += new FormClosingEventHandler(this.ItemManagement_FormClosing);
+                createItem.Show();
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                string ItemID = row.Cells[0].Value.ToString();
+                MySqlCommand del;
+                cnn.Open();
+                try
+                {
+                    del = new MySqlCommand("DELETE FROM Item WHERE ItemID = '" + ItemID + "'; ", cnn);
+                    del.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
 
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                ReloadItem();
+            }
+        }
+
+        private void ItemManagement_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ReloadItem();
         }
     }
 }
