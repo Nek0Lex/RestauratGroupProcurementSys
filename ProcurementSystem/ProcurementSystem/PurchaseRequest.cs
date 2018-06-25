@@ -127,30 +127,26 @@ namespace ProcurementSystem
             errorSearchMsg.Text = "";
             for (int i = 0; i < purchaseRequestList.Items.Count; i++)
             {
-                try
+            try
+            {
+                MySqlCommand checkNew = new MySqlCommand("Select Status from PurchaseRequest where RequestNo ='"+purchaseRequestList.Items[i]+"';",cnn);
+                String checkStatus = checkNew.ExecuteScalar().ToString();
+                if (purchaseRequestList.GetItemChecked(i) & checkStatus=="NEW")
                 {
-                    MySqlCommand checkNew = new MySqlCommand("Select Status where RequestNo ='"+purchaseRequestList.Items[i]+"';",cnn);
-                    string checkStatus = checkNew.ExecuteScalar().ToString();
-                    if (purchaseRequestList.GetItemChecked(i) && checkStatus == "NEW")
-                    {
-                        del = new MySqlCommand("Delete from PurchaseRequest where RequestNo = '" + purchaseRequestList.Items[i].ToString() + "'", cnn);
-                        del.ExecuteNonQuery();
-                    }
-                    else {
-                        errorMsg.Text = "Some of the request is handled, Cannot Edit or delete!";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                    errorMsg.Text = "Some of the request is handled, Cannot Edit or delete!";
-                }
-                //purchaseRequestList.Items.RemoveAt(i);
-                finally
-                {
-                    this.Refresh();
+                    del = new MySqlCommand("Delete from PurchaseRequest where RequestNo = '" + purchaseRequestList.Items[i].ToString() + "';", cnn);
+                    del.ExecuteNonQuery();
                 }
             }
+                catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                errorMsg.Text = "Some of the selected request have been handled!";
+            }
+                finally
+            {
+                this.Refresh();
+            }
+        }
             btnRefresh_Click(sender, e);
         }
 
