@@ -62,7 +62,7 @@ namespace ProcurementSystem
                     lb1.Text = "Warehouse Clerk";
                     btn1.Text = "Despatch Instruction";
                     btn2.Text = "Delivery Note";
-                    btn3.Text = "Inventory";
+                    btn3.Text = "Stock";
                     btn4.Text = "Edit User Information";
                     break;
                 case "AD":
@@ -196,6 +196,11 @@ namespace ProcurementSystem
                     this.Hide();
                     Stock stk = new Stock(this);
                     stk.Show();
+                    break;
+                case "WC":
+                    this.Hide();
+                    WHStock wstk = new WHStock(this);
+                    wstk.Show();
                     break;
             }
         }
