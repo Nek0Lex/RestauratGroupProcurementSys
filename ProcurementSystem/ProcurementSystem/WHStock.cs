@@ -140,5 +140,11 @@ namespace ProcurementSystem
             MessageBox.Show("Delete Success!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ReloadStock();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            m.Show();
+        }
     }
 }

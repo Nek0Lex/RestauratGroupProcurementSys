@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dGVItem = new System.Windows.Forms.DataGridView();
             this.numQty = new System.Windows.Forms.NumericUpDown();
-            this.tbDID = new System.Windows.Forms.Label();
+            this.lbDID = new System.Windows.Forms.Label();
             this.lbRNo = new System.Windows.Forms.Label();
-            this.tbDesId = new System.Windows.Forms.Label();
+            this.lbDesId = new System.Windows.Forms.Label();
             this.lbArriveDate = new System.Windows.Forms.Label();
             this.lbStatus = new System.Windows.Forms.Label();
             this.btnGen = new System.Windows.Forms.Button();
@@ -42,6 +42,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -79,46 +85,46 @@
             this.numQty.Size = new System.Drawing.Size(120, 30);
             this.numQty.TabIndex = 15;
             // 
-            // tbDID
+            // lbDID
             // 
-            this.tbDID.AutoSize = true;
-            this.tbDID.Location = new System.Drawing.Point(6, 34);
-            this.tbDID.Name = "tbDID";
-            this.tbDID.Size = new System.Drawing.Size(53, 19);
-            this.tbDID.TabIndex = 16;
-            this.tbDID.Text = "label2";
+            this.lbDID.AutoSize = true;
+            this.lbDID.Location = new System.Drawing.Point(147, 35);
+            this.lbDID.Name = "lbDID";
+            this.lbDID.Size = new System.Drawing.Size(53, 19);
+            this.lbDID.TabIndex = 16;
+            this.lbDID.Text = "label2";
             // 
             // lbRNo
             // 
             this.lbRNo.AutoSize = true;
-            this.lbRNo.Location = new System.Drawing.Point(6, 83);
+            this.lbRNo.Location = new System.Drawing.Point(142, 83);
             this.lbRNo.Name = "lbRNo";
             this.lbRNo.Size = new System.Drawing.Size(53, 19);
             this.lbRNo.TabIndex = 17;
             this.lbRNo.Text = "label2";
             // 
-            // tbDesId
+            // lbDesId
             // 
-            this.tbDesId.AutoSize = true;
-            this.tbDesId.Location = new System.Drawing.Point(6, 132);
-            this.tbDesId.Name = "tbDesId";
-            this.tbDesId.Size = new System.Drawing.Size(53, 19);
-            this.tbDesId.TabIndex = 18;
-            this.tbDesId.Text = "label2";
+            this.lbDesId.AutoSize = true;
+            this.lbDesId.Location = new System.Drawing.Point(194, 133);
+            this.lbDesId.Name = "lbDesId";
+            this.lbDesId.Size = new System.Drawing.Size(53, 19);
+            this.lbDesId.TabIndex = 18;
+            this.lbDesId.Text = "label2";
             // 
             // lbArriveDate
             // 
             this.lbArriveDate.AutoSize = true;
-            this.lbArriveDate.Location = new System.Drawing.Point(371, 34);
+            this.lbArriveDate.Location = new System.Drawing.Point(445, 35);
             this.lbArriveDate.Name = "lbArriveDate";
-            this.lbArriveDate.Size = new System.Drawing.Size(53, 19);
+            this.lbArriveDate.Size = new System.Drawing.Size(47, 19);
             this.lbArriveDate.TabIndex = 19;
-            this.lbArriveDate.Text = "label2";
+            this.lbArriveDate.Text = "to-do";
             // 
             // lbStatus
             // 
             this.lbStatus.AutoSize = true;
-            this.lbStatus.Location = new System.Drawing.Point(371, 83);
+            this.lbStatus.Location = new System.Drawing.Point(398, 83);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(53, 19);
             this.lbStatus.TabIndex = 20;
@@ -178,9 +184,14 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.tbDID);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.lbDID);
             this.groupBox2.Controls.Add(this.lbRNo);
-            this.groupBox2.Controls.Add(this.tbDesId);
+            this.groupBox2.Controls.Add(this.lbDesId);
             this.groupBox2.Controls.Add(this.lbStatus);
             this.groupBox2.Controls.Add(this.lbArriveDate);
             this.groupBox2.Font = new System.Drawing.Font("新細明體", 14F);
@@ -191,11 +202,67 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Note Information";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(141, 19);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Request Number :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 132);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(193, 19);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Despatch Instruction ID :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(146, 19);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Delivery Note ID :";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(339, 34);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 19);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Arrival Date :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(339, 83);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 19);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Status :";
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(555, 543);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(222, 23);
+            this.btnBack.TabIndex = 26;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // WHGenerateDN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 619);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbMax);
             this.Controls.Add(this.btnGen);
@@ -221,9 +288,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dGVItem;
         private System.Windows.Forms.NumericUpDown numQty;
-        private System.Windows.Forms.Label tbDID;
+        private System.Windows.Forms.Label lbDID;
         private System.Windows.Forms.Label lbRNo;
-        private System.Windows.Forms.Label tbDesId;
+        private System.Windows.Forms.Label lbDesId;
         private System.Windows.Forms.Label lbArriveDate;
         private System.Windows.Forms.Label lbStatus;
         private System.Windows.Forms.Button btnGen;
@@ -232,5 +299,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnBack;
     }
 }

@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cbAddItem = new System.Windows.Forms.ComboBox();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numEditQty)).BeginInit();
@@ -204,11 +205,22 @@
             this.cbAddItem.TabIndex = 16;
             this.cbAddItem.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(634, 33);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(135, 23);
+            this.btnBack.TabIndex = 20;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // WHStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -247,5 +259,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.NumericUpDown numEditQty;
         private System.Windows.Forms.NumericUpDown numAddQty;
+        private System.Windows.Forms.Button btnBack;
     }
 }
