@@ -36,7 +36,7 @@ namespace ProcurementSystem
                     lb1.Text = "Purchase Manager";
                     btn1.Text = "Agreement";
                     btn2.Text = "Supplier";
-                    btn3.Visible = false; //to be added function or keep invisible
+                    btn3.Text = "Mapping";
                     btn4.Text = "Edit User Information";
                     break;
                 case "RM":
@@ -196,6 +196,11 @@ namespace ProcurementSystem
                     this.Hide();
                     SupplierMenu sm = new SupplierMenu(this);
                     sm.Show();
+                    break;
+                case "PM":
+                    this.Hide();
+                    PRMapping prm = new PRMapping(this);
+                    prm.Show();
                     break;
                 case "CM":
                     this.Hide();

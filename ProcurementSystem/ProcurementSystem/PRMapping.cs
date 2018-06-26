@@ -13,10 +13,12 @@ namespace ProcurementSystem
 {
     public partial class PRMapping : Form
     {
+        private Menu m;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
-        public PRMapping()
+        public PRMapping(Menu m)
         {
             InitializeComponent();
+            this.m = m;
             cnn.Open();
             MySqlDataAdapter findRequestList = new MySqlDataAdapter("Select RequestNo, CreationDate From PurchaseRequest where status='NEW';", cnn);
             DataTable dt = new DataTable();
