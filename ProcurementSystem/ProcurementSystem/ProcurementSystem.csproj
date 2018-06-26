@@ -127,6 +127,12 @@
     <Compile Include="EditSupp.Designer.cs">
       <DependentUpon>EditSupp.cs</DependentUpon>
     </Compile>
+    <Compile Include="PRMapping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRMapping.Designer.cs">
+      <DependentUpon>PRMapping.cs</DependentUpon>
+    </Compile>
     <Compile Include="WHGenerateDN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PPOStatus.resx">
       <DependentUpon>PPOStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRMapping.resx">
+      <DependentUpon>PRMapping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PurchaseRequest.resx">
       <DependentUpon>PurchaseRequest.cs</DependentUpon>
