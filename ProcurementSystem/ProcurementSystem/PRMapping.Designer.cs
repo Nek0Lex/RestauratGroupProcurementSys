@@ -28,40 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.requestList = new System.Windows.Forms.DataGridView();
+            this.RequestNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.tbRequestID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.itemList = new System.Windows.Forms.DataGridView();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WareHouseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.RequestNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WareHouseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requestList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // requestList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.requestList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.requestList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RequestNo,
             this.CreateDate});
-            this.dataGridView1.Location = new System.Drawing.Point(49, 68);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(248, 321);
-            this.dataGridView1.TabIndex = 0;
+            this.requestList.Location = new System.Drawing.Point(49, 68);
+            this.requestList.Name = "requestList";
+            this.requestList.RowTemplate.Height = 24;
+            this.requestList.Size = new System.Drawing.Size(248, 321);
+            this.requestList.TabIndex = 0;
+            // 
+            // RequestNo
+            // 
+            this.RequestNo.HeaderText = "RequestNo";
+            this.RequestNo.Name = "RequestNo";
+            // 
+            // CreateDate
+            // 
+            this.CreateDate.HeaderText = "CreateDate";
+            this.CreateDate.Name = "CreateDate";
             // 
             // label1
             // 
@@ -90,18 +100,18 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Item :";
             // 
-            // dataGridView2
+            // itemList
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.itemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.itemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemName,
             this.Quantity,
             this.WareHouseQuantity});
-            this.dataGridView2.Location = new System.Drawing.Point(417, 132);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(347, 150);
-            this.dataGridView2.TabIndex = 4;
+            this.itemList.Location = new System.Drawing.Point(417, 132);
+            this.itemList.Name = "itemList";
+            this.itemList.RowTemplate.Height = 24;
+            this.itemList.Size = new System.Drawing.Size(347, 150);
+            this.itemList.TabIndex = 4;
             // 
             // ItemName
             // 
@@ -112,6 +122,11 @@
             // 
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
+            // 
+            // WareHouseQuantity
+            // 
+            this.WareHouseQuantity.HeaderText = "WareHouseQuantity";
+            this.WareHouseQuantity.Name = "WareHouseQuantity";
             // 
             // label3
             // 
@@ -163,21 +178,6 @@
             this.radioButton1.Text = "Branket Purchase Agreement";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // RequestNo
-            // 
-            this.RequestNo.HeaderText = "RequestNo";
-            this.RequestNo.Name = "RequestNo";
-            // 
-            // WareHouseQuantity
-            // 
-            this.WareHouseQuantity.HeaderText = "WareHouseQuantity";
-            this.WareHouseQuantity.Name = "WareHouseQuantity";
-            // 
-            // CreateDate
-            // 
-            this.CreateDate.HeaderText = "CreateDate";
-            this.CreateDate.Name = "CreateDate";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(666, 309);
@@ -217,15 +217,15 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.itemList);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbRequestID);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.requestList);
             this.Name = "PRMapping";
             this.Text = "PRMapping";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requestList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemList)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -235,11 +235,11 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView requestList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbRequestID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView itemList;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.Label label3;
