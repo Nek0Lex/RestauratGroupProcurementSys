@@ -450,8 +450,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WHGenerateDN.resx">
+      <DependentUpon>WHGenerateDN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WHStock.resx">
       <DependentUpon>WHStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WHViewDPI.resx">
+      <DependentUpon>WHViewDPI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

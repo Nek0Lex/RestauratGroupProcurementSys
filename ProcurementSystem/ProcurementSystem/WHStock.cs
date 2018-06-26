@@ -36,7 +36,6 @@ namespace ProcurementSystem
             sda.Fill(dt);
             dGVItem.DataSource = dt;
             cnn.Close();
-            dGVItem.DataSource = dt;
 
             MySqlDataAdapter sda2 = new MySqlDataAdapter("SELECT ItemID, ItemDescription FROM Item WHERE ItemID NOT IN (SELECT ItemID From WarehouseStock_new);", cnn);
             Dictionary<String, String> comboSource = new Dictionary<String, String>();
@@ -130,6 +129,7 @@ namespace ProcurementSystem
             del.ExecuteNonQuery();
             cnn.Close();
             MessageBox.Show("Delete Success!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ReloadStock();
         }
     }
 }

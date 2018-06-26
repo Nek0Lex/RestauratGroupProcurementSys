@@ -121,6 +121,11 @@ namespace ProcurementSystem
                     Category cat = new Category(this);
                     cat.Show();
                     break;
+                case "WC":
+                    this.Hide();
+                    WHViewDPI dpi = new WHViewDPI(this);
+                    dpi.Show();
+                    break;
             }
         }
 
