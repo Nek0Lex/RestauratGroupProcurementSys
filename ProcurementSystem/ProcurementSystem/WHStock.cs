@@ -41,15 +41,24 @@ namespace ProcurementSystem
             Dictionary<String, String> comboSource = new Dictionary<String, String>();
             DataTable dt2 = new DataTable();
             sda2.Fill(dt2);
-            int i = 1;
-            foreach (DataRow dr in dt2.Rows)
+            if (dt2.Rows.Count < 1)
             {
-                String itemInfo = dr["ItemID"].ToString() + " - " + dr["ItemDescription"].ToString();
-                comboSource.Add(i++.ToString(), itemInfo);
+                cbAddItem.Text = "All item have been added into the stock.";
+                cbAddItem.Enabled = false;
+                btnAdd.Enabled = false;
             }
-            cbAddItem.DataSource = new BindingSource(comboSource, null);
-            cbAddItem.DisplayMember = "Value";
-            cbAddItem.ValueMember = "Key";
+            else
+            {
+                int i = 1;
+                foreach (DataRow dr in dt2.Rows)
+                {
+                    String itemInfo = dr["ItemID"].ToString() + " - " + dr["ItemDescription"].ToString();
+                    comboSource.Add(i++.ToString(), itemInfo);
+                }
+                cbAddItem.DataSource = new BindingSource(comboSource, null);
+                cbAddItem.DisplayMember = "Value";
+                cbAddItem.ValueMember = "Key";
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)

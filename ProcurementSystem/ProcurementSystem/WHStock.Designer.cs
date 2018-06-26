@@ -38,11 +38,11 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.tbEditItem = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.numAddQty = new System.Windows.Forms.NumericUpDown();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cbAddItem = new System.Windows.Forms.ComboBox();
-            this.numAddQty = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numEditQty)).BeginInit();
@@ -154,6 +154,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ADD";
             // 
+            // numAddQty
+            // 
+            this.numAddQty.Location = new System.Drawing.Point(22, 110);
+            this.numAddQty.Name = "numAddQty";
+            this.numAddQty.Size = new System.Drawing.Size(120, 22);
+            this.numAddQty.TabIndex = 24;
+            // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(176, 111);
@@ -186,19 +193,16 @@
             // 
             // cbAddItem
             // 
+            this.cbAddItem.AutoCompleteCustomSource.AddRange(new string[] {
+            "All item created have been added in stock"});
             this.cbAddItem.FormattingEnabled = true;
+            this.cbAddItem.Items.AddRange(new object[] {
+            "All item created have been added in stock"});
             this.cbAddItem.Location = new System.Drawing.Point(22, 46);
             this.cbAddItem.Name = "cbAddItem";
             this.cbAddItem.Size = new System.Drawing.Size(229, 20);
             this.cbAddItem.TabIndex = 16;
             this.cbAddItem.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // numAddQty
-            // 
-            this.numAddQty.Location = new System.Drawing.Point(22, 110);
-            this.numAddQty.Name = "numAddQty";
-            this.numAddQty.Size = new System.Drawing.Size(120, 22);
-            this.numAddQty.TabIndex = 24;
             // 
             // WHStock
             // 
