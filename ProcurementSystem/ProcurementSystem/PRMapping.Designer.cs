@@ -35,17 +35,16 @@
             this.tbRequestID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.itemList = new System.Windows.Forms.DataGridView();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WareHouseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbCreateDate = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.requestList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemList)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -53,25 +52,32 @@
             // 
             // requestList
             // 
+            this.requestList.AllowUserToAddRows = false;
+            this.requestList.AllowUserToDeleteRows = false;
             this.requestList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.requestList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RequestNo,
             this.CreateDate});
             this.requestList.Location = new System.Drawing.Point(49, 68);
+            this.requestList.MultiSelect = false;
             this.requestList.Name = "requestList";
+            this.requestList.ReadOnly = true;
             this.requestList.RowTemplate.Height = 24;
             this.requestList.Size = new System.Drawing.Size(248, 321);
             this.requestList.TabIndex = 0;
+            this.requestList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.requestList_CellClick);
             // 
             // RequestNo
             // 
             this.RequestNo.HeaderText = "RequestNo";
             this.RequestNo.Name = "RequestNo";
+            this.RequestNo.ReadOnly = true;
             // 
             // CreateDate
             // 
             this.CreateDate.HeaderText = "CreateDate";
             this.CreateDate.Name = "CreateDate";
+            this.CreateDate.ReadOnly = true;
             // 
             // label1
             // 
@@ -85,8 +91,10 @@
             // 
             // tbRequestID
             // 
+            this.tbRequestID.BackColor = System.Drawing.SystemColors.Window;
             this.tbRequestID.Location = new System.Drawing.Point(459, 67);
             this.tbRequestID.Name = "tbRequestID";
+            this.tbRequestID.ReadOnly = true;
             this.tbRequestID.Size = new System.Drawing.Size(155, 22);
             this.tbRequestID.TabIndex = 2;
             // 
@@ -105,28 +113,13 @@
             this.itemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemName,
-            this.Quantity,
-            this.WareHouseQuantity});
+            this.Quantity});
             this.itemList.Location = new System.Drawing.Point(417, 132);
             this.itemList.Name = "itemList";
             this.itemList.RowTemplate.Height = 24;
             this.itemList.Size = new System.Drawing.Size(347, 150);
             this.itemList.TabIndex = 4;
-            // 
-            // ItemName
-            // 
-            this.ItemName.HeaderText = "ItemName";
-            this.ItemName.Name = "ItemName";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // WareHouseQuantity
-            // 
-            this.WareHouseQuantity.HeaderText = "WareHouseQuantity";
-            this.WareHouseQuantity.Name = "WareHouseQuantity";
+            this.itemList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemList_CellContentClick);
             // 
             // label3
             // 
@@ -138,12 +131,14 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Create Date :";
             // 
-            // textBox1
+            // tbCreateDate
             // 
-            this.textBox1.Location = new System.Drawing.Point(459, 104);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 22);
-            this.textBox1.TabIndex = 6;
+            this.tbCreateDate.BackColor = System.Drawing.SystemColors.Window;
+            this.tbCreateDate.Location = new System.Drawing.Point(459, 104);
+            this.tbCreateDate.Name = "tbCreateDate";
+            this.tbCreateDate.ReadOnly = true;
+            this.tbCreateDate.Size = new System.Drawing.Size(155, 22);
+            this.tbCreateDate.TabIndex = 6;
             // 
             // groupBox1
             // 
@@ -205,6 +200,17 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Back";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
             // 
             // PRMapping
             // 
@@ -215,7 +221,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbCreateDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.itemList);
             this.Controls.Add(this.label2);
@@ -240,18 +246,17 @@
         private System.Windows.Forms.TextBox tbRequestID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView itemList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbCreateDate;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn RequestNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WareHouseQuantity;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
     }
 }
