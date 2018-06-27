@@ -55,6 +55,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -458,6 +459,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WHViewDPI.resx">
       <DependentUpon>WHViewDPI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WHViewPPO.resx">
+      <DependentUpon>WHViewPPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WHViewPPOMenu.resx">
+      <DependentUpon>WHViewPPOMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
