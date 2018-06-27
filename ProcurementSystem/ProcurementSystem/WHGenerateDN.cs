@@ -15,6 +15,7 @@ namespace ProcurementSystem
 {
     public partial class WHGenerateDN : Form
     {
+        private DateTime today = DateTime.Now;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         String iId, rno, status;
         int[] maxQty, stock;
@@ -70,6 +71,7 @@ namespace ProcurementSystem
                 lbDID.Text = "D" + (Int32.Parse(did) + 1).ToString().PadLeft(7, '0');
             }
             numQty.Maximum = 0;
+            lbCreationDate.Text = today.ToString("yyyy-MM-dd");
         }
 
         private void WHGenerateDN_Load(object sender, EventArgs e)
@@ -121,7 +123,7 @@ namespace ProcurementSystem
                     if (quantity != 0)
                     {
                         MySqlCommand createDeliveryNote = new MySqlCommand("INSERT INTO DeliveryNote VALUES ('" + lbDID.Text + "','" + lbRNo.Text + "','" + lbDesId.Text + "','" + itemID +
-                            "'," + quantity + ",'Bus','2018-06-06','DLI');", cnn);
+                            "'," + quantity + ",'Bus','" + lbCreationDate.Text + "','DLI');", cnn);
                         createDeliveryNote.ExecuteNonQuery();
                     }
                 }
