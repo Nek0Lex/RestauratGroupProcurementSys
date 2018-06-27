@@ -140,6 +140,12 @@
     <Compile Include="WHGenerateDN.Designer.cs">
       <DependentUpon>WHGenerateDN.cs</DependentUpon>
     </Compile>
+    <Compile Include="WHPurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WHPurchaseOrder.Designer.cs">
+      <DependentUpon>WHPurchaseOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="WHStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -453,6 +459,9 @@
     </Compile>
     <EmbeddedResource Include="WHGenerateDN.resx">
       <DependentUpon>WHGenerateDN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WHPurchaseOrder.resx">
+      <DependentUpon>WHPurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WHStock.resx">
       <DependentUpon>WHStock.cs</DependentUpon>
