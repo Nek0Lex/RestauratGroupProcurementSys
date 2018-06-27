@@ -45,7 +45,6 @@ namespace ProcurementSystem
             int i;
             i = requestList.SelectedCells[0].RowIndex;
             selectedRequest = tbRequestID.Text = requestList.Rows[i].Cells[0].Value.ToString();
-            tbCreateDate.Text = Convert.ToDateTime(requestList.Rows[i].Cells[1].Value.ToString()).ToString("dd-MM-yyyy");
             MySqlDataAdapter item = new MySqlDataAdapter("SELECT i.ItemName, pr.Quantity FROM VItem v,Item i ,Category c,PurchaseRequest pr WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND pr.VItemID = v.VItemID AND pr.category_id = v.category_id AND pr.RequestNo = '" + selectedRequest + "';", cnn);
             DataTable dt2 = new DataTable();
             item.Fill(dt2);
@@ -54,6 +53,31 @@ namespace ProcurementSystem
                  itemList.Rows.Add(dr["itemName"].ToString(), dr["Quantity"].ToString());
             }
             itemList.Refresh();
+        }
+
+        private void addItem_Click(object sender, EventArgs e)
+        {
+            string checkItem;
+            int addedItemQty;
+            Boolean added = false;
+            foreach(DataGridViewRow row in itemList.Rows) {
+                foreach (DataGridViewRow row2 in GenItemList.Rows) {
+                    if (row2.Cells[0].Value != null)
+                    {
+                        checkItem = row2.Cells[0].Value.ToString();
+                        if (row.Cells[0].Value.ToString() == checkItem)
+                        {
+                            addedItemQty = int.Parse(row2.Cells[1].Value.ToString()) + int.Parse(row.Cells[1].Value.ToString());
+                            row2.Cells[1].Value = addedItemQty.ToString();
+                            added = true;
+                        }
+                    }
+                }
+                if(added == false) {
+                    GenItemList.Rows.Add(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString());
+                }
+                added = false;
+            }
         }
     }
 }
