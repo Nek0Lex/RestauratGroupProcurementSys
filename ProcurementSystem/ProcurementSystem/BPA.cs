@@ -99,7 +99,7 @@ namespace ProcurementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BPAAdd BPAAdd = new BPAAdd();
+            BPAAdd BPAAdd = new BPAAdd("BPA00001", "00000001");
             BPAAdd.ShowDialog();
         }
 

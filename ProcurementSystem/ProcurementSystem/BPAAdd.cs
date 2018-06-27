@@ -14,11 +14,11 @@ namespace ProcurementSystem
 {
     public partial class BPAAdd : Form
     {
-        public BPAAdd()
+        public BPAAdd(string BPAno, string requestNoList)
         {
             InitializeComponent();
-            
-
+            BPANo.Text = BPAno;
+            RequestNo.Text = requestNoList;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

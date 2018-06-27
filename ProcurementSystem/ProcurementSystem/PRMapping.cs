@@ -8,13 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace ProcurementSystem
 {
     public partial class PRMapping : Form
     {
         private Menu m;
+        private BPAAdd BPAadd;
         private string selectedRequest;
+        private string nowBPANo;
+        private string finalGenRequestList;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public PRMapping(Menu m)
         {
@@ -27,6 +31,20 @@ namespace ProcurementSystem
             foreach (DataRow dr in dt.Rows) {
                 requestList.Rows.Add(dr["RequestNo"].ToString(), Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy"));
             }
+            MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(BPANo) FROM BlanketPurchaseAgreement", cnn);
+            nowBPANo = (string)getNextRequestNo.ExecuteScalar();
+            if (nowBPANo == null)
+            {
+                nowBPANo = "BPA00000";
+            }
+            else
+            {
+                nowBPANo = Regex.Match(nowBPANo, @"\d+").Value;
+            }
+            int num = Int32.Parse(nowBPANo.GetLast(5));
+            num++;
+            nowBPANo =num.ToString().PadLeft(5, '0');
+            nowBPANo = "BPA" + nowBPANo;
         }
             private void button2_Click(object sender, EventArgs e)
         {
@@ -76,8 +94,39 @@ namespace ProcurementSystem
                 if(added == false) {
                     GenItemList.Rows.Add(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString());
                 }
+                if (finalGenRequestList != null)
+                    finalGenRequestList = finalGenRequestList + ", " + tbRequestID.Text.ToString();
+                else
+                    finalGenRequestList += tbRequestID.Text.ToString();
                 added = false;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                BPAadd = new BPAAdd(nowBPANo, finalGenRequestList);
+                BPAadd.ShowDialog();
+                this.reset();
+            }
+        }
+        public void reset() {
+            tbRequestID.Text = "";
+            itemList.Rows.Clear();
+            GenItemList.Rows.Clear();
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            this.Refresh();
+        }
+    }
+    public static class StringExtension
+    {
+        public static string GetLast(this string source, int tail_length)
+        {
+            if (tail_length >= source.Length)
+                return source;
+            return source.Substring(source.Length - tail_length);
         }
     }
 }
