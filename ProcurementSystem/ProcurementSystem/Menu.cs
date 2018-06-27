@@ -38,6 +38,7 @@ namespace ProcurementSystem
                     btn2.Text = "Supplier";
                     btn3.Text = "Mapping";
                     btn4.Text = "Edit User Information";
+                    WHPO.Visible = false;
                     break;
                 case "RM":
                     lb1.Text = "Restaurant Manager";
@@ -50,6 +51,7 @@ namespace ProcurementSystem
                     btn2.Visible = false; //to be added function or keep invisible
                     btn3.Text = "Edit User Information";
                     btn4.Text = "Edit Restaurant Information";
+                    WHPO.Visible = false;
                     break;
                 case "CM":
                     lb1.Text = "Category Manager";
@@ -57,6 +59,7 @@ namespace ProcurementSystem
                     btn2.Text = "Item";
                     btn3.Text = "Stock";
                     btn4.Text = "Edit User Information";
+                    WHPO.Visible = false;
                     break;
                 case "WC":
                     lb1.Text = "Warehouse Clerk";
@@ -64,6 +67,7 @@ namespace ProcurementSystem
                     btn2.Text = "Delivery Note";
                     btn3.Text = "Stock";
                     btn4.Text = "Edit User Information";
+                    WHPO.Text = "Purchase request";
                     break;
                 case "AD":
                     lb1.Text = "Accounting Department";
@@ -71,6 +75,7 @@ namespace ProcurementSystem
                     btn2.Text = "Payment Record";
                     btn3.Visible = false; //to be added function or keep invisible
                     btn4.Text = "Edit User Information";
+                    WHPO.Visible = false;
                     break;
                 case "AM":
                     lb1.Text = "ADMIN";
@@ -78,6 +83,7 @@ namespace ProcurementSystem
                     btn2.Text = "Restaurant";
                     btn3.Text = "Supplier";
                     btn4.Visible = false; //to be added function or keep invisible
+                    WHPO.Visible = false;
                     break;
             }
         }
@@ -213,6 +219,12 @@ namespace ProcurementSystem
                     wstk.Show();
                     break;
             }
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            WHPurchaseOrder WHPO = new WHPurchaseOrder();
+            WHPO.Show();
         }
     }
 }

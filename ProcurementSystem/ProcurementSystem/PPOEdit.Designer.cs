@@ -121,6 +121,7 @@
             this.Currency.Name = "Currency";
             this.Currency.Size = new System.Drawing.Size(139, 20);
             this.Currency.TabIndex = 28;
+            this.Currency.SelectedIndexChanged += new System.EventHandler(this.Currency_SelectedIndexChanged);
             // 
             // textBox21
             // 

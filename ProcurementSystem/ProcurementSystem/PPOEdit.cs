@@ -81,5 +81,10 @@ namespace ProcurementSystem
         {
             this.Close();
         }
+
+        private void Currency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -37,8 +37,9 @@
             this.lb1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lbStaffName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.WHPO = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.WHPO);
             this.groupBox1.Controls.Add(this.btn4);
             this.groupBox1.Controls.Add(this.btn3);
             this.groupBox1.Controls.Add(this.btn2);
@@ -70,7 +72,7 @@
             this.groupBox1.Location = new System.Drawing.Point(28, 91);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(504, 386);
+            this.groupBox1.Size = new System.Drawing.Size(639, 386);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
@@ -156,10 +158,20 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(552, 12);
+            this.panel1.Location = new System.Drawing.Point(673, 18);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(291, 465);
             this.panel1.TabIndex = 33;
+            // 
+            // lbStaffName
+            // 
+            this.lbStaffName.AutoSize = true;
+            this.lbStaffName.Font = new System.Drawing.Font("Perpetua Titling MT", 12F);
+            this.lbStaffName.Location = new System.Drawing.Point(3, 22);
+            this.lbStaffName.Name = "lbStaffName";
+            this.lbStaffName.Size = new System.Drawing.Size(62, 19);
+            this.lbStaffName.TabIndex = 34;
+            this.lbStaffName.Text = "label2";
             // 
             // label1
             // 
@@ -172,21 +184,23 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "You are login as:";
             // 
-            // lbStaffName
+            // WHPO
             // 
-            this.lbStaffName.AutoSize = true;
-            this.lbStaffName.Font = new System.Drawing.Font("Perpetua Titling MT", 12F);
-            this.lbStaffName.Location = new System.Drawing.Point(3, 22);
-            this.lbStaffName.Name = "lbStaffName";
-            this.lbStaffName.Size = new System.Drawing.Size(62, 19);
-            this.lbStaffName.TabIndex = 34;
-            this.lbStaffName.Text = "label2";
+            this.WHPO.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
+            this.WHPO.Location = new System.Drawing.Point(468, 56);
+            this.WHPO.Margin = new System.Windows.Forms.Padding(2);
+            this.WHPO.Name = "WHPO";
+            this.WHPO.Size = new System.Drawing.Size(166, 127);
+            this.WHPO.TabIndex = 4;
+            this.WHPO.Text = "button5";
+            this.WHPO.UseVisualStyleBackColor = true;
+            this.WHPO.Click += new System.EventHandler(this.btn5_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 495);
+            this.ClientSize = new System.Drawing.Size(976, 495);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
@@ -215,5 +229,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbStaffName;
+        private System.Windows.Forms.Button WHPO;
     }
 }
