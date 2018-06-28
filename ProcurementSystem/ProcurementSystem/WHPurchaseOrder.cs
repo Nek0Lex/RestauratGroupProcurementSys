@@ -27,7 +27,10 @@ namespace ProcurementSystem
                 BPANoSelection.Items.Add(BPAno);
             }
 
-            dbtoListview();
+            if (!String.IsNullOrWhiteSpace(BPANoSelection.Text))
+            {
+                dbtoListview();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -47,31 +50,33 @@ namespace ProcurementSystem
 
         private void dbtoListview()
         {
+            listView1.Items.Clear();
             String querypara = BPANoSelection.Text;
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-            cnn.Open();
-            String query = "select BPANo = '" + querypara + "' from BPALines ORDER BY BPANo ASC ;";
-            MySqlCommand cmd = new MySqlCommand(query, cnn);
-            MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
-            DataTable dt = new DataTable();
-            ada.Fill(dt);
+                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                    cnn.Open();
+                    String query = "SELECT * from BPALines WHERE BPANo = '" + querypara + "';";
+                    MySqlCommand cmd = new MySqlCommand(query, cnn);
+                    MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+                    DataTable dt = new DataTable();
+                    ada.Fill(dt);
 
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                DataRow dr = dt.Rows[i];
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        DataRow dr = dt.Rows[i];
 
-                ListViewItem listitem = new ListViewItem(dr["BPANo"].ToString());
-                listitem.SubItems.Add(dr["ItemID"].ToString());
-                listitem.SubItems.Add(dr["PromisedQuantity"].ToString());
-                listitem.SubItems.Add(dr["UOM"].ToString());
-                listitem.SubItems.Add(dr["MoQ"].ToString());
-                listitem.SubItems.Add(dr["Price"].ToString());
-                listitem.SubItems.Add(dr["Amount"].ToString());
-                listitem.SubItems.Add(dr["Category"].ToString());
-                listitem.SubItems.Add(dr["Reference"].ToString());
+                        ListViewItem listitem = new ListViewItem(dr["BPANo"].ToString());
+                        listitem.SubItems.Add(dr["ItemID"].ToString());
+                        listitem.SubItems.Add(dr["PromisedQuantity"].ToString());
+                        listitem.SubItems.Add(dr["UOM"].ToString());
+                        listitem.SubItems.Add(dr["MoQ"].ToString());
+                        listitem.SubItems.Add(dr["Price"].ToString());
+                        listitem.SubItems.Add(dr["Amount"].ToString());
+                        listitem.SubItems.Add(dr["Category"].ToString());
+                        listitem.SubItems.Add(dr["Reference"].ToString());
 
-                listView1.Items.Add(listitem);
-            }
+                        listView1.Items.Add(listitem);
+                    }
+                    cnn.Close();
         }
 
         private void refresh_btn_Click(object sender, EventArgs e)
@@ -83,6 +88,11 @@ namespace ProcurementSystem
         private void back_btn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BPANoSelection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dbtoListview();
         }
     }
 }
