@@ -30,9 +30,9 @@ namespace ProcurementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ColumnHeader columnHeader1;
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.currency = new System.Windows.Forms.ComboBox();
@@ -60,18 +60,9 @@ namespace ProcurementSystem
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.ItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PromisedQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.UOM = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.MoQ = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Reference = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -89,8 +80,8 @@ namespace ProcurementSystem
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.currency);
@@ -117,10 +108,21 @@ namespace ProcurementSystem
             this.groupBox1.Controls.Add(this.BPA);
             this.groupBox1.Location = new System.Drawing.Point(12, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(910, 585);
+            this.groupBox1.Size = new System.Drawing.Size(900, 585);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new agreement";
+            // 
+            // textBox7
+            // 
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox7.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox7.Location = new System.Drawing.Point(17, 366);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(71, 18);
+            this.textBox7.TabIndex = 27;
+            this.textBox7.Text = "BPA Items:";
             // 
             // textBox5
             // 
@@ -394,88 +396,21 @@ namespace ProcurementSystem
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // listView1
+            // dataGridView1
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            columnHeader1,
-            this.ItemID,
-            this.PromisedQuantity,
-            this.UOM,
-            this.MoQ,
-            this.Price,
-            this.columnHeader2,
-            this.Category,
-            this.Reference});
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(17, 390);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(875, 177);
-            this.listView1.TabIndex = 26;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "BPANo";
-            columnHeader1.Width = 100;
-            // 
-            // ItemID
-            // 
-            this.ItemID.Text = "ItemID";
-            this.ItemID.Width = 70;
-            // 
-            // PromisedQuantity
-            // 
-            this.PromisedQuantity.Text = "PromisedQuantity";
-            this.PromisedQuantity.Width = 100;
-            // 
-            // UOM
-            // 
-            this.UOM.Text = "Unit of measure";
-            this.UOM.Width = 100;
-            // 
-            // MoQ
-            // 
-            this.MoQ.Text = "MoQ";
-            this.MoQ.Width = 100;
-            // 
-            // Price
-            // 
-            this.Price.Text = "Price";
-            this.Price.Width = 100;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Amount";
-            this.columnHeader2.Width = 100;
-            // 
-            // Category
-            // 
-            this.Category.Text = "Category";
-            this.Category.Width = 100;
-            // 
-            // Reference
-            // 
-            this.Reference.Text = "Reference";
-            this.Reference.Width = 100;
-            // 
-            // textBox7
-            // 
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox7.Location = new System.Drawing.Point(17, 366);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(71, 18);
-            this.textBox7.TabIndex = 27;
-            this.textBox7.Text = "BPA Items:";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(17, 390);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(860, 167);
+            this.dataGridView1.TabIndex = 28;
             // 
             // BPAAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(936, 739);
+            this.ClientSize = new System.Drawing.Size(927, 739);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -486,6 +421,7 @@ namespace ProcurementSystem
             this.Load += new System.EventHandler(this.BPAAdd_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,14 +461,6 @@ namespace ProcurementSystem
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader ItemID;
-        private System.Windows.Forms.ColumnHeader PromisedQuantity;
-        private System.Windows.Forms.ColumnHeader UOM;
-        private System.Windows.Forms.ColumnHeader MoQ;
-        private System.Windows.Forms.ColumnHeader Price;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader Category;
-        private System.Windows.Forms.ColumnHeader Reference;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
