@@ -322,17 +322,17 @@
     <Compile Include="WHViewDPI.Designer.cs">
       <DependentUpon>WHViewDPI.cs</DependentUpon>
     </Compile>
-    <Compile Include="WHViewPPO.cs">
+    <Compile Include="ViewDeliveryNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WHViewPPO.Designer.cs">
-      <DependentUpon>WHViewPPO.cs</DependentUpon>
+    <Compile Include="ViewDeliveryNote.Designer.cs">
+      <DependentUpon>ViewDeliveryNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="WHViewPPOMenu.cs">
+    <Compile Include="ViewDeliveryNoteMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WHViewPPOMenu.Designer.cs">
-      <DependentUpon>WHViewPPOMenu.cs</DependentUpon>
+    <Compile Include="ViewDeliveryNoteMenu.Designer.cs">
+      <DependentUpon>ViewDeliveryNoteMenu.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BPAStatus.resx">
       <DependentUpon>BPAStatus.cs</DependentUpon>
@@ -469,11 +469,11 @@
     <EmbeddedResource Include="WHViewDPI.resx">
       <DependentUpon>WHViewDPI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WHViewPPO.resx">
-      <DependentUpon>WHViewPPO.cs</DependentUpon>
+    <EmbeddedResource Include="ViewDeliveryNote.resx">
+      <DependentUpon>ViewDeliveryNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WHViewPPOMenu.resx">
-      <DependentUpon>WHViewPPOMenu.cs</DependentUpon>
+    <EmbeddedResource Include="ViewDeliveryNoteMenu.resx">
+      <DependentUpon>ViewDeliveryNoteMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

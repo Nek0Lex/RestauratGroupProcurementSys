@@ -17,18 +17,18 @@ namespace ProcurementSystem
     {
         private DateTime today = DateTime.Now;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
-        String iId, rno, status;
+        String iId, rno, status, rest;
         int[] maxQty, stock;
         public WHGenerateDN(String iId, String rno, String status)
         {
             InitializeComponent();
             this.iId = iId;
             this.rno = rno;
+            cnn.Open();
             MySqlDataAdapter sda = new MySqlDataAdapter("SELECT Distinct DI.ItemID, ItemName,ItemDescription, DI.quantity as Needs, DI.quantity, S.quantity as Stock FROM DespatchInstruction DI, WarehouseStock_new S, Item I WHERE DI.ItemID=I.ItemID and DI.ItemID=S.ItemID and DesID = '" + iId+"';", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            dGVItem.DataSource = dt;
-            cnn.Close();
+            dGVItem.DataSource = dt; 
             int i = 0;
             maxQty = new int[dGVItem.RowCount];
             stock = new int[dGVItem.RowCount];
@@ -37,19 +37,14 @@ namespace ProcurementSystem
                 int quantity = Convert.ToInt32(row.Cells["quantity"].Value);
                 String itemID = Convert.ToString(row.Cells["ItemID"].Value);
                 stock[i] = Convert.ToInt32(row.Cells["Stock"].Value);
-                cnn.Open();
                 MySqlCommand getQuantity = new MySqlCommand("Select quantity from DespatchInstruction WHERE ItemID = '" + itemID + "' and DesID = '" + iId + "';", cnn);
                 maxQty[i] = Convert.ToInt32(getQuantity.ExecuteScalar());
-                cnn.Close();
                 if (quantity > stock[i])
                     row.Cells["quantity"].Value = stock[i];
                 i++;
             }
             MySqlDataAdapter getDID = new MySqlDataAdapter("select Distinct Max(DeliveryID) from DeliveryNote;", cnn);
             DataTable dt2 = new DataTable();
-            lbStatus.Text = status;
-            lbDesId.Text = iId;
-            lbRNo.Text = rno;
             if (status.Equals("FIN"))
             {
                 btnGen.Enabled = false;
@@ -70,8 +65,17 @@ namespace ProcurementSystem
                 did = Regex.Match(did, @"\d+").Value;
                 lbDID.Text = "D" + (Int32.Parse(did) + 1).ToString().PadLeft(7, '0');
             }
+            MySqlDataAdapter getRest = new MySqlDataAdapter("Select pr.restName, address From PurchaseRequest pr, Restaurant r where RequestNo = '" + rno + "' and pr.restNo=r.restNo;", cnn);
+            DataTable restInfo = new DataTable();
+            getRest.Fill(restInfo);
             numQty.Maximum = 0;
+            lbRName.Text = restInfo.Rows[0][0].ToString();
+            lbAddress.Text = restInfo.Rows[0][1].ToString();
             lbCreationDate.Text = today.ToString("yyyy-MM-dd");
+            lbStatus.Text = status;
+            lbDesId.Text = iId;
+            lbRNo.Text = rno;
+            cnn.Close();
         }
 
         private void WHGenerateDN_Load(object sender, EventArgs e)
@@ -116,6 +120,9 @@ namespace ProcurementSystem
                 command.ExecuteNonQuery();
 
                 MySqlCommand updateStock = new MySqlCommand("UPDATE WarehouseStock_new SET quantity = quantity - " + quantity + " WHERE ItemID = '" + itemID + "';", cnn);
+                updateStock.ExecuteNonQuery();
+
+                MySqlCommand updatePR = new MySqlCommand("UPDATE PurchaseRequest SET deliveryDate = '" + today.ToString("yyyy-MM-dd") + "' WHERE requestNo = '" + rno + "';", cnn);
                 updateStock.ExecuteNonQuery();
 
                 try

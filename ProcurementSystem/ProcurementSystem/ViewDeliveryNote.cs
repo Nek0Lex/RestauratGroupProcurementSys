@@ -7,17 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace ProcurementSystem
 {
-    public partial class WHViewPPOMenu : Form
+    public partial class ViewDeliveryNote : Form
     {
-        public WHViewPPOMenu()
+        public ViewDeliveryNote()
         {
             InitializeComponent();
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ViewDeliveryNote_Load(object sender, EventArgs e)
         {
 
         }

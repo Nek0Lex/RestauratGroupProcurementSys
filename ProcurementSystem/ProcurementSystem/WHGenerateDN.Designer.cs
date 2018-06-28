@@ -48,6 +48,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbRName = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lbAddress = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -69,8 +73,8 @@
             // dGVItem
             // 
             this.dGVItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVItem.Location = new System.Drawing.Point(29, 320);
-            this.dGVItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dGVItem.Location = new System.Drawing.Point(29, 368);
+            this.dGVItem.Margin = new System.Windows.Forms.Padding(4);
             this.dGVItem.MultiSelect = false;
             this.dGVItem.Name = "dGVItem";
             this.dGVItem.ReadOnly = true;
@@ -83,7 +87,7 @@
             // numQty
             // 
             this.numQty.Location = new System.Drawing.Point(17, 60);
-            this.numQty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numQty.Margin = new System.Windows.Forms.Padding(4);
             this.numQty.Name = "numQty";
             this.numQty.Size = new System.Drawing.Size(160, 35);
             this.numQty.TabIndex = 15;
@@ -140,8 +144,8 @@
             // 
             // btnGen
             // 
-            this.btnGen.Location = new System.Drawing.Point(740, 730);
-            this.btnGen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGen.Location = new System.Drawing.Point(740, 778);
+            this.btnGen.Margin = new System.Windows.Forms.Padding(4);
             this.btnGen.Name = "btnGen";
             this.btnGen.Size = new System.Drawing.Size(296, 29);
             this.btnGen.TabIndex = 21;
@@ -153,7 +157,7 @@
             // 
             this.lbMax.AutoSize = true;
             this.lbMax.Font = new System.Drawing.Font("新細明體", 14F);
-            this.lbMax.Location = new System.Drawing.Point(879, 429);
+            this.lbMax.Location = new System.Drawing.Point(879, 477);
             this.lbMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMax.Name = "lbMax";
             this.lbMax.Size = new System.Drawing.Size(76, 24);
@@ -164,7 +168,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("新細明體", 14F);
-            this.label2.Location = new System.Drawing.Point(752, 428);
+            this.label2.Location = new System.Drawing.Point(752, 476);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 24);
@@ -176,10 +180,10 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.numQty);
             this.groupBox1.Font = new System.Drawing.Font("新細明體", 14F);
-            this.groupBox1.Location = new System.Drawing.Point(740, 320);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(740, 368);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(296, 211);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
@@ -188,7 +192,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(17, 155);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 35);
             this.button1.TabIndex = 16;
@@ -198,6 +202,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbAddress);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.lbRName);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
@@ -210,10 +218,10 @@
             this.groupBox2.Controls.Add(this.lbCreationDate);
             this.groupBox2.Font = new System.Drawing.Font("新細明體", 14F);
             this.groupBox2.Location = new System.Drawing.Point(29, 80);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(1007, 216);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(1007, 272);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Note Information";
@@ -270,8 +278,8 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(740, 679);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Location = new System.Drawing.Point(740, 727);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(296, 29);
             this.btnBack.TabIndex = 26;
@@ -279,11 +287,51 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(452, 165);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(178, 24);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Restaurant Name :";
+            // 
+            // lbRName
+            // 
+            this.lbRName.AutoSize = true;
+            this.lbRName.Location = new System.Drawing.Point(624, 166);
+            this.lbRName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbRName.Name = "lbRName";
+            this.lbRName.Size = new System.Drawing.Size(64, 24);
+            this.lbRName.TabIndex = 26;
+            this.lbRName.Text = "label2";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(9, 226);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(96, 24);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Address :";
+            // 
+            // lbAddress
+            // 
+            this.lbAddress.AutoSize = true;
+            this.lbAddress.Location = new System.Drawing.Point(98, 226);
+            this.lbAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(64, 24);
+            this.lbAddress.TabIndex = 29;
+            this.lbAddress.Text = "label2";
+            // 
             // WHGenerateDN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 774);
+            this.ClientSize = new System.Drawing.Size(1067, 826);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbMax);
@@ -292,7 +340,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WHGenerateDN";
             this.Text = "WHGenerateDN";
             this.Load += new System.EventHandler(this.WHGenerateDN_Load);
@@ -328,5 +376,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbRName;
+        private System.Windows.Forms.Label lbAddress;
+        private System.Windows.Forms.Label label10;
     }
 }

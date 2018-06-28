@@ -1,6 +1,6 @@
 ﻿namespace ProcurementSystem
 {
-    partial class WHViewPPOMenu
+    partial class ViewDeliveryNoteMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,8 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnInitial = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
+            this.btnInitial = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,9 +47,10 @@
             this.label1.Location = new System.Drawing.Point(20, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(474, 47);
+            this.label1.Size = new System.Drawing.Size(286, 47);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Planned Purchase Order";
+            this.label1.Text = "Delivery Note";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // listViewPPO
             // 
@@ -71,7 +72,7 @@
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(235, 23);
             this.btnConfirm.TabIndex = 16;
-            this.btnConfirm.Text = "Confirm Order";
+            this.btnConfirm.Text = "Confirm Delivery Note";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -105,7 +106,14 @@
             this.groupBox1.Size = new System.Drawing.Size(257, 153);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Search Order by ID";
+            this.groupBox1.Text = "Search Note by ID";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(15, 41);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(225, 25);
+            this.tbSearch.TabIndex = 22;
             // 
             // btnInitial
             // 
@@ -118,14 +126,7 @@
             this.btnInitial.Text = "Initial";
             this.btnInitial.UseVisualStyleBackColor = true;
             // 
-            // tbSearch
-            // 
-            this.tbSearch.Location = new System.Drawing.Point(15, 41);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(225, 25);
-            this.tbSearch.TabIndex = 22;
-            // 
-            // WHViewPPOMenu
+            // ViewDeliveryNoteMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -135,8 +136,9 @@
             this.Controls.Add(this.listViewPPO);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "WHViewPPOMenu";
+            this.Name = "ViewDeliveryNoteMenu";
             this.Text = "WHViewPPOMenu";
+            this.Load += new System.EventHandler(this.ViewDeliveryNoteMenu_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
