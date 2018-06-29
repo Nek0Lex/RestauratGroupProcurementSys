@@ -14,11 +14,28 @@ namespace ProcurementSystem
 {
     public partial class BPAAdd : Form
     {
-        public BPAAdd(string BPAno, string requestNoList)
+        private PRMapping prmapping;
+        public BPAAdd()
+        {
+            InitializeComponent();
+        }
+        public BPAAdd(PRMapping prmapping, string BPAno, string[] requestNoList, string supplierNo, string[] ItemList, string[] QtyList)
         {
             InitializeComponent();
             BPANo.Text = BPAno;
-            RequestNo.Text = requestNoList;
+            this.prmapping = prmapping;
+            foreach(string genRequestNo in requestNoList)
+            {
+                if (RequestNo.Text == "")
+                    RequestNo.Text += genRequestNo;
+                else
+                    RequestNo.Text += ", " + genRequestNo;
+            }
+            SupplierNo.Text = supplierNo;
+            for(int i=0; i<ItemList.Length; i++)
+            {
+                dataGridView1.Rows.Add(ItemList[i].ToString(), QtyList[i].ToString());
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

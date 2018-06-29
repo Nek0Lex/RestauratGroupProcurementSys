@@ -18,7 +18,11 @@ namespace ProcurementSystem
         private BPAAdd BPAadd;
         private string selectedRequest;
         private string nowBPANo;
-        private string finalGenRequestList;
+        private string handlingSupplier;
+        public Boolean checkCancel = false;
+        private List<string> handlingItem;
+        private List<string> handlingItemQty;
+        private List<string> handlingRequest;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public PRMapping(Menu m)
         {
@@ -92,6 +96,9 @@ namespace ProcurementSystem
         {
             if (radioButton1.Checked)
             {
+                handlingItem = new List<string>();
+                handlingItemQty = new List<string>();
+                handlingRequest = new List<string>();
                 MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(BPANo) FROM BlanketPurchaseAgreement", cnn);
                 nowBPANo = (string)getNextRequestNo.ExecuteScalar();
                 if (nowBPANo == null)
@@ -105,19 +112,62 @@ namespace ProcurementSystem
                 int num = Int32.Parse(nowBPANo.GetLast(5));
                 num++;
                 nowBPANo = num.ToString().PadLeft(5, '0');
-                MySqlCommand getSupplierID = new MySqlCommand("SELECT SupplierID FROM supplier WHERE supplierName ='"+GenItemList.Rows[0].Cells[2].Value.ToString()+"';",cnn);
-                BPAadd = new BPAAdd(nowBPANo, finalGenRequestList);
+                string supplierID="";
+                foreach (DataGridViewRow row in GenItemList.Rows)
+                {
+                    MySqlCommand getSupplierID = new MySqlCommand("SELECT SupplierNo FROM Supplier WHERE supplierName ='" + row.Cells[2].Value.ToString() + "';", cnn);
+                    supplierID = getSupplierID.ExecuteScalar().ToString();
+                    if (handlingSupplier == null && row.Cells[0].Value != null)
+                    {
+                        handlingSupplier = row.Cells[2].Value.ToString();
+                        handlingItem.Add(row.Cells[0].Value.ToString());
+                        handlingItemQty.Add(row.Cells[1].Value.ToString());
+                        handlingRequest = checkrepeatRequest(handlingRequest, row.Cells[3].Value.ToString());
+                        
+                        GenItemList.Rows.RemoveAt(row.Index);
+                    }
+                    else if(handlingSupplier == row.Cells[2].Value.ToString()){
+                        handlingRequest = checkrepeatRequest(handlingRequest, row.Cells[3].Value.ToString());
+                        GenItemList.Rows.RemoveAt(row.Index);
+                    }
+                }
+                BPAadd = new BPAAdd(this, nowBPANo, handlingRequest.ToArray(), supplierID.GetLast(3),handlingItem.ToArray(), handlingItemQty.ToArray());
                 BPAadd.ShowDialog();
                 this.reset();
+                this.Refresh();
             }
+        }
+        public List<string> checkrepeatRequest(List<string> requestList, string needHandleRequest) {
+            bool haveRequest = false;
+            string checkRequest;
+            while (needHandleRequest.Length > 8)
+            {
+                checkRequest = needHandleRequest.Substring(0, 8);
+                needHandleRequest = needHandleRequest.GetLast(needHandleRequest.Length - 10);
+                foreach (string oldRequest in requestList)
+                {
+                    if (oldRequest.ToString() == checkRequest)
+                        haveRequest = true;
+                }
+                if (!haveRequest)
+                    requestList.Add(checkRequest);
+            }
+            haveRequest = false;
+            foreach(string oldRequest in requestList)
+            {
+                if (oldRequest.ToString() == needHandleRequest)
+                    haveRequest = true;
+            }
+            if (!haveRequest)
+                requestList.Add(needHandleRequest);
+            return requestList;
         }
         public void reset() {
             tbRequestID.Text = "";
             itemList.Rows.Clear();
-            GenItemList.Rows.Clear();
             radioButton1.Checked = false;
             radioButton2.Checked = false;
-            this.Refresh();
+            handlingSupplier = null;
         }
     }
     public static class StringExtension
