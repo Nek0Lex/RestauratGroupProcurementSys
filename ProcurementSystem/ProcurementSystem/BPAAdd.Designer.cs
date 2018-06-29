@@ -63,6 +63,9 @@ namespace ProcurementSystem
             this.button3 = new System.Windows.Forms.Button();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitOfMeasurement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MinimumQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -117,10 +120,14 @@ namespace ProcurementSystem
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemName,
-            this.Quantity});
+            this.Quantity,
+            this.unitOfMeasurement,
+            this.MinimumQty,
+            this.Price});
             this.dataGridView1.Location = new System.Drawing.Point(17, 390);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
@@ -420,6 +427,21 @@ namespace ProcurementSystem
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
             // 
+            // unitOfMeasurement
+            // 
+            this.unitOfMeasurement.HeaderText = "unit of measurement";
+            this.unitOfMeasurement.Name = "unitOfMeasurement";
+            // 
+            // MinimumQty
+            // 
+            this.MinimumQty.HeaderText = "MinumumQty";
+            this.MinimumQty.Name = "MinimumQty";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            // 
             // BPAAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -479,5 +501,8 @@ namespace ProcurementSystem
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitOfMeasurement;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MinimumQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
     }
 }
