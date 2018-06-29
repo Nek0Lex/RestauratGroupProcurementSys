@@ -14,11 +14,28 @@ namespace ProcurementSystem
 {
     public partial class BPAAdd : Form
     {
-        public BPAAdd(string BPAno, string requestNoList)
+        private PRMapping prmapping;
+        public BPAAdd()
+        {
+            InitializeComponent();
+        }
+        public BPAAdd(PRMapping prmapping, string BPAno, string[] requestNoList, string supplierNo, string[] ItemList, string[] QtyList)
         {
             InitializeComponent();
             BPANo.Text = BPAno;
-            RequestNo.Text = requestNoList;
+            this.prmapping = prmapping;
+            foreach(string genRequestNo in requestNoList)
+            {
+                if (RequestNo.Text == "")
+                    RequestNo.Text += genRequestNo;
+                else
+                    RequestNo.Text += ", " + genRequestNo;
+            }
+            SupplierNo.Text = supplierNo;
+            for(int i=0; i<ItemList.Length; i++)
+            {
+                dataGridView1.Rows.Add(ItemList[i].ToString(), QtyList[i].ToString());
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -58,6 +75,8 @@ namespace ProcurementSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
+            MySqlCommand cmd2;
+            MySqlCommand cmd3;
             try
             {
                 String bpaNo = "BPA" + BPANo.Text;
@@ -71,7 +90,7 @@ namespace ProcurementSystem
                 String Currency = currency.Text;
                 Double amount = Double.Parse(Amount.Text);
                 String tac = TAC.Text;
-
+                string itemID;
                 if (!string.IsNullOrWhiteSpace(billAddress) || !string.IsNullOrWhiteSpace(requestNo) || !string.IsNullOrWhiteSpace(supplierNo))
                 {
                     MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
@@ -80,6 +99,12 @@ namespace ProcurementSystem
                     MySqlCommand cmd = new MySqlCommand(query, cnn);
                     MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
                     cmd.ExecuteNonQuery();
+                    foreach (DataGridViewRow row in dataGridView1.Rows) {
+                        cmd3 = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" +row.Cells[0].Value.ToString()+ "';", cnn);
+                        itemID = cmd3.ExecuteScalar().ToString();
+                        cmd2 = new MySqlCommand("INSERT INTO BPALines (BPANo, ItemID, PromisedQuantity, UOM, MoQ, Price, Amount) VALUES ('"+ bpaNo +"', '"+itemID +"', '"+row.Cells[1].Value.ToString()+"', '"+row.Cells[2].Value.ToString()+"', '"+row.Cells[3].Value.ToString()+ "', '"+row.Cells[4].Value.ToString()+ "', '"+row.Cells[1].Value.ToString()+"');",cnn);
+                        cmd2.ExecuteNonQuery();
+                     }
                     MessageBox.Show("Add successful");
                     this.Close();
                 }
@@ -93,10 +118,11 @@ namespace ProcurementSystem
             {
                 MessageBox.Show("Please input the amount OR other info!", "ERROR");
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Please Check your Input Again!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+       //    catch (Exception ex)
+       //     {
+                //MessageBox.Show("Please Check your Input Again!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        MessageBox.Show(ex.Message);
+        //    }
             
         }
 

@@ -134,6 +134,12 @@
     <Compile Include="PRMapping.Designer.cs">
       <DependentUpon>PRMapping.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReleaseMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReleaseMenu.Designer.cs">
+      <DependentUpon>ReleaseMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="WHGenerateDN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -390,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreatePurchaseRequest.resx">
       <DependentUpon>CreatePurchaseRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReleaseMenu.resx">
+      <DependentUpon>ReleaseMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SPOStatus.resx">
       <DependentUpon>SPOStatus.cs</DependentUpon>

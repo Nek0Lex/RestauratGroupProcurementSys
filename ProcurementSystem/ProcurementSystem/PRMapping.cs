@@ -18,7 +18,11 @@ namespace ProcurementSystem
         private BPAAdd BPAadd;
         private string selectedRequest;
         private string nowBPANo;
-        private string finalGenRequestList;
+        private string handlingSupplier;
+        public Boolean checkCancel = false;
+        private List<string> handlingItem;
+        private List<string> handlingItemQty;
+        private List<string> handlingRequest;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public PRMapping(Menu m)
         {
@@ -31,20 +35,7 @@ namespace ProcurementSystem
             foreach (DataRow dr in dt.Rows) {
                 requestList.Rows.Add(dr["RequestNo"].ToString(), Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy"));
             }
-            MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(BPANo) FROM BlanketPurchaseAgreement", cnn);
-            nowBPANo = (string)getNextRequestNo.ExecuteScalar();
-            if (nowBPANo == null)
-            {
-                nowBPANo = "BPA00000";
-            }
-            else
-            {
-                nowBPANo = Regex.Match(nowBPANo, @"\d+").Value;
-            }
-            int num = Int32.Parse(nowBPANo.GetLast(5));
-            num++;
-            nowBPANo =num.ToString().PadLeft(5, '0');
-            nowBPANo = "BPA" + nowBPANo;
+            
         }
             private void button2_Click(object sender, EventArgs e)
         {
@@ -63,18 +54,19 @@ namespace ProcurementSystem
             int i;
             i = requestList.SelectedCells[0].RowIndex;
             selectedRequest = tbRequestID.Text = requestList.Rows[i].Cells[0].Value.ToString();
-            MySqlDataAdapter item = new MySqlDataAdapter("SELECT i.ItemName, pr.Quantity FROM VItem v,Item i ,Category c,PurchaseRequest pr WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND pr.VItemID = v.VItemID AND pr.category_id = v.category_id AND pr.RequestNo = '" + selectedRequest + "';", cnn);
+            MySqlDataAdapter item = new MySqlDataAdapter("SELECT i.ItemDescription, pr.Quantity, pr.VItemID, pr.category_id FROM VItem v,Item i ,Category c,PurchaseRequest pr WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND pr.VItemID = v.VItemID AND pr.category_id = v.category_id AND pr.RequestNo = '" + selectedRequest + "';", cnn);
             DataTable dt2 = new DataTable();
             item.Fill(dt2);
             foreach (DataRow dr in dt2.Rows)
             {
-                 itemList.Rows.Add(dr["itemName"].ToString(), dr["Quantity"].ToString());
+                 itemList.Rows.Add(dr["itemDescription"].ToString(), dr["Quantity"].ToString(), dr["VItemID"].ToString(), dr["category_id"].ToString());
             }
             itemList.Refresh();
         }
 
         private void addItem_Click(object sender, EventArgs e)
         {
+
             string checkItem;
             int addedItemQty;
             Boolean added = false;
@@ -87,17 +79,15 @@ namespace ProcurementSystem
                         {
                             addedItemQty = int.Parse(row2.Cells[1].Value.ToString()) + int.Parse(row.Cells[1].Value.ToString());
                             row2.Cells[1].Value = addedItemQty.ToString();
+                            row2.Cells[3].Value = row2.Cells[3].Value + ", " + tbRequestID.Text.ToString();
                             added = true;
                         }
                     }
                 }
                 if(added == false) {
-                    GenItemList.Rows.Add(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString());
+                    MySqlCommand getSuppier = new MySqlCommand("SELECT s.SupplierName From Supplier s, SupplierItem si, VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND v.ItemID = si.ItemID AND si.SupplierNo = s.SupplierNo AND v.VitemID ='"+row.Cells[2].Value.ToString()+"' AND v.category_id ='"+row.Cells[3].Value.ToString()+"'", cnn);
+                    GenItemList.Rows.Add(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), getSuppier.ExecuteScalar().ToString(), tbRequestID.Text.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString());
                 }
-                if (finalGenRequestList != null)
-                    finalGenRequestList = finalGenRequestList + ", " + tbRequestID.Text.ToString();
-                else
-                    finalGenRequestList += tbRequestID.Text.ToString();
                 added = false;
             }
         }
@@ -106,18 +96,78 @@ namespace ProcurementSystem
         {
             if (radioButton1.Checked)
             {
-                BPAadd = new BPAAdd(nowBPANo, finalGenRequestList);
+                handlingItem = new List<string>();
+                handlingItemQty = new List<string>();
+                handlingRequest = new List<string>();
+                MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(BPANo) FROM BlanketPurchaseAgreement", cnn);
+                nowBPANo = (string)getNextRequestNo.ExecuteScalar();
+                if (nowBPANo == null)
+                {
+                    nowBPANo = "00000";
+                }
+                else
+                {
+                    nowBPANo = Regex.Match(nowBPANo, @"\d+").Value;
+                }
+                int num = Int32.Parse(nowBPANo.GetLast(5));
+                num++;
+                nowBPANo = num.ToString().PadLeft(5, '0');
+                string supplierID="";
+                foreach (DataGridViewRow row in GenItemList.Rows)
+                {
+                    MySqlCommand getSupplierID = new MySqlCommand("SELECT SupplierNo FROM Supplier WHERE supplierName ='" + row.Cells[2].Value.ToString() + "';", cnn);
+                    supplierID = getSupplierID.ExecuteScalar().ToString();
+                    if (handlingSupplier == null && row.Cells[0].Value != null)
+                    {
+                        handlingSupplier = row.Cells[2].Value.ToString();
+                        handlingItem.Add(row.Cells[0].Value.ToString());
+                        handlingItemQty.Add(row.Cells[1].Value.ToString());
+                        handlingRequest = checkrepeatRequest(handlingRequest, row.Cells[3].Value.ToString());
+                        
+                        GenItemList.Rows.RemoveAt(row.Index);
+                    }
+                    else if(handlingSupplier == row.Cells[2].Value.ToString()){
+                        handlingRequest = checkrepeatRequest(handlingRequest, row.Cells[3].Value.ToString());
+                        GenItemList.Rows.RemoveAt(row.Index);
+                    }
+                }
+                BPAadd = new BPAAdd(this, nowBPANo, handlingRequest.ToArray(), supplierID.GetLast(3),handlingItem.ToArray(), handlingItemQty.ToArray());
                 BPAadd.ShowDialog();
                 this.reset();
+                this.Refresh();
             }
+        }
+        public List<string> checkrepeatRequest(List<string> requestList, string needHandleRequest) {
+            bool haveRequest = false;
+            string checkRequest;
+            while (needHandleRequest.Length > 8)
+            {
+                checkRequest = needHandleRequest.Substring(0, 8);
+                needHandleRequest = needHandleRequest.GetLast(needHandleRequest.Length - 10);
+                foreach (string oldRequest in requestList)
+                {
+                    if (oldRequest.ToString() == checkRequest)
+                        haveRequest = true;
+                }
+                if (!haveRequest)
+                    requestList.Add(checkRequest);
+            }
+            haveRequest = false;
+            foreach(string oldRequest in requestList)
+            {
+                if (oldRequest.ToString() == needHandleRequest)
+                    haveRequest = true;
+            }
+            if (!haveRequest)
+                requestList.Add(needHandleRequest);
+            return requestList;
         }
         public void reset() {
             tbRequestID.Text = "";
             itemList.Rows.Clear();
-            GenItemList.Rows.Clear();
             radioButton1.Checked = false;
             radioButton2.Checked = false;
-            this.Refresh();
+            handlingSupplier = null;
         }
     }
     public static class StringExtension

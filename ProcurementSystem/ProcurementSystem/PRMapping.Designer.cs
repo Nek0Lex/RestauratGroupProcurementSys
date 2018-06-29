@@ -29,14 +29,10 @@
         private void InitializeComponent()
         {
             this.requestList = new System.Windows.Forms.DataGridView();
-            this.RequestNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.tbRequestID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.itemList = new System.Windows.Forms.DataGridView();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -45,9 +41,19 @@
             this.button2 = new System.Windows.Forms.Button();
             this.GenItemList = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.addItem = new System.Windows.Forms.Button();
+            this.RequestNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GenItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GenQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addItem = new System.Windows.Forms.Button();
+            this.Suppier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RelatedRequest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genVItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gencategory_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.requestList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemList)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -70,18 +76,6 @@
             this.requestList.Size = new System.Drawing.Size(248, 321);
             this.requestList.TabIndex = 0;
             this.requestList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.requestList_CellClick);
-            // 
-            // RequestNo
-            // 
-            this.RequestNo.HeaderText = "RequestNo";
-            this.RequestNo.Name = "RequestNo";
-            this.RequestNo.ReadOnly = true;
-            // 
-            // CreateDate
-            // 
-            this.CreateDate.HeaderText = "CreateDate";
-            this.CreateDate.Name = "CreateDate";
-            this.CreateDate.ReadOnly = true;
             // 
             // label1
             // 
@@ -118,23 +112,15 @@
             this.itemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemName,
-            this.Quantity});
+            this.Quantity,
+            this.VItemID,
+            this.category_id});
             this.itemList.Location = new System.Drawing.Point(379, 95);
             this.itemList.Name = "itemList";
             this.itemList.RowTemplate.Height = 24;
             this.itemList.Size = new System.Drawing.Size(346, 121);
             this.itemList.TabIndex = 4;
             this.itemList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemList_CellContentClick);
-            // 
-            // ItemName
-            // 
-            this.ItemName.HeaderText = "ItemName";
-            this.ItemName.Name = "ItemName";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
             // 
             // groupBox1
             // 
@@ -205,7 +191,11 @@
             this.GenItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GenItemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GenItemName,
-            this.GenQuantity});
+            this.GenQuantity,
+            this.Suppier,
+            this.RelatedRequest,
+            this.genVItemID,
+            this.gencategory_id});
             this.GenItemList.Location = new System.Drawing.Point(379, 223);
             this.GenItemList.Name = "GenItemList";
             this.GenItemList.ReadOnly = true;
@@ -223,6 +213,50 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Gen Item :";
             // 
+            // addItem
+            // 
+            this.addItem.Location = new System.Drawing.Point(731, 193);
+            this.addItem.Name = "addItem";
+            this.addItem.Size = new System.Drawing.Size(66, 23);
+            this.addItem.TabIndex = 13;
+            this.addItem.Text = "Add";
+            this.addItem.UseVisualStyleBackColor = true;
+            this.addItem.Click += new System.EventHandler(this.addItem_Click);
+            // 
+            // RequestNo
+            // 
+            this.RequestNo.HeaderText = "RequestNo";
+            this.RequestNo.Name = "RequestNo";
+            this.RequestNo.ReadOnly = true;
+            // 
+            // CreateDate
+            // 
+            this.CreateDate.HeaderText = "CreateDate";
+            this.CreateDate.Name = "CreateDate";
+            this.CreateDate.ReadOnly = true;
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // VItemID
+            // 
+            this.VItemID.HeaderText = "VItemID";
+            this.VItemID.Name = "VItemID";
+            this.VItemID.Visible = false;
+            // 
+            // category_id
+            // 
+            this.category_id.HeaderText = "category_id";
+            this.category_id.Name = "category_id";
+            this.category_id.Visible = false;
+            // 
             // GenItemName
             // 
             this.GenItemName.HeaderText = "ItemName";
@@ -235,15 +269,31 @@
             this.GenQuantity.Name = "GenQuantity";
             this.GenQuantity.ReadOnly = true;
             // 
-            // addItem
+            // Suppier
             // 
-            this.addItem.Location = new System.Drawing.Point(731, 193);
-            this.addItem.Name = "addItem";
-            this.addItem.Size = new System.Drawing.Size(66, 23);
-            this.addItem.TabIndex = 13;
-            this.addItem.Text = "Add";
-            this.addItem.UseVisualStyleBackColor = true;
-            this.addItem.Click += new System.EventHandler(this.addItem_Click);
+            this.Suppier.HeaderText = "Suppier";
+            this.Suppier.Name = "Suppier";
+            this.Suppier.ReadOnly = true;
+            // 
+            // RelatedRequest
+            // 
+            this.RelatedRequest.HeaderText = "RelatedRequest";
+            this.RelatedRequest.Name = "RelatedRequest";
+            this.RelatedRequest.ReadOnly = true;
+            // 
+            // genVItemID
+            // 
+            this.genVItemID.HeaderText = "genVItemID";
+            this.genVItemID.Name = "genVItemID";
+            this.genVItemID.ReadOnly = true;
+            this.genVItemID.Visible = false;
+            // 
+            // gencategory_id
+            // 
+            this.gencategory_id.HeaderText = "gencategory_id";
+            this.gencategory_id.Name = "gencategory_id";
+            this.gencategory_id.ReadOnly = true;
+            this.gencategory_id.Visible = false;
             // 
             // PRMapping
             // 
@@ -284,17 +334,23 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RequestNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridView GenItemList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GenItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GenQuantity;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button addItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RequestNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VItemID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GenItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GenQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Suppier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RelatedRequest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genVItemID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gencategory_id;
     }
 }

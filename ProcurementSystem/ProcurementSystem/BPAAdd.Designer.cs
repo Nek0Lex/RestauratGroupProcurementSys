@@ -32,6 +32,8 @@ namespace ProcurementSystem
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.currency = new System.Windows.Forms.ComboBox();
@@ -59,7 +61,13 @@ namespace ProcurementSystem
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitOfMeasurement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MinimumQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -77,6 +85,8 @@ namespace ProcurementSystem
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.currency);
@@ -103,10 +113,37 @@ namespace ProcurementSystem
             this.groupBox1.Controls.Add(this.BPA);
             this.groupBox1.Location = new System.Drawing.Point(12, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(817, 358);
+            this.groupBox1.Size = new System.Drawing.Size(900, 585);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new agreement";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemName,
+            this.Quantity,
+            this.unitOfMeasurement,
+            this.MinimumQty,
+            this.Price});
+            this.dataGridView1.Location = new System.Drawing.Point(17, 390);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(860, 167);
+            this.dataGridView1.TabIndex = 28;
+            // 
+            // textBox7
+            // 
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox7.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox7.Location = new System.Drawing.Point(17, 366);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(71, 18);
+            this.textBox7.TabIndex = 27;
+            this.textBox7.Text = "BPA Items:";
             // 
             // textBox5
             // 
@@ -180,7 +217,7 @@ namespace ProcurementSystem
             // 
             this.TAC.Location = new System.Drawing.Point(535, 240);
             this.TAC.Name = "TAC";
-            this.TAC.Size = new System.Drawing.Size(259, 103);
+            this.TAC.Size = new System.Drawing.Size(342, 103);
             this.TAC.TabIndex = 18;
             this.TAC.Text = "";
             // 
@@ -218,7 +255,7 @@ namespace ProcurementSystem
             // 
             this.BillingAddress.Location = new System.Drawing.Point(501, 36);
             this.BillingAddress.Name = "BillingAddress";
-            this.BillingAddress.Size = new System.Drawing.Size(293, 102);
+            this.BillingAddress.Size = new System.Drawing.Size(376, 102);
             this.BillingAddress.TabIndex = 13;
             this.BillingAddress.Text = "";
             // 
@@ -350,7 +387,7 @@ namespace ProcurementSystem
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(111, 456);
+            this.button1.Location = new System.Drawing.Point(85, 673);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(149, 44);
             this.button1.TabIndex = 2;
@@ -361,7 +398,7 @@ namespace ProcurementSystem
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(332, 456);
+            this.button2.Location = new System.Drawing.Point(358, 673);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(149, 44);
             this.button2.TabIndex = 3;
@@ -372,7 +409,7 @@ namespace ProcurementSystem
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(547, 456);
+            this.button3.Location = new System.Drawing.Point(617, 673);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(149, 44);
             this.button3.TabIndex = 4;
@@ -380,12 +417,37 @@ namespace ProcurementSystem
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // unitOfMeasurement
+            // 
+            this.unitOfMeasurement.HeaderText = "unit of measurement";
+            this.unitOfMeasurement.Name = "unitOfMeasurement";
+            // 
+            // MinimumQty
+            // 
+            this.MinimumQty.HeaderText = "MinumumQty";
+            this.MinimumQty.Name = "MinimumQty";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            // 
             // BPAAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(842, 549);
+            this.ClientSize = new System.Drawing.Size(927, 739);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -396,6 +458,7 @@ namespace ProcurementSystem
             this.Load += new System.EventHandler(this.BPAAdd_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,5 +497,12 @@ namespace ProcurementSystem
         private System.Windows.Forms.ComboBox currency;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitOfMeasurement;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MinimumQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
     }
 }
