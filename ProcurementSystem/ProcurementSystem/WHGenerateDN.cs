@@ -65,7 +65,7 @@ namespace ProcurementSystem
                 did = Regex.Match(did, @"\d+").Value;
                 lbDID.Text = "D" + (Int32.Parse(did) + 1).ToString().PadLeft(7, '0');
             }
-            MySqlDataAdapter getRest = new MySqlDataAdapter("Select pr.restName, address From PurchaseRequest pr, Restaurant r where RequestNo = '" + rno + "' and pr.restNo=r.restNo;", cnn);
+            MySqlDataAdapter getRest = new MySqlDataAdapter("Select RestName, RestAddress From PurchaseRequest pr, Restaurant r where RequestNo = '" + rno + "' and pr.restNo=r.restNo;", cnn);
             DataTable restInfo = new DataTable();
             getRest.Fill(restInfo);
             numQty.Maximum = 0;
@@ -130,7 +130,7 @@ namespace ProcurementSystem
                     if (quantity != 0)
                     {
                         MySqlCommand createDeliveryNote = new MySqlCommand("INSERT INTO DeliveryNote VALUES ('" + lbDID.Text + "','" + lbRNo.Text + "','" + lbDesId.Text + "','" + itemID +
-                            "'," + quantity + ",'Bus','" + lbCreationDate.Text + "','DLI');", cnn);
+                            "'," + quantity + ", '', 'Bus','" + lbCreationDate.Text + "','DLI');", cnn);
                         createDeliveryNote.ExecuteNonQuery();
                     }
                 }

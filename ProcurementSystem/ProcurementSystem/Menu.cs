@@ -48,7 +48,7 @@ namespace ProcurementSystem
                     lb1.Text = "The Restaurant Manager of \n" + dt.Rows[0][0].ToString();
                     this.restNo = dt.Rows[0][1].ToString();
                     btn1.Text = "Purchase Request";
-                    btn2.Visible = false; //to be added function or keep invisible
+                    btn2.Text = "Confirm Delivery Note";
                     btn3.Text = "Edit User Information";
                     btn4.Text = "Edit Restaurant Information";
                     WHPO.Visible = false;
@@ -151,6 +151,11 @@ namespace ProcurementSystem
         {
             switch (deptCode)
             {
+                case "RM":
+                    this.Hide();
+                    ViewDeliveryNoteMenu vDN = new ViewDeliveryNoteMenu(this, restNo);
+                    vDN.Show();
+                    break;
                 case "AM":
                     this.Hide();
                     EditMenu em = new EditMenu(this, 1);
