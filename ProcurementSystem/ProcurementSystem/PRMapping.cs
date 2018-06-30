@@ -20,6 +20,7 @@ namespace ProcurementSystem
         private string nowBPANo;
         private string nowDesNo;
         private string nowSPONo;
+        private string nowBPRNo;
         private string handlingSupplier;
         public Boolean checkCancel = false;
         private List<string> handlingItem;
@@ -65,32 +66,35 @@ namespace ProcurementSystem
             }
             foreach (DataGridViewRow row in itemList.Rows)
             {
-                try
+                if (row.Cells[0].Value != null)
                 {
-                    MySqlCommand getStock = new MySqlCommand("SELECT quantity from WarehouseStock w, Item i WHERE w.ItemID = i. ItemID AND i.ItemDescription = '" + row.Cells[0].Value.ToString() + "'", cnn);
-                    row.Cells[4].Value = getStock.ExecuteScalar().ToString();
-                }
-                catch (NullReferenceException)
-                {
-                    row.Cells[4].Value = "0";
-                }
-                try
-                {
-                    MySqlCommand getPPO = new MySqlCommand("SELECT quantity, PPONo from PPOLines p WHERE p.ItemDescription  ='" + row.Cells[0].ToString() + "' HAVING PPONo = MAX(PPONo)", cnn);
-                    row.Cells[5].Value = getPPO.ExecuteScalar().ToString();
-                }
-                catch (NullReferenceException)
-                {
-                    row.Cells[5].Value = "0";
-                }
-                try
-                {
-                    MySqlCommand getBPA = new MySqlCommand("SELECT amount, BPANo from BPALines b, Item i WHERE b.ItemID = i.ItemID AND i.ItemDescription ='" + row.Cells[0].ToString() + "' HAVING BPANo = MAX(BPANo)", cnn);
-                    row.Cells[6].Value = getBPA.ExecuteScalar().ToString();
-                }
-                catch (NullReferenceException)
-                {
-                    row.Cells[6].Value = "0";
+                    try
+                    {
+                        MySqlCommand getStock = new MySqlCommand("SELECT quantity from WarehouseStock w, Item i WHERE w.ItemID = i. ItemID AND i.ItemDescription = '" + row.Cells[0].Value.ToString() + "'", cnn);
+                        row.Cells[4].Value = getStock.ExecuteScalar().ToString();
+                    }
+                    catch (NullReferenceException)
+                    {
+                        row.Cells[4].Value = "0";
+                    }
+                    try
+                    {
+                        MySqlCommand getPPO = new MySqlCommand("SELECT p.Quantity, MAX(PPONo) from PPOLines p WHERE p.ItemDescription  ='" + row.Cells[0].Value.ToString() + "'", cnn);
+                        row.Cells[5].Value = getPPO.ExecuteScalar().ToString();
+                    }
+                    catch (NullReferenceException exe)
+                    {
+                        row.Cells[5].Value = "0";
+                    }
+                    try
+                    {
+                        MySqlCommand getBPA = new MySqlCommand("SELECT b.PromisedQuantity, MAX(BPANo) from BPALines b, Item i WHERE b.ItemID = i.ItemID AND i.ItemDescription ='" + row.Cells[0].Value.ToString() + "'", cnn);
+                        row.Cells[6].Value = getBPA.ExecuteScalar().ToString();
+                    }
+                    catch (NullReferenceException ex)
+                    {
+                        row.Cells[6].Value = "0";
+                    }
                 }
             }
             itemList.Refresh();
@@ -128,6 +132,27 @@ namespace ProcurementSystem
         {
             if (radioButton1.Checked)
             {
+                string restNo;
+                MySqlCommand getBPANo = new MySqlCommand("SELECT MAX(BPANo) from BPALines b, Item i WHERE b.ItemID = i.ItemID AND i.ItemDescription ='" + itemList.Rows[0].Cells[0].Value.ToString() + "'",cnn);
+                string bprBPANo = getBPANo.ExecuteScalar().ToString();
+                MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(ReleaseNo) FROM BlanketPurchaseRelease", cnn);
+                    nowBPRNo = getNextRequestNo.ExecuteScalar().ToString();
+                if (nowBPRNo == "")
+                {
+                    nowBPRNo = "BPR000";
+                }
+                else
+                {
+                    nowBPRNo = Regex.Match(nowBPRNo, @"\d+").Value;
+                }
+                int num = int.Parse(nowBPRNo.GetLast(3));
+                num++;
+                nowBPRNo = num.ToString().PadLeft(3, '0');
+                nowBPRNo = "BPR" + nowBPRNo;
+                MySqlCommand getRestNo = new MySqlCommand("Select DISTINCT RestNo FROM PurchaseRequest WHERE RequestNo = '" + tbRequestID.Text + "'", cnn);
+                restNo = getRestNo.ExecuteScalar().ToString();
+                BlanketPurchaseRelease BPR = new BlanketPurchaseRelease(bprBPANo, nowBPRNo, restNo, itemList.Rows[0].Cells[0].Value.ToString(), itemList.Rows[0].Cells[1].Value.ToString(), tbRequestID.Text);
+                BPR.ShowDialog();
                 //handlingItem = new List<string>();
                 //handlingItemQty = new List<string>();
                 //handlingRequest = new List<string>();
@@ -155,7 +180,7 @@ namespace ProcurementSystem
                 //        handlingItem.Add(row.Cells[0].Value.ToString());
                 //        handlingItemQty.Add(row.Cells[1].Value.ToString());
                 //        handlingRequest = checkrepeatRequest(handlingRequest, row.Cells[3].Value.ToString());
-                        
+
                 //        GenItemList.Rows.RemoveAt(row.Index);
                 //    }
                 //    else if(handlingSupplier == row.Cells[2].Value.ToString()){
@@ -182,9 +207,9 @@ namespace ProcurementSystem
                     String itemID = "";
                     MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(DesID) FROM DespatchInstruction", cnn);
                     nowDesNo = (string)getNextRequestNo.ExecuteScalar();
-                    if (nowDesNo == null)
+                    if (nowDesNo == "")
                     {
-                        nowDesNo = "00000";
+                        nowDesNo = "0000000";
                     }
                     else
                     {
@@ -219,7 +244,7 @@ namespace ProcurementSystem
                 String restNo = "";
                 MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(SPONo) FROM SPO", cnn);
                 nowSPONo = (string)getNextRequestNo.ExecuteScalar();
-                if (nowSPONo == null)
+                if (nowSPONo == "")
                 {
                     nowSPONo = "00000";
                 }
