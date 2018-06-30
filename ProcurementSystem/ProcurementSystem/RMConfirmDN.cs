@@ -33,7 +33,7 @@ namespace ProcurementSystem
             DataTable dt = new DataTable();
             sda.Fill(dt);
             dGVItem.DataSource = dt;
-            MySqlDataAdapter getDNInfo = new MySqlDataAdapter("SELECT DeliveryID, RequestNo, DesID, ArriveDate From DeliveryNote Where DeliveryID = '" +DNId + "';", cnn);
+            MySqlDataAdapter getDNInfo = new MySqlDataAdapter("SELECT DeliveryID, dn.RequestNo, DesID, CreationDate, DeliveryDate From DeliveryNote dn, PurchaseRequest pr Where dn.RequestNo=pr.RequestNo and DeliveryID = '" +DNId + "';", cnn);
             DataTable DNInfo = new DataTable();
             getDNInfo.Fill(DNInfo);            
             cnn.Close();
@@ -41,6 +41,7 @@ namespace ProcurementSystem
             lbRNo.Text = DNInfo.Rows[0][1].ToString();
             lbDesId.Text = DNInfo.Rows[0][2].ToString();
             lbCreationDate.Text = DNInfo.Rows[0][3].ToString();
+            lbDeliveryDate.Text = DNInfo.Rows[0][4].ToString();
             lbStatus.Text = status;
             btnUpdate.Enabled = false;      
         }

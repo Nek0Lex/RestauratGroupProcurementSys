@@ -46,6 +46,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.numQty = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbDeliveryDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -98,6 +100,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.lbDeliveryDate);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
@@ -119,7 +123,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(339, 83);
+            this.label7.Location = new System.Drawing.Point(339, 132);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 19);
             this.label7.TabIndex = 25;
@@ -191,7 +195,7 @@
             // lbStatus
             // 
             this.lbStatus.AutoSize = true;
-            this.lbStatus.Location = new System.Drawing.Point(398, 83);
+            this.lbStatus.Location = new System.Drawing.Point(398, 132);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(53, 19);
             this.lbStatus.TabIndex = 20;
@@ -235,7 +239,25 @@
             this.numQty.Size = new System.Drawing.Size(120, 30);
             this.numQty.TabIndex = 15;
             // 
-            // ViewDeliveryNote
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(339, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 19);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Delivery Date :";
+            // 
+            // lbDeliveryDate
+            // 
+            this.lbDeliveryDate.AutoSize = true;
+            this.lbDeliveryDate.Location = new System.Drawing.Point(457, 84);
+            this.lbDeliveryDate.Name = "lbDeliveryDate";
+            this.lbDeliveryDate.Size = new System.Drawing.Size(47, 19);
+            this.lbDeliveryDate.TabIndex = 26;
+            this.lbDeliveryDate.Text = "to-do";
+            // 
+            // RMConfirmDN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -247,7 +269,7 @@
             this.Controls.Add(this.btnGen);
             this.Controls.Add(this.dGVItem);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "ViewDeliveryNote";
+            this.Name = "RMConfirmDN";
             this.Text = "WHViewPPO";
             this.Load += new System.EventHandler(this.ViewDeliveryNote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).EndInit();
@@ -279,5 +301,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.NumericUpDown numQty;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbDeliveryDate;
     }
 }

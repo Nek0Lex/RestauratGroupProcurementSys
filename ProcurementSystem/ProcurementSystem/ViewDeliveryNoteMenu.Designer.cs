@@ -30,17 +30,17 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.listViewDN = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.btnInitial = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,69 +74,6 @@
             this.listViewDN.UseCompatibleStateImageBehavior = false;
             this.listViewDN.View = System.Windows.Forms.View.Details;
             // 
-            // btnConfirm
-            // 
-            this.btnConfirm.Location = new System.Drawing.Point(616, 357);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(176, 18);
-            this.btnConfirm.TabIndex = 16;
-            this.btnConfirm.Text = "Confirm Delivery Note";
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(616, 401);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(176, 18);
-            this.btnBack.TabIndex = 17;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSearch.Location = new System.Drawing.Point(11, 73);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(78, 23);
-            this.btnSearch.TabIndex = 19;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.tbSearch);
-            this.groupBox1.Controls.Add(this.btnInitial);
-            this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Location = new System.Drawing.Point(604, 77);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(193, 122);
-            this.groupBox1.TabIndex = 21;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Search Note by ID";
-            // 
-            // tbSearch
-            // 
-            this.tbSearch.Location = new System.Drawing.Point(11, 33);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(170, 22);
-            this.tbSearch.TabIndex = 22;
-            // 
-            // btnInitial
-            // 
-            this.btnInitial.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnInitial.Location = new System.Drawing.Point(102, 73);
-            this.btnInitial.Name = "btnInitial";
-            this.btnInitial.Size = new System.Drawing.Size(78, 23);
-            this.btnInitial.TabIndex = 20;
-            this.btnInitial.Text = "Initial";
-            this.btnInitial.UseVisualStyleBackColor = true;
-            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Delivery Note ID";
@@ -161,6 +98,70 @@
             // 
             this.columnHeader5.Text = "Status";
             // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Location = new System.Drawing.Point(616, 357);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(176, 18);
+            this.btnConfirm.TabIndex = 16;
+            this.btnConfirm.Text = "Confirm Delivery Note";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(616, 401);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(176, 18);
+            this.btnBack.TabIndex = 17;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnSearch.Location = new System.Drawing.Point(11, 73);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(78, 23);
+            this.btnSearch.TabIndex = 19;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.tbSearch);
+            this.groupBox1.Controls.Add(this.btnInitial);
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Location = new System.Drawing.Point(604, 77);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(193, 122);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Search Note by ID";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(11, 33);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(170, 22);
+            this.tbSearch.TabIndex = 22;
+            // 
+            // btnInitial
+            // 
+            this.btnInitial.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnInitial.Location = new System.Drawing.Point(102, 73);
+            this.btnInitial.Name = "btnInitial";
+            this.btnInitial.Size = new System.Drawing.Size(78, 23);
+            this.btnInitial.TabIndex = 20;
+            this.btnInitial.Text = "Initial";
+            this.btnInitial.UseVisualStyleBackColor = true;
+            // 
             // ViewDeliveryNoteMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -171,7 +172,7 @@
             this.Controls.Add(this.listViewDN);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewDeliveryNoteMenu";
             this.Text = "WHViewPPOMenu";
             this.Load += new System.EventHandler(this.ViewDeliveryNoteMenu_Load);

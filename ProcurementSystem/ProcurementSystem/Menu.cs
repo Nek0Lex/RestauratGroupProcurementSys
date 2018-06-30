@@ -153,8 +153,13 @@ namespace ProcurementSystem
             {
                 case "RM":
                     this.Hide();
-                    ViewDeliveryNoteMenu vDN = new ViewDeliveryNoteMenu(this, restNo);
+                    ViewDeliveryNoteMenu vDN = new ViewDeliveryNoteMenu(this, "RM", restNo);
                     vDN.Show();
+                    break;
+                case "WC":
+                    this.Hide();
+                    ViewDeliveryNoteMenu WHvDN = new ViewDeliveryNoteMenu(this, "WC");
+                    WHvDN.Show();
                     break;
                 case "AM":
                     this.Hide();

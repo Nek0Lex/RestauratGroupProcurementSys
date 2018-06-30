@@ -481,6 +481,9 @@
     <EmbeddedResource Include="WHStock.resx">
       <DependentUpon>WHStock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WHUpdateDN.resx">
+      <DependentUpon>WHUpdateDN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WHViewDPI.resx">
       <DependentUpon>WHViewDPI.cs</DependentUpon>
     </EmbeddedResource>

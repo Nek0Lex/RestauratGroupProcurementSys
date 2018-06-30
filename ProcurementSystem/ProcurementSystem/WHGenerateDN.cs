@@ -146,7 +146,7 @@ namespace ProcurementSystem
                     if (quantity != 0)
                     {
                         MySqlCommand createDeliveryNote = new MySqlCommand("INSERT INTO DeliveryNote VALUES ('" + lbDID.Text + "','" + lbRNo.Text + "','" + lbDesId.Text + "','" + itemID +
-                            "'," + quantity + ", '', 'Bus','" + lbCreationDate.Text + "','DLI');", cnn);
+                            "'," + quantity + ", '','" + lbCreationDate.Text + "','DLI');", cnn);
                         createDeliveryNote.ExecuteNonQuery();
                     }
                 }
