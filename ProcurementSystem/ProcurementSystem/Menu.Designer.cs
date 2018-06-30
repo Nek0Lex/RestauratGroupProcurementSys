@@ -30,6 +30,7 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.WHPO = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbStaffName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.WHPO = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -72,16 +72,28 @@
             this.groupBox1.Location = new System.Drawing.Point(28, 91);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(639, 386);
+            this.groupBox1.Size = new System.Drawing.Size(629, 386);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // WHPO
+            // 
+            this.WHPO.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
+            this.WHPO.Location = new System.Drawing.Point(438, 56);
+            this.WHPO.Margin = new System.Windows.Forms.Padding(2);
+            this.WHPO.Name = "WHPO";
+            this.WHPO.Size = new System.Drawing.Size(166, 127);
+            this.WHPO.TabIndex = 4;
+            this.WHPO.Text = "button5";
+            this.WHPO.UseVisualStyleBackColor = true;
+            this.WHPO.Click += new System.EventHandler(this.btn5_Click);
+            // 
             // btn4
             // 
             this.btn4.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
-            this.btn4.Location = new System.Drawing.Point(278, 220);
+            this.btn4.Location = new System.Drawing.Point(231, 220);
             this.btn4.Margin = new System.Windows.Forms.Padding(2);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(166, 127);
@@ -93,7 +105,7 @@
             // btn3
             // 
             this.btn3.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
-            this.btn3.Location = new System.Drawing.Point(58, 220);
+            this.btn3.Location = new System.Drawing.Point(22, 220);
             this.btn3.Margin = new System.Windows.Forms.Padding(2);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(166, 127);
@@ -105,7 +117,7 @@
             // btn2
             // 
             this.btn2.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
-            this.btn2.Location = new System.Drawing.Point(278, 56);
+            this.btn2.Location = new System.Drawing.Point(231, 56);
             this.btn2.Margin = new System.Windows.Forms.Padding(2);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(166, 127);
@@ -118,7 +130,7 @@
             // 
             this.btn1.Cursor = System.Windows.Forms.Cursors.Default;
             this.btn1.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn1.Location = new System.Drawing.Point(58, 56);
+            this.btn1.Location = new System.Drawing.Point(22, 56);
             this.btn1.Margin = new System.Windows.Forms.Padding(2);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(166, 127);
@@ -183,18 +195,6 @@
             this.label1.Size = new System.Drawing.Size(163, 19);
             this.label1.TabIndex = 33;
             this.label1.Text = "You are login as:";
-            // 
-            // WHPO
-            // 
-            this.WHPO.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
-            this.WHPO.Location = new System.Drawing.Point(468, 56);
-            this.WHPO.Margin = new System.Windows.Forms.Padding(2);
-            this.WHPO.Name = "WHPO";
-            this.WHPO.Size = new System.Drawing.Size(166, 127);
-            this.WHPO.TabIndex = 4;
-            this.WHPO.Text = "button5";
-            this.WHPO.UseVisualStyleBackColor = true;
-            this.WHPO.Click += new System.EventHandler(this.btn5_Click);
             // 
             // Menu
             // 
