@@ -16,6 +16,16 @@ namespace ProcurementSystem
         {
             InitializeComponent();
         }
+        public BlanketPurchaseRelease(string getBPANo, string getReleaseNo, string getRestNo, string ItemName, string ItemQty, string getRequestNo)
+        {
+            InitializeComponent();
+            BPANo.Text = getBPANo;
+            releaseNo.Text = getReleaseNo;
+            restNo.Text = getRestNo;
+            requestNo.Text = getRequestNo;
+            dataGridView1.Rows.Add(ItemName);
+            quantity.Text = ItemQty;
+        }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {

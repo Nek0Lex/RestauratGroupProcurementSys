@@ -36,7 +36,6 @@
             this.actualAmount = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.account = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.deliveryDate = new System.Windows.Forms.DateTimePicker();
@@ -53,7 +52,10 @@
             this.bpaNolb = new System.Windows.Forms.TextBox();
             this.confirm = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -69,13 +71,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.quantity);
             this.groupBox1.Controls.Add(this.textBox11);
             this.groupBox1.Controls.Add(this.textBox10);
             this.groupBox1.Controls.Add(this.actualAmount);
             this.groupBox1.Controls.Add(this.textBox9);
             this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.account);
             this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.deliveryDate);
@@ -139,7 +141,6 @@
             this.actualAmount.Name = "actualAmount";
             this.actualAmount.Size = new System.Drawing.Size(117, 25);
             this.actualAmount.TabIndex = 19;
-            this.actualAmount.Text = "//actualAmount";
             this.actualAmount.TextChanged += new System.EventHandler(this.actualAmount_TextChanged);
             // 
             // textBox9
@@ -165,16 +166,6 @@
             this.textBox8.Size = new System.Drawing.Size(93, 18);
             this.textBox8.TabIndex = 17;
             this.textBox8.Text = "Item:";
-            // 
-            // listView1
-            // 
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(20, 246);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(740, 132);
-            this.listView1.TabIndex = 16;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // account
             // 
@@ -355,7 +346,22 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemName});
+            this.dataGridView1.Location = new System.Drawing.Point(22, 251);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(711, 104);
+            this.dataGridView1.TabIndex = 23;
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
             // 
             // BlanketPurchaseRelease
             // 
@@ -370,6 +376,7 @@
             this.Text = "BlanketPurchaseRelease";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,7 +401,6 @@
         private System.Windows.Forms.TextBox account;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox actualAmount;
         private System.Windows.Forms.TextBox textBox10;
@@ -402,5 +408,7 @@
         private System.Windows.Forms.TextBox quantity;
         private System.Windows.Forms.Button confirm;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
     }
 }
