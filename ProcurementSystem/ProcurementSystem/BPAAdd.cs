@@ -14,17 +14,20 @@ namespace ProcurementSystem
 {
     public partial class BPAAdd : Form
     {
+        MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
         private PRMapping prmapping;
         public BPAAdd()
         {
             InitializeComponent();
+            cnn.Open();
         }
         public BPAAdd(PRMapping prmapping, string BPAno, string[] requestNoList, string supplierNo, string[] ItemList, string[] QtyList)
         {
             InitializeComponent();
             BPANo.Text = BPAno;
             this.prmapping = prmapping;
-            foreach(string genRequestNo in requestNoList)
+            cnn.Open();
+            foreach (string genRequestNo in requestNoList)
             {
                 if (RequestNo.Text == "")
                     RequestNo.Text += genRequestNo;
@@ -93,8 +96,6 @@ namespace ProcurementSystem
                 string itemID;
                 if (!string.IsNullOrWhiteSpace(billAddress) || !string.IsNullOrWhiteSpace(requestNo) || !string.IsNullOrWhiteSpace(supplierNo))
                 {
-                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-                    cnn.Open();
                     String query = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo)VALUES('" + bpaNo + "', '" + requestNo + "', '" + por + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + amount + "', '" + Currency + "', '" + tac + "', '" + supplierNo + "'); ";
                     MySqlCommand cmd = new MySqlCommand(query, cnn);
                     MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
@@ -149,7 +150,19 @@ namespace ProcurementSystem
 
         private void SupplierNo_TextChanged(object sender, EventArgs e)
         {
+            try {
+                MySqlDataAdapter getSuppierItem = new MySqlDataAdapter("SELECT i.ItemDescription FROM SupplierItem si, Item i WHERE si.ItemID= i.itemID AND SupplierNO='S"+SupplierNo.Text.ToString()+"'",cnn);
+                DataTable dt = new DataTable();
+                getSuppierItem.Fill(dt);
+                foreach(DataRow dr in dt.Rows)
+                {
+                    comboBox1.Items.Add(dr["ItemDescription"].ToString());
+                }
+            }
+            catch (Exception)
+            {
 
+            }
         }
 
         private void Amount_TextChanged(object sender, EventArgs e)
@@ -178,6 +191,11 @@ namespace ProcurementSystem
                     c.Text = "";
                 }
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Add(comboBox1.Text.ToString());
         }
     }
 }
