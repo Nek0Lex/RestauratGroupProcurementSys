@@ -328,17 +328,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WHUpdateDN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WHUpdateDN.Designer.cs">
+      <DependentUpon>WHUpdateDN.cs</DependentUpon>
+    </Compile>
     <Compile Include="WHViewDPI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WHViewDPI.Designer.cs">
       <DependentUpon>WHViewDPI.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewDeliveryNote.cs">
+    <Compile Include="RMConfirmDN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewDeliveryNote.Designer.cs">
-      <DependentUpon>ViewDeliveryNote.cs</DependentUpon>
+    <Compile Include="RMConfirmDN.Designer.cs">
+      <DependentUpon>RMConfirmDN.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewDeliveryNoteMenu.cs">
       <SubType>Form</SubType>
@@ -487,8 +493,8 @@
     <EmbeddedResource Include="WHViewDPI.resx">
       <DependentUpon>WHViewDPI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewDeliveryNote.resx">
-      <DependentUpon>ViewDeliveryNote.cs</DependentUpon>
+    <EmbeddedResource Include="RMConfirmDN.resx">
+      <DependentUpon>RMConfirmDN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewDeliveryNoteMenu.resx">
       <DependentUpon>ViewDeliveryNoteMenu.cs</DependentUpon>

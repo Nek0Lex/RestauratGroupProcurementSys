@@ -12,12 +12,12 @@ using MySql.Data.MySqlClient;
 
 namespace ProcurementSystem
 {
-    public partial class ViewDeliveryNote : Form
+    public partial class RMConfirmDN : Form
     {
         private String DNId, status;
         private ViewDeliveryNoteMenu m;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-        public ViewDeliveryNote(ViewDeliveryNoteMenu m, String DNId, String status)
+        public RMConfirmDN(ViewDeliveryNoteMenu m, String DNId, String status)
         {
             InitializeComponent();
             this.m = m;
@@ -103,7 +103,7 @@ namespace ProcurementSystem
         private void dGVItem_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             numQty.Value = Convert.ToDecimal(dGVItem.Rows[e.RowIndex].Cells["Arrived"].Value.ToString());
-            btnUpdate.Enabled = false;
+            btnUpdate.Enabled = true;
         }
     }
 }
