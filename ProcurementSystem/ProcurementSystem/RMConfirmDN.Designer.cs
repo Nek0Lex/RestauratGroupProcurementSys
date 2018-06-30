@@ -1,6 +1,6 @@
 ﻿namespace ProcurementSystem
 {
-    partial class ViewDeliveryNote
+    partial class RMConfirmDN
     {
         /// <summary>
         /// Required designer variable.

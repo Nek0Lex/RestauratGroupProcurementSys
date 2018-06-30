@@ -27,7 +27,7 @@ namespace ProcurementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ViewDeliveryNote vDN = new ViewDeliveryNote(this, listViewDN.SelectedItems[0].SubItems[0].Text, listViewDN.SelectedItems[0].SubItems[4].Text);
+            RMConfirmDN vDN = new RMConfirmDN(this, listViewDN.SelectedItems[0].SubItems[0].Text, listViewDN.SelectedItems[0].SubItems[4].Text);
             vDN.Show();
         }
 
