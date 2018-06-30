@@ -14,7 +14,6 @@ namespace ProcurementSystem
 {   
     public partial class PPOAdd : Form
     {
-        //MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
 
         public PPOAdd()
         {
@@ -54,12 +53,12 @@ namespace ProcurementSystem
                 String tac = TAC.Text;
 
 
-                if (!string.IsNullOrWhiteSpace(ppoNo) || !string.IsNullOrWhiteSpace(supplierNo) || !string.IsNullOrWhiteSpace(currency) || !string.IsNullOrWhiteSpace(billAddress))
-                {
-                    MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
+                //if (!String.IsNullOrWhiteSpace(ppoNo) || !String.IsNullOrWhiteSpace(supplierNo) || !String.IsNullOrWhiteSpace(currency) || !String.IsNullOrWhiteSpace(billAddress) )
+               // {
+                 //   MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //}
+                //else
+                //{
                     MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
                     cnn.Open();
                     String query = "INSERT INTO PPO (PPONo, SupplierNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, SRNo, Amount, Currency, TermsAndCondition)VALUES('" + ppoNo + "', '" + supplierNo + "', '" + purchaseOrderRevision + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + srNo + "', " + amount + ", '" + currency + "', '" + tac + "'); ";
@@ -83,7 +82,7 @@ namespace ProcurementSystem
                     }
                     MessageBox.Show("Add successful");
                     this.Close();
-                }
+                //}
             } 
             catch(Exception)
             {
