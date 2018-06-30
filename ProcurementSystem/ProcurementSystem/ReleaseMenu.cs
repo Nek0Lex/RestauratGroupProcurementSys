@@ -26,9 +26,9 @@ namespace ProcurementSystem
 
         private void SRForward_Click(object sender, EventArgs e)
         {
-            //ScheduleRelease SR = new ScheduleRelease();
-            //SR.show();
-            //this.Close();
+            ScheduleRelease scheduleRelease = new ScheduleRelease();
+            scheduleRelease.Show();
+            this.Close();
         }
     }
 }

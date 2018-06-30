@@ -44,9 +44,16 @@
             this.Reference = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BPANoSelection = new System.Windows.Forms.ComboBox();
             this.back_btn = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.search = new System.Windows.Forms.TextBox();
             BPANo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // BPANo
+            // 
+            BPANo.Text = "BPANo";
+            BPANo.Width = 100;
             // 
             // textBox1
             // 
@@ -74,6 +81,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.search);
+            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.refresh_btn);
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.BPANoSelection);
@@ -119,11 +128,6 @@
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // BPANo
-            // 
-            BPANo.Text = "BPANo";
-            BPANo.Width = 100;
             // 
             // ItemID
             // 
@@ -186,6 +190,25 @@
             this.back_btn.UseVisualStyleBackColor = true;
             this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox2.Location = new System.Drawing.Point(270, 35);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(55, 20);
+            this.textBox2.TabIndex = 5;
+            this.textBox2.Text = "Search:";
+            // 
+            // search
+            // 
+            this.search.Location = new System.Drawing.Point(331, 34);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(219, 23);
+            this.search.TabIndex = 6;
+            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
+            // 
             // WHPurchaseOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -220,5 +243,7 @@
         private System.Windows.Forms.ColumnHeader Category;
         private System.Windows.Forms.ColumnHeader Reference;
         private System.Windows.Forms.Button refresh_btn;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox search;
     }
 }

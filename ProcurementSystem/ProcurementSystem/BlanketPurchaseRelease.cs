@@ -42,5 +42,10 @@ namespace ProcurementSystem
         {
             MessageBox.Show("Confirm?", null, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

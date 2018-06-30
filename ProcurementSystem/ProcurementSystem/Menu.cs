@@ -70,6 +70,7 @@ namespace ProcurementSystem
                     btn3.Text = "Stock";
                     btn4.Text = "Edit User Information";
                     WHPO.Text = "Purchase request";
+                    release.Text = "Release";
                     break;
                 case "AD":
                     lb1.Text = "Accounting Department";
@@ -243,8 +244,8 @@ namespace ProcurementSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            BlanketPurchaseRelease bpr = new BlanketPurchaseRelease();
-            bpr.Show();
+            ReleaseMenu releaseMenu = new ReleaseMenu();
+            releaseMenu.Show();
         }
     }
 }
