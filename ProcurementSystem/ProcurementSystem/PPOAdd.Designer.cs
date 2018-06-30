@@ -141,7 +141,7 @@
             // 
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox10.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox10.Location = new System.Drawing.Point(445, 222);
+            this.textBox10.Location = new System.Drawing.Point(446, 229);
             this.textBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
@@ -202,7 +202,7 @@
             // 
             // Amount
             // 
-            this.Amount.Location = new System.Drawing.Point(461, 222);
+            this.Amount.Location = new System.Drawing.Point(462, 229);
             this.Amount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(99, 22);
@@ -212,7 +212,7 @@
             // 
             this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox19.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox19.Location = new System.Drawing.Point(380, 226);
+            this.textBox19.Location = new System.Drawing.Point(381, 233);
             this.textBox19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox19.Name = "textBox19";
             this.textBox19.ReadOnly = true;

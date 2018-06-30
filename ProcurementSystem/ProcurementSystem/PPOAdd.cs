@@ -66,6 +66,21 @@ namespace ProcurementSystem
                     MySqlCommand cmd = new MySqlCommand(query, cnn);
                     MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
                     cmd.ExecuteNonQuery();
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Cells[0].Value != null)
+                        {
+                            MySqlCommand cmd3 = new MySqlCommand("SELECT SupplierItemID FROM Item i,SupplierItem si  WHERE i.ItemID = si.ItemID AND ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
+                            string itemID = cmd3.ExecuteScalar().ToString();
+                            double itemAmount = int.Parse(row.Cells[1].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString());
+                            MySqlCommand cmd2 = new MySqlCommand("INSERT INTO PPOLines (PPONo, SupplierItemID, ItemDescription, Quantity, UOM, Price, Amount) VALUES ('" + ppoNo + "', '" + itemID + "', '" + row.Cells[0].Value.ToString() +"', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + row.Cells[3].Value.ToString() + "', '" + itemAmount + "');", cnn);
+                            cmd2.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
                     MessageBox.Show("Add successful");
                     this.Close();
                 }
