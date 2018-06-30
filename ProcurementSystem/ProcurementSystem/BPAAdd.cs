@@ -100,10 +100,13 @@ namespace ProcurementSystem
                     MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
                     cmd.ExecuteNonQuery();
                     foreach (DataGridViewRow row in dataGridView1.Rows) {
-                        cmd3 = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" +row.Cells[0].Value.ToString()+ "';", cnn);
-                        itemID = cmd3.ExecuteScalar().ToString();
-                        cmd2 = new MySqlCommand("INSERT INTO BPALines (BPANo, ItemID, PromisedQuantity, UOM, MoQ, Price, Amount) VALUES ('"+ bpaNo +"', '"+itemID +"', '"+row.Cells[1].Value.ToString()+"', '"+row.Cells[2].Value.ToString()+"', '"+row.Cells[3].Value.ToString()+ "', '"+row.Cells[4].Value.ToString()+ "', '"+row.Cells[1].Value.ToString()+"');",cnn);
-                        cmd2.ExecuteNonQuery();
+                        if (row.Cells[0].Value.ToString() != null)
+                        {
+                            cmd3 = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
+                            itemID = cmd3.ExecuteScalar().ToString();
+                            cmd2 = new MySqlCommand("INSERT INTO BPALines (BPANo, ItemID, PromisedQuantity, UOM, MoQ, Price, Amount) VALUES ('" + bpaNo + "', '" + itemID + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + row.Cells[3].Value.ToString() + "', '" + row.Cells[4].Value.ToString() + "', '" + row.Cells[1].Value.ToString() + "');", cnn);
+                            cmd2.ExecuteNonQuery();
+                        }
                      }
                     MessageBox.Show("Add successful");
                     this.Close();
@@ -118,12 +121,12 @@ namespace ProcurementSystem
             {
                 MessageBox.Show("Please input the amount OR other info!", "ERROR");
             }
-       //    catch (Exception ex)
-       //     {
-                //MessageBox.Show("Please Check your Input Again!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        MessageBox.Show(ex.Message);
-        //    }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please Check your Input Again!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

@@ -18,6 +18,7 @@ namespace ProcurementSystem
         private BPAAdd BPAadd;
         private string selectedRequest;
         private string nowBPANo;
+        private string nowDesNo;
         private string handlingSupplier;
         public Boolean checkCancel = false;
         private List<string> handlingItem;
@@ -61,12 +62,41 @@ namespace ProcurementSystem
             {
                  itemList.Rows.Add(dr["itemDescription"].ToString(), dr["Quantity"].ToString(), dr["VItemID"].ToString(), dr["category_id"].ToString());
             }
+            foreach (DataGridViewRow row in itemList.Rows)
+            {
+                try
+                {
+                    MySqlCommand getStock = new MySqlCommand("SELECT quantity from WarehouseStock w, Item i WHERE w.ItemID = i. ItemID AND i.ItemDescription = '" + row.Cells[0].Value.ToString() + "'", cnn);
+                    row.Cells[4].Value = getStock.ExecuteScalar().ToString();
+                }
+                catch (NullReferenceException)
+                {
+                    row.Cells[4].Value = "0";
+                }
+                try
+                {
+                    MySqlCommand getPPO = new MySqlCommand("SELECT quantity, PPONo from PPOLines p WHERE p.ItemDescription  ='" + row.Cells[0].ToString() + "' HAVING PPONo = MAX(PPONo)", cnn);
+                    row.Cells[5].Value = getPPO.ExecuteScalar().ToString();
+                }
+                catch (NullReferenceException)
+                {
+                    row.Cells[5].Value = "0";
+                }
+                try
+                {
+                    MySqlCommand getBPA = new MySqlCommand("SELECT amount, BPANo from BPALines b, Item i WHERE b.ItemID = i.ItemID AND i.ItemDescription ='" + row.Cells[0].ToString() + "' HAVING BPANo = MAX(BPANo)", cnn);
+                    row.Cells[6].Value = getBPA.ExecuteScalar().ToString();
+                }
+                catch (NullReferenceException)
+                {
+                    row.Cells[6].Value = "0";
+                }
+            }
             itemList.Refresh();
         }
 
         private void addItem_Click(object sender, EventArgs e)
         {
-
             string checkItem;
             int addedItemQty;
             Boolean added = false;
@@ -90,6 +120,7 @@ namespace ProcurementSystem
                 }
                 added = false;
             }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -136,6 +167,49 @@ namespace ProcurementSystem
                 this.reset();
                 this.Refresh();
             }
+            else if (radioButton2.Checked)
+            {
+                bool notEnough = false;
+            foreach (DataGridViewRow row in itemList.Rows)
+            {
+                if (int.Parse(row.Cells[1].Value.ToString()) - int.Parse(row.Cells[4].Value.ToString()) > 0)
+                    notEnough = true;
+            }
+                if (notEnough ==false)
+                {
+                    DateTime today = DateTime.Today;
+                    String itemID = "";
+                    MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(DesID) FROM DespatchInstruction", cnn);
+                    nowDesNo = (string)getNextRequestNo.ExecuteScalar();
+                    if (nowDesNo == null)
+                    {
+                        nowDesNo = "00000";
+                    }
+                    else
+                    {
+                        nowDesNo = Regex.Match(nowDesNo, @"\d+").Value;
+                    }
+                    int num = Int32.Parse(nowDesNo.GetLast(7));
+                    num++;
+                    nowDesNo = num.ToString().PadLeft(7, '0');
+                    nowDesNo = "I" + nowDesNo;
+                    foreach (DataGridViewRow row in itemList.Rows)
+                    {
+                        MySqlCommand getItemID = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
+                        itemID = getItemID.ExecuteScalar().ToString();
+                        MySqlCommand genDes = new MySqlCommand("INSERT INTO DespatchInstruction (DesID, RequestNo, CreationDate, ItemID, quantity, status) VALUES ('"+nowDesNo+"', '"+tbRequestID.Text+"', '"+today.ToString("yyyy-MM-dd")+"' ,'"+itemID+"', '"+row.Cells[1].Value.ToString()+"', 'PRO')",cnn);
+                        genDes.ExecuteNonQuery();
+                        MySqlCommand updateRequest = new MySqlCommand("UPDATE PurchaseRequest SET status ='PSS' WHERE RequestNo='" + tbRequestID.Text + "'",cnn);
+                        updateRequest.ExecuteNonQuery();
+                        MessageBox.Show("Successly Added!");
+                        this.reset();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Not enough quantity in warehouse!");
+                }
+            }
         }
         public List<string> checkrepeatRequest(List<string> requestList, string needHandleRequest) {
             bool haveRequest = false;
@@ -168,6 +242,8 @@ namespace ProcurementSystem
             radioButton1.Checked = false;
             radioButton2.Checked = false;
             handlingSupplier = null;
+            requestList.Update();
+            requestList.Refresh();
         }
     }
     public static class StringExtension
