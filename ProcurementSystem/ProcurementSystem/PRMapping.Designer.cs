@@ -29,21 +29,26 @@
         private void InitializeComponent()
         {
             this.requestList = new System.Windows.Forms.DataGridView();
-            this.RequestNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.tbRequestID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.itemList = new System.Windows.Forms.DataGridView();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemWareHouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.GenItemList = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.addItem = new System.Windows.Forms.Button();
             this.GenItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GenQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Suppier = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,13 +58,11 @@
             this.WarehouseStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incommingPPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValidBPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemWareHouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.addItem = new System.Windows.Forms.Button();
+            this.RequestNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.requestList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemList)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -73,7 +76,8 @@
             this.requestList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.requestList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RequestNo,
-            this.CreateDate});
+            this.CreateDate,
+            this.Status});
             this.requestList.Location = new System.Drawing.Point(49, 68);
             this.requestList.MultiSelect = false;
             this.requestList.Name = "requestList";
@@ -82,18 +86,6 @@
             this.requestList.Size = new System.Drawing.Size(248, 321);
             this.requestList.TabIndex = 0;
             this.requestList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.requestList_CellClick);
-            // 
-            // RequestNo
-            // 
-            this.RequestNo.HeaderText = "RequestNo";
-            this.RequestNo.Name = "RequestNo";
-            this.RequestNo.ReadOnly = true;
-            // 
-            // CreateDate
-            // 
-            this.CreateDate.HeaderText = "CreateDate";
-            this.CreateDate.Name = "CreateDate";
-            this.CreateDate.ReadOnly = true;
             // 
             // label1
             // 
@@ -143,16 +135,77 @@
             this.itemList.TabIndex = 4;
             this.itemList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemList_CellContentClick);
             // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // VItemID
+            // 
+            this.VItemID.HeaderText = "VItemID";
+            this.VItemID.Name = "VItemID";
+            this.VItemID.Visible = false;
+            // 
+            // category_id
+            // 
+            this.category_id.HeaderText = "category_id";
+            this.category_id.Name = "category_id";
+            this.category_id.Visible = false;
+            // 
+            // ItemWareHouse
+            // 
+            this.ItemWareHouse.HeaderText = "WarehouseStock";
+            this.ItemWareHouse.Name = "ItemWareHouse";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "IncommingPPO";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "OldBPA";
+            this.Column2.Name = "Column2";
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.radioButton4);
+            this.groupBox1.Controls.Add(this.radioButton3);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Location = new System.Drawing.Point(339, 335);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(280, 64);
+            this.groupBox1.Size = new System.Drawing.Size(314, 64);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generate To";
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(180, 42);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(43, 16);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "SPO";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(180, 20);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(43, 16);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "PPO";
+            this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
@@ -170,15 +223,15 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(15, 21);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(158, 16);
+            this.radioButton1.Size = new System.Drawing.Size(45, 16);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Branket Purchase Agreement";
+            this.radioButton1.Text = "BPR";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(625, 340);
+            this.button1.Location = new System.Drawing.Point(659, 340);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 54);
             this.button1.TabIndex = 8;
@@ -226,26 +279,6 @@
             this.GenItemList.RowTemplate.Height = 24;
             this.GenItemList.Size = new System.Drawing.Size(346, 106);
             this.GenItemList.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("新細明體", 12F);
-            this.label3.Location = new System.Drawing.Point(303, 223);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 16);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Gen Item :";
-            // 
-            // addItem
-            // 
-            this.addItem.Location = new System.Drawing.Point(731, 193);
-            this.addItem.Name = "addItem";
-            this.addItem.Size = new System.Drawing.Size(66, 23);
-            this.addItem.TabIndex = 13;
-            this.addItem.Text = "Add";
-            this.addItem.UseVisualStyleBackColor = true;
-            this.addItem.Click += new System.EventHandler(this.addItem_Click);
             // 
             // GenItemName
             // 
@@ -303,42 +336,43 @@
             this.ValidBPA.Name = "ValidBPA";
             this.ValidBPA.ReadOnly = true;
             // 
-            // ItemName
+            // label3
             // 
-            this.ItemName.HeaderText = "ItemName";
-            this.ItemName.Name = "ItemName";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("新細明體", 12F);
+            this.label3.Location = new System.Drawing.Point(303, 223);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 16);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Gen Item :";
             // 
-            // Quantity
+            // addItem
             // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
+            this.addItem.Location = new System.Drawing.Point(731, 193);
+            this.addItem.Name = "addItem";
+            this.addItem.Size = new System.Drawing.Size(66, 23);
+            this.addItem.TabIndex = 13;
+            this.addItem.Text = "Add";
+            this.addItem.UseVisualStyleBackColor = true;
+            this.addItem.Click += new System.EventHandler(this.addItem_Click);
             // 
-            // VItemID
+            // RequestNo
             // 
-            this.VItemID.HeaderText = "VItemID";
-            this.VItemID.Name = "VItemID";
-            this.VItemID.Visible = false;
+            this.RequestNo.HeaderText = "RequestNo";
+            this.RequestNo.Name = "RequestNo";
+            this.RequestNo.ReadOnly = true;
             // 
-            // category_id
+            // CreateDate
             // 
-            this.category_id.HeaderText = "category_id";
-            this.category_id.Name = "category_id";
-            this.category_id.Visible = false;
+            this.CreateDate.HeaderText = "CreateDate";
+            this.CreateDate.Name = "CreateDate";
+            this.CreateDate.ReadOnly = true;
             // 
-            // ItemWareHouse
+            // Status
             // 
-            this.ItemWareHouse.HeaderText = "WarehouseStock";
-            this.ItemWareHouse.Name = "ItemWareHouse";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "IncommingPPO";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "OldBPA";
-            this.Column2.Name = "Column2";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // PRMapping
             // 
@@ -385,8 +419,6 @@
         private System.Windows.Forms.DataGridView GenItemList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button addItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RequestNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn GenItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn GenQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Suppier;
@@ -403,5 +435,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemWareHouse;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RequestNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }

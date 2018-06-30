@@ -20,6 +20,15 @@ namespace ProcurementSystem
             InitializeComponent();
             cnn.Open();
         }
+        public SPOAdd(string getSPONo, string getSupplierNo, string getRestNo, string itemName, string itemQty)
+        {
+            InitializeComponent();
+            cnn.Open();
+            SPONo.Text = getSPONo;
+            SupplierNo.Text = getSupplierNo;
+            RestNo.Text = getRestNo;
+            dataGridView1.Rows.Add(itemName, itemQty);
+        }
 
         private void SPUAdd_Load(object sender, EventArgs e)
         {

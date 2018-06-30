@@ -19,6 +19,7 @@ namespace ProcurementSystem
         private string selectedRequest;
         private string nowBPANo;
         private string nowDesNo;
+        private string nowSPONo;
         private string handlingSupplier;
         public Boolean checkCancel = false;
         private List<string> handlingItem;
@@ -30,11 +31,11 @@ namespace ProcurementSystem
             InitializeComponent();
             this.m = m;
             cnn.Open();
-            MySqlDataAdapter findRequestList = new MySqlDataAdapter("Select RequestNo, CreationDate From PurchaseRequest where status='NEW' Group BY RequestNo;", cnn);
+            MySqlDataAdapter findRequestList = new MySqlDataAdapter("Select RequestNo, CreationDate, Status From PurchaseRequest where status='NEW' or status='FAI' Group BY RequestNo;", cnn);
             DataTable dt = new DataTable();
             findRequestList.Fill(dt);
             foreach (DataRow dr in dt.Rows) {
-                requestList.Rows.Add(dr["RequestNo"].ToString(), Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy"));
+                requestList.Rows.Add(dr["RequestNo"].ToString(), Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy"), dr["Status"].ToString());
             }
             
         }
@@ -127,45 +128,45 @@ namespace ProcurementSystem
         {
             if (radioButton1.Checked)
             {
-                handlingItem = new List<string>();
-                handlingItemQty = new List<string>();
-                handlingRequest = new List<string>();
-                MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(BPANo) FROM BlanketPurchaseAgreement", cnn);
-                nowBPANo = (string)getNextRequestNo.ExecuteScalar();
-                if (nowBPANo == null)
-                {
-                    nowBPANo = "00000";
-                }
-                else
-                {
-                    nowBPANo = Regex.Match(nowBPANo, @"\d+").Value;
-                }
-                int num = Int32.Parse(nowBPANo.GetLast(5));
-                num++;
-                nowBPANo = num.ToString().PadLeft(5, '0');
-                string supplierID="";
-                foreach (DataGridViewRow row in GenItemList.Rows)
-                {
-                    MySqlCommand getSupplierID = new MySqlCommand("SELECT SupplierNo FROM Supplier WHERE supplierName ='" + row.Cells[2].Value.ToString() + "';", cnn);
-                    supplierID = getSupplierID.ExecuteScalar().ToString();
-                    if (handlingSupplier == null && row.Cells[0].Value != null)
-                    {
-                        handlingSupplier = row.Cells[2].Value.ToString();
-                        handlingItem.Add(row.Cells[0].Value.ToString());
-                        handlingItemQty.Add(row.Cells[1].Value.ToString());
-                        handlingRequest = checkrepeatRequest(handlingRequest, row.Cells[3].Value.ToString());
+                //handlingItem = new List<string>();
+                //handlingItemQty = new List<string>();
+                //handlingRequest = new List<string>();
+                //MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(BPANo) FROM BlanketPurchaseAgreement", cnn);
+                //nowBPANo = (string)getNextRequestNo.ExecuteScalar();
+                //if (nowBPANo == null)
+                //{
+                //    nowBPANo = "00000";
+                //}
+                //else
+                //{
+                //    nowBPANo = Regex.Match(nowBPANo, @"\d+").Value;
+                //}
+                //int num = Int32.Parse(nowBPANo.GetLast(5));
+                //num++;
+                //nowBPANo = num.ToString().PadLeft(5, '0');
+                //string supplierID="";
+                //foreach (DataGridViewRow row in GenItemList.Rows)
+                //{
+                //    MySqlCommand getSupplierID = new MySqlCommand("SELECT SupplierNo FROM Supplier WHERE supplierName ='" + row.Cells[2].Value.ToString() + "';", cnn);
+                //    supplierID = getSupplierID.ExecuteScalar().ToString();
+                //    if (handlingSupplier == null && row.Cells[0].Value != null)
+                //    {
+                //        handlingSupplier = row.Cells[2].Value.ToString();
+                //        handlingItem.Add(row.Cells[0].Value.ToString());
+                //        handlingItemQty.Add(row.Cells[1].Value.ToString());
+                //        handlingRequest = checkrepeatRequest(handlingRequest, row.Cells[3].Value.ToString());
                         
-                        GenItemList.Rows.RemoveAt(row.Index);
-                    }
-                    else if(handlingSupplier == row.Cells[2].Value.ToString()){
-                        handlingRequest = checkrepeatRequest(handlingRequest, row.Cells[3].Value.ToString());
-                        GenItemList.Rows.RemoveAt(row.Index);
-                    }
-                }
-                BPAadd = new BPAAdd(this, nowBPANo, handlingRequest.ToArray(), supplierID.GetLast(3),handlingItem.ToArray(), handlingItemQty.ToArray());
-                BPAadd.ShowDialog();
-                this.reset();
-                this.Refresh();
+                //        GenItemList.Rows.RemoveAt(row.Index);
+                //    }
+                //    else if(handlingSupplier == row.Cells[2].Value.ToString()){
+                //        handlingRequest = checkrepeatRequest(handlingRequest, row.Cells[3].Value.ToString());
+                //        GenItemList.Rows.RemoveAt(row.Index);
+                //    }
+                //}
+                //BPAadd = new BPAAdd(this, nowBPANo, handlingRequest.ToArray(), supplierID.GetLast(3),handlingItem.ToArray(), handlingItemQty.ToArray());
+                //BPAadd.ShowDialog();
+                //this.reset();
+                //this.Refresh();
             }
             else if (radioButton2.Checked)
             {
@@ -209,6 +210,36 @@ namespace ProcurementSystem
                 {
                     MessageBox.Show("Not enough quantity in warehouse!");
                 }
+            }else if (radioButton3.Checked)
+            {
+
+            }else if (radioButton4.Checked)
+            {
+                String supplierNo = "";
+                String restNo = "";
+                MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(SPONo) FROM SPO", cnn);
+                nowSPONo = (string)getNextRequestNo.ExecuteScalar();
+                if (nowSPONo == null)
+                {
+                    nowSPONo = "00000";
+                }
+                else
+                {
+                    nowSPONo = Regex.Match(nowSPONo, @"\d+").Value;
+                }
+                int num = Int32.Parse(nowSPONo.GetLast(5));
+                num++;
+                nowSPONo = num.ToString().PadLeft(5, '0');
+                MySqlDataAdapter getSupplierID = new MySqlDataAdapter("SELECT SupplierNo FROM SupplierItem si, Item i WHERE i.ItemId =si.ItemID AND i.ItemDescription ='" + itemList.Rows[0].Cells[0].Value.ToString()+"'", cnn);
+                DataTable dt = new DataTable();
+                getSupplierID.Fill(dt);
+                foreach (DataRow dr in dt.Rows) {
+                    supplierNo = dr["SupplierNo"].ToString().GetLast(3);
+                }
+                MySqlCommand getRestNo = new MySqlCommand("Select DISTINCT RestNo FROM PurchaseRequest WHERE requestNo = '"+tbRequestID.Text+"'", cnn);
+                restNo = getRestNo.ExecuteScalar().ToString();
+                SPOAdd spoadd = new SPOAdd(nowSPONo, supplierNo, restNo, itemList.Rows[0].Cells[0].Value.ToString(), itemList.Rows[0].Cells[1].Value.ToString());
+                spoadd.ShowDialog();
             }
         }
         public List<string> checkrepeatRequest(List<string> requestList, string needHandleRequest) {
