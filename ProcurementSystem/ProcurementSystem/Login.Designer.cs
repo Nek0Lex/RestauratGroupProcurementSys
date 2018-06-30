@@ -48,6 +48,7 @@
             this.tbPW.Name = "tbPW";
             this.tbPW.Size = new System.Drawing.Size(177, 27);
             this.tbPW.TabIndex = 1;
+            this.tbPW.UseSystemPasswordChar = true;
             this.tbPW.TextChanged += new System.EventHandler(this.tbPW_TextChanged);
             // 
             // label1

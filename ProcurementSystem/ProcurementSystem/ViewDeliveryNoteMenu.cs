@@ -27,7 +27,7 @@ namespace ProcurementSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ViewDeliveryNote vDN = new ViewDeliveryNote(listViewDN.SelectedItems[0].SubItems[0].Text);
+            ViewDeliveryNote vDN = new ViewDeliveryNote(this, listViewDN.SelectedItems[0].SubItems[0].Text, listViewDN.SelectedItems[0].SubItems[4].Text);
             vDN.Show();
         }
 
@@ -41,8 +41,9 @@ namespace ProcurementSystem
 
         }
 
-        private void loadData()
+        public void loadData()
         {
+            listViewDN.Items.Clear();
             cnn.Open();
             MySqlDataAdapter sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, ArriveDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Where dn.RequestNo=pr.RequestNo and pr.RestNo='"+restNo+"';", cnn);
             DataTable dt = new DataTable();

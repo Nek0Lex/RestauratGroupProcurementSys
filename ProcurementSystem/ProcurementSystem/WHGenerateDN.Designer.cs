@@ -40,7 +40,7 @@
             this.lbMax = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbAddress = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -88,6 +88,7 @@
             this.numQty.Name = "numQty";
             this.numQty.Size = new System.Drawing.Size(120, 30);
             this.numQty.TabIndex = 15;
+            this.numQty.ValueChanged += new System.EventHandler(this.numQty_ValueChanged);
             // 
             // lbDID
             // 
@@ -148,11 +149,12 @@
             // 
             this.lbMax.AutoSize = true;
             this.lbMax.Font = new System.Drawing.Font("新細明體", 14F);
-            this.lbMax.Location = new System.Drawing.Point(659, 455);
+            this.lbMax.Location = new System.Drawing.Point(655, 455);
             this.lbMax.Name = "lbMax";
-            this.lbMax.Size = new System.Drawing.Size(62, 19);
+            this.lbMax.Size = new System.Drawing.Size(18, 19);
             this.lbMax.TabIndex = 22;
-            this.lbMax.Text = "maxNo";
+            this.lbMax.Text = "0";
+            this.lbMax.Click += new System.EventHandler(this.lbMax_Click);
             // 
             // label2
             // 
@@ -166,7 +168,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.numQty);
             this.groupBox1.Font = new System.Drawing.Font("新細明體", 14F);
             this.groupBox1.Location = new System.Drawing.Point(555, 367);
@@ -176,15 +178,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit Quantity";
             // 
-            // button1
+            // btnUpdate
             // 
-            this.button1.Location = new System.Drawing.Point(13, 124);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Update";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnUpdate.Location = new System.Drawing.Point(13, 124);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 28);
+            this.btnUpdate.TabIndex = 16;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -341,7 +343,7 @@
         private System.Windows.Forms.Label lbMax;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
