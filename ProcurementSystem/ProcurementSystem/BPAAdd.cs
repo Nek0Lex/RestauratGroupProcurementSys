@@ -100,12 +100,16 @@ namespace ProcurementSystem
                     MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
                     cmd.ExecuteNonQuery();
                     foreach (DataGridViewRow row in dataGridView1.Rows) {
-                        if (row.Cells[0].Value.ToString() != null)
+                        if (row.Cells[0].Value != null)
                         {
                             cmd3 = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
                             itemID = cmd3.ExecuteScalar().ToString();
                             cmd2 = new MySqlCommand("INSERT INTO BPALines (BPANo, ItemID, PromisedQuantity, UOM, MoQ, Price, Amount) VALUES ('" + bpaNo + "', '" + itemID + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + row.Cells[3].Value.ToString() + "', '" + row.Cells[4].Value.ToString() + "', '" + row.Cells[1].Value.ToString() + "');", cnn);
                             cmd2.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            break;
                         }
                      }
                     MessageBox.Show("Add successful");
