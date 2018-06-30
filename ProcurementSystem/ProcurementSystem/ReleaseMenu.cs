@@ -19,9 +19,9 @@ namespace ProcurementSystem
 
         private void BPRForward_Click(object sender, EventArgs e)
         {
-            //BlanketPurchaseRelease BPR = new BlanketPurchaseRelease();
-            //BPR.show();
-            //this.Close();
+            BlanketPurchaseRelease BPR = new BlanketPurchaseRelease();
+            BPR.Show();
+            this.Close();
         }
 
         private void SRForward_Click(object sender, EventArgs e)

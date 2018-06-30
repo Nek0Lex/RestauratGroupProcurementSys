@@ -40,6 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbStaffName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.release = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.release);
             this.groupBox1.Controls.Add(this.WHPO);
             this.groupBox1.Controls.Add(this.btn4);
             this.groupBox1.Controls.Add(this.btn3);
@@ -196,6 +198,18 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "You are login as:";
             // 
+            // release
+            // 
+            this.release.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
+            this.release.Location = new System.Drawing.Point(438, 220);
+            this.release.Margin = new System.Windows.Forms.Padding(2);
+            this.release.Name = "release";
+            this.release.Size = new System.Drawing.Size(166, 127);
+            this.release.TabIndex = 5;
+            this.release.Text = "button6";
+            this.release.UseVisualStyleBackColor = true;
+            this.release.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -230,5 +244,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbStaffName;
         private System.Windows.Forms.Button WHPO;
+        private System.Windows.Forms.Button release;
     }
 }
