@@ -138,7 +138,7 @@ namespace ProcurementSystem
                 MySqlCommand updateStock = new MySqlCommand("UPDATE WarehouseStock_new SET quantity = quantity - " + quantity + " WHERE ItemID = '" + itemID + "';", cnn);
                 updateStock.ExecuteNonQuery();
 
-                MySqlCommand updatePR = new MySqlCommand("UPDATE PurchaseRequest SET deliveryDate = '" + today.ToString("yyyy-MM-dd") + "' WHERE requestNo = '" + rno + "';", cnn);
+                MySqlCommand updatePR = new MySqlCommand("UPDATE PurchaseRequest SET status = 'DLI', deliveryDate = '" + today.ToString("yyyy-MM-dd") + "' WHERE requestNo = '" + rno + "';", cnn);
                 updatePR.ExecuteNonQuery();
 
                 try
