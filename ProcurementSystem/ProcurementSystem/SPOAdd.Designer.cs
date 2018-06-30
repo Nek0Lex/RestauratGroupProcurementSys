@@ -30,6 +30,8 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -56,8 +58,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitofMeasurement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -112,11 +116,35 @@
             this.groupBox1.Text = "Create new SPO";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 11F);
+            this.label1.Location = new System.Drawing.Point(13, 428);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 19);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Item :";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemName,
+            this.Quantity,
+            this.UnitofMeasurement,
+            this.Price});
+            this.dataGridView1.Location = new System.Drawing.Point(17, 450);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(899, 133);
+            this.dataGridView1.TabIndex = 26;
+            // 
             // textBox10
             // 
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox10.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox10.Location = new System.Drawing.Point(459, 294);
+            this.textBox10.Location = new System.Drawing.Point(457, 266);
             this.textBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
@@ -151,7 +179,7 @@
             // 
             // TAC
             // 
-            this.TAC.Location = new System.Drawing.Point(570, 339);
+            this.TAC.Location = new System.Drawing.Point(568, 311);
             this.TAC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TAC.Name = "TAC";
             this.TAC.Size = new System.Drawing.Size(337, 107);
@@ -162,7 +190,7 @@
             // 
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox16.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox16.Location = new System.Drawing.Point(405, 341);
+            this.textBox16.Location = new System.Drawing.Point(403, 313);
             this.textBox16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
@@ -193,7 +221,7 @@
             // 
             // RestNo
             // 
-            this.RestNo.Location = new System.Drawing.Point(478, 292);
+            this.RestNo.Location = new System.Drawing.Point(476, 264);
             this.RestNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RestNo.Name = "RestNo";
             this.RestNo.Size = new System.Drawing.Size(165, 23);
@@ -203,7 +231,7 @@
             // 
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox13.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox13.Location = new System.Drawing.Point(404, 294);
+            this.textBox13.Location = new System.Drawing.Point(402, 266);
             this.textBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
@@ -388,24 +416,25 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dataGridView1
+            // ItemName
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 463);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(899, 120);
-            this.dataGridView1.TabIndex = 26;
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
             // 
-            // label1
+            // Quantity
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微軟正黑體", 11F);
-            this.label1.Location = new System.Drawing.Point(13, 441);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 19);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Item :";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // UnitofMeasurement
+            // 
+            this.UnitofMeasurement.HeaderText = "Unit of Measurement";
+            this.UnitofMeasurement.Name = "UnitofMeasurement";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
             // 
             // SPOAdd
             // 
@@ -464,5 +493,9 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitofMeasurement;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
     }
 }
