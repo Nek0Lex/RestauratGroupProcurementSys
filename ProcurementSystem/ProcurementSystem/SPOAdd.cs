@@ -14,9 +14,11 @@ namespace ProcurementSystem
 {
     public partial class SPOAdd : Form
     {
+        MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
         public SPOAdd()
         {
             InitializeComponent();
+            cnn.Open();
         }
 
         private void SPUAdd_Load(object sender, EventArgs e)
@@ -61,19 +63,33 @@ namespace ProcurementSystem
                 }
                 else
                 {
-                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-                    cnn.Open();
                     String query = "INSERT INTO SPO (SPONo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, RestNo, ExpectedDeliveryDate, TermsAndCondition)VALUES('" + spoNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + restNo + "', '" + edd + "', '" + tac + "'); ";
                     MySqlCommand cmd = new MySqlCommand(query, cnn);
                     MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
                     cmd.ExecuteNonQuery();
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Cells[0].Value != null)
+                        {
+                            MySqlCommand cmd3 = new MySqlCommand("SELECT SupplierItemID FROM Item i,SupplierItem si  WHERE i.ItemID = si.ItemID AND ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
+                            string itemID = cmd3.ExecuteScalar().ToString();
+                            double amount = int.Parse(row.Cells[1].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString());
+                            MySqlCommand cmd2 = new MySqlCommand("INSERT INTO SPOLines (SPONo, SupplierItemID, Quantity, UOM, Price, Amount) VALUES ('" + spoNo + "', '" + itemID + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + row.Cells[3].Value.ToString() + "', '" + amount + "');", cnn);
+                            cmd2.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
                     MessageBox.Show("Add successful");
                     this.Close();
                 }
             }
-            catch (Exception)
+            catch (Exception exx)
             {
-                MessageBox.Show("Recheck your input!");
+                MessageBox.Show(exx.Message);
+                //MessageBox.Show("Recheck your input!");
             }
         }
 

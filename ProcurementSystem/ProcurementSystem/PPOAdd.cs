@@ -14,7 +14,6 @@ namespace ProcurementSystem
 {   
     public partial class PPOAdd : Form
     {
-        //MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
 
         public PPOAdd()
         {
@@ -54,21 +53,36 @@ namespace ProcurementSystem
                 String tac = TAC.Text;
 
 
-                if (!string.IsNullOrWhiteSpace(ppoNo) || !string.IsNullOrWhiteSpace(supplierNo) || !string.IsNullOrWhiteSpace(currency) || !string.IsNullOrWhiteSpace(billAddress))
-                {
-                    MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
+                //if (!String.IsNullOrWhiteSpace(ppoNo) || !String.IsNullOrWhiteSpace(supplierNo) || !String.IsNullOrWhiteSpace(currency) || !String.IsNullOrWhiteSpace(billAddress) )
+               // {
+                 //   MessageBox.Show("You must input all fields", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //}
+                //else
+                //{
                     MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
                     cnn.Open();
                     String query = "INSERT INTO PPO (PPONo, SupplierNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, SRNo, Amount, Currency, TermsAndCondition)VALUES('" + ppoNo + "', '" + supplierNo + "', '" + purchaseOrderRevision + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + srNo + "', " + amount + ", '" + currency + "', '" + tac + "'); ";
                     MySqlCommand cmd = new MySqlCommand(query, cnn);
                     MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
                     cmd.ExecuteNonQuery();
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Cells[0].Value != null)
+                        {
+                            MySqlCommand cmd3 = new MySqlCommand("SELECT SupplierItemID FROM Item i,SupplierItem si  WHERE i.ItemID = si.ItemID AND ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
+                            string itemID = cmd3.ExecuteScalar().ToString();
+                            double itemAmount = int.Parse(row.Cells[1].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString());
+                            MySqlCommand cmd2 = new MySqlCommand("INSERT INTO PPOLines (PPONo, SupplierItemID, ItemDescription, Quantity, UOM, Price, Amount) VALUES ('" + ppoNo + "', '" + itemID + "', '" + row.Cells[0].Value.ToString() +"', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + row.Cells[3].Value.ToString() + "', '" + itemAmount + "');", cnn);
+                            cmd2.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
                     MessageBox.Show("Add successful");
                     this.Close();
-                }
+                //}
             } 
             catch(Exception)
             {

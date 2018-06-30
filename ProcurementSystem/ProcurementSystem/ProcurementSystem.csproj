@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlanketPurchaseRelease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlanketPurchaseRelease.Designer.cs">
+      <DependentUpon>BlanketPurchaseRelease.cs</DependentUpon>
+    </Compile>
     <Compile Include="BPAStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,12 @@
     </Compile>
     <Compile Include="EditSupp.Designer.cs">
       <DependentUpon>EditSupp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MappingSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MappingSchedule.Designer.cs">
+      <DependentUpon>MappingSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="PRMapping.cs">
       <SubType>Form</SubType>
@@ -346,6 +358,9 @@
     <Compile Include="ViewDeliveryNoteMenu.Designer.cs">
       <DependentUpon>ViewDeliveryNoteMenu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BlanketPurchaseRelease.resx">
+      <DependentUpon>BlanketPurchaseRelease.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BPAStatus.resx">
       <DependentUpon>BPAStatus.cs</DependentUpon>
     </EmbeddedResource>

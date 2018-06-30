@@ -52,6 +52,7 @@ namespace ProcurementSystem
                     btn3.Text = "Edit User Information";
                     btn4.Text = "Edit Restaurant Information";
                     WHPO.Visible = false;
+                    release.Visible = false;
                     break;
                 case "CM":
                     lb1.Text = "Category Manager";
@@ -60,6 +61,7 @@ namespace ProcurementSystem
                     btn3.Text = "Stock";
                     btn4.Text = "Edit User Information";
                     WHPO.Visible = false;
+                    release.Visible = false;
                     break;
                 case "WC":
                     lb1.Text = "Warehouse Clerk";
@@ -76,6 +78,7 @@ namespace ProcurementSystem
                     btn3.Visible = false; //to be added function or keep invisible
                     btn4.Text = "Edit User Information";
                     WHPO.Visible = false;
+                    release.Visible = false;
                     break;
                 case "AM":
                     lb1.Text = "ADMIN";
@@ -84,6 +87,7 @@ namespace ProcurementSystem
                     btn3.Text = "Supplier";
                     btn4.Visible = false; //to be added function or keep invisible
                     WHPO.Visible = false;
+                    release.Visible = false;
                     break;
             }
         }
@@ -235,6 +239,12 @@ namespace ProcurementSystem
         {
             WHPurchaseOrder WHPO = new WHPurchaseOrder();
             WHPO.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BlanketPurchaseRelease bpr = new BlanketPurchaseRelease();
+            bpr.Show();
         }
     }
 }

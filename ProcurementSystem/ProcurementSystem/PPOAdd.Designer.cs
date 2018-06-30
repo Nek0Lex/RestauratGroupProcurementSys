@@ -61,7 +61,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -79,6 +86,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.textBox14);
             this.groupBox1.Controls.Add(this.textBox12);
             this.groupBox1.Controls.Add(this.textBox10);
             this.groupBox1.Controls.Add(this.textBox5);
@@ -120,7 +129,7 @@
             // 
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox12.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox12.Location = new System.Drawing.Point(443, 328);
+            this.textBox12.Location = new System.Drawing.Point(75, 254);
             this.textBox12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
@@ -132,7 +141,7 @@
             // 
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox10.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox10.Location = new System.Drawing.Point(456, 386);
+            this.textBox10.Location = new System.Drawing.Point(446, 229);
             this.textBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
@@ -144,7 +153,7 @@
             // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox5.Location = new System.Drawing.Point(97, 126);
+            this.textBox5.Location = new System.Drawing.Point(97, 93);
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
@@ -174,7 +183,7 @@
             "USD",
             "JPY",
             "AUS"});
-            this.Currency.Location = new System.Drawing.Point(456, 443);
+            this.Currency.Location = new System.Drawing.Point(445, 268);
             this.Currency.Name = "Currency";
             this.Currency.Size = new System.Drawing.Size(139, 20);
             this.Currency.TabIndex = 28;
@@ -183,7 +192,7 @@
             // 
             this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox21.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox21.Location = new System.Drawing.Point(392, 443);
+            this.textBox21.Location = new System.Drawing.Point(381, 268);
             this.textBox21.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox21.Name = "textBox21";
             this.textBox21.ReadOnly = true;
@@ -193,7 +202,7 @@
             // 
             // Amount
             // 
-            this.Amount.Location = new System.Drawing.Point(472, 386);
+            this.Amount.Location = new System.Drawing.Point(462, 229);
             this.Amount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Amount.Name = "Amount";
             this.Amount.Size = new System.Drawing.Size(99, 22);
@@ -203,7 +212,7 @@
             // 
             this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox19.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox19.Location = new System.Drawing.Point(392, 386);
+            this.textBox19.Location = new System.Drawing.Point(381, 233);
             this.textBox19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox19.Name = "textBox19";
             this.textBox19.ReadOnly = true;
@@ -213,7 +222,7 @@
             // 
             // PurchaseOrderRevision
             // 
-            this.PurchaseOrderRevision.Location = new System.Drawing.Point(177, 191);
+            this.PurchaseOrderRevision.Location = new System.Drawing.Point(177, 131);
             this.PurchaseOrderRevision.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PurchaseOrderRevision.Name = "PurchaseOrderRevision";
             this.PurchaseOrderRevision.Size = new System.Drawing.Size(182, 22);
@@ -223,7 +232,7 @@
             // 
             this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox17.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox17.Location = new System.Drawing.Point(18, 195);
+            this.textBox17.Location = new System.Drawing.Point(18, 135);
             this.textBox17.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox17.Name = "textBox17";
             this.textBox17.ReadOnly = true;
@@ -233,10 +242,10 @@
             // 
             // TAC
             // 
-            this.TAC.Location = new System.Drawing.Point(169, 489);
+            this.TAC.Location = new System.Drawing.Point(531, 310);
             this.TAC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TAC.Name = "TAC";
-            this.TAC.Size = new System.Drawing.Size(761, 119);
+            this.TAC.Size = new System.Drawing.Size(300, 105);
             this.TAC.TabIndex = 22;
             this.TAC.Text = "";
             // 
@@ -244,7 +253,7 @@
             // 
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox16.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox16.Location = new System.Drawing.Point(18, 489);
+            this.textBox16.Location = new System.Drawing.Point(380, 310);
             this.textBox16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
@@ -254,7 +263,7 @@
             // 
             // SRNo
             // 
-            this.SRNo.Location = new System.Drawing.Point(465, 326);
+            this.SRNo.Location = new System.Drawing.Point(97, 252);
             this.SRNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SRNo.Name = "SRNo";
             this.SRNo.Size = new System.Drawing.Size(112, 22);
@@ -264,7 +273,7 @@
             // 
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox13.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox13.Location = new System.Drawing.Point(392, 328);
+            this.textBox13.Location = new System.Drawing.Point(24, 254);
             this.textBox13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
@@ -274,7 +283,7 @@
             // 
             // BuyerAccount
             // 
-            this.BuyerAccount.Location = new System.Drawing.Point(499, 191);
+            this.BuyerAccount.Location = new System.Drawing.Point(487, 159);
             this.BuyerAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BuyerAccount.Name = "BuyerAccount";
             this.BuyerAccount.Size = new System.Drawing.Size(165, 22);
@@ -285,7 +294,7 @@
             // 
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox11.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox11.Location = new System.Drawing.Point(392, 191);
+            this.textBox11.Location = new System.Drawing.Point(380, 159);
             this.textBox11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
@@ -295,7 +304,7 @@
             // 
             // BillingAddress
             // 
-            this.BillingAddress.Location = new System.Drawing.Point(511, 54);
+            this.BillingAddress.Location = new System.Drawing.Point(499, 54);
             this.BillingAddress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BillingAddress.Name = "BillingAddress";
             this.BillingAddress.Size = new System.Drawing.Size(332, 90);
@@ -304,7 +313,7 @@
             // 
             // BuyerName
             // 
-            this.BuyerName.Location = new System.Drawing.Point(482, 262);
+            this.BuyerName.Location = new System.Drawing.Point(470, 196);
             this.BuyerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BuyerName.Name = "BuyerName";
             this.BuyerName.Size = new System.Drawing.Size(157, 22);
@@ -314,7 +323,7 @@
             // 
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox9.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox9.Location = new System.Drawing.Point(392, 54);
+            this.textBox9.Location = new System.Drawing.Point(380, 54);
             this.textBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
@@ -326,7 +335,7 @@
             // 
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox8.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox8.Location = new System.Drawing.Point(392, 262);
+            this.textBox8.Location = new System.Drawing.Point(380, 196);
             this.textBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
@@ -336,7 +345,7 @@
             // 
             // EffectiveDate
             // 
-            this.EffectiveDate.Location = new System.Drawing.Point(134, 330);
+            this.EffectiveDate.Location = new System.Drawing.Point(134, 212);
             this.EffectiveDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EffectiveDate.Name = "EffectiveDate";
             this.EffectiveDate.Size = new System.Drawing.Size(132, 22);
@@ -346,7 +355,7 @@
             // 
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox6.Location = new System.Drawing.Point(18, 334);
+            this.textBox6.Location = new System.Drawing.Point(18, 216);
             this.textBox6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
@@ -356,7 +365,7 @@
             // 
             // CreationDate
             // 
-            this.CreationDate.Location = new System.Drawing.Point(134, 264);
+            this.CreationDate.Location = new System.Drawing.Point(134, 171);
             this.CreationDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreationDate.Name = "CreationDate";
             this.CreationDate.Size = new System.Drawing.Size(132, 22);
@@ -366,7 +375,7 @@
             // 
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox7.Location = new System.Drawing.Point(18, 268);
+            this.textBox7.Location = new System.Drawing.Point(18, 175);
             this.textBox7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
@@ -376,7 +385,7 @@
             // 
             // SupplierNo
             // 
-            this.SupplierNo.Location = new System.Drawing.Point(113, 126);
+            this.SupplierNo.Location = new System.Drawing.Point(113, 93);
             this.SupplierNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SupplierNo.Name = "SupplierNo";
             this.SupplierNo.Size = new System.Drawing.Size(116, 22);
@@ -386,7 +395,7 @@
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox4.Location = new System.Drawing.Point(18, 126);
+            this.textBox4.Location = new System.Drawing.Point(18, 93);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
@@ -450,6 +459,52 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // textBox14
+            // 
+            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox14.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox14.Location = new System.Drawing.Point(31, 442);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            this.textBox14.Size = new System.Drawing.Size(45, 18);
+            this.textBox14.TabIndex = 33;
+            this.textBox14.Text = "Item:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemName,
+            this.Quantity,
+            this.UOM,
+            this.Price});
+            this.dataGridView1.Location = new System.Drawing.Point(31, 467);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(827, 129);
+            this.dataGridView1.TabIndex = 35;
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // UOM
+            // 
+            this.UOM.HeaderText = "Unit of Measurement";
+            this.UOM.Name = "UOM";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            // 
             // PPOAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -466,6 +521,7 @@
             this.Load += new System.EventHandler(this.PPOAdd_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,5 +562,11 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UOM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
     }
 }
