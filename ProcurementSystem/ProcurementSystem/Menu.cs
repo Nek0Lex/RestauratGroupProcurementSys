@@ -224,7 +224,7 @@ namespace ProcurementSystem
                     break;
                 case "CM":
                     this.Hide();
-                    Stock stk = new Stock(this);
+                    WHStock stk = new WHStock(this);
                     stk.Show();
                     break;
                 case "WC":

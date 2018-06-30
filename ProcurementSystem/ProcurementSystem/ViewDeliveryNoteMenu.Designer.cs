@@ -40,7 +40,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.btnInitial = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,11 +129,12 @@
             this.btnSearch.TabIndex = 19;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbSearch);
-            this.groupBox1.Controls.Add(this.btnInitial);
+            this.groupBox1.Controls.Add(this.btnReset);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Location = new System.Drawing.Point(604, 77);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
@@ -142,7 +143,7 @@
             this.groupBox1.Size = new System.Drawing.Size(193, 122);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Search Note by ID";
+            this.groupBox1.Text = "Search Note by Delivery ID";
             // 
             // tbSearch
             // 
@@ -152,15 +153,16 @@
             this.tbSearch.Size = new System.Drawing.Size(170, 22);
             this.tbSearch.TabIndex = 22;
             // 
-            // btnInitial
+            // btnReset
             // 
-            this.btnInitial.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnInitial.Location = new System.Drawing.Point(102, 73);
-            this.btnInitial.Name = "btnInitial";
-            this.btnInitial.Size = new System.Drawing.Size(78, 23);
-            this.btnInitial.TabIndex = 20;
-            this.btnInitial.Text = "Initial";
-            this.btnInitial.UseVisualStyleBackColor = true;
+            this.btnReset.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnReset.Location = new System.Drawing.Point(102, 73);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(78, 23);
+            this.btnReset.TabIndex = 20;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnInitial_Click);
             // 
             // ViewDeliveryNoteMenu
             // 
@@ -191,7 +193,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnInitial;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;

@@ -86,7 +86,7 @@ namespace ProcurementSystem
             {
                 if (lbStatus.Text.Equals("COM"))
                     dGVItem.SelectedRows[0].Cells["arrived"].Value = numQty.Value.ToString();
-                if (lbStatus.Text.Equals("COM"))
+                if (lbStatus.Text.Equals("DLI"))
                     dGVItem.SelectedRows[0].Cells["arrived"].Value = 0;
                 dGVItem.SelectedRows[0].Cells["quantity"].Value = numQty.Value.ToString();
             }

@@ -65,15 +65,51 @@ namespace ProcurementSystem
             m.Show();
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbSearch.Text))
+            {
+                MessageBox.Show("You should input id to search", "Check Your Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                listViewDN.Items.Clear();
+                cnn.Open();
+                MySqlDataAdapter sda;
+                if (role.Equals("RM"))
+                    sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Where DeliveryID LIKE '%" + tbSearch.Text+"%' and dn.RequestNo=pr.RequestNo and dn.Status<>'CAN' and pr.RestNo='" + restNo + "';", cnn);
+                else
+                    sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Where DeliveryID LIKE '%" + tbSearch.Text + "%';", cnn);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    ListViewItem listitem = new ListViewItem(dr["DeliveryID"].ToString());
+                    listitem.SubItems.Add(dr["RequestNo"].ToString());
+                    listitem.SubItems.Add(dr["DesID"].ToString());
+                    listitem.SubItems.Add(dr["CreationDate"].ToString());
+                    listitem.SubItems.Add(dr["Status"].ToString());
+                    listViewDN.Items.Add(listitem);
+                }
+                cnn.Close();
+            }
+        }
+
+        private void btnInitial_Click(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
         public void loadData()
         {
             listViewDN.Items.Clear();
             cnn.Open();
             MySqlDataAdapter sda;
             if (role.Equals("RM"))
-                sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, ArriveDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Where dn.RequestNo=pr.RequestNo and dn.Status<>'CAN' and pr.RestNo='"+restNo+"';", cnn);
+                sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Where dn.RequestNo=pr.RequestNo and dn.Status<>'CAN' and pr.RestNo='" + restNo+"';", cnn);
             else
-                sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, ArriveDate, dn.Status from DeliveryNote dn, PurchaseRequest pr;", cnn);
+                sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr;", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
 
@@ -82,7 +118,7 @@ namespace ProcurementSystem
                 ListViewItem listitem = new ListViewItem(dr["DeliveryID"].ToString());
                 listitem.SubItems.Add(dr["RequestNo"].ToString());
                 listitem.SubItems.Add(dr["DesID"].ToString());
-                listitem.SubItems.Add(dr["ArriveDate"].ToString());
+                listitem.SubItems.Add(dr["CreationDate"].ToString());
                 listitem.SubItems.Add(dr["Status"].ToString());
                 listViewDN.Items.Add(listitem);
             }
