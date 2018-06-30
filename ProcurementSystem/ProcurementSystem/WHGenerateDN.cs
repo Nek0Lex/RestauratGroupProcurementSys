@@ -18,12 +18,15 @@ namespace ProcurementSystem
         private DateTime today = DateTime.Now;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         String iId, rno, status, rest;
+        WHViewDPI vDPI;
         int[] maxQty, stock;
-        public WHGenerateDN(String iId, String rno, String status)
+        public WHGenerateDN(WHViewDPI vDPI, String iId, String rno, String status)
         {
             InitializeComponent();
+            this.vDPI = vDPI;
             this.iId = iId;
             this.rno = rno;
+            this.status = status;
             cnn.Open();
             MySqlDataAdapter sda = new MySqlDataAdapter("SELECT Distinct DI.ItemID, ItemName,ItemDescription, DI.quantity as Needs, DI.quantity, S.quantity as Stock FROM DespatchInstruction DI, WarehouseStock_new S, Item I WHERE DI.ItemID=I.ItemID and DI.ItemID=S.ItemID and DesID = '" + iId+"';", cnn);
             DataTable dt = new DataTable();
@@ -76,9 +79,20 @@ namespace ProcurementSystem
             lbDesId.Text = iId;
             lbRNo.Text = rno;
             cnn.Close();
+            btnUpdate.Enabled = false;
         }
 
         private void WHGenerateDN_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numQty_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbMax_Click(object sender, EventArgs e)
         {
 
         }
@@ -100,6 +114,8 @@ namespace ProcurementSystem
                 else
                     lbMax.Text = stock[e.RowIndex].ToString();
             }
+            if (status.Equals("PRO"))
+                btnUpdate.Enabled = true;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -123,7 +139,7 @@ namespace ProcurementSystem
                 updateStock.ExecuteNonQuery();
 
                 MySqlCommand updatePR = new MySqlCommand("UPDATE PurchaseRequest SET deliveryDate = '" + today.ToString("yyyy-MM-dd") + "' WHERE requestNo = '" + rno + "';", cnn);
-                updateStock.ExecuteNonQuery();
+                updatePR.ExecuteNonQuery();
 
                 try
                 {
@@ -147,8 +163,11 @@ namespace ProcurementSystem
                 cnn.Open();
                 command.ExecuteNonQuery();
                 cnn.Close();
+                MessageBox.Show("Create Success! \nThe instruction has been \nall delivered and finished.", "Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            MessageBox.Show("Create Success!", "Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else 
+                MessageBox.Show("Create Success!", "Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            vDPI.ReloadDPI();
             this.Close();
         }
 

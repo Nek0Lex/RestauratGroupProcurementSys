@@ -44,7 +44,7 @@
             this.lbStatus = new System.Windows.Forms.Label();
             this.lbCreationDate = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.numQty = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -63,6 +63,7 @@
             this.dGVItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVItem.Size = new System.Drawing.Size(515, 351);
             this.dGVItem.TabIndex = 16;
+            this.dGVItem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVItem_CellContentClick);
             // 
             // btnBack
             // 
@@ -72,6 +73,7 @@
             this.btnBack.TabIndex = 29;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnGen
             // 
@@ -206,24 +208,25 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.numQty);
             this.groupBox1.Font = new System.Drawing.Font("新細明體", 14F);
             this.groupBox1.Location = new System.Drawing.Point(555, 256);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(222, 169);
+            this.groupBox1.Size = new System.Drawing.Size(222, 143);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit Quantity";
             // 
-            // button1
+            // btnUpdate
             // 
-            this.button1.Location = new System.Drawing.Point(13, 124);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Update";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(13, 97);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 28);
+            this.btnUpdate.TabIndex = 16;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.button1_Click);
             // 
             // numQty
             // 
@@ -243,7 +246,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnGen);
             this.Controls.Add(this.dGVItem);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewDeliveryNote";
             this.Text = "WHViewPPO";
             this.Load += new System.EventHandler(this.ViewDeliveryNote_Load);
@@ -274,7 +277,7 @@
         private System.Windows.Forms.Label lbStatus;
         private System.Windows.Forms.Label lbCreationDate;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.NumericUpDown numQty;
     }
 }

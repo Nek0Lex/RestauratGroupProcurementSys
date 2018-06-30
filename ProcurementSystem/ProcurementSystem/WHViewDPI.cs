@@ -27,8 +27,9 @@ namespace ProcurementSystem
         {
         }
 
-        private void ReloadDPI()
+        public void ReloadDPI()
         {
+            listViewDes.Items.Clear();
             MySqlDataAdapter sda = new MySqlDataAdapter("select DISTINCT DesID, RequestNo,CreationDate,Status from DespatchInstruction;", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -50,7 +51,7 @@ namespace ProcurementSystem
                 String iId = listViewDes.SelectedItems[0].SubItems[0].Text;
                 String rno = listViewDes.SelectedItems[0].SubItems[1].Text;
                 String status = listViewDes.SelectedItems[0].SubItems[3].Text;
-                WHGenerateDN dn = new WHGenerateDN(iId,rno,status);
+                WHGenerateDN dn = new WHGenerateDN(this, iId,rno,status);
                 dn.Show();
             }
             else
