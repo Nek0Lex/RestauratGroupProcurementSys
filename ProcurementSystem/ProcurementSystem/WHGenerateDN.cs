@@ -163,8 +163,10 @@ namespace ProcurementSystem
                 cnn.Open();
                 command.ExecuteNonQuery();
                 cnn.Close();
+                MessageBox.Show("Create Success! \nThe instruction has been \nall delivered and finished.", "Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            MessageBox.Show("Create Success!", "Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else 
+                MessageBox.Show("Create Success!", "Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
             vDPI.ReloadDPI();
             this.Close();
         }

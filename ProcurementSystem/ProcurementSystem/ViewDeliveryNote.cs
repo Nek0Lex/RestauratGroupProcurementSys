@@ -70,6 +70,10 @@ namespace ProcurementSystem
                 status = "COM";
             MySqlCommand updateStatus = new MySqlCommand("Update DeliveryNote SET Status = '" + status + "' WHERE DeliveryID = '" + DNId + "';", cnn);
             updateStatus.ExecuteNonQuery();
+            if (status.Equals("COM"))
+                MessageBox.Show("Delivery Completed !", "Confirm Successfully !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (status.Equals("DNC"))
+                MessageBox.Show("Delivery Completed with not correct amount", "Confirm Successfully !", MessageBoxButtons.OK, MessageBoxIcon.Information);
             cnn.Close();
             m.loadData();
             this.Close();
