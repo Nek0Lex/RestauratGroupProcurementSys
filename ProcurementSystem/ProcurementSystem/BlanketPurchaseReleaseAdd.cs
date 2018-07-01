@@ -47,8 +47,25 @@ namespace ProcurementSystem
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             cmd.ExecuteNonQuery();
 
-            
+            //trans itemname to itemid
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                String item = row.Cells["Item Name"].Value.ToString();
+                query = "SELECT * FROM Item WHERE ItemName = '" + item + "'; ";
+                cmd = new MySqlCommand(query, cnn);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    String result = dr["ItemID"].ToString();
+                    query = "INSERT INTO BPReleaseLines (ReleaseNo, ItemID, Quantity)" +
+                        "VALUES ('" + ReleaseNo + "' , '" + result + "', '" + Quantity + ")";
+                    cmd.ExecuteNonQuery();
+                }
+            }
 
+            MessageBox.Show("Change successfully!");
         }
+
+    }
     }
 }

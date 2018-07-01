@@ -63,6 +63,7 @@ namespace ProcurementSystem
                 String ac = account.Text;
                 String Amount = actualAmount.Text;
                 String Quantity = quantity.Text;
+                String result;
 
                 MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
                 cnn.Open();
@@ -81,10 +82,21 @@ namespace ProcurementSystem
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 { 
                     String item = row.Cells["Item Name"].Value.ToString();
+                    query = "SELECT * FROM Item WHERE ItemName = '"+item+"'; ";
+                    cmd = new MySqlCommand(query, cnn);
+                    MySqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        result = dr["ItemID"].ToString();
+                        query = "UPDATE BPReleaseLines " +
+                        "SET ReleaseNo =  '" + ReleaseNo + "', " +
+                        "ItemID = '" + result + "'," +
+                        "Quantity = '" + result + "'; ";
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-                
-                
 
+                MessageBox.Show("Change successfully!");
             }
 ;
         }
