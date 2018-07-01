@@ -51,7 +51,7 @@ namespace ProcurementSystem
             int i;
             i = requestList.SelectedCells[0].RowIndex;
             selectedRequest = tbRequestID.Text = requestList.Rows[i].Cells[0].Value.ToString();
-            MySqlDataAdapter item = new MySqlDataAdapter("SELECT i.ItemDescription, pr.Quantity, pr.VItemID, pr.category_id FROM VItem v,Item i ,Category c,PurchaseRequest pr WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND pr.VItemID = v.VItemID AND pr.category_id = v.category_id AND pr.RequestNo = '" + selectedRequest + "' AND pr.Status = 'NEW';", cnn);
+            MySqlDataAdapter item = new MySqlDataAdapter("SELECT i.ItemDescription, pr.Quantity, pr.VItemID, pr.category_id FROM VItem v,Item i ,Category c,PurchaseRequest pr WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND pr.VItemID = v.VItemID AND pr.category_id = v.category_id AND pr.RequestNo = '" + selectedRequest + "' AND (pr.Status = 'NEW' OR pr.Status ='FAI');", cnn);
             DataTable dt2 = new DataTable();
             item.Fill(dt2);
             foreach (DataRow dr in dt2.Rows)
@@ -271,6 +271,7 @@ namespace ProcurementSystem
                 restNo = getRestNo.ExecuteScalar().ToString();
                 SPOAdd spoadd = new SPOAdd(nowSPONo, supplierNo, restNo, itemList.Rows[0].Cells[0].Value.ToString(), itemList.Rows[0].Cells[1].Value.ToString());
                 spoadd.ShowDialog();
+                this.reset();
             }
         }
         public List<string> checkrepeatRequest(List<string> requestList, string needHandleRequest) {
