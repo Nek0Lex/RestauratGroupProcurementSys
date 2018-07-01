@@ -40,8 +40,8 @@ namespace ProcurementSystem
             lbDID.Text = DNInfo.Rows[0][0].ToString();
             lbRNo.Text = DNInfo.Rows[0][1].ToString();
             lbDesId.Text = DNInfo.Rows[0][2].ToString();
-            lbCreationDate.Text = DNInfo.Rows[0][3].ToString();
-            lbDeliveryDate.Text = DNInfo.Rows[0][4].ToString();
+            lbCreationDate.Text = Convert.ToDateTime(DNInfo.Rows[0][3]).ToString("dd-MM-yyyy");
+            lbDeliveryDate.Text = Convert.ToDateTime(DNInfo.Rows[0][4]).ToString("dd-MM-yyyy");
             lbStatus.Text = status;
             rno = lbRNo.Text;
             btnUpdate.Enabled = false;      

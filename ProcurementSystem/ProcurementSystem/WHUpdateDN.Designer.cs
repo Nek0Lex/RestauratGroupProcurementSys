@@ -33,6 +33,7 @@
             this.dGVItem = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkArrived = new System.Windows.Forms.CheckBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.numQty = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -53,7 +54,6 @@
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnUpdateStatus = new System.Windows.Forms.Button();
-            this.checkArrived = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
@@ -117,6 +117,16 @@
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit Quantity";
+            // 
+            // checkArrived
+            // 
+            this.checkArrived.AutoSize = true;
+            this.checkArrived.Location = new System.Drawing.Point(13, 84);
+            this.checkArrived.Name = "checkArrived";
+            this.checkArrived.Size = new System.Drawing.Size(141, 23);
+            this.checkArrived.TabIndex = 17;
+            this.checkArrived.Text = "Update Arrived";
+            this.checkArrived.UseVisualStyleBackColor = true;
             // 
             // btnUpdate
             // 
@@ -253,7 +263,7 @@
             // lbRNo
             // 
             this.lbRNo.AutoSize = true;
-            this.lbRNo.Location = new System.Drawing.Point(144, 112);
+            this.lbRNo.Location = new System.Drawing.Point(145, 112);
             this.lbRNo.Name = "lbRNo";
             this.lbRNo.Size = new System.Drawing.Size(53, 19);
             this.lbRNo.TabIndex = 17;
@@ -315,16 +325,6 @@
             this.btnUpdateStatus.Text = "Update";
             this.btnUpdateStatus.UseVisualStyleBackColor = true;
             this.btnUpdateStatus.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // checkArrived
-            // 
-            this.checkArrived.AutoSize = true;
-            this.checkArrived.Location = new System.Drawing.Point(13, 84);
-            this.checkArrived.Name = "checkArrived";
-            this.checkArrived.Size = new System.Drawing.Size(141, 23);
-            this.checkArrived.TabIndex = 17;
-            this.checkArrived.Text = "Update Arrived";
-            this.checkArrived.UseVisualStyleBackColor = true;
             // 
             // WHUpdateDN
             // 
