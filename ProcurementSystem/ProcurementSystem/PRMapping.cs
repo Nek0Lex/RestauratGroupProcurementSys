@@ -66,6 +66,10 @@ namespace ProcurementSystem
                     {
                         MySqlCommand getStock = new MySqlCommand("SELECT quantity from WarehouseStock w, Item i WHERE w.ItemID = i. ItemID AND i.ItemDescription = '" + row.Cells[0].Value.ToString() + "'", cnn);
                         row.Cells[4].Value = getStock.ExecuteScalar().ToString();
+                        if (row.Cells[4].Value.ToString() == "")
+                        {
+                            row.Cells[4].Value = "0";
+                        }
                     }
                     catch (NullReferenceException)
                     {
@@ -75,6 +79,10 @@ namespace ProcurementSystem
                     {
                         MySqlCommand getPPO = new MySqlCommand("SELECT p.Quantity, MAX(PPONo) from PPOLines p WHERE p.ItemDescription  ='" + row.Cells[0].Value.ToString() + "'", cnn);
                         row.Cells[5].Value = getPPO.ExecuteScalar().ToString();
+                        if (row.Cells[5].Value.ToString() == "")
+                        {
+                            row.Cells[5].Value = "0";
+                        }
                     }
                     catch (NullReferenceException exe)
                     {
@@ -84,6 +92,10 @@ namespace ProcurementSystem
                     {
                         MySqlCommand getBPA = new MySqlCommand("SELECT b.PromisedQuantity, MAX(BPANo) from BPALines b, Item i WHERE b.ItemID = i.ItemID AND i.ItemDescription ='" + row.Cells[0].Value.ToString() + "'", cnn);
                         row.Cells[6].Value = getBPA.ExecuteScalar().ToString();
+                        if(row.Cells[6].Value.ToString() == "")
+                        {
+                            row.Cells[6].Value = "0";
+                        }
                     }
                     catch (NullReferenceException ex)
                     {
@@ -220,8 +232,8 @@ namespace ProcurementSystem
                     MySqlCommand getItemID = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + itemList.Rows[0].Cells[0].Value.ToString() + "';", cnn);
                     itemID = getItemID.ExecuteScalar().ToString();
                     MySqlCommand genDes = new MySqlCommand("INSERT INTO DespatchInstruction (DesID, RequestNo, CreationDate, ItemID, quantity, status) VALUES ('"+nowDesNo+"', '"+tbRequestID.Text+"', '"+today.ToString("yyyy-MM-dd")+"' ,'"+itemID+"', '"+itemList.Rows[0].Cells[1].Value.ToString()+"', 'PRO')",cnn);
-                    genDes.ExecuteNonQuery();
-                    MySqlCommand updateRequest = new MySqlCommand("UPDATE PurchaseRequest SET status ='PSS' WHERE RequestNo='" + tbRequestID.Text + "'",cnn);
+                    genDes.ExecuteNonQuery();                   
+                    MySqlCommand updateRequest = new MySqlCommand("UPDATE PurchaseRequest SET status ='PSS' WHERE RequestNo='" + tbRequestID.Text + "' AND VItemID = '"+itemList.Rows[0].Cells[2].Value.ToString()+"'",cnn);
                     updateRequest.ExecuteNonQuery();
                     MessageBox.Show("Successly Added!");
                     this.reset();
