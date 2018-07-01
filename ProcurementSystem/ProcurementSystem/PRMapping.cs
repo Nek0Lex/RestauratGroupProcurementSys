@@ -15,17 +15,11 @@ namespace ProcurementSystem
     public partial class PRMapping : Form
     {
         private Menu m;
-        private BPAAdd BPAadd;
         private string selectedRequest;
-        private string nowBPANo;
         private string nowDesNo;
         private string nowSPONo;
         private string nowBPRNo;
-        private string handlingSupplier;
         public Boolean checkCancel = false;
-        private List<string> handlingItem;
-        private List<string> handlingItemQty;
-        private List<string> handlingRequest;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public PRMapping(Menu m)
         {
@@ -57,7 +51,7 @@ namespace ProcurementSystem
             int i;
             i = requestList.SelectedCells[0].RowIndex;
             selectedRequest = tbRequestID.Text = requestList.Rows[i].Cells[0].Value.ToString();
-            MySqlDataAdapter item = new MySqlDataAdapter("SELECT i.ItemDescription, pr.Quantity, pr.VItemID, pr.category_id FROM VItem v,Item i ,Category c,PurchaseRequest pr WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND pr.VItemID = v.VItemID AND pr.category_id = v.category_id AND pr.RequestNo = '" + selectedRequest + "';", cnn);
+            MySqlDataAdapter item = new MySqlDataAdapter("SELECT i.ItemDescription, pr.Quantity, pr.VItemID, pr.category_id FROM VItem v,Item i ,Category c,PurchaseRequest pr WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND pr.VItemID = v.VItemID AND pr.category_id = v.category_id AND pr.RequestNo = '" + selectedRequest + "' AND pr.Status = 'NEW';", cnn);
             DataTable dt2 = new DataTable();
             item.Fill(dt2);
             foreach (DataRow dr in dt2.Rows)
@@ -100,59 +94,66 @@ namespace ProcurementSystem
             itemList.Refresh();
         }
 
-        private void addItem_Click(object sender, EventArgs e)
-        {
-            string checkItem;
-            int addedItemQty;
-            Boolean added = false;
-            foreach(DataGridViewRow row in itemList.Rows) {
-                foreach (DataGridViewRow row2 in GenItemList.Rows) {
-                    if (row2.Cells[0].Value != null)
-                    {
-                        checkItem = row2.Cells[0].Value.ToString();
-                        if (row.Cells[0].Value.ToString() == checkItem)
-                        {
-                            addedItemQty = int.Parse(row2.Cells[1].Value.ToString()) + int.Parse(row.Cells[1].Value.ToString());
-                            row2.Cells[1].Value = addedItemQty.ToString();
-                            row2.Cells[3].Value = row2.Cells[3].Value + ", " + tbRequestID.Text.ToString();
-                            added = true;
-                        }
-                    }
-                }
-                if(added == false) {
-                    MySqlCommand getSuppier = new MySqlCommand("SELECT s.SupplierName From Supplier s, SupplierItem si, VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND v.ItemID = si.ItemID AND si.SupplierNo = s.SupplierNo AND v.VitemID ='"+row.Cells[2].Value.ToString()+"' AND v.category_id ='"+row.Cells[3].Value.ToString()+"'", cnn);
-                    GenItemList.Rows.Add(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), getSuppier.ExecuteScalar().ToString(), tbRequestID.Text.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString());
-                }
-                added = false;
-            }
+        //private void addItem_Click(object sender, EventArgs e)
+        //{
+        //    string checkItem;
+        //    int addedItemQty;
+        //    Boolean added = false;
+        //    foreach(DataGridViewRow row in itemList.Rows) {
+        //        foreach (DataGridViewRow row2 in GenItemList.Rows) {
+        //            if (row2.Cells[0].Value != null)
+        //            {
+        //                checkItem = row2.Cells[0].Value.ToString();
+        //                if (row.Cells[0].Value.ToString() == checkItem)
+        //                {
+        //                    addedItemQty = int.Parse(row2.Cells[1].Value.ToString()) + int.Parse(row.Cells[1].Value.ToString());
+        //                    row2.Cells[1].Value = addedItemQty.ToString();
+        //                    row2.Cells[3].Value = row2.Cells[3].Value + ", " + tbRequestID.Text.ToString();
+        //                    added = true;
+        //                }
+        //            }
+        //        }
+        //        if(added == false) {
+        //            MySqlCommand getSuppier = new MySqlCommand("SELECT s.SupplierName From Supplier s, SupplierItem si, VItem v,Item i ,Category c WHERE v.category_id = c.category_id AND v.ItemID = i.ItemID AND v.ItemID = si.ItemID AND si.SupplierNo = s.SupplierNo AND v.VitemID ='"+row.Cells[2].Value.ToString()+"' AND v.category_id ='"+row.Cells[3].Value.ToString()+"'", cnn);
+        //            GenItemList.Rows.Add(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(), getSuppier.ExecuteScalar().ToString(), tbRequestID.Text.ToString(), row.Cells[2].Value.ToString(), row.Cells[3].Value.ToString());
+        //        }
+        //        added = false;
+        //    }
             
-        }
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (radioButton1.Checked)
             {
-                string restNo;
-                MySqlCommand getBPANo = new MySqlCommand("SELECT MAX(BPANo) from BPALines b, Item i WHERE b.ItemID = i.ItemID AND i.ItemDescription ='" + itemList.Rows[0].Cells[0].Value.ToString() + "'",cnn);
-                string bprBPANo = getBPANo.ExecuteScalar().ToString();
-                MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(ReleaseNo) FROM BlanketPurchaseRelease", cnn);
-                    nowBPRNo = getNextRequestNo.ExecuteScalar().ToString();
-                if (nowBPRNo == "")
+                if (int.Parse(itemList.Rows[0].Cells[1].Value.ToString()) - int.Parse(itemList.Rows[0].Cells[4].Value.ToString()) > 0)
                 {
-                    nowBPRNo = "BPR000";
+                    MessageBox.Show("Not a Valid BPA!");
                 }
                 else
                 {
-                    nowBPRNo = Regex.Match(nowBPRNo, @"\d+").Value;
+                    string restNo;
+                    MySqlCommand getBPANo = new MySqlCommand("SELECT MAX(BPANo) from BPALines b, Item i WHERE b.ItemID = i.ItemID AND i.ItemDescription ='" + itemList.Rows[0].Cells[0].Value.ToString() + "'", cnn);
+                    string bprBPANo = getBPANo.ExecuteScalar().ToString();
+                    MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(ReleaseNo) FROM BlanketPurchaseRelease", cnn);
+                    nowBPRNo = getNextRequestNo.ExecuteScalar().ToString();
+                    if (nowBPRNo == "")
+                    {
+                        nowBPRNo = "BPR000";
+                    }
+                    else
+                    {
+                        nowBPRNo = Regex.Match(nowBPRNo, @"\d+").Value;
+                    }
+                    int num = int.Parse(nowBPRNo.GetLast(3));
+                    num++;
+                    nowBPRNo = num.ToString().PadLeft(3, '0');
+                    nowBPRNo = "BPR" + nowBPRNo;
+                    MySqlCommand getRestNo = new MySqlCommand("Select DISTINCT RestNo FROM PurchaseRequest WHERE RequestNo = '" + tbRequestID.Text + "'", cnn);
+                    restNo = getRestNo.ExecuteScalar().ToString();
+                    BlanketPurchaseRelease BPR = new BlanketPurchaseRelease(bprBPANo, nowBPRNo, restNo, itemList.Rows[0].Cells[0].Value.ToString(), itemList.Rows[0].Cells[1].Value.ToString(), tbRequestID.Text);
+                    BPR.ShowDialog();
                 }
-                int num = int.Parse(nowBPRNo.GetLast(3));
-                num++;
-                nowBPRNo = num.ToString().PadLeft(3, '0');
-                nowBPRNo = "BPR" + nowBPRNo;
-                MySqlCommand getRestNo = new MySqlCommand("Select DISTINCT RestNo FROM PurchaseRequest WHERE RequestNo = '" + tbRequestID.Text + "'", cnn);
-                restNo = getRestNo.ExecuteScalar().ToString();
-                BlanketPurchaseRelease BPR = new BlanketPurchaseRelease(bprBPANo, nowBPRNo, restNo, itemList.Rows[0].Cells[0].Value.ToString(), itemList.Rows[0].Cells[1].Value.ToString(), tbRequestID.Text);
-                BPR.ShowDialog();
                 //handlingItem = new List<string>();
                 //handlingItemQty = new List<string>();
                 //handlingRequest = new List<string>();
@@ -196,11 +197,8 @@ namespace ProcurementSystem
             else if (radioButton2.Checked)
             {
                 bool notEnough = false;
-            foreach (DataGridViewRow row in itemList.Rows)
-            {
-                if (int.Parse(row.Cells[1].Value.ToString()) - int.Parse(row.Cells[4].Value.ToString()) > 0)
+                if (int.Parse(itemList.Rows[0].Cells[1].Value.ToString()) - int.Parse(itemList.Rows[0].Cells[4].Value.ToString()) > 0)
                     notEnough = true;
-            }
                 if (notEnough ==false)
                 {
                     DateTime today = DateTime.Today;
@@ -219,17 +217,14 @@ namespace ProcurementSystem
                     num++;
                     nowDesNo = num.ToString().PadLeft(7, '0');
                     nowDesNo = "I" + nowDesNo;
-                    foreach (DataGridViewRow row in itemList.Rows)
-                    {
-                        MySqlCommand getItemID = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
-                        itemID = getItemID.ExecuteScalar().ToString();
-                        MySqlCommand genDes = new MySqlCommand("INSERT INTO DespatchInstruction (DesID, RequestNo, CreationDate, ItemID, quantity, status) VALUES ('"+nowDesNo+"', '"+tbRequestID.Text+"', '"+today.ToString("yyyy-MM-dd")+"' ,'"+itemID+"', '"+row.Cells[1].Value.ToString()+"', 'PRO')",cnn);
-                        genDes.ExecuteNonQuery();
-                        MySqlCommand updateRequest = new MySqlCommand("UPDATE PurchaseRequest SET status ='PSS' WHERE RequestNo='" + tbRequestID.Text + "'",cnn);
-                        updateRequest.ExecuteNonQuery();
-                        MessageBox.Show("Successly Added!");
-                        this.reset();
-                    }
+                    MySqlCommand getItemID = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + itemList.Rows[0].Cells[0].Value.ToString() + "';", cnn);
+                    itemID = getItemID.ExecuteScalar().ToString();
+                    MySqlCommand genDes = new MySqlCommand("INSERT INTO DespatchInstruction (DesID, RequestNo, CreationDate, ItemID, quantity, status) VALUES ('"+nowDesNo+"', '"+tbRequestID.Text+"', '"+today.ToString("yyyy-MM-dd")+"' ,'"+itemID+"', '"+itemList.Rows[0].Cells[1].Value.ToString()+"', 'PRO')",cnn);
+                    genDes.ExecuteNonQuery();
+                    MySqlCommand updateRequest = new MySqlCommand("UPDATE PurchaseRequest SET status ='PSS' WHERE RequestNo='" + tbRequestID.Text + "'",cnn);
+                    updateRequest.ExecuteNonQuery();
+                    MessageBox.Show("Successly Added!");
+                    this.reset();
                 }
                 else
                 {
@@ -237,8 +232,19 @@ namespace ProcurementSystem
                 }
             }else if (radioButton3.Checked)
             {
-
-            }else if (radioButton4.Checked)
+                if (int.Parse(itemList.Rows[0].Cells[1].Value.ToString()) - int.Parse(itemList.Rows[0].Cells[4].Value.ToString()) > 0)
+                    MessageBox.Show("Not enough in PPO");
+                else
+                {
+                    string SRrequestNo = tbRequestID.Text;
+                    MySqlCommand getPPO2 = new MySqlCommand("SELECT  MAX(PPONo) from PPOLines p WHERE p.ItemDescription  ='" + itemList.Rows[0].Cells[0].Value.ToString() + "'", cnn);
+                    string PRPPO = getPPO2.ExecuteScalar().ToString();
+                    ScheduleRelease sr = new ScheduleRelease(PRPPO);
+                    sr.ShowDialog();
+                    this.reset();
+                }
+            }
+            else if (radioButton4.Checked)
             {
                 String supplierNo = "";
                 String restNo = "";
@@ -293,11 +299,12 @@ namespace ProcurementSystem
             return requestList;
         }
         public void reset() {
-            tbRequestID.Text = "";
-            itemList.Rows.Clear();
+            itemList.Update();
+            itemList.Refresh();
             radioButton1.Checked = false;
             radioButton2.Checked = false;
-            handlingSupplier = null;
+            radioButton3.Checked = false;
+            radioButton4.Checked = false;
             requestList.Update();
             requestList.Refresh();
         }

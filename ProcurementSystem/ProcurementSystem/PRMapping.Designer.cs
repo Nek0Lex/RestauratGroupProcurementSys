@@ -29,17 +29,13 @@
         private void InitializeComponent()
         {
             this.requestList = new System.Windows.Forms.DataGridView();
+            this.RequestNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.tbRequestID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.itemList = new System.Windows.Forms.DataGridView();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemWareHouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -48,25 +44,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.GenItemList = new System.Windows.Forms.DataGridView();
-            this.GenItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GenQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Suppier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RelatedRequest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genVItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gencategory_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WarehouseStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.incommingPPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValidBPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.addItem = new System.Windows.Forms.Button();
-            this.RequestNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemWareHouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.requestList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemList)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GenItemList)).BeginInit();
             this.SuspendLayout();
             // 
             // requestList
@@ -86,6 +73,24 @@
             this.requestList.Size = new System.Drawing.Size(248, 321);
             this.requestList.TabIndex = 0;
             this.requestList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.requestList_CellClick);
+            // 
+            // RequestNo
+            // 
+            this.RequestNo.HeaderText = "RequestNo";
+            this.RequestNo.Name = "RequestNo";
+            this.RequestNo.ReadOnly = true;
+            // 
+            // CreateDate
+            // 
+            this.CreateDate.HeaderText = "CreateDate";
+            this.CreateDate.Name = "CreateDate";
+            this.CreateDate.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // label1
             // 
@@ -131,46 +136,9 @@
             this.itemList.Location = new System.Drawing.Point(379, 95);
             this.itemList.Name = "itemList";
             this.itemList.RowTemplate.Height = 24;
-            this.itemList.Size = new System.Drawing.Size(346, 121);
+            this.itemList.Size = new System.Drawing.Size(392, 182);
             this.itemList.TabIndex = 4;
             this.itemList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemList_CellContentClick);
-            // 
-            // ItemName
-            // 
-            this.ItemName.HeaderText = "ItemName";
-            this.ItemName.Name = "ItemName";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // VItemID
-            // 
-            this.VItemID.HeaderText = "VItemID";
-            this.VItemID.Name = "VItemID";
-            this.VItemID.Visible = false;
-            // 
-            // category_id
-            // 
-            this.category_id.HeaderText = "category_id";
-            this.category_id.Name = "category_id";
-            this.category_id.Visible = false;
-            // 
-            // ItemWareHouse
-            // 
-            this.ItemWareHouse.HeaderText = "WarehouseStock";
-            this.ItemWareHouse.Name = "ItemWareHouse";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "IncommingPPO";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "OldBPA";
-            this.Column2.Name = "Column2";
             // 
             // groupBox1
             // 
@@ -259,129 +227,48 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // GenItemList
+            // ItemName
             // 
-            this.GenItemList.AllowUserToAddRows = false;
-            this.GenItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GenItemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.GenItemName,
-            this.GenQuantity,
-            this.Suppier,
-            this.RelatedRequest,
-            this.genVItemID,
-            this.gencategory_id,
-            this.WarehouseStock,
-            this.incommingPPO,
-            this.ValidBPA});
-            this.GenItemList.Location = new System.Drawing.Point(379, 223);
-            this.GenItemList.Name = "GenItemList";
-            this.GenItemList.ReadOnly = true;
-            this.GenItemList.RowTemplate.Height = 24;
-            this.GenItemList.Size = new System.Drawing.Size(346, 106);
-            this.GenItemList.TabIndex = 11;
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
             // 
-            // GenItemName
+            // Quantity
             // 
-            this.GenItemName.HeaderText = "ItemName";
-            this.GenItemName.Name = "GenItemName";
-            this.GenItemName.ReadOnly = true;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
             // 
-            // GenQuantity
+            // VItemID
             // 
-            this.GenQuantity.HeaderText = "Quantity";
-            this.GenQuantity.Name = "GenQuantity";
-            this.GenQuantity.ReadOnly = true;
+            this.VItemID.HeaderText = "VItemID";
+            this.VItemID.Name = "VItemID";
+            this.VItemID.Visible = false;
             // 
-            // Suppier
+            // category_id
             // 
-            this.Suppier.HeaderText = "Suppier";
-            this.Suppier.Name = "Suppier";
-            this.Suppier.ReadOnly = true;
+            this.category_id.HeaderText = "category_id";
+            this.category_id.Name = "category_id";
+            this.category_id.Visible = false;
             // 
-            // RelatedRequest
+            // ItemWareHouse
             // 
-            this.RelatedRequest.HeaderText = "RelatedRequest";
-            this.RelatedRequest.Name = "RelatedRequest";
-            this.RelatedRequest.ReadOnly = true;
+            this.ItemWareHouse.HeaderText = "WarehouseStock";
+            this.ItemWareHouse.Name = "ItemWareHouse";
             // 
-            // genVItemID
+            // Column1
             // 
-            this.genVItemID.HeaderText = "genVItemID";
-            this.genVItemID.Name = "genVItemID";
-            this.genVItemID.ReadOnly = true;
-            this.genVItemID.Visible = false;
+            this.Column1.HeaderText = "IncommingPPO";
+            this.Column1.Name = "Column1";
             // 
-            // gencategory_id
+            // Column2
             // 
-            this.gencategory_id.HeaderText = "gencategory_id";
-            this.gencategory_id.Name = "gencategory_id";
-            this.gencategory_id.ReadOnly = true;
-            this.gencategory_id.Visible = false;
-            // 
-            // WarehouseStock
-            // 
-            this.WarehouseStock.HeaderText = "WarehouseStock";
-            this.WarehouseStock.Name = "WarehouseStock";
-            this.WarehouseStock.ReadOnly = true;
-            // 
-            // incommingPPO
-            // 
-            this.incommingPPO.HeaderText = "incommingPPO";
-            this.incommingPPO.Name = "incommingPPO";
-            this.incommingPPO.ReadOnly = true;
-            // 
-            // ValidBPA
-            // 
-            this.ValidBPA.HeaderText = "ValidBPA";
-            this.ValidBPA.Name = "ValidBPA";
-            this.ValidBPA.ReadOnly = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("新細明體", 12F);
-            this.label3.Location = new System.Drawing.Point(303, 223);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 16);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Gen Item :";
-            // 
-            // addItem
-            // 
-            this.addItem.Location = new System.Drawing.Point(731, 193);
-            this.addItem.Name = "addItem";
-            this.addItem.Size = new System.Drawing.Size(66, 23);
-            this.addItem.TabIndex = 13;
-            this.addItem.Text = "Add";
-            this.addItem.UseVisualStyleBackColor = true;
-            this.addItem.Click += new System.EventHandler(this.addItem_Click);
-            // 
-            // RequestNo
-            // 
-            this.RequestNo.HeaderText = "RequestNo";
-            this.RequestNo.Name = "RequestNo";
-            this.RequestNo.ReadOnly = true;
-            // 
-            // CreateDate
-            // 
-            this.CreateDate.HeaderText = "CreateDate";
-            this.CreateDate.Name = "CreateDate";
-            this.CreateDate.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
+            this.Column2.HeaderText = "BPA";
+            this.Column2.Name = "Column2";
             // 
             // PRMapping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.addItem);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.GenItemList);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -397,7 +284,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemList)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GenItemList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,18 +302,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView GenItemList;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button addItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GenItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GenQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Suppier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RelatedRequest;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genVItemID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gencategory_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WarehouseStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn incommingPPO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValidBPA;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RequestNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn VItemID;
@@ -435,10 +314,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemWareHouse;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RequestNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }

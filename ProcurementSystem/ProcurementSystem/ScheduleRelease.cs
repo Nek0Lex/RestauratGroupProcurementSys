@@ -16,37 +16,50 @@ namespace ProcurementSystem
     {
         public ScheduleRelease()
         {
+
+        }
+        public ScheduleRelease(string getPPONo)
+        {
             InitializeComponent();
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
             cnn.Open();
-            String query = "select * from SheduleRelease;";
+            String SRno="";
+            textBox8.Text = getPPONo;
+            String query = "select MAX(sr.SRNo) from SheduleRelease sr, SheduleReleaseLines srl where sr.SRNo = srl.SRNo AND srl.PPONo ='"+getPPONo+"'";
             MySqlCommand cmd = new MySqlCommand(query, cnn);
-            MySqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            SRno = cmd.ExecuteScalar().ToString();
+            textBox3.Text = SRno;
+            String query2 = "select * from SheduleRelease where SRNo = '" + SRno + "';";
+            MySqlDataAdapter cmd2 = new MySqlDataAdapter(query2, cnn);
+            DataTable dt = new DataTable();
+            cmd2.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
             {
-                String SRno = dr.GetString("SRNo");
-                SRNo.Items.Add(SRno);
-            }
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String srno = SRNo.Text;
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-            cnn.Open();
-            String query = "select * from SheduleRelease where SRNo = '"+srno+"';";
-            MySqlCommand cmd = new MySqlCommand(query, cnn);
-            MySqlDataReader dr =  cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                requestNo.Text = dr.GetString("RequestNo");
-                shippingAddress.Text = dr.GetString("DeliveryAddress");
-                DateTime creationdate = dr.GetDateTime("CreationDate");
+                shippingAddress.Text = dr["DeliveryAddress"].ToString();
+                DateTime creationdate = Convert.ToDateTime(dr["CreationDate"].ToString());
                 creationDate.Value = creationdate;
-                DateTime effectivedate = dr.GetDateTime("EffectiveDate");
+                DateTime effectivedate = Convert.ToDateTime(dr["EffectiveDate"].ToString());
                 effectiveDate.Value = effectivedate;
             }
         }
+
+        //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    String srno = SRNo.Text;
+        //    MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+        //    cnn.Open();
+        //    String query = "select * from SheduleRelease where SRNo = '"+srno+"';";
+        //    MySqlCommand cmd = new MySqlCommand(query, cnn);
+        //    MySqlDataReader dr =  cmd.ExecuteReader();
+        //    while (dr.Read())
+        //    {
+        //        shippingAddress.Text = dr.GetString("DeliveryAddress");
+        //        DateTime creationdate = dr.GetDateTime("CreationDate");
+        //        creationDate.Value = creationdate;
+        //        DateTime effectivedate = dr.GetDateTime("EffectiveDate");
+        //        effectiveDate.Value = effectivedate;
+        //    }
+        //}
 
         private void ScheduleRelease_Load(object sender, EventArgs e)
         {
@@ -73,7 +86,7 @@ namespace ProcurementSystem
             String CreationDate = creationDate.Value.ToString("yyyy-MM-dd");
             String EffectiveDate = effectiveDate.Value.ToString("yyyy-MM-dd");
             String ShippingAddress = shippingAddress.Text;
-            String srno = SRNo.Text;
+            String srno = textBox3.Text;
         
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
             cnn.Open();
@@ -81,10 +94,16 @@ namespace ProcurementSystem
                 "EffectiveDate = '" + EffectiveDate + "'" +
                 "DeliveryAddress = '"+ShippingAddress+"' WHERE SRNo = '"+srno+"' ;";
             MySqlCommand cmd = new MySqlCommand(query, cnn);
+            MySqlCommand insertPPOLine = new MySqlCommand("INSERT" , cnn);
             cnn.Close();
 
             MessageBox.Show("Change successfully!");
             this.Close();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

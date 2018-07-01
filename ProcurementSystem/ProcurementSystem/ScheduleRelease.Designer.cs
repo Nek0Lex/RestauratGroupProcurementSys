@@ -36,12 +36,12 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.requestNo = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.SRNo = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.confirm = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,15 +58,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.effectiveDate);
             this.groupBox1.Controls.Add(this.creationDate);
             this.groupBox1.Controls.Add(this.shippingAddress);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.requestNo);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.SRNo);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Location = new System.Drawing.Point(12, 61);
             this.groupBox1.Name = "groupBox1";
@@ -78,14 +78,14 @@
             // 
             // effectiveDate
             // 
-            this.effectiveDate.Location = new System.Drawing.Point(138, 139);
+            this.effectiveDate.Location = new System.Drawing.Point(134, 133);
             this.effectiveDate.Name = "effectiveDate";
             this.effectiveDate.Size = new System.Drawing.Size(122, 22);
             this.effectiveDate.TabIndex = 9;
             // 
             // creationDate
             // 
-            this.creationDate.Location = new System.Drawing.Point(138, 101);
+            this.creationDate.Location = new System.Drawing.Point(134, 95);
             this.creationDate.Name = "creationDate";
             this.creationDate.Size = new System.Drawing.Size(122, 22);
             this.creationDate.TabIndex = 8;
@@ -113,7 +113,7 @@
             // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox5.Location = new System.Drawing.Point(36, 139);
+            this.textBox5.Location = new System.Drawing.Point(32, 133);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(95, 18);
@@ -124,43 +124,12 @@
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox4.Location = new System.Drawing.Point(36, 106);
+            this.textBox4.Location = new System.Drawing.Point(32, 100);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(95, 18);
             this.textBox4.TabIndex = 4;
             this.textBox4.Text = "Creation Date:";
-            // 
-            // requestNo
-            // 
-            this.requestNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.requestNo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.requestNo.Location = new System.Drawing.Point(119, 66);
-            this.requestNo.Name = "requestNo";
-            this.requestNo.ReadOnly = true;
-            this.requestNo.Size = new System.Drawing.Size(87, 18);
-            this.requestNo.TabIndex = 3;
-            this.requestNo.TextChanged += new System.EventHandler(this.requestNo_TextChanged);
-            // 
-            // textBox3
-            // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox3.Location = new System.Drawing.Point(36, 66);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(77, 18);
-            this.textBox3.TabIndex = 2;
-            this.textBox3.Text = "RequestNo:";
-            // 
-            // SRNo
-            // 
-            this.SRNo.FormattingEnabled = true;
-            this.SRNo.Location = new System.Drawing.Point(85, 30);
-            this.SRNo.Name = "SRNo";
-            this.SRNo.Size = new System.Drawing.Size(121, 20);
-            this.SRNo.TabIndex = 1;
-            this.SRNo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox2
             // 
@@ -193,6 +162,31 @@
             this.confirm.UseVisualStyleBackColor = true;
             this.confirm.Click += new System.EventHandler(this.confirm_Click);
             // 
+            // textBox7
+            // 
+            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox7.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox7.Location = new System.Drawing.Point(35, 66);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(64, 18);
+            this.textBox7.TabIndex = 10;
+            this.textBox7.Text = "PPONo:";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(105, 62);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 22);
+            this.textBox8.TabIndex = 11;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(105, 25);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.TabIndex = 12;
+            // 
             // ScheduleRelease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -217,9 +211,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox SRNo;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox requestNo;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
@@ -228,5 +219,8 @@
         private System.Windows.Forms.Button confirm;
         private System.Windows.Forms.DateTimePicker effectiveDate;
         private System.Windows.Forms.DateTimePicker creationDate;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
