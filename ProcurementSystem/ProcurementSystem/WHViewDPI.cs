@@ -30,7 +30,7 @@ namespace ProcurementSystem
         public void ReloadDPI()
         {
             listViewDes.Items.Clear();
-            MySqlDataAdapter sda = new MySqlDataAdapter("select DISTINCT DesID, RequestNo,CreationDate,Status from DespatchInstruction;", cnn);
+            MySqlDataAdapter sda = new MySqlDataAdapter("select DISTINCT DesID, RequestNo,CreationDate,Status from DespatchInstruction Order by DesID DESC;", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
 

@@ -47,6 +47,12 @@ namespace ProcurementSystem
             cbStatus.DataSource = new BindingSource(comboSource, null);
             cbStatus.DisplayMember = "Value";
             cbStatus.ValueMember = "Key";
+            MySqlDataAdapter getRest = new MySqlDataAdapter("Select RestName, RestAddress From PurchaseRequest pr, Restaurant r where RequestNo = '" + rno + "' and pr.restNo=r.restNo;", cnn);
+            DataTable restInfo = new DataTable();
+            getRest.Fill(restInfo);
+            numQty.Maximum = 0;
+            lbRName.Text = restInfo.Rows[0][0].ToString();
+            lbAddress.AppendText(restInfo.Rows[0][1].ToString());
         }
 
         private void WHUpdateDN_Load(object sender, EventArgs e)
@@ -91,6 +97,11 @@ namespace ProcurementSystem
                     dGVItem.SelectedRows[0].Cells["arrived"].Value = 0;
                 dGVItem.SelectedRows[0].Cells["quantity"].Value = numQty.Value.ToString();
             }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void dGVItem_CellContentClick(object sender, DataGridViewCellEventArgs e)

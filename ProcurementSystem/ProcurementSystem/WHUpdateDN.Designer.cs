@@ -37,7 +37,6 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.numQty = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbAddress = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbRName = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnUpdateStatus = new System.Windows.Forms.Button();
+            this.lbAddress = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
@@ -63,7 +63,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(555, 655);
+            this.btnBack.Location = new System.Drawing.Point(589, 697);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(222, 23);
             this.btnBack.TabIndex = 34;
@@ -73,7 +73,7 @@
             // 
             // btnGen
             // 
-            this.btnGen.Location = new System.Drawing.Point(555, 695);
+            this.btnGen.Location = new System.Drawing.Point(589, 737);
             this.btnGen.Name = "btnGen";
             this.btnGen.Size = new System.Drawing.Size(222, 23);
             this.btnGen.TabIndex = 29;
@@ -84,13 +84,13 @@
             // dGVItem
             // 
             this.dGVItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVItem.Location = new System.Drawing.Point(22, 367);
+            this.dGVItem.Location = new System.Drawing.Point(22, 409);
             this.dGVItem.MultiSelect = false;
             this.dGVItem.Name = "dGVItem";
             this.dGVItem.ReadOnly = true;
             this.dGVItem.RowTemplate.Height = 24;
             this.dGVItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGVItem.Size = new System.Drawing.Size(515, 351);
+            this.dGVItem.Size = new System.Drawing.Size(545, 351);
             this.dGVItem.TabIndex = 28;
             this.dGVItem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVItem_CellContentClick);
             // 
@@ -111,7 +111,7 @@
             this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.numQty);
             this.groupBox1.Font = new System.Drawing.Font("新細明體", 14F);
-            this.groupBox1.Location = new System.Drawing.Point(555, 484);
+            this.groupBox1.Location = new System.Drawing.Point(589, 526);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(222, 150);
             this.groupBox1.TabIndex = 32;
@@ -165,19 +165,11 @@
             this.groupBox2.Font = new System.Drawing.Font("新細明體", 14F);
             this.groupBox2.Location = new System.Drawing.Point(22, 71);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(755, 270);
+            this.groupBox2.Size = new System.Drawing.Size(789, 324);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Note Information";
-            // 
-            // lbAddress
-            // 
-            this.lbAddress.AutoSize = true;
-            this.lbAddress.Location = new System.Drawing.Point(74, 236);
-            this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(53, 19);
-            this.lbAddress.TabIndex = 29;
-            this.lbAddress.Text = "label2";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label10
             // 
@@ -309,7 +301,7 @@
             this.groupBox3.Controls.Add(this.cbStatus);
             this.groupBox3.Controls.Add(this.btnUpdateStatus);
             this.groupBox3.Font = new System.Drawing.Font("新細明體", 14F);
-            this.groupBox3.Location = new System.Drawing.Point(555, 367);
+            this.groupBox3.Location = new System.Drawing.Point(589, 409);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(222, 111);
             this.groupBox3.TabIndex = 33;
@@ -326,11 +318,20 @@
             this.btnUpdateStatus.UseVisualStyleBackColor = true;
             this.btnUpdateStatus.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lbAddress
+            // 
+            this.lbAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbAddress.Location = new System.Drawing.Point(91, 233);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(674, 72);
+            this.lbAddress.TabIndex = 30;
+            this.lbAddress.Text = "";
+            // 
             // WHUpdateDN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 734);
+            this.ClientSize = new System.Drawing.Size(831, 772);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnGen);
             this.Controls.Add(this.dGVItem);
@@ -363,7 +364,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.NumericUpDown numQty;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lbAddress;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lbRName;
@@ -381,5 +381,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnUpdateStatus;
         private System.Windows.Forms.CheckBox checkArrived;
+        private System.Windows.Forms.RichTextBox lbAddress;
     }
 }

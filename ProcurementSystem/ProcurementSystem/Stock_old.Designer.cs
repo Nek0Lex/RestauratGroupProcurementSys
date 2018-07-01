@@ -1,6 +1,6 @@
 ﻿namespace ProcurementSystem
 {
-    partial class Stock
+    partial class Stock_old
     {
         /// <summary>
         /// Required designer variable.

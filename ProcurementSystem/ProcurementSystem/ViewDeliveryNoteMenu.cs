@@ -77,9 +77,9 @@ namespace ProcurementSystem
                 cnn.Open();
                 MySqlDataAdapter sda;
                 if (role.Equals("RM"))
-                    sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Where DeliveryID LIKE '%" + tbSearch.Text+"%' and dn.RequestNo=pr.RequestNo and dn.Status<>'CAN' and pr.RestNo='" + restNo + "';", cnn);
+                    sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Where DeliveryID LIKE '%" + tbSearch.Text+"%' and dn.RequestNo=pr.RequestNo and dn.Status<>'CAN' and pr.RestNo='" + restNo + "' Order by DeliveryID ASC;", cnn);
                 else
-                    sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Where DeliveryID LIKE '%" + tbSearch.Text + "%';", cnn);
+                    sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Where DeliveryID LIKE '%" + tbSearch.Text + "%' Order by DeliveryID ASC;", cnn);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
 
@@ -107,9 +107,9 @@ namespace ProcurementSystem
             cnn.Open();
             MySqlDataAdapter sda;
             if (role.Equals("RM"))
-                sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Where dn.RequestNo=pr.RequestNo and dn.Status<>'CAN' and pr.RestNo='" + restNo+"';", cnn);
+                sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Where dn.RequestNo=pr.RequestNo and dn.Status<>'CAN' and pr.RestNo='" + restNo+ "' Order by DeliveryID DESC;", cnn);
             else
-                sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr;", cnn);
+                sda = new MySqlDataAdapter("select Distinct DeliveryID, dn.RequestNo, DesID, dn.CreationDate, dn.Status from DeliveryNote dn, PurchaseRequest pr Order by DeliveryID DESC;", cnn);
             DataTable dt = new DataTable();
             sda.Fill(dt);
 

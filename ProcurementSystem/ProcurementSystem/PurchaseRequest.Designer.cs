@@ -45,7 +45,9 @@
             this.searchText = new System.Windows.Forms.ComboBox();
             this.errorSearchMsg = new System.Windows.Forms.Label();
             this.currentLogin = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -119,7 +121,7 @@
             // btnSearch
             // 
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnSearch.Location = new System.Drawing.Point(681, 196);
+            this.btnSearch.Location = new System.Drawing.Point(156, 104);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(78, 23);
             this.btnSearch.TabIndex = 7;
@@ -158,7 +160,7 @@
             // searchByRequestNo
             // 
             this.searchByRequestNo.AutoSize = true;
-            this.searchByRequestNo.Location = new System.Drawing.Point(14, 14);
+            this.searchByRequestNo.Location = new System.Drawing.Point(14, 17);
             this.searchByRequestNo.Name = "searchByRequestNo";
             this.searchByRequestNo.Size = new System.Drawing.Size(77, 16);
             this.searchByRequestNo.TabIndex = 11;
@@ -170,7 +172,7 @@
             // searchByStatus
             // 
             this.searchByStatus.AutoSize = true;
-            this.searchByStatus.Location = new System.Drawing.Point(132, 14);
+            this.searchByStatus.Location = new System.Drawing.Point(132, 18);
             this.searchByStatus.Name = "searchByStatus";
             this.searchByStatus.Size = new System.Drawing.Size(50, 16);
             this.searchByStatus.TabIndex = 12;
@@ -182,7 +184,7 @@
             // searchByStaffNo
             // 
             this.searchByStaffNo.AutoSize = true;
-            this.searchByStaffNo.Location = new System.Drawing.Point(14, 36);
+            this.searchByStaffNo.Location = new System.Drawing.Point(14, 39);
             this.searchByStaffNo.Name = "searchByStaffNo";
             this.searchByStaffNo.Size = new System.Drawing.Size(62, 16);
             this.searchByStaffNo.TabIndex = 13;
@@ -197,16 +199,17 @@
             this.groupBox1.Controls.Add(this.searchByStaffNo);
             this.groupBox1.Controls.Add(this.searchByStatus);
             this.groupBox1.Controls.Add(this.searchByRequestNo);
-            this.groupBox1.Location = new System.Drawing.Point(535, 107);
+            this.groupBox1.Location = new System.Drawing.Point(535, 98);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(224, 59);
+            this.groupBox1.Size = new System.Drawing.Size(224, 68);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Criteria";
             // 
             // searchText
             // 
             this.searchText.FormattingEnabled = true;
-            this.searchText.Location = new System.Drawing.Point(535, 196);
+            this.searchText.Location = new System.Drawing.Point(10, 105);
             this.searchText.Name = "searchText";
             this.searchText.Size = new System.Drawing.Size(140, 20);
             this.searchText.TabIndex = 16;
@@ -231,6 +234,17 @@
             this.currentLogin.TabIndex = 18;
             this.currentLogin.Text = "Hello, //Staff";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.searchText);
+            this.groupBox2.Controls.Add(this.btnSearch);
+            this.groupBox2.Location = new System.Drawing.Point(525, 77);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(245, 142);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Search Request By";
+            // 
             // PurchaseRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -238,23 +252,23 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.currentLogin);
             this.Controls.Add(this.errorSearchMsg);
-            this.Controls.Add(this.searchText);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.errorEditMsg);
             this.Controls.Add(this.errorMsg);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.prBack);
             this.Controls.Add(this.deletePRbtn);
             this.Controls.Add(this.edditPRbtn);
             this.Controls.Add(this.createPRbtn);
             this.Controls.Add(this.purchaseRequestList);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupBox2);
             this.Name = "PurchaseRequest";
             this.Text = "PurchaseRequest";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,5 +293,6 @@
         private System.Windows.Forms.ComboBox searchText;
         private System.Windows.Forms.Label errorSearchMsg;
         private System.Windows.Forms.Label currentLogin;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

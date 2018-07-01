@@ -242,11 +242,11 @@
     <Compile Include="SPOStatus.Designer.cs">
       <DependentUpon>SPOStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock.cs">
+    <Compile Include="Stock_old.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock.Designer.cs">
-      <DependentUpon>Stock.cs</DependentUpon>
+    <Compile Include="Stock_old.Designer.cs">
+      <DependentUpon>Stock_old.cs</DependentUpon>
     </Compile>
     <Compile Include="StockManagement.cs">
       <SubType>Form</SubType>
@@ -451,8 +451,8 @@
     <EmbeddedResource Include="SPOStatus.resx">
       <DependentUpon>SPOStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock.resx">
-      <DependentUpon>Stock.cs</DependentUpon>
+    <EmbeddedResource Include="Stock_old.resx">
+      <DependentUpon>Stock_old.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockManagement.resx">
       <DependentUpon>StockManagement.cs</DependentUpon>
