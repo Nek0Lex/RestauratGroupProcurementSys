@@ -63,13 +63,13 @@
             this.dGVItem.ReadOnly = true;
             this.dGVItem.RowTemplate.Height = 24;
             this.dGVItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGVItem.Size = new System.Drawing.Size(515, 351);
+            this.dGVItem.Size = new System.Drawing.Size(555, 351);
             this.dGVItem.TabIndex = 16;
             this.dGVItem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVItem_CellContentClick);
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(555, 543);
+            this.btnBack.Location = new System.Drawing.Point(601, 543);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(222, 23);
             this.btnBack.TabIndex = 29;
@@ -79,7 +79,7 @@
             // 
             // btnGen
             // 
-            this.btnGen.Location = new System.Drawing.Point(555, 584);
+            this.btnGen.Location = new System.Drawing.Point(601, 584);
             this.btnGen.Name = "btnGen";
             this.btnGen.Size = new System.Drawing.Size(222, 23);
             this.btnGen.TabIndex = 28;
@@ -115,7 +115,7 @@
             this.groupBox2.Font = new System.Drawing.Font("新細明體", 14F);
             this.groupBox2.Location = new System.Drawing.Point(22, 64);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(755, 173);
+            this.groupBox2.Size = new System.Drawing.Size(801, 173);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Note Information";
@@ -233,7 +233,7 @@
             this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.numQty);
             this.groupBox1.Font = new System.Drawing.Font("新細明體", 14F);
-            this.groupBox1.Location = new System.Drawing.Point(555, 256);
+            this.groupBox1.Location = new System.Drawing.Point(601, 256);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(222, 143);
             this.groupBox1.TabIndex = 26;
@@ -261,7 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 619);
+            this.ClientSize = new System.Drawing.Size(847, 619);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);

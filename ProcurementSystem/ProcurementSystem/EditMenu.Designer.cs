@@ -54,6 +54,7 @@
             this.RestName,
             this.RestAdd,
             this.Hierarchy});
+            this.listViewRest.FullRowSelect = true;
             this.listViewRest.GridLines = true;
             this.listViewRest.Location = new System.Drawing.Point(20, 67);
             this.listViewRest.MultiSelect = false;

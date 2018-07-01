@@ -73,7 +73,7 @@ namespace ProcurementSystem
             getRest.Fill(restInfo);
             numQty.Maximum = 0;
             lbRName.Text = restInfo.Rows[0][0].ToString();
-            lbAddress.Text = restInfo.Rows[0][1].ToString();
+            lbAddress.AppendText(restInfo.Rows[0][1].ToString());
             lbCreationDate.Text = today.ToString("yyyy-MM-dd");
             lbStatus.Text = status;
             lbDesId.Text = iId;
@@ -93,6 +93,11 @@ namespace ProcurementSystem
         }
 
         private void lbMax_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }

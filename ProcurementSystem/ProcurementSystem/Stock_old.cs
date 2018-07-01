@@ -12,11 +12,11 @@ using MySql.Data.MySqlClient;
 
 namespace ProcurementSystem
 {
-    public partial class Stock : Form
+    public partial class Stock_old : Form
     {
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         Menu m;
-        public Stock(Menu m)
+        public Stock_old(Menu m)
         {
             InitializeComponent();
             this.m = m;
