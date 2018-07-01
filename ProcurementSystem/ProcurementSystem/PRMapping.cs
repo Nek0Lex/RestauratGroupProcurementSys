@@ -300,14 +300,17 @@ namespace ProcurementSystem
             return requestList;
         }
         public void reset() {
-            itemList.Update();
-            itemList.Refresh();
-            radioButton1.Checked = false;
-            radioButton2.Checked = false;
-            radioButton3.Checked = false;
-            radioButton4.Checked = false;
-            requestList.Update();
-            requestList.Refresh();
+            PRMapping newPRM = new PRMapping(m);
+            this.Close();
+            newPRM.Show();
+            //itemList.Update();
+            //itemList.Refresh();
+            //radioButton1.Checked = false;
+            //radioButton2.Checked = false;
+            //radioButton3.Checked = false;
+            //radioButton4.Checked = false;
+            //requestList.Update();
+            //requestList.Refresh();
         }
     }
     public static class StringExtension

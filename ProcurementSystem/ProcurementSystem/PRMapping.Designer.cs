@@ -36,6 +36,13 @@
             this.tbRequestID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.itemList = new System.Windows.Forms.DataGridView();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemWareHouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -44,13 +51,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemWareHouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.requestList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemList)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -140,6 +140,43 @@
             this.itemList.TabIndex = 4;
             this.itemList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemList_CellContentClick);
             // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // VItemID
+            // 
+            this.VItemID.HeaderText = "VItemID";
+            this.VItemID.Name = "VItemID";
+            this.VItemID.Visible = false;
+            // 
+            // category_id
+            // 
+            this.category_id.HeaderText = "category_id";
+            this.category_id.Name = "category_id";
+            this.category_id.Visible = false;
+            // 
+            // ItemWareHouse
+            // 
+            this.ItemWareHouse.HeaderText = "WarehouseStock";
+            this.ItemWareHouse.Name = "ItemWareHouse";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "IncommingPPO";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "BPA";
+            this.Column2.Name = "Column2";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton4);
@@ -226,43 +263,6 @@
             this.button2.Text = "Back";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // ItemName
-            // 
-            this.ItemName.HeaderText = "ItemName";
-            this.ItemName.Name = "ItemName";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // VItemID
-            // 
-            this.VItemID.HeaderText = "VItemID";
-            this.VItemID.Name = "VItemID";
-            this.VItemID.Visible = false;
-            // 
-            // category_id
-            // 
-            this.category_id.HeaderText = "category_id";
-            this.category_id.Name = "category_id";
-            this.category_id.Visible = false;
-            // 
-            // ItemWareHouse
-            // 
-            this.ItemWareHouse.HeaderText = "WarehouseStock";
-            this.ItemWareHouse.Name = "ItemWareHouse";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "IncommingPPO";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "BPA";
-            this.Column2.Name = "Column2";
             // 
             // PRMapping
             // 
