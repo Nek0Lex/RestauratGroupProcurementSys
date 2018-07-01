@@ -88,8 +88,12 @@ namespace ProcurementSystem
             int TotalDI = Convert.ToInt32(getTotalDI.ExecuteScalar());
             if ((COMDN == TotalDN) && (FINDI == TotalDI))
             {
-                MySqlCommand updatePRStatus = new MySqlCommand("Update PurchaseRequest SET Status = 'COM' WHERE RequestNo = '" + rno + "';", cnn);
-                updatePRStatus.ExecuteNonQuery();
+                foreach (DataGridViewRow row in dGVItem.Rows)
+                {
+                    String itemID = Convert.ToString(row.Cells["ItemID"].Value);
+                    MySqlCommand updatePRStatus = new MySqlCommand("Update PurchaseRequest SET Status = 'COM' WHERE RequestNo = '" + rno + "' and itemID = '"+itemID+"';", cnn);
+                    updatePRStatus.ExecuteNonQuery();
+                }
             }
 
             cnn.Close();

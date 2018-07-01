@@ -50,7 +50,6 @@ namespace ProcurementSystem
             MySqlDataAdapter getRest = new MySqlDataAdapter("Select RestName, RestAddress From PurchaseRequest pr, Restaurant r where RequestNo = '" + rno + "' and pr.restNo=r.restNo;", cnn);
             DataTable restInfo = new DataTable();
             getRest.Fill(restInfo);
-            numQty.Maximum = 0;
             lbRName.Text = restInfo.Rows[0][0].ToString();
             lbAddress.AppendText(restInfo.Rows[0][1].ToString());
         }
@@ -84,7 +83,7 @@ namespace ProcurementSystem
             {
                 if (lbStatus.Text.Equals("COM"))
                     dGVItem.SelectedRows[0].Cells["quantity"].Value = numQty.Value.ToString();
-                if (lbStatus.Text.Equals("DLI"))
+                if (lbStatus.Text.Equals("DLI") && numQty.Value != 0)
                     MessageBox.Show("Nothing should be arrived \nif status is delivering", "Check your status !", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                     dGVItem.SelectedRows[0].Cells["arrived"].Value = numQty.Value.ToString();
@@ -136,13 +135,21 @@ namespace ProcurementSystem
             int TotalDI = Convert.ToInt32(getTotalDI.ExecuteScalar());
             if ((COMDN == TotalDN) && (FINDI == TotalDI))
             {
-                MySqlCommand updatePRStatus = new MySqlCommand("Update PurchaseRequest SET Status = 'COM' WHERE RequestNo = '" + rno + "';", cnn);
-                updatePRStatus.ExecuteNonQuery();
+                foreach (DataGridViewRow row in dGVItem.Rows)
+                {
+                    String itemID = Convert.ToString(row.Cells["ItemID"].Value);
+                    MySqlCommand updatePRStatus = new MySqlCommand("Update PurchaseRequest SET Status = 'COM' WHERE RequestNo = '" + rno + "' and itemID = '"+ itemID+ "'; ", cnn);
+                    updatePRStatus.ExecuteNonQuery();
+                }
             }
             else
             {
-                MySqlCommand updatePRStatus = new MySqlCommand("Update PurchaseRequest SET Status = 'DLI' WHERE RequestNo = '" + rno + "';", cnn);
-                updatePRStatus.ExecuteNonQuery();
+                foreach (DataGridViewRow row in dGVItem.Rows)
+                {
+                    String itemID = Convert.ToString(row.Cells["ItemID"].Value);
+                    MySqlCommand updatePRStatus = new MySqlCommand("Update PurchaseRequest SET Status = 'DLI' WHERE RequestNo = '" + rno + "' and itemID = '" + itemID + "';", cnn);
+                    updatePRStatus.ExecuteNonQuery();
+                }
             }
 
             cnn.Close();
