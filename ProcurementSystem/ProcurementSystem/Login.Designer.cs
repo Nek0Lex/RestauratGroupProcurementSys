@@ -36,6 +36,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbSN = new System.Windows.Forms.TextBox();
+            this.checkSave = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +92,7 @@
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnLogin.Location = new System.Drawing.Point(202, 216);
+            this.btnLogin.Location = new System.Drawing.Point(202, 228);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 32);
             this.btnLogin.TabIndex = 6;
@@ -104,7 +105,7 @@
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("新細明體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnExit.Location = new System.Drawing.Point(304, 216);
+            this.btnExit.Location = new System.Drawing.Point(304, 228);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 32);
             this.btnExit.TabIndex = 7;
@@ -116,6 +117,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox1.Controls.Add(this.checkSave);
             this.groupBox1.Controls.Add(this.btnExit);
             this.groupBox1.Controls.Add(this.tbPW);
             this.groupBox1.Controls.Add(this.btnLogin);
@@ -146,6 +148,17 @@
             this.tbSN.TabIndex = 0;
             this.tbSN.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // checkSave
+            // 
+            this.checkSave.AutoSize = true;
+            this.checkSave.Font = new System.Drawing.Font("Perpetua Titling MT", 12F);
+            this.checkSave.Location = new System.Drawing.Point(202, 192);
+            this.checkSave.Name = "checkSave";
+            this.checkSave.Size = new System.Drawing.Size(198, 23);
+            this.checkSave.TabIndex = 8;
+            this.checkSave.Text = "Remember username";
+            this.checkSave.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             this.AcceptButton = this.btnLogin;
@@ -173,6 +186,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox tbSN;
+        private System.Windows.Forms.CheckBox checkSave;
     }
 }
 
