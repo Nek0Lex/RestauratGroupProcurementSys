@@ -54,6 +54,7 @@
             this.bpaNolb = new System.Windows.Forms.TextBox();
             this.confirm = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.forwardToAdd = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +66,7 @@
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(788, 43);
+            this.textBox1.Size = new System.Drawing.Size(397, 43);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Blanket Purchase Release";
             // 
@@ -123,7 +124,6 @@
             this.quantity.Name = "quantity";
             this.quantity.Size = new System.Drawing.Size(135, 25);
             this.quantity.TabIndex = 22;
-            this.quantity.Text = "//quantity";
             // 
             // textBox11
             // 
@@ -365,11 +365,23 @@
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // forwardToAdd
+            // 
+            this.forwardToAdd.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.forwardToAdd.Location = new System.Drawing.Point(633, 15);
+            this.forwardToAdd.Name = "forwardToAdd";
+            this.forwardToAdd.Size = new System.Drawing.Size(162, 40);
+            this.forwardToAdd.TabIndex = 5;
+            this.forwardToAdd.Text = "Create New PR";
+            this.forwardToAdd.UseVisualStyleBackColor = true;
+            this.forwardToAdd.Click += new System.EventHandler(this.forwardToAdd_Click);
+            // 
             // BlanketPurchaseRelease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 606);
+            this.Controls.Add(this.forwardToAdd);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.confirm);
             this.Controls.Add(this.groupBox1);
@@ -412,5 +424,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.Button forwardToAdd;
     }
 }

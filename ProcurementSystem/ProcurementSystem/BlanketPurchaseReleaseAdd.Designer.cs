@@ -30,6 +30,7 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bpaNoSelection = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@
             this.bpaNolb = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.bpaNoSelection = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -99,6 +99,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Release";
             // 
+            // bpaNoSelection
+            // 
+            this.bpaNoSelection.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.bpaNoSelection.FormattingEnabled = true;
+            this.bpaNoSelection.Location = new System.Drawing.Point(79, 30);
+            this.bpaNoSelection.Name = "bpaNoSelection";
+            this.bpaNoSelection.Size = new System.Drawing.Size(135, 25);
+            this.bpaNoSelection.TabIndex = 24;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -123,7 +132,7 @@
             this.quantity.Name = "quantity";
             this.quantity.Size = new System.Drawing.Size(135, 25);
             this.quantity.TabIndex = 22;
-            this.quantity.Text = "//quantity";
+            this.quantity.TextChanged += new System.EventHandler(this.quantity_TextChanged);
             // 
             // textBox11
             // 
@@ -340,15 +349,6 @@
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // bpaNoSelection
-            // 
-            this.bpaNoSelection.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.bpaNoSelection.FormattingEnabled = true;
-            this.bpaNoSelection.Location = new System.Drawing.Point(79, 30);
-            this.bpaNoSelection.Name = "bpaNoSelection";
-            this.bpaNoSelection.Size = new System.Drawing.Size(135, 25);
-            this.bpaNoSelection.TabIndex = 24;
             // 
             // BlanketPurchaseReleaseAdd
             // 

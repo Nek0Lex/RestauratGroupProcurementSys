@@ -14,10 +14,6 @@ namespace ProcurementSystem
 {
     public partial class ScheduleRelease : Form
     {
-        public ScheduleRelease()
-        {
-
-        }
         public ScheduleRelease(string getPPONo)
         {
             InitializeComponent();
