@@ -26,9 +26,8 @@ namespace ProcurementSystem
 
         private void SRForward_Click(object sender, EventArgs e)
         {
-            String PPO = "PPO00001";
-            ScheduleRelease scheduleRelease = new ScheduleRelease(PPO);
-            scheduleRelease.Show();
+            SRConnector sRConnector = new SRConnector();
+            sRConnector.Show();
             this.Close();
         }
     }

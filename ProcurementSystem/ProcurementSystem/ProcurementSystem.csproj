@@ -170,6 +170,12 @@
     <Compile Include="ScheduleReleaseAdd.Designer.cs">
       <DependentUpon>ScheduleReleaseAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="SRConnector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SRConnector.Designer.cs">
+      <DependentUpon>SRConnector.cs</DependentUpon>
+    </Compile>
     <Compile Include="WHGenerateDN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -450,6 +456,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SPOStatus.resx">
       <DependentUpon>SPOStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SRConnector.resx">
+      <DependentUpon>SRConnector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock.resx">
       <DependentUpon>Stock.cs</DependentUpon>
