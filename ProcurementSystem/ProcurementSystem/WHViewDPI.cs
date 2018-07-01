@@ -38,7 +38,8 @@ namespace ProcurementSystem
             {
                 ListViewItem listitem = new ListViewItem(dr["DesID"].ToString());
                 listitem.SubItems.Add(dr["RequestNo"].ToString());
-                listitem.SubItems.Add(dr["CreationDate"].ToString());
+
+                listitem.SubItems.Add(Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy"));
                 listitem.SubItems.Add(dr["Status"].ToString());
                 listViewDes.Items.Add(listitem);
             }

@@ -14,7 +14,7 @@ namespace ProcurementSystem
 {
     public partial class RMConfirmDN : Form
     {
-        private String DNId, status;
+        private String DNId, status, rno;
         private ViewDeliveryNoteMenu m;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
         public RMConfirmDN(ViewDeliveryNoteMenu m, String DNId, String status)
@@ -43,6 +43,7 @@ namespace ProcurementSystem
             lbCreationDate.Text = DNInfo.Rows[0][3].ToString();
             lbDeliveryDate.Text = DNInfo.Rows[0][4].ToString();
             lbStatus.Text = status;
+            rno = lbRNo.Text;
             btnUpdate.Enabled = false;      
         }
 
@@ -54,14 +55,14 @@ namespace ProcurementSystem
         private void btnGen_Click(object sender, EventArgs e)
         {
             cnn.Open();
-            int completedCount=0, rowCount=0;
+            int completedCount = 0, rowCount = 0;
             String status = "DNC";
             foreach (DataGridViewRow row in dGVItem.Rows)
             {
                 int qty = Convert.ToInt32(row.Cells["Quantity"].Value);
                 int arrivedQty = Convert.ToInt32(row.Cells["Arrived"].Value);
                 String itemID = Convert.ToString(row.Cells["ItemID"].Value);
-                MySqlCommand updateDN = new MySqlCommand("Update DeliveryNote SET ArrivedQty = '"+arrivedQty + "' WHERE ItemID = '" + itemID + "' and DeliveryID = '" + DNId + "';", cnn);
+                MySqlCommand updateDN = new MySqlCommand("Update DeliveryNote SET ArrivedQty = '" + arrivedQty + "' WHERE ItemID = '" + itemID + "' and DeliveryID = '" + DNId + "';", cnn);
                 updateDN.ExecuteNonQuery();
                 if (qty <= arrivedQty)
                     completedCount++;
@@ -75,6 +76,22 @@ namespace ProcurementSystem
                 MessageBox.Show("Delivery Completed !", "Confirm Successfully !", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else if (status.Equals("DNC"))
                 MessageBox.Show("Delivery Completed with not correct amount", "Confirm Successfully !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //Check DB for updating PR status
+            MySqlCommand getCOMDN = new MySqlCommand("select count(RequestNo) from DeliveryNote where Status in ('COM','DNC','CAN') and RequestNo = '" + rno + "';", cnn);
+            MySqlCommand getTotalDN = new MySqlCommand("select count(DeliveryID) from DeliveryNote where RequestNo = '" + rno + "';", cnn);
+            MySqlCommand getFINDI = new MySqlCommand("select count(DesID) from DespatchInstruction where RequestNo = '" + rno + "' and Status = 'FIN'; ", cnn);
+            MySqlCommand getTotalDI = new MySqlCommand("select count(DesID) from DespatchInstruction where RequestNo = '"+rno+"'; ", cnn);
+            int COMDN = Convert.ToInt32(getCOMDN.ExecuteScalar());
+            int TotalDN = Convert.ToInt32(getTotalDN.ExecuteScalar());
+            int FINDI = Convert.ToInt32(getFINDI.ExecuteScalar());
+            int TotalDI = Convert.ToInt32(getTotalDI.ExecuteScalar());
+            if ((COMDN == TotalDN) && (FINDI == TotalDI))
+            {
+                MySqlCommand updatePRStatus = new MySqlCommand("Update PurchaseRequest SET Status = 'COM' WHERE RequestNo = '" + rno + "';", cnn);
+                updatePRStatus.ExecuteNonQuery();
+            }
+
             cnn.Close();
             m.loadData();
             this.Close();

@@ -14,7 +14,7 @@ namespace ProcurementSystem
 {
     public partial class WHUpdateDN : Form
     {
-        private String DNId, status;
+        private String DNId, status, rno;
         private ViewDeliveryNoteMenu m;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me;user id=jackysc;password=123456;database=procurement;SslMode=none;");
         public WHUpdateDN(ViewDeliveryNoteMenu m, String DNId, String status)
@@ -37,6 +37,7 @@ namespace ProcurementSystem
             lbDesId.Text = DNInfo.Rows[0][2].ToString();
             lbCreationDate.Text = DNInfo.Rows[0][3].ToString();
             lbStatus.Text = status;
+            rno = lbRNo.Text;
             btnUpdate.Enabled = false;
             Dictionary<String, String> comboSource = new Dictionary<String, String>();
             comboSource.Add("1", "DLI");
@@ -112,6 +113,27 @@ namespace ProcurementSystem
                 MySqlCommand updateStock = new MySqlCommand("UPDATE DeliveryNote SET quantity = '" + quantity + "', ArrivedQty ='"+ arrivedQty + "',Status = '"+ lbStatus.Text + "' WHERE ItemID = '" + itemID + "' and DeliveryID = '" + DNId + "';", cnn);
                 updateStock.ExecuteNonQuery();
             }
+
+            //Check DB for updating PR status
+            MySqlCommand getCOMDN = new MySqlCommand("select count(RequestNo) from DeliveryNote where Status in ('COM','DNC','CAN') and RequestNo = '" + rno + "';", cnn);
+            MySqlCommand getTotalDN = new MySqlCommand("select count(DeliveryID) from DeliveryNote where RequestNo = '" + rno + "';", cnn);
+            MySqlCommand getFINDI = new MySqlCommand("select count(DesID) from DespatchInstruction where RequestNo = '" + rno + "' and Status = 'FIN'; ", cnn);
+            MySqlCommand getTotalDI = new MySqlCommand("select count(DesID) from DespatchInstruction where RequestNo = '" + rno + "'; ", cnn);
+            int COMDN = Convert.ToInt32(getCOMDN.ExecuteScalar());
+            int TotalDN = Convert.ToInt32(getTotalDN.ExecuteScalar());
+            int FINDI = Convert.ToInt32(getFINDI.ExecuteScalar());
+            int TotalDI = Convert.ToInt32(getTotalDI.ExecuteScalar());
+            if ((COMDN == TotalDN) && (FINDI == TotalDI))
+            {
+                MySqlCommand updatePRStatus = new MySqlCommand("Update PurchaseRequest SET Status = 'COM' WHERE RequestNo = '" + rno + "';", cnn);
+                updatePRStatus.ExecuteNonQuery();
+            }
+            else
+            {
+                MySqlCommand updatePRStatus = new MySqlCommand("Update PurchaseRequest SET Status = 'DLI' WHERE RequestNo = '" + rno + "';", cnn);
+                updatePRStatus.ExecuteNonQuery();
+            }
+
             cnn.Close();
             MessageBox.Show("Update Success!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
             m.loadData();
