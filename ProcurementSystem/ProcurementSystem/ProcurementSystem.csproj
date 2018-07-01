@@ -158,6 +158,12 @@
     <Compile Include="ScheduleRelease.Designer.cs">
       <DependentUpon>ScheduleRelease.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScheduleReleaseAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleReleaseAdd.Designer.cs">
+      <DependentUpon>ScheduleReleaseAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="WHGenerateDN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -429,6 +435,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScheduleRelease.resx">
       <DependentUpon>ScheduleRelease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleReleaseAdd.resx">
+      <DependentUpon>ScheduleReleaseAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SPOStatus.resx">
       <DependentUpon>SPOStatus.cs</DependentUpon>

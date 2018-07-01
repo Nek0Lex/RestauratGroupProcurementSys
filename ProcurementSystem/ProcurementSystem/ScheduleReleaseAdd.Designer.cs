@@ -1,6 +1,6 @@
 ﻿namespace ProcurementSystem
 {
-    partial class ScheduleRelease
+    partial class ScheduleReleaseAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,6 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.effectiveDate = new System.Windows.Forms.DateTimePicker();
             this.creationDate = new System.Windows.Forms.DateTimePicker();
             this.shippingAddress = new System.Windows.Forms.RichTextBox();
@@ -40,9 +37,9 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.confirm = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.SRNo = new System.Windows.Forms.TextBox();
+            this.btn_create = new System.Windows.Forms.Button();
+            this.btn_cancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,15 +50,13 @@
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(301, 43);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Scheduled Release";
+            this.textBox1.Size = new System.Drawing.Size(733, 43);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "Create Scheduled Release";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.SRNo);
             this.groupBox1.Controls.Add(this.effectiveDate);
             this.groupBox1.Controls.Add(this.creationDate);
             this.groupBox1.Controls.Add(this.shippingAddress);
@@ -72,46 +67,20 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 61);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(733, 219);
-            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Release Setting";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(72, 30);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 12;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(86, 66);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(109, 22);
-            this.textBox8.TabIndex = 11;
-            // 
-            // textBox7
-            // 
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox7.Location = new System.Drawing.Point(32, 66);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(64, 18);
-            this.textBox7.TabIndex = 10;
-            this.textBox7.Text = "PPONo:";
             // 
             // effectiveDate
             // 
-            this.effectiveDate.Location = new System.Drawing.Point(134, 143);
+            this.effectiveDate.Location = new System.Drawing.Point(137, 116);
             this.effectiveDate.Name = "effectiveDate";
             this.effectiveDate.Size = new System.Drawing.Size(122, 22);
             this.effectiveDate.TabIndex = 9;
             // 
             // creationDate
             // 
-            this.creationDate.Location = new System.Drawing.Point(134, 105);
+            this.creationDate.Location = new System.Drawing.Point(137, 70);
             this.creationDate.Name = "creationDate";
             this.creationDate.Size = new System.Drawing.Size(122, 22);
             this.creationDate.TabIndex = 8;
@@ -139,7 +108,7 @@
             // 
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox5.Location = new System.Drawing.Point(32, 147);
+            this.textBox5.Location = new System.Drawing.Point(36, 120);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(95, 18);
@@ -150,7 +119,7 @@
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox4.Location = new System.Drawing.Point(32, 109);
+            this.textBox4.Location = new System.Drawing.Point(36, 74);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(95, 18);
@@ -161,56 +130,55 @@
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox2.Location = new System.Drawing.Point(32, 30);
+            this.textBox2.Location = new System.Drawing.Point(36, 30);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(43, 18);
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "SRNo:";
             // 
-            // button1
+            // SRNo
             // 
-            this.button1.Location = new System.Drawing.Point(181, 298);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 42);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SRNo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.SRNo.Location = new System.Drawing.Point(85, 27);
+            this.SRNo.Name = "SRNo";
+            this.SRNo.ReadOnly = true;
+            this.SRNo.Size = new System.Drawing.Size(105, 25);
+            this.SRNo.TabIndex = 10;
             // 
-            // confirm
+            // btn_create
             // 
-            this.confirm.Location = new System.Drawing.Point(384, 298);
-            this.confirm.Name = "confirm";
-            this.confirm.Size = new System.Drawing.Size(132, 42);
-            this.confirm.TabIndex = 5;
-            this.confirm.Text = "Confirm";
-            this.confirm.UseVisualStyleBackColor = true;
-            this.confirm.Click += new System.EventHandler(this.confirm_Click);
+            this.btn_create.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btn_create.Location = new System.Drawing.Point(413, 300);
+            this.btn_create.Name = "btn_create";
+            this.btn_create.Size = new System.Drawing.Size(129, 40);
+            this.btn_create.TabIndex = 5;
+            this.btn_create.Text = "Create";
+            this.btn_create.UseVisualStyleBackColor = true;
+            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
             // 
-            // button2
+            // btn_cancel
             // 
-            this.button2.Location = new System.Drawing.Point(589, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 43);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "New Schedule Release";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_cancel.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btn_cancel.Location = new System.Drawing.Point(188, 300);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(129, 40);
+            this.btn_cancel.TabIndex = 6;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // ScheduleRelease
+            // ScheduleReleaseAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 352);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.confirm);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(760, 367);
+            this.Controls.Add(this.btn_cancel);
+            this.Controls.Add(this.btn_create);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
-            this.Name = "ScheduleRelease";
-            this.Text = "ScheduleRelease";
-            this.Load += new System.EventHandler(this.ScheduleRelease_Load);
+            this.Name = "ScheduleReleaseAdd";
+            this.Text = "ScheduleReleaseAdd";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -222,18 +190,15 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.RichTextBox shippingAddress;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button confirm;
+        private System.Windows.Forms.TextBox SRNo;
         private System.Windows.Forms.DateTimePicker effectiveDate;
         private System.Windows.Forms.DateTimePicker creationDate;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox shippingAddress;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btn_create;
+        private System.Windows.Forms.Button btn_cancel;
     }
 }

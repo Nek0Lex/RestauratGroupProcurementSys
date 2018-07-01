@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using MySql.Data;
 
 namespace ProcurementSystem
 {
@@ -50,7 +52,36 @@ namespace ProcurementSystem
 
         private void confirm_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Confirm?", null, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (MessageBox.Show("Confirm?", null, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            {
+                String bpaNo = BPANo.Text;
+                String ReleaseNo = releaseNo.Text;
+                String RestNo = restNo.Text;
+                String CreationDate = creationDate.Value.ToString("yyyy-MM-dd");
+                String DeliveryDate = deliveryDate.Value.ToString("yyyy-MM-dd");
+                String Restno = restNo.Text;
+                String ac = account.Text;
+                String Amount = actualAmount.Text;
+                String Quantity = quantity.Text;
+
+                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                cnn.Open();
+                String query = "UPDATE BlanketPurchaseRelease " +
+                    "SET CreationDate = '"+CreationDate+"'," +
+                        "DeliveryDate = '"+DeliveryDate+"', " +
+                        "RestNo = '"+RestNo+"', " +
+                        "Account = '"+ac+"', " +
+                        "ActualAmount ='"+Amount+"', " +
+                        "ActualQuantity = '"+Quantity+"'" +
+                    "WHERE ReleaseNo = '"+ReleaseNo+"'; ";
+                MySqlCommand cmd = new MySqlCommand(query, cnn);
+                cmd.ExecuteNonQuery();
+
+                //import itemname to itemid
+
+
+            }
+;
         }
 
         private void button2_Click(object sender, EventArgs e)
