@@ -1,6 +1,6 @@
 ﻿namespace ProcurementSystem
 {
-    partial class BlanketPurchaseRelease
+    partial class BlanketPurchaseReleaseAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -50,10 +50,10 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.releaseNo = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.BPANo = new System.Windows.Forms.TextBox();
             this.bpaNolb = new System.Windows.Forms.TextBox();
-            this.confirm = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.bpaNoSelection = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -65,12 +65,13 @@
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(788, 43);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Blanket Purchase Release";
+            this.textBox1.Size = new System.Drawing.Size(776, 43);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "Create Blanket Purchase Release(Urgent)";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.bpaNoSelection);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.quantity);
             this.groupBox1.Controls.Add(this.textBox11);
@@ -90,12 +91,11 @@
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.releaseNo);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.BPANo);
             this.groupBox1.Controls.Add(this.bpaNolb);
             this.groupBox1.Location = new System.Drawing.Point(12, 61);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(783, 460);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Release";
             // 
@@ -157,7 +157,6 @@
             this.actualAmount.Name = "actualAmount";
             this.actualAmount.Size = new System.Drawing.Size(117, 25);
             this.actualAmount.TabIndex = 19;
-            this.actualAmount.TextChanged += new System.EventHandler(this.actualAmount_TextChanged);
             // 
             // textBox9
             // 
@@ -191,7 +190,6 @@
             this.account.Name = "account";
             this.account.Size = new System.Drawing.Size(81, 25);
             this.account.TabIndex = 15;
-            this.account.Text = "//account";
             // 
             // textBox7
             // 
@@ -213,7 +211,6 @@
             this.deliveryDate.Name = "deliveryDate";
             this.deliveryDate.Size = new System.Drawing.Size(121, 25);
             this.deliveryDate.TabIndex = 13;
-            this.deliveryDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // textBox6
             // 
@@ -235,7 +232,6 @@
             this.restNo.Name = "restNo";
             this.restNo.Size = new System.Drawing.Size(81, 25);
             this.restNo.TabIndex = 11;
-            this.restNo.Text = "//RestNo";
             // 
             // textBox5
             // 
@@ -260,7 +256,6 @@
             this.textBox4.Size = new System.Drawing.Size(93, 18);
             this.textBox4.TabIndex = 9;
             this.textBox4.Text = "Creation Date:";
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // creationDate
             // 
@@ -273,16 +268,12 @@
             // 
             // requestNo
             // 
-            this.requestNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.requestNo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.requestNo.Location = new System.Drawing.Point(98, 106);
             this.requestNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.requestNo.Name = "requestNo";
-            this.requestNo.ReadOnly = true;
-            this.requestNo.Size = new System.Drawing.Size(94, 18);
+            this.requestNo.Size = new System.Drawing.Size(94, 25);
             this.requestNo.TabIndex = 7;
-            this.requestNo.Text = "//RequestNo";
-            this.requestNo.TextChanged += new System.EventHandler(this.requestNo_TextChanged);
             // 
             // textBox3
             // 
@@ -298,15 +289,12 @@
             // 
             // releaseNo
             // 
-            this.releaseNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.releaseNo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.releaseNo.Location = new System.Drawing.Point(98, 68);
             this.releaseNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.releaseNo.Name = "releaseNo";
-            this.releaseNo.ReadOnly = true;
-            this.releaseNo.Size = new System.Drawing.Size(81, 18);
+            this.releaseNo.Size = new System.Drawing.Size(94, 25);
             this.releaseNo.TabIndex = 5;
-            this.releaseNo.Text = "//ReleaseNo";
             // 
             // textBox2
             // 
@@ -320,18 +308,6 @@
             this.textBox2.TabIndex = 4;
             this.textBox2.Text = "ReleaseNo:";
             // 
-            // BPANo
-            // 
-            this.BPANo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.BPANo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.BPANo.Location = new System.Drawing.Point(78, 33);
-            this.BPANo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.BPANo.Name = "BPANo";
-            this.BPANo.ReadOnly = true;
-            this.BPANo.Size = new System.Drawing.Size(76, 18);
-            this.BPANo.TabIndex = 3;
-            this.BPANo.Text = "//bpano";
-            // 
             // bpaNolb
             // 
             this.bpaNolb.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -344,38 +320,47 @@
             this.bpaNolb.TabIndex = 2;
             this.bpaNolb.Text = "BPANo:";
             // 
-            // confirm
-            // 
-            this.confirm.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.confirm.Location = new System.Drawing.Point(457, 541);
-            this.confirm.Name = "confirm";
-            this.confirm.Size = new System.Drawing.Size(162, 40);
-            this.confirm.TabIndex = 3;
-            this.confirm.Text = "Confirm";
-            this.confirm.UseVisualStyleBackColor = true;
-            this.confirm.Click += new System.EventHandler(this.confirm_Click);
-            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(143, 541);
+            this.button2.Location = new System.Drawing.Point(157, 546);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(162, 40);
-            this.button2.TabIndex = 4;
+            this.button2.TabIndex = 5;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // BlanketPurchaseRelease
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button1.Location = new System.Drawing.Point(469, 546);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(162, 40);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Submit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // bpaNoSelection
+            // 
+            this.bpaNoSelection.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.bpaNoSelection.FormattingEnabled = true;
+            this.bpaNoSelection.Location = new System.Drawing.Point(79, 30);
+            this.bpaNoSelection.Name = "bpaNoSelection";
+            this.bpaNoSelection.Size = new System.Drawing.Size(135, 25);
+            this.bpaNoSelection.TabIndex = 24;
+            // 
+            // BlanketPurchaseReleaseAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 606);
+            this.ClientSize = new System.Drawing.Size(811, 616);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.confirm);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
-            this.Name = "BlanketPurchaseRelease";
-            this.Text = "BlanketPurchaseRelease";
+            this.Name = "BlanketPurchaseReleaseAdd";
+            this.Text = "BlanketPurchaseReleaseAdd";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -388,29 +373,29 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox bpaNolb;
-        private System.Windows.Forms.TextBox BPANo;
-        private System.Windows.Forms.TextBox releaseNo;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox requestNo;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.DateTimePicker creationDate;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox restNo;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DateTimePicker deliveryDate;
-        private System.Windows.Forms.TextBox account;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox actualAmount;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox quantity;
-        private System.Windows.Forms.Button confirm;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.TextBox quantity;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox actualAmount;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox account;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.DateTimePicker deliveryDate;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox restNo;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DateTimePicker creationDate;
+        private System.Windows.Forms.TextBox requestNo;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox releaseNo;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox bpaNolb;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox bpaNoSelection;
     }
 }

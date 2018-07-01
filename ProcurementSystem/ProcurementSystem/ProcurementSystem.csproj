@@ -74,6 +74,12 @@
     <Compile Include="BlanketPurchaseRelease.Designer.cs">
       <DependentUpon>BlanketPurchaseRelease.cs</DependentUpon>
     </Compile>
+    <Compile Include="BlanketPurchaseReleaseAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlanketPurchaseReleaseAdd.Designer.cs">
+      <DependentUpon>BlanketPurchaseReleaseAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="BPAStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -372,6 +378,9 @@
     </Compile>
     <EmbeddedResource Include="BlanketPurchaseRelease.resx">
       <DependentUpon>BlanketPurchaseRelease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlanketPurchaseReleaseAdd.resx">
+      <DependentUpon>BlanketPurchaseReleaseAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BPAStatus.resx">
       <DependentUpon>BPAStatus.cs</DependentUpon>

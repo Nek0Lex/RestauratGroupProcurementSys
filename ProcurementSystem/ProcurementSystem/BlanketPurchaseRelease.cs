@@ -77,8 +77,13 @@ namespace ProcurementSystem
                 MySqlCommand cmd = new MySqlCommand(query, cnn);
                 cmd.ExecuteNonQuery();
 
-                //import itemname to itemid
-
+                //trans itemname to itemid
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                { 
+                    String item = row.Cells["Item Name"].Value.ToString();
+                }
+                
+                
 
             }
 ;
