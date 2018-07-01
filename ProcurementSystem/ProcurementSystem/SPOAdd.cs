@@ -83,8 +83,11 @@ namespace ProcurementSystem
                             MySqlCommand cmd3 = new MySqlCommand("SELECT SupplierItemID FROM Item i,SupplierItem si  WHERE i.ItemID = si.ItemID AND ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
                             string itemID = cmd3.ExecuteScalar().ToString();
                             double amount = int.Parse(row.Cells[1].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString());
-                            MySqlCommand cmd2 = new MySqlCommand("INSERT INTO SPOLines (SPONo, SupplierItemID, Quantity, UOM, Price, Amount) VALUES ('" + spoNo + "', '" + itemID + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + row.Cells[3].Value.ToString() + "', '" + amount + "');", cnn);
-                            cmd2.ExecuteNonQuery();
+                            if (amount != 0 && itemID != null)
+                            {
+                                MySqlCommand cmd2 = new MySqlCommand("INSERT INTO SPOLines (SPONo, SupplierItemID, Quantity, UOM, Price, Amount) VALUES ('" + spoNo + "', '" + itemID + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + row.Cells[3].Value.ToString() + "', '" + amount + "');", cnn);
+                                cmd2.ExecuteNonQuery();
+                            }
                         }
                         else
                         {

@@ -66,5 +66,10 @@ namespace ProcurementSystem
             MessageBox.Show("Change successfully!");
         }
 
+        private void quantity_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

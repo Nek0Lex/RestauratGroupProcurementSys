@@ -30,6 +30,7 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SRNo = new System.Windows.Forms.TextBox();
             this.effectiveDate = new System.Windows.Forms.DateTimePicker();
             this.creationDate = new System.Windows.Forms.DateTimePicker();
             this.shippingAddress = new System.Windows.Forms.RichTextBox();
@@ -37,7 +38,6 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.SRNo = new System.Windows.Forms.TextBox();
             this.btn_create = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -70,6 +70,15 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Release Setting";
+            // 
+            // SRNo
+            // 
+            this.SRNo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.SRNo.Location = new System.Drawing.Point(85, 27);
+            this.SRNo.Name = "SRNo";
+            this.SRNo.ReadOnly = true;
+            this.SRNo.Size = new System.Drawing.Size(105, 25);
+            this.SRNo.TabIndex = 10;
             // 
             // effectiveDate
             // 
@@ -136,15 +145,6 @@
             this.textBox2.Size = new System.Drawing.Size(43, 18);
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "SRNo:";
-            // 
-            // SRNo
-            // 
-            this.SRNo.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.SRNo.Location = new System.Drawing.Point(85, 27);
-            this.SRNo.Name = "SRNo";
-            this.SRNo.ReadOnly = true;
-            this.SRNo.Size = new System.Drawing.Size(105, 25);
-            this.SRNo.TabIndex = 10;
             // 
             // btn_create
             // 

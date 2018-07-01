@@ -105,5 +105,11 @@ namespace ProcurementSystem
         {
             this.Close();
         }
+
+        private void forwardToAdd_Click(object sender, EventArgs e)
+        {
+            BlanketPurchaseReleaseAdd blanketPurchaseReleaseAdd = new BlanketPurchaseReleaseAdd();
+            blanketPurchaseReleaseAdd.Show();
+        }
     }
 }
