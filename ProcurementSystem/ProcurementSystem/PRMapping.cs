@@ -215,20 +215,28 @@ namespace ProcurementSystem
                 {
                     DateTime today = DateTime.Today;
                     String itemID = "";
-                    MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(DesID) FROM DespatchInstruction", cnn);
-                    nowDesNo = (string)getNextRequestNo.ExecuteScalar();
-                    if (nowDesNo == "")
+                    MySqlCommand checkSameRequest = new MySqlCommand("SELECT DesID FROM DespatchInstruction WHERE RequestNo ='" + tbRequestID.Text + "'", cnn);
+                    if (checkSameRequest.ExecuteScalar() != null)
                     {
-                        nowDesNo = "0000000";
+                        nowDesNo = checkSameRequest.ExecuteScalar().ToString();
                     }
                     else
                     {
-                        nowDesNo = Regex.Match(nowDesNo, @"\d+").Value;
+                        MySqlCommand getNextRequestNo = new MySqlCommand("SELECT MAX(DesID) FROM DespatchInstruction", cnn);
+                        nowDesNo = (string)getNextRequestNo.ExecuteScalar();
+                        if (nowDesNo == "")
+                        {
+                            nowDesNo = "0000000";
+                        }
+                        else
+                        {
+                            nowDesNo = Regex.Match(nowDesNo, @"\d+").Value;
+                        }
+                        int num = Int32.Parse(nowDesNo.GetLast(7));
+                        num++;
+                        nowDesNo = num.ToString().PadLeft(7, '0');
+                        nowDesNo = "I" + nowDesNo;
                     }
-                    int num = Int32.Parse(nowDesNo.GetLast(7));
-                    num++;
-                    nowDesNo = num.ToString().PadLeft(7, '0');
-                    nowDesNo = "I" + nowDesNo;
                     MySqlCommand getItemID = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + itemList.Rows[0].Cells[0].Value.ToString() + "';", cnn);
                     itemID = getItemID.ExecuteScalar().ToString();
                     MySqlCommand genDes = new MySqlCommand("INSERT INTO DespatchInstruction (DesID, RequestNo, CreationDate, ItemID, quantity, status) VALUES ('"+nowDesNo+"', '"+tbRequestID.Text+"', '"+today.ToString("yyyy-MM-dd")+"' ,'"+itemID+"', '"+itemList.Rows[0].Cells[1].Value.ToString()+"', 'PRO')",cnn);
