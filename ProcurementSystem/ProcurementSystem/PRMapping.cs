@@ -269,6 +269,7 @@ namespace ProcurementSystem
                 }
                 MySqlCommand getRestNo = new MySqlCommand("Select DISTINCT RestNo FROM PurchaseRequest WHERE requestNo = '"+tbRequestID.Text+"'", cnn);
                 restNo = getRestNo.ExecuteScalar().ToString();
+                restNo = restNo.GetLast(3);
                 SPOAdd spoadd = new SPOAdd(nowSPONo, supplierNo, restNo, itemList.Rows[0].Cells[0].Value.ToString(), itemList.Rows[0].Cells[1].Value.ToString());
                 spoadd.ShowDialog();
                 this.reset();
