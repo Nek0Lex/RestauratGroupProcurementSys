@@ -174,7 +174,7 @@ namespace ProcurementSystem
                 errorSearchMsg.Text = "";
                 if (searchByRequestNo.Checked)
                 {
-                    MySqlDataAdapter searchRequestNo = new MySqlDataAdapter("Select RequestNo from PurchaseRequest where RequestNo ='" + searchText.Text+ "' Group By RequestNo;", cnn);
+                    MySqlDataAdapter searchRequestNo = new MySqlDataAdapter("Select DISTINCT RequestNo from PurchaseRequest where RequestNo ='" + searchText.Text+ "' Group By RequestNo;", cnn);
                     DataTable result = new DataTable();
                     searchRequestNo.Fill(result);
                     purchaseRequestList.Items.Clear();
@@ -185,7 +185,7 @@ namespace ProcurementSystem
                 }
                 else if (searchByStaffNo.Checked)
                 {
-                    MySqlDataAdapter searchRequestNo = new MySqlDataAdapter("Select RequestNo from PurchaseRequest where StaffNo ='" + searchText.Text + "';", cnn);
+                    MySqlDataAdapter searchRequestNo = new MySqlDataAdapter("Select DISTINCT RequestNo from PurchaseRequest where StaffNo ='" + searchText.Text + "';", cnn);
                     DataTable result = new DataTable();
                     searchRequestNo.Fill(result);
                     purchaseRequestList.Items.Clear();
@@ -195,7 +195,7 @@ namespace ProcurementSystem
                     }
                 }
                 else if (searchByStatus.Checked) {
-                    MySqlDataAdapter searchRequestNo = new MySqlDataAdapter("Select RequestNo from PurchaseRequest where Status ='" + searchText.Text + "';", cnn);
+                    MySqlDataAdapter searchRequestNo = new MySqlDataAdapter("Select DISTINCT RequestNo from PurchaseRequest where Status ='" + searchText.Text + "';", cnn);
                     DataTable result = new DataTable();
                     searchRequestNo.Fill(result);
                     purchaseRequestList.Items.Clear();
