@@ -53,7 +53,15 @@
             this.BPANo = new System.Windows.Forms.TextBox();
             this.BPA = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitofmeasurement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MinuminQTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -71,6 +79,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.currency);
             this.groupBox1.Controls.Add(this.SupplierNo);
             this.groupBox1.Controls.Add(this.textBox2);
@@ -95,7 +105,7 @@
             this.groupBox1.Controls.Add(this.BPA);
             this.groupBox1.Location = new System.Drawing.Point(12, 56);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(822, 370);
+            this.groupBox1.Size = new System.Drawing.Size(822, 568);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new agreement";
@@ -334,7 +344,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(12, 442);
+            this.button1.Location = new System.Drawing.Point(131, 630);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(149, 44);
             this.button1.TabIndex = 5;
@@ -342,12 +352,63 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemName,
+            this.Quantity,
+            this.unitofmeasurement,
+            this.MinuminQTY,
+            this.Price});
+            this.dataGridView1.Location = new System.Drawing.Point(17, 389);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(784, 150);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox3.Location = new System.Drawing.Point(19, 365);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(82, 18);
+            this.textBox3.TabIndex = 24;
+            this.textBox3.Text = "Item:";
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // unitofmeasurement
+            // 
+            this.unitofmeasurement.HeaderText = "unit of measurement";
+            this.unitofmeasurement.Name = "unitofmeasurement";
+            // 
+            // MinuminQTY
+            // 
+            this.MinuminQTY.HeaderText = "MinumumQTY";
+            this.MinuminQTY.Name = "MinuminQTY";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            // 
             // BPAStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(847, 502);
+            this.ClientSize = new System.Drawing.Size(860, 683);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
@@ -355,6 +416,7 @@
             this.Text = "BPAStatus";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,5 +449,12 @@
         private System.Windows.Forms.TextBox BPANo;
         private System.Windows.Forms.TextBox BPA;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitofmeasurement;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MinuminQTY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
     }
 }
