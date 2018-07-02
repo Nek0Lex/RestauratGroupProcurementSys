@@ -264,7 +264,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Name = "CreateAc";
-            this.Text = "se";
+            this.Text = "Create Account";
             this.Load += new System.EventHandler(this.CreateAc_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

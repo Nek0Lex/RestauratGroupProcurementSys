@@ -201,7 +201,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Name = "CreateSupp";
-            this.Text = "CreateSupp";
+            this.Text = "Create Supplier";
             this.Load += new System.EventHandler(this.CreateSupp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

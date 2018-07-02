@@ -100,7 +100,9 @@ namespace ProcurementSystem
                             "SET Status = 'BPA' " +
                             "WHERE RequestNo = '" + RequestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
                         changeStatus.ExecuteNonQuery();
-                    }
+						MySqlCommand updateBPAQty = new MySqlCommand("UPDATE BPALines SET PromisedQuantity = (PromisedQuantity-" + Quantity + ") WHERE BPANo = '" + bpaNo + "';", cnn);
+						updateBPAQty.ExecuteNonQuery();
+					}
                     else 
                     {
                         break;

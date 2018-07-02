@@ -176,7 +176,7 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewDeliveryNoteMenu";
-            this.Text = "WHViewPPOMenu";
+            this.Text = "Delivery Note";
             this.Load += new System.EventHandler(this.ViewDeliveryNoteMenu_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

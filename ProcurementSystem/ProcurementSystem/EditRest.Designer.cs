@@ -143,7 +143,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 16);
             this.label5.TabIndex = 54;
-            this.label5.Text = "Hierachy";
+            this.label5.Text = "Category";
             // 
             // label2
             // 
@@ -207,7 +207,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Name = "EditRest";
-            this.Text = "EditRest";
+            this.Text = "Edit Restaurant";
             this.Load += new System.EventHandler(this.EditRest_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

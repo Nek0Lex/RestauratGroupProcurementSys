@@ -258,7 +258,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Name = "EditAc";
-            this.Text = "EditAc";
+            this.Text = "Edit Account";
             this.Load += new System.EventHandler(this.EditAc_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
