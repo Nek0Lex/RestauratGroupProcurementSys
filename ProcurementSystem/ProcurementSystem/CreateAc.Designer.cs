@@ -211,9 +211,9 @@
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.Location = new System.Drawing.Point(418, 389);
+            this.button1.Location = new System.Drawing.Point(438, 386);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 25);
+            this.button1.Size = new System.Drawing.Size(181, 42);
             this.button1.TabIndex = 31;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
@@ -235,7 +235,7 @@
             this.comboBox2.Font = new System.Drawing.Font("新細明體", 12F);
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(140, 328);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(264, 24);
             this.comboBox2.TabIndex = 33;

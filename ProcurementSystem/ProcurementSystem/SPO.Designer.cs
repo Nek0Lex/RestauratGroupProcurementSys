@@ -210,9 +210,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(662, 16);
+            this.button4.Location = new System.Drawing.Point(674, 460);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(193, 34);
+            this.button4.Size = new System.Drawing.Size(181, 42);
             this.button4.TabIndex = 4;
             this.button4.Text = "back";
             this.button4.UseVisualStyleBackColor = true;
@@ -223,7 +223,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(869, 450);
+            this.ClientSize = new System.Drawing.Size(869, 514);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);

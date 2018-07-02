@@ -369,11 +369,11 @@
             // back
             // 
             this.back.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.back.Location = new System.Drawing.Point(13, 694);
+            this.back.Location = new System.Drawing.Point(794, 703);
             this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(162, 51);
+            this.back.Size = new System.Drawing.Size(181, 42);
             this.back.TabIndex = 6;
-            this.back.Text = "<Back";
+            this.back.Text = "Back";
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
             // 

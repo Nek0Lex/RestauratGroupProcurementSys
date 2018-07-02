@@ -194,11 +194,11 @@
             // back
             // 
             this.back.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.back.Location = new System.Drawing.Point(606, 17);
+            this.back.Location = new System.Drawing.Point(617, 457);
             this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(164, 33);
+            this.back.Size = new System.Drawing.Size(181, 42);
             this.back.TabIndex = 4;
-            this.back.Text = "back";
+            this.back.Text = "Back";
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -207,7 +207,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.ClientSize = new System.Drawing.Size(808, 517);
             this.Controls.Add(this.back);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);

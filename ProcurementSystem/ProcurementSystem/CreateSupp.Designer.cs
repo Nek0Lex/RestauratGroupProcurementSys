@@ -46,9 +46,9 @@
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.Location = new System.Drawing.Point(418, 451);
+            this.button1.Location = new System.Drawing.Point(438, 449);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 25);
+            this.button1.Size = new System.Drawing.Size(181, 42);
             this.button1.TabIndex = 48;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;

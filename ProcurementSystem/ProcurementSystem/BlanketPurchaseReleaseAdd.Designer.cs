@@ -332,9 +332,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(157, 546);
+            this.button2.Location = new System.Drawing.Point(614, 546);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 40);
+            this.button2.Size = new System.Drawing.Size(181, 42);
             this.button2.TabIndex = 5;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
@@ -342,9 +342,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(469, 546);
+            this.button1.Location = new System.Drawing.Point(390, 546);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 40);
+            this.button1.Size = new System.Drawing.Size(181, 42);
             this.button1.TabIndex = 6;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = true;

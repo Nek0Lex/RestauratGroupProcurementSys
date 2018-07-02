@@ -362,11 +362,11 @@
             // back
             // 
             this.back.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.back.Location = new System.Drawing.Point(277, 711);
+            this.back.Location = new System.Drawing.Point(795, 711);
             this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(149, 44);
+            this.back.Size = new System.Drawing.Size(181, 42);
             this.back.TabIndex = 5;
-            this.back.Text = "<Back";
+            this.back.Text = "Back";
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
             // 
@@ -374,9 +374,9 @@
             // 
             this.submit.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.submit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.submit.Location = new System.Drawing.Point(523, 711);
+            this.submit.Location = new System.Drawing.Point(567, 711);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(149, 44);
+            this.submit.Size = new System.Drawing.Size(181, 42);
             this.submit.TabIndex = 6;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
@@ -386,7 +386,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(987, 787);
+            this.ClientSize = new System.Drawing.Size(987, 772);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.back);
             this.Controls.Add(this.groupBox1);

@@ -224,9 +224,9 @@
             // 
             // backbtn
             // 
-            this.backbtn.Location = new System.Drawing.Point(657, 415);
+            this.backbtn.Location = new System.Drawing.Point(607, 396);
             this.backbtn.Name = "backbtn";
-            this.backbtn.Size = new System.Drawing.Size(131, 23);
+            this.backbtn.Size = new System.Drawing.Size(181, 42);
             this.backbtn.TabIndex = 56;
             this.backbtn.Text = "Back";
             this.backbtn.UseVisualStyleBackColor = true;

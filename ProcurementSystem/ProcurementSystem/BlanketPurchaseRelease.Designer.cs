@@ -347,9 +347,9 @@
             // confirm
             // 
             this.confirm.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.confirm.Location = new System.Drawing.Point(457, 541);
+            this.confirm.Location = new System.Drawing.Point(389, 541);
             this.confirm.Name = "confirm";
-            this.confirm.Size = new System.Drawing.Size(162, 40);
+            this.confirm.Size = new System.Drawing.Size(181, 42);
             this.confirm.TabIndex = 3;
             this.confirm.Text = "Confirm";
             this.confirm.UseVisualStyleBackColor = true;
@@ -358,9 +358,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(143, 541);
+            this.button2.Location = new System.Drawing.Point(614, 541);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 40);
+            this.button2.Size = new System.Drawing.Size(181, 42);
             this.button2.TabIndex = 4;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
@@ -368,9 +368,9 @@
             // forwardToAdd
             // 
             this.forwardToAdd.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.forwardToAdd.Location = new System.Drawing.Point(633, 15);
+            this.forwardToAdd.Location = new System.Drawing.Point(614, 13);
             this.forwardToAdd.Name = "forwardToAdd";
-            this.forwardToAdd.Size = new System.Drawing.Size(162, 40);
+            this.forwardToAdd.Size = new System.Drawing.Size(181, 42);
             this.forwardToAdd.TabIndex = 5;
             this.forwardToAdd.Text = "Create New PR";
             this.forwardToAdd.UseVisualStyleBackColor = true;
@@ -380,7 +380,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 606);
+            this.ClientSize = new System.Drawing.Size(812, 598);
             this.Controls.Add(this.forwardToAdd);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.confirm);

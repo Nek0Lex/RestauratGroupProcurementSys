@@ -100,10 +100,10 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(616, 357);
+            this.btnConfirm.Location = new System.Drawing.Point(616, 317);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(176, 18);
+            this.btnConfirm.Size = new System.Drawing.Size(181, 42);
             this.btnConfirm.TabIndex = 16;
             this.btnConfirm.Text = "Confirm Delivery Note";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -111,10 +111,10 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(616, 401);
+            this.btnBack.Location = new System.Drawing.Point(616, 378);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(176, 18);
+            this.btnBack.Size = new System.Drawing.Size(181, 42);
             this.btnBack.TabIndex = 17;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;

@@ -79,7 +79,7 @@
             this.createPRbtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.createPRbtn.Location = new System.Drawing.Point(312, 68);
             this.createPRbtn.Name = "createPRbtn";
-            this.createPRbtn.Size = new System.Drawing.Size(197, 48);
+            this.createPRbtn.Size = new System.Drawing.Size(181, 42);
             this.createPRbtn.TabIndex = 2;
             this.createPRbtn.Text = "Create Purchase Request";
             this.createPRbtn.UseVisualStyleBackColor = true;
@@ -88,9 +88,9 @@
             // edditPRbtn
             // 
             this.edditPRbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.edditPRbtn.Location = new System.Drawing.Point(312, 159);
+            this.edditPRbtn.Location = new System.Drawing.Point(312, 146);
             this.edditPRbtn.Name = "edditPRbtn";
-            this.edditPRbtn.Size = new System.Drawing.Size(197, 46);
+            this.edditPRbtn.Size = new System.Drawing.Size(181, 42);
             this.edditPRbtn.TabIndex = 3;
             this.edditPRbtn.Text = "Edit/View Purchase Request";
             this.edditPRbtn.UseVisualStyleBackColor = true;
@@ -99,9 +99,9 @@
             // deletePRbtn
             // 
             this.deletePRbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.deletePRbtn.Location = new System.Drawing.Point(312, 254);
+            this.deletePRbtn.Location = new System.Drawing.Point(312, 222);
             this.deletePRbtn.Name = "deletePRbtn";
-            this.deletePRbtn.Size = new System.Drawing.Size(197, 48);
+            this.deletePRbtn.Size = new System.Drawing.Size(181, 42);
             this.deletePRbtn.TabIndex = 4;
             this.deletePRbtn.Text = "Delete Purchase Request";
             this.deletePRbtn.UseVisualStyleBackColor = true;
@@ -110,9 +110,9 @@
             // prBack
             // 
             this.prBack.Cursor = System.Windows.Forms.Cursors.Default;
-            this.prBack.Location = new System.Drawing.Point(591, 413);
+            this.prBack.Location = new System.Drawing.Point(589, 370);
             this.prBack.Name = "prBack";
-            this.prBack.Size = new System.Drawing.Size(197, 25);
+            this.prBack.Size = new System.Drawing.Size(181, 42);
             this.prBack.TabIndex = 5;
             this.prBack.Text = "Back";
             this.prBack.UseVisualStyleBackColor = true;
@@ -149,9 +149,9 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(312, 366);
+            this.btnRefresh.Location = new System.Drawing.Point(312, 305);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(131, 46);
+            this.btnRefresh.Size = new System.Drawing.Size(181, 42);
             this.btnRefresh.TabIndex = 10;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -249,7 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(793, 439);
             this.Controls.Add(this.currentLogin);
             this.Controls.Add(this.errorSearchMsg);
             this.Controls.Add(this.groupBox1);

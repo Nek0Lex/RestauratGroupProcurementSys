@@ -30,6 +30,7 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.TAC = new System.Windows.Forms.RichTextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.ItemID = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.ContractNo = new System.Windows.Forms.TextBox();
             this.back = new System.Windows.Forms.Button();
             this.submit = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,6 +93,19 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new CPA";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox2.Location = new System.Drawing.Point(103, 126);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(10, 18);
+            this.textBox2.TabIndex = 23;
+            this.textBox2.Text = "S";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // TAC
             // 
@@ -267,43 +280,30 @@
             // back
             // 
             this.back.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.back.Location = new System.Drawing.Point(270, 563);
+            this.back.Location = new System.Drawing.Point(793, 563);
             this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(149, 44);
+            this.back.Size = new System.Drawing.Size(181, 42);
             this.back.TabIndex = 23;
-            this.back.Text = "<Back";
+            this.back.Text = "Back";
             this.back.UseVisualStyleBackColor = true;
             // 
             // submit
             // 
             this.submit.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.submit.Location = new System.Drawing.Point(535, 563);
+            this.submit.Location = new System.Drawing.Point(556, 563);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(149, 44);
+            this.submit.Size = new System.Drawing.Size(181, 42);
             this.submit.TabIndex = 24;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
             this.submit.Click += new System.EventHandler(this.submit_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox2.Location = new System.Drawing.Point(103, 126);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(10, 18);
-            this.textBox2.TabIndex = 23;
-            this.textBox2.Text = "S";
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // CPAEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(987, 635);
+            this.ClientSize = new System.Drawing.Size(987, 631);
             this.Controls.Add(this.submit);
             this.Controls.Add(this.back);
             this.Controls.Add(this.groupBox1);

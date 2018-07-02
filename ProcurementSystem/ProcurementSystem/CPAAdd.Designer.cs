@@ -291,22 +291,22 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(114, 568);
+            this.button1.Location = new System.Drawing.Point(793, 555);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 58);
+            this.button1.Size = new System.Drawing.Size(181, 42);
             this.button1.TabIndex = 5;
-            this.button1.Text = "<Back";
+            this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(398, 568);
+            this.button2.Location = new System.Drawing.Point(328, 555);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(174, 58);
+            this.button2.Size = new System.Drawing.Size(181, 42);
             this.button2.TabIndex = 6;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
@@ -315,10 +315,10 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(693, 568);
+            this.button3.Location = new System.Drawing.Point(560, 555);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(174, 58);
+            this.button3.Size = new System.Drawing.Size(181, 42);
             this.button3.TabIndex = 7;
             this.button3.Text = "Submit";
             this.button3.UseVisualStyleBackColor = true;
@@ -329,7 +329,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(986, 667);
+            this.ClientSize = new System.Drawing.Size(986, 623);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

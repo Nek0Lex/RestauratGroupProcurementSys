@@ -32,6 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.BPANoTW = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.search = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.refresh_btn = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.ItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,8 +46,6 @@
             this.Reference = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BPANoSelection = new System.Windows.Forms.ComboBox();
             this.back_btn = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.search = new System.Windows.Forms.TextBox();
             BPANo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -95,6 +95,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Purchase Order";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // search
+            // 
+            this.search.Location = new System.Drawing.Point(331, 34);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(219, 23);
+            this.search.TabIndex = 6;
+            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox2.Location = new System.Drawing.Point(270, 35);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(55, 20);
+            this.textBox2.TabIndex = 5;
+            this.textBox2.Text = "Search:";
             // 
             // refresh_btn
             // 
@@ -182,32 +201,13 @@
             // 
             this.back_btn.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.back_btn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.back_btn.Location = new System.Drawing.Point(18, 528);
+            this.back_btn.Location = new System.Drawing.Point(698, 538);
             this.back_btn.Name = "back_btn";
-            this.back_btn.Size = new System.Drawing.Size(149, 38);
+            this.back_btn.Size = new System.Drawing.Size(181, 42);
             this.back_btn.TabIndex = 3;
             this.back_btn.Text = "Back";
             this.back_btn.UseVisualStyleBackColor = true;
             this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox2.Location = new System.Drawing.Point(270, 35);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(55, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "Search:";
-            // 
-            // search
-            // 
-            this.search.Location = new System.Drawing.Point(331, 34);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(219, 23);
-            this.search.TabIndex = 6;
-            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             // 
             // WHPurchaseOrder
             // 
