@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ProcurementSystem
 {
@@ -31,7 +32,15 @@ namespace ProcurementSystem
             Amount.Text = lv.SelectedItems[0].SubItems[9].Text;
             Currency.Text = lv.SelectedItems[0].SubItems[10].Text;
             TAC.Text = lv.SelectedItems[0].SubItems[11].Text;
-
+            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+            cnn.Open();
+            MySqlDataAdapter getItem = new MySqlDataAdapter("SELECT * FROM PPOLines WHERE PPONo = '" + PPONo.Text + "'", cnn);
+            DataTable dt = new DataTable();
+            getItem.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                dataGridView1.Rows.Add(dr["ItemDescription"].ToString(), dr["Quantity"].ToString(), dr["UOM"].ToString(), dr["Price"].ToString());
+            }
             SetReadonlyControls(groupBox1.Controls);
         }
 

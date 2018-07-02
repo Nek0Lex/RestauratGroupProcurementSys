@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ProcurementSystem
 {
@@ -29,7 +30,17 @@ namespace ProcurementSystem
             RestNo.Text = lv.SelectedItems[0].SubItems[7].Text;
             ExpectedDeliveryDate.Text = lv.SelectedItems[0].SubItems[8].Text;
             TAC.Text = lv.SelectedItems[0].SubItems[9].Text;
-
+            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+            cnn.Open();
+            MySqlDataAdapter getItem = new MySqlDataAdapter("SELECT * FROM SPOLines WHERE SPONo = '" + SPONo.Text + "'", cnn);
+            DataTable dt = new DataTable();
+            getItem.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                MySqlCommand getItemName = new MySqlCommand("SELECT ItemDescription FROM SupplierItem si, Item i WHERE si.ItemID = i.ItemID AND si.SupplierNo = '" + SupplierNo.Text + "' AND si.SupplierItemID ='" + dr["SupplierItemID"].ToString() + "'", cnn);
+                string itemName = getItemName.ExecuteScalar().ToString();
+                dataGridView1.Rows.Add(itemName, dr["Quantity"].ToString(), dr["UOM"].ToString(), dr["Price"].ToString());
+            }
             SetReadonlyControls(groupBox1.Controls);
         }
 
