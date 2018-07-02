@@ -151,16 +151,16 @@ namespace ProcurementSystem
                     nowBPRNo = getNextRequestNo.ExecuteScalar().ToString();
                     if (nowBPRNo == "")
                     {
-                        nowBPRNo = "BPR000";
+                        nowBPRNo = "RE0000";
                     }
                     else
                     {
                         nowBPRNo = Regex.Match(nowBPRNo, @"\d+").Value;
                     }
-                    int num = int.Parse(nowBPRNo.GetLast(3));
+                    int num = int.Parse(nowBPRNo.GetLast(4));
                     num++;
-                    nowBPRNo = num.ToString().PadLeft(3, '0');
-                    nowBPRNo = "BPR" + nowBPRNo;
+                    nowBPRNo = num.ToString().PadLeft(4, '0');
+                    nowBPRNo = "RE" + nowBPRNo;
                     MySqlCommand getRestNo = new MySqlCommand("Select DISTINCT RestNo FROM PurchaseRequest WHERE RequestNo = '" + tbRequestID.Text + "'", cnn);
                     restNo = getRestNo.ExecuteScalar().ToString();
                     BlanketPurchaseRelease BPR = new BlanketPurchaseRelease(bprBPANo, nowBPRNo, restNo, itemList.Rows[0].Cells[0].Value.ToString(), itemList.Rows[0].Cells[1].Value.ToString(), tbRequestID.Text);
