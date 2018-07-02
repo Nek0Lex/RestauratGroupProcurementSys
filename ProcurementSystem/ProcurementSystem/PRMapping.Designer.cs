@@ -46,9 +46,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.requestList)).BeginInit();
@@ -213,6 +213,16 @@
             this.radioButton3.Text = "PPO";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(269, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 43);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Create";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
@@ -234,16 +244,6 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "BPR";
             this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(269, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 43);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Create";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -280,6 +280,7 @@
             this.Controls.Add(this.requestList);
             this.Name = "PRMapping";
             this.Text = "PRMapping";
+            this.Load += new System.EventHandler(this.PRMapping_Load);
             ((System.ComponentModel.ISupportInitialize)(this.requestList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemList)).EndInit();
             this.groupBox1.ResumeLayout(false);
