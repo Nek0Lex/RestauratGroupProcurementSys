@@ -59,9 +59,9 @@
             // deleteItem
             // 
             this.deleteItem.Font = new System.Drawing.Font("新細明體", 11F);
-            this.deleteItem.Location = new System.Drawing.Point(562, 264);
+            this.deleteItem.Location = new System.Drawing.Point(561, 151);
             this.deleteItem.Name = "deleteItem";
-            this.deleteItem.Size = new System.Drawing.Size(75, 23);
+            this.deleteItem.Size = new System.Drawing.Size(181, 42);
             this.deleteItem.TabIndex = 40;
             this.deleteItem.Text = "Delete";
             this.deleteItem.UseVisualStyleBackColor = true;
@@ -98,9 +98,9 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("新細明體", 11F);
-            this.btnAdd.Location = new System.Drawing.Point(561, 347);
+            this.btnAdd.Location = new System.Drawing.Point(561, 335);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(181, 42);
             this.btnAdd.TabIndex = 35;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -119,9 +119,9 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("新細明體", 11F);
-            this.btnCancel.Location = new System.Drawing.Point(707, 416);
+            this.btnCancel.Location = new System.Drawing.Point(607, 441);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(181, 42);
             this.btnCancel.TabIndex = 33;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -130,9 +130,9 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("新細明體", 11F);
-            this.btnEdit.Location = new System.Drawing.Point(626, 415);
+            this.btnEdit.Location = new System.Drawing.Point(387, 441);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.Size = new System.Drawing.Size(181, 42);
             this.btnEdit.TabIndex = 32;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -304,7 +304,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 495);
             this.Controls.Add(this.errorMsg);
             this.Controls.Add(this.purchaseList2);
             this.Controls.Add(this.deleteItem);

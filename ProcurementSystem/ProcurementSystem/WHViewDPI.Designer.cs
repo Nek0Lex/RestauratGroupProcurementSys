@@ -90,7 +90,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(474, 68);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(271, 23);
+            this.button1.Size = new System.Drawing.Size(181, 42);
             this.button1.TabIndex = 14;
             this.button1.Text = "Generate Delivery Note";
             this.button1.UseVisualStyleBackColor = true;
@@ -98,9 +98,9 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(474, 388);
+            this.btnBack.Location = new System.Drawing.Point(474, 369);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(271, 23);
+            this.btnBack.Size = new System.Drawing.Size(181, 42);
             this.btnBack.TabIndex = 15;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -110,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(682, 434);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listViewDes);

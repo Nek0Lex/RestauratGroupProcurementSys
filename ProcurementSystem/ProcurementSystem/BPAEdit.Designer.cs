@@ -337,20 +337,20 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(230, 444);
+            this.button1.Location = new System.Drawing.Point(653, 444);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 44);
+            this.button1.Size = new System.Drawing.Size(181, 42);
             this.button1.TabIndex = 4;
-            this.button1.Text = "<Back";
+            this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(472, 444);
+            this.button3.Location = new System.Drawing.Point(430, 444);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(149, 44);
+            this.button3.Size = new System.Drawing.Size(181, 42);
             this.button3.TabIndex = 6;
             this.button3.Text = "Submit";
             this.button3.UseVisualStyleBackColor = true;
@@ -361,7 +361,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(846, 524);
+            this.ClientSize = new System.Drawing.Size(846, 504);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);

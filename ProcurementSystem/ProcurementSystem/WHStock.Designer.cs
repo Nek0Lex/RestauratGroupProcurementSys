@@ -60,7 +60,7 @@
             this.dGVItem.ReadOnly = true;
             this.dGVItem.RowTemplate.Height = 24;
             this.dGVItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGVItem.Size = new System.Drawing.Size(446, 350);
+            this.dGVItem.Size = new System.Drawing.Size(446, 418);
             this.dGVItem.TabIndex = 0;
             this.dGVItem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVItem_CellContentClick);
             // 
@@ -207,9 +207,9 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(634, 33);
+            this.btnBack.Location = new System.Drawing.Point(588, 443);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(135, 23);
+            this.btnBack.Size = new System.Drawing.Size(181, 42);
             this.btnBack.TabIndex = 20;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -219,7 +219,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 506);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

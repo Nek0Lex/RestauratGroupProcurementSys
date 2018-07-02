@@ -140,8 +140,8 @@ namespace ProcurementSystem
                     break;
                 case "AD":
                     this.Hide();
-                    WHPurchaseOrder WHPO = new WHPurchaseOrder(this);
-                    WHPO.Show();
+                    TypeofAgreementMenu adtam = new TypeofAgreementMenu(staffName, this);
+                    adtam.Show();
                     break;
             }
         }

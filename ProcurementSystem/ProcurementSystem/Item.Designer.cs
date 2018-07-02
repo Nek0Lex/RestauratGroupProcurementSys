@@ -41,19 +41,21 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(67, 81);
+            this.dataGridView1.Location = new System.Drawing.Point(50, 65);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(937, 331);
+            this.dataGridView1.Size = new System.Drawing.Size(703, 277);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(115, 449);
+            this.btnCreate.Location = new System.Drawing.Point(799, 65);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(124, 33);
+            this.btnCreate.Size = new System.Drawing.Size(181, 42);
             this.btnCreate.TabIndex = 1;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -61,9 +63,10 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(331, 449);
+            this.btnEdit.Location = new System.Drawing.Point(799, 141);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(124, 33);
+            this.btnEdit.Size = new System.Drawing.Size(181, 42);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -71,9 +74,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(544, 449);
+            this.btnDelete.Location = new System.Drawing.Point(799, 217);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(124, 33);
+            this.btnDelete.Size = new System.Drawing.Size(181, 42);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -81,9 +85,10 @@
             // 
             // Back
             // 
-            this.Back.Location = new System.Drawing.Point(790, 485);
+            this.Back.Location = new System.Drawing.Point(799, 300);
+            this.Back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(124, 33);
+            this.Back.Size = new System.Drawing.Size(181, 42);
             this.Back.TabIndex = 4;
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = true;
@@ -91,14 +96,15 @@
             // 
             // Item
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 562);
+            this.ClientSize = new System.Drawing.Size(1022, 373);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Item";
             this.Text = "Item";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

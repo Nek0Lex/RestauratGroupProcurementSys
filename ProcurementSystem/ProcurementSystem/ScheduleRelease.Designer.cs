@@ -170,9 +170,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(181, 298);
+            this.button1.Location = new System.Drawing.Point(564, 298);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 42);
+            this.button1.Size = new System.Drawing.Size(181, 42);
             this.button1.TabIndex = 4;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
@@ -180,9 +180,9 @@
             // 
             // confirm
             // 
-            this.confirm.Location = new System.Drawing.Point(384, 298);
+            this.confirm.Location = new System.Drawing.Point(344, 298);
             this.confirm.Name = "confirm";
-            this.confirm.Size = new System.Drawing.Size(132, 42);
+            this.confirm.Size = new System.Drawing.Size(181, 42);
             this.confirm.TabIndex = 5;
             this.confirm.Text = "Confirm";
             this.confirm.UseVisualStyleBackColor = true;

@@ -70,7 +70,7 @@
             this.requestList.Name = "requestList";
             this.requestList.ReadOnly = true;
             this.requestList.RowTemplate.Height = 24;
-            this.requestList.Size = new System.Drawing.Size(248, 321);
+            this.requestList.Size = new System.Drawing.Size(346, 404);
             this.requestList.TabIndex = 0;
             this.requestList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.requestList_CellClick);
             // 
@@ -96,7 +96,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("新細明體", 12F);
-            this.label1.Location = new System.Drawing.Point(326, 67);
+            this.label1.Location = new System.Drawing.Point(416, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 16);
             this.label1.TabIndex = 1;
@@ -105,7 +105,7 @@
             // tbRequestID
             // 
             this.tbRequestID.BackColor = System.Drawing.SystemColors.Window;
-            this.tbRequestID.Location = new System.Drawing.Point(418, 67);
+            this.tbRequestID.Location = new System.Drawing.Point(508, 68);
             this.tbRequestID.Name = "tbRequestID";
             this.tbRequestID.ReadOnly = true;
             this.tbRequestID.Size = new System.Drawing.Size(155, 22);
@@ -115,7 +115,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("新細明體", 12F);
-            this.label2.Location = new System.Drawing.Point(329, 102);
+            this.label2.Location = new System.Drawing.Point(419, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 3;
@@ -133,10 +133,10 @@
             this.ItemWareHouse,
             this.Column1,
             this.Column2});
-            this.itemList.Location = new System.Drawing.Point(379, 95);
+            this.itemList.Location = new System.Drawing.Point(422, 122);
             this.itemList.Name = "itemList";
             this.itemList.RowTemplate.Height = 24;
-            this.itemList.Size = new System.Drawing.Size(392, 182);
+            this.itemList.Size = new System.Drawing.Size(547, 182);
             this.itemList.TabIndex = 4;
             this.itemList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemList_CellContentClick);
             // 
@@ -181,11 +181,12 @@
             // 
             this.groupBox1.Controls.Add(this.radioButton4);
             this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(339, 335);
+            this.groupBox1.Location = new System.Drawing.Point(422, 331);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(314, 64);
+            this.groupBox1.Size = new System.Drawing.Size(434, 76);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generate To";
@@ -236,9 +237,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(659, 340);
+            this.button1.Location = new System.Drawing.Point(269, 18);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 54);
+            this.button1.Size = new System.Drawing.Size(137, 43);
             this.button1.TabIndex = 8;
             this.button1.Text = "Create";
             this.button1.UseVisualStyleBackColor = true;
@@ -256,9 +257,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(625, 415);
+            this.button2.Location = new System.Drawing.Point(788, 430);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(181, 42);
             this.button2.TabIndex = 10;
             this.button2.Text = "Back";
             this.button2.UseVisualStyleBackColor = true;
@@ -268,10 +269,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(991, 488);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.itemList);
             this.Controls.Add(this.label2);

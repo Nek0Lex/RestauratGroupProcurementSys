@@ -149,9 +149,9 @@
             // btn_create
             // 
             this.btn_create.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_create.Location = new System.Drawing.Point(413, 300);
+            this.btn_create.Location = new System.Drawing.Point(340, 300);
             this.btn_create.Name = "btn_create";
-            this.btn_create.Size = new System.Drawing.Size(129, 40);
+            this.btn_create.Size = new System.Drawing.Size(181, 42);
             this.btn_create.TabIndex = 5;
             this.btn_create.Text = "Create";
             this.btn_create.UseVisualStyleBackColor = true;
@@ -160,9 +160,9 @@
             // btn_cancel
             // 
             this.btn_cancel.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn_cancel.Location = new System.Drawing.Point(188, 300);
+            this.btn_cancel.Location = new System.Drawing.Point(564, 300);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(129, 40);
+            this.btn_cancel.Size = new System.Drawing.Size(181, 42);
             this.btn_cancel.TabIndex = 6;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
