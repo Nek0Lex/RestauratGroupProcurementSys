@@ -64,7 +64,7 @@ namespace ProcurementSystem
                 {
                     try
                     {
-                        MySqlCommand getStock = new MySqlCommand("SELECT quantity from WarehouseStock w, Item i WHERE w.ItemID = i. ItemID AND i.ItemDescription = '" + row.Cells[0].Value.ToString() + "'", cnn);
+                        MySqlCommand getStock = new MySqlCommand("SELECT quantity from WarehouseStock_new w, Item i WHERE w.ItemID = i. ItemID AND i.ItemDescription = '" + row.Cells[0].Value.ToString() + "'", cnn);
                         row.Cells[4].Value = getStock.ExecuteScalar().ToString();
                         if (row.Cells[4].Value.ToString() == "")
                         {
@@ -350,8 +350,12 @@ namespace ProcurementSystem
             //requestList.Refresh();
         }
 
-	}
-	public static class StringExtension
+        private void PRMapping_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+    public static class StringExtension
     {
         public static string GetLast(this string source, int tail_length)
         {

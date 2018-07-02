@@ -79,6 +79,7 @@
             this.tbPW.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tbPW.ForeColor = System.Drawing.SystemColors.InfoText;
             this.tbPW.Location = new System.Drawing.Point(140, 181);
+            this.tbPW.MaxLength = 8;
             this.tbPW.Name = "tbPW";
             this.tbPW.Size = new System.Drawing.Size(221, 27);
             this.tbPW.TabIndex = 14;
@@ -203,6 +204,7 @@
             // 
             this.tbID.Cursor = System.Windows.Forms.Cursors.Default;
             this.tbID.Location = new System.Drawing.Point(242, 133);
+            this.tbID.MaxLength = 6;
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(119, 22);
             this.tbID.TabIndex = 30;
