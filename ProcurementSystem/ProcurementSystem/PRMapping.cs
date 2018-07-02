@@ -138,7 +138,7 @@ namespace ProcurementSystem
         {
             if (radioButton1.Checked)
             {
-                if (int.Parse(itemList.Rows[0].Cells[1].Value.ToString()) - int.Parse(itemList.Rows[0].Cells[4].Value.ToString()) > 0)
+                if (int.Parse(itemList.Rows[0].Cells[1].Value.ToString()) - int.Parse(itemList.Rows[0].Cells[6].Value.ToString()) > 0)
                 {
                     MessageBox.Show("Not a Valid BPA!");
                 }
@@ -252,7 +252,7 @@ namespace ProcurementSystem
                 }
             }else if (radioButton3.Checked)
             {
-                if (int.Parse(itemList.Rows[0].Cells[1].Value.ToString()) - int.Parse(itemList.Rows[0].Cells[4].Value.ToString()) > 0)
+                if (int.Parse(itemList.Rows[0].Cells[1].Value.ToString()) - int.Parse(itemList.Rows[0].Cells[5].Value.ToString()) > 0)
                     MessageBox.Show("Not enough in PPO");
                 else
                 {
