@@ -36,11 +36,14 @@ namespace ProcurementSystem
 
         private void btn_openSR_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(pposelection.Text)){
-                //ScheduleRelease scheduleRelease = new ScheduleRelease(pposelection.Text);
-                //scheduleRelease.Show();
-                //this.Close();
-            }
+                ScheduleReleaseAdd scheduleRelease = new ScheduleReleaseAdd();
+                scheduleRelease.Show();
+                this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
