@@ -70,6 +70,7 @@
             this.purchaseRequestList.HorizontalScrollbar = true;
             this.purchaseRequestList.Location = new System.Drawing.Point(19, 68);
             this.purchaseRequestList.Name = "purchaseRequestList";
+            this.purchaseRequestList.ScrollAlwaysVisible = true;
             this.purchaseRequestList.Size = new System.Drawing.Size(256, 344);
             this.purchaseRequestList.TabIndex = 1;
             this.purchaseRequestList.SelectedIndexChanged += new System.EventHandler(this.purchaseRequestList_SelectedIndexChanged);
