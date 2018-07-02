@@ -90,8 +90,20 @@ namespace ProcurementSystem
                                 MySqlCommand cmd2 = new MySqlCommand("INSERT INTO SPOLines (SPONo, SupplierItemID, Quantity, UOM, Price, Amount) VALUES ('" + spoNo + "', '" + itemID + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + row.Cells[3].Value.ToString() + "', '" + amount + "');", cnn);
                                 cmd2.ExecuteNonQuery();
                             }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
 
-                            MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + row.Cells[0].Value.ToString() + "';", cnn);
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Cells[0].Value != null)
+                        {
+                            MySqlCommand cmd3 = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
+                            String itemID = cmd3.ExecuteScalar().ToString();
+                            MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + itemID + "';", cnn);
                             String VItemID = cmd4.ExecuteScalar().ToString();
                             MySqlCommand changeStatus = new MySqlCommand("UPDATE PurchaseRequest " +
                                 "SET Status = 'SPO' " +
@@ -102,6 +114,7 @@ namespace ProcurementSystem
                         {
                             break;
                         }
+
                     }
 
 
