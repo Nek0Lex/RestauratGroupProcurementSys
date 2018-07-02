@@ -77,8 +77,9 @@ namespace ProcurementSystem
                     }
                     try
                     {
-                        MySqlCommand getPPO = new MySqlCommand("SELECT p.Quantity, MAX(PPONo) from PPOLines p WHERE p.ItemDescription  ='" + row.Cells[0].Value.ToString() + "'", cnn);
-                        row.Cells[5].Value = getPPO.ExecuteScalar().ToString();
+                        //MySqlCommand getPPO = new MySqlCommand("SELECT p.Quantity, MAX(PPONo) from PPOLines p WHERE p.ItemDescription  ='" + row.Cells[0].Value.ToString() + "'", cnn);
+						MySqlCommand getPPO = new MySqlCommand("SELECT p.Quantity, PPONo from PPOLines p WHERE p.ItemDescription  ='" + row.Cells[0].Value.ToString() + "' AND PPONo = (SELECT MAX(PPONo) FROM PPOLines p WHERE p.ItemDescription  ='" + row.Cells[0].Value.ToString() + "');", cnn);
+						row.Cells[5].Value = getPPO.ExecuteScalar().ToString();
                         if (row.Cells[5].Value.ToString() == "")
                         {
                             row.Cells[5].Value = "0";
@@ -90,8 +91,9 @@ namespace ProcurementSystem
                     }
                     try
                     {
-                        MySqlCommand getBPA = new MySqlCommand("SELECT b.PromisedQuantity, MAX(BPANo) from BPALines b, Item i WHERE b.ItemID = i.ItemID AND i.ItemDescription ='" + row.Cells[0].Value.ToString() + "'", cnn);
-                        row.Cells[6].Value = getBPA.ExecuteScalar().ToString();
+                        //MySqlCommand getBPA = new MySqlCommand("SELECT b.PromisedQuantity, MAX(BPANo) from BPALines b, Item i WHERE b.ItemID = i.ItemID AND i.ItemDescription ='" + row.Cells[0].Value.ToString() + "'", cnn);
+						MySqlCommand getBPA = new MySqlCommand("SELECT b.PromisedQuantity, BPANo FROM BPALines b, Item i WHERE b.ItemID = i.ItemID AND i.ItemDescription ='" + row.Cells[0].Value.ToString() + "' AND BPANo=(SELECT MAX(BPANo) FROM  BPALines b, Item i WHERE b.ItemID = i.ItemID AND i.ItemDescription ='" + row.Cells[0].Value.ToString() + "');", cnn);
+						row.Cells[6].Value = getBPA.ExecuteScalar().ToString();
                         if(row.Cells[6].Value.ToString() == "")
                         {
                             row.Cells[6].Value = "0";
