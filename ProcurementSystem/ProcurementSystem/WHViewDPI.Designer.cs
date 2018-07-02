@@ -116,7 +116,7 @@
             this.Controls.Add(this.listViewDes);
             this.Controls.Add(this.label1);
             this.Name = "WHViewDPI";
-            this.Text = "WHViewDPI";
+            this.Text = "View Despatch Instruction";
             this.Load += new System.EventHandler(this.WHViewDPI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

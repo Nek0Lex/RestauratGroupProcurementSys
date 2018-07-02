@@ -228,7 +228,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "WHStock";
-            this.Text = "Form2";
+            this.Text = "Stock";
             this.Load += new System.EventHandler(this.WHStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).EndInit();
             this.groupBox1.ResumeLayout(false);

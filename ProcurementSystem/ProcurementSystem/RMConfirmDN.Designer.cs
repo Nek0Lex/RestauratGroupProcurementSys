@@ -270,7 +270,7 @@
             this.Controls.Add(this.dGVItem);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RMConfirmDN";
-            this.Text = "WHViewPPO";
+            this.Text = "Confirm Delivery Note";
             this.Load += new System.EventHandler(this.ViewDeliveryNote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).EndInit();
             this.groupBox2.ResumeLayout(false);

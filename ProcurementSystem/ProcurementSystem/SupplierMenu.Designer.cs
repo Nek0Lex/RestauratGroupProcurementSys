@@ -171,7 +171,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnEdit);
             this.Name = "SupplierMenu";
-            this.Text = "SupplierMenu";
+            this.Text = "Supplier";
             this.Load += new System.EventHandler(this.SupplierMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

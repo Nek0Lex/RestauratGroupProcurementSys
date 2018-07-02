@@ -37,6 +37,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.numQty = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbAddress = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbRName = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnUpdateStatus = new System.Windows.Forms.Button();
-            this.lbAddress = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
@@ -170,6 +170,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Note Information";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // lbAddress
+            // 
+            this.lbAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbAddress.Location = new System.Drawing.Point(91, 233);
+            this.lbAddress.Name = "lbAddress";
+            this.lbAddress.Size = new System.Drawing.Size(674, 72);
+            this.lbAddress.TabIndex = 30;
+            this.lbAddress.Text = "";
             // 
             // label10
             // 
@@ -318,15 +327,6 @@
             this.btnUpdateStatus.UseVisualStyleBackColor = true;
             this.btnUpdateStatus.Click += new System.EventHandler(this.button1_Click);
             // 
-            // lbAddress
-            // 
-            this.lbAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lbAddress.Location = new System.Drawing.Point(91, 233);
-            this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(674, 72);
-            this.lbAddress.TabIndex = 30;
-            this.lbAddress.Text = "";
-            // 
             // WHUpdateDN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -340,7 +340,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Name = "WHUpdateDN";
-            this.Text = "WHUpdateDN";
+            this.Text = "Update Delivery Note";
             this.Load += new System.EventHandler(this.WHUpdateDN_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVItem)).EndInit();
             this.groupBox1.ResumeLayout(false);
