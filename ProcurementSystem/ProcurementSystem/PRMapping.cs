@@ -256,10 +256,12 @@ namespace ProcurementSystem
                     MessageBox.Show("Not enough in PPO");
                 else
                 {
+                    string ItemName = itemList.Rows[0].Cells[0].Value.ToString();
                     string SRrequestNo = tbRequestID.Text;
                     MySqlCommand getPPO2 = new MySqlCommand("SELECT  MAX(PPONo) from PPOLines p WHERE p.ItemDescription  ='" + itemList.Rows[0].Cells[0].Value.ToString() + "'", cnn);
                     string PRPPO = getPPO2.ExecuteScalar().ToString();
-                    ScheduleRelease sr = new ScheduleRelease(PRPPO);
+                    string requestNo = tbRequestID.Text;
+                    ScheduleRelease sr = new ScheduleRelease(PRPPO, requestNo, ItemName);
                     sr.ShowDialog();
                     this.reset();
                 }
@@ -290,7 +292,8 @@ namespace ProcurementSystem
                 MySqlCommand getRestNo = new MySqlCommand("Select DISTINCT RestNo FROM PurchaseRequest WHERE requestNo = '"+tbRequestID.Text+"'", cnn);
                 restNo = getRestNo.ExecuteScalar().ToString();
                 restNo = restNo.GetLast(3);
-                SPOAdd spoadd = new SPOAdd(nowSPONo, supplierNo, restNo, itemList.Rows[0].Cells[0].Value.ToString(), itemList.Rows[0].Cells[1].Value.ToString());
+                String RequestNo = tbRequestID.Text;
+                SPOAdd spoadd = new SPOAdd(nowSPONo, supplierNo, restNo, itemList.Rows[0].Cells[0].Value.ToString(), itemList.Rows[0].Cells[1].Value.ToString(), RequestNo);
                 spoadd.ShowDialog();
                 this.reset();
             }

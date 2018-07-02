@@ -14,13 +14,14 @@ namespace ProcurementSystem
 {
     public partial class SPOAdd : Form
     {
+        String requestNo;
         MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
         public SPOAdd()
         {
             InitializeComponent();
             cnn.Open();
         }
-        public SPOAdd(string getSPONo, string getSupplierNo, string getRestNo, string itemName, string itemQty)
+        public SPOAdd(string getSPONo, string getSupplierNo, string getRestNo, string itemName, string itemQty, string RequestNo)
         {
             InitializeComponent();
             cnn.Open();
@@ -28,6 +29,7 @@ namespace ProcurementSystem
             SupplierNo.Text = getSupplierNo;
             RestNo.Text = getRestNo;
             dataGridView1.Rows.Add(itemName, itemQty);
+            requestNo = RequestNo;
         }
 
         private void SPUAdd_Load(object sender, EventArgs e)
@@ -64,7 +66,7 @@ namespace ProcurementSystem
                 String buyerName = BuyerName.Text;
                 String restNo = "R" + RestNo.Text;
                 String tac = TAC.Text;
-
+                
 
                 if (string.IsNullOrWhiteSpace(spoNo) || string.IsNullOrWhiteSpace(supplierNo) || string.IsNullOrWhiteSpace(restNo) || string.IsNullOrWhiteSpace(billAddress))
                 {
@@ -88,12 +90,21 @@ namespace ProcurementSystem
                                 MySqlCommand cmd2 = new MySqlCommand("INSERT INTO SPOLines (SPONo, SupplierItemID, Quantity, UOM, Price, Amount) VALUES ('" + spoNo + "', '" + itemID + "', '" + row.Cells[1].Value.ToString() + "', '" + row.Cells[2].Value.ToString() + "', '" + row.Cells[3].Value.ToString() + "', '" + amount + "');", cnn);
                                 cmd2.ExecuteNonQuery();
                             }
+
+                            MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + row.Cells[0].Value.ToString() + "';", cnn);
+                            String VItemID = cmd4.ExecuteScalar().ToString();
+                            MySqlCommand changeStatus = new MySqlCommand("UPDATE PurchaseRequest " +
+                                "SET Status = 'SPO' " +
+                                "WHERE RequestNo = '" + requestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
+                            changeStatus.ExecuteNonQuery();
                         }
                         else
                         {
                             break;
                         }
                     }
+
+
                     MessageBox.Show("Add successful");
                     this.Close();
                 }

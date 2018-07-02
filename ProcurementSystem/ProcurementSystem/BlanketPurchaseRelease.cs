@@ -54,6 +54,7 @@ namespace ProcurementSystem
         {
             if (MessageBox.Show("Confirm?", null, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
+                
                 String bpaNo = BPANo.Text;
                 String ReleaseNo = releaseNo.Text;
                 String RestNo = restNo.Text;
@@ -104,14 +105,11 @@ namespace ProcurementSystem
                     {
                         break;
                     }
-
+                
                 }
-
-
-
                 MessageBox.Show("Change successfully!");
             }
-
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

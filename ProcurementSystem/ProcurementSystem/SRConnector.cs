@@ -37,9 +37,9 @@ namespace ProcurementSystem
         private void btn_openSR_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(pposelection.Text)){
-                ScheduleRelease scheduleRelease = new ScheduleRelease(pposelection.Text);
-                scheduleRelease.Show();
-                this.Close();
+                //ScheduleRelease scheduleRelease = new ScheduleRelease(pposelection.Text);
+                //scheduleRelease.Show();
+                //this.Close();
             }
         }
     }

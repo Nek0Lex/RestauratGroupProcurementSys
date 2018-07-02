@@ -14,7 +14,9 @@ namespace ProcurementSystem
 {
     public partial class ScheduleRelease : Form
     {
-        public ScheduleRelease(string getPPONo)
+        string RequestNo;
+        string itemName;
+        public ScheduleRelease(string getPPONo, string requestNo, string ItemName)
         {
             InitializeComponent();
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
@@ -29,6 +31,8 @@ namespace ProcurementSystem
             MySqlDataAdapter cmd2 = new MySqlDataAdapter(query2, cnn);
             DataTable dt = new DataTable();
             cmd2.Fill(dt);
+            RequestNo = requestNo;
+            itemName = ItemName;
             foreach (DataRow dr in dt.Rows)
             {
                 shippingAddress.Text = dr["DeliveryAddress"].ToString();
@@ -92,8 +96,14 @@ namespace ProcurementSystem
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             MySqlCommand insertPPOLine = new MySqlCommand("INSERT" , cnn);
 
-            cnn.Close();
-
+            MySqlCommand cmd3 = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + itemName + "';", cnn);
+            String itemID = cmd3.ExecuteScalar().ToString();
+            MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + itemID + "';", cnn);
+            String VItemID = cmd4.ExecuteScalar().ToString();
+            MySqlCommand changeStatus = new MySqlCommand("UPDATE PurchaseRequest " +
+                "SET Status = 'PPO' " +
+                "WHERE RequestNo = '" + RequestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
+            changeStatus.ExecuteNonQuery();
             MessageBox.Show("Change successfully!");
             this.Close();
         }
