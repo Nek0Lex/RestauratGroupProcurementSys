@@ -54,13 +54,14 @@ namespace ProcurementSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            try
+            if (BillingAddress.Text == "" || BuyerAccount.Text == "" || BuyerName.Text == "" || TAC.Text == "" || dataGridView1.Rows[0].Cells[2].Value == null || dataGridView1.Rows[0].Cells[3].Value == null)
             {
-                if (BillingAddress.Text.Equals("") || BuyerAccount.Text.Equals("") || BuyerName.Text.Equals(""))
+                MessageBox.Show("Check Your Input!");
+            }
+            else
+            {
+                try
                 {
-                    MessageBox.Show("Fill in all the textbox ! ");
-                }
-                else {
                     DateTime today = DateTime.Today;
                     String spoNo = "SPO" + SPONo.Text;
                     String supplierNo = "S" + SupplierNo.Text;
@@ -128,11 +129,10 @@ namespace ProcurementSystem
                         this.Close();
                     }
                 }
-            }
-            catch (Exception exx)
-            {
-                MessageBox.Show(exx.Message);
-                //MessageBox.Show("Recheck your input!");
+                catch (Exception exx)
+                {
+                    MessageBox.Show("Recheck your input!");
+                }
             }
         }
 

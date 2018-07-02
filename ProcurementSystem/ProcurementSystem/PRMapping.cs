@@ -349,8 +349,9 @@ namespace ProcurementSystem
             //requestList.Update();
             //requestList.Refresh();
         }
-    }
-    public static class StringExtension
+
+	}
+	public static class StringExtension
     {
         public static string GetLast(this string source, int tail_length)
         {
