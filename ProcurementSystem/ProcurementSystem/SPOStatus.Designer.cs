@@ -30,6 +30,12 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitofMeasurement = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TAC = new System.Windows.Forms.RichTextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.ExpectedDeliveryDate = new System.Windows.Forms.DateTimePicker();
@@ -51,12 +57,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.SPONo = new System.Windows.Forms.TextBox();
             this.back = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitofMeasurement = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -106,6 +106,50 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new SPO";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 11F);
+            this.label1.Location = new System.Drawing.Point(25, 506);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 19);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Item :";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemName,
+            this.Quantity,
+            this.UnitofMeasurement,
+            this.Price});
+            this.dataGridView1.Location = new System.Drawing.Point(29, 528);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(899, 133);
+            this.dataGridView1.TabIndex = 27;
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // UnitofMeasurement
+            // 
+            this.UnitofMeasurement.HeaderText = "Unit of Measurement";
+            this.UnitofMeasurement.Name = "UnitofMeasurement";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
             // 
             // TAC
             // 
@@ -317,55 +361,11 @@
             this.back.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.back.Location = new System.Drawing.Point(119, 748);
             this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(171, 54);
+            this.back.Size = new System.Drawing.Size(171, 47);
             this.back.TabIndex = 5;
-            this.back.Text = "<Back";
+            this.back.Text = "Back";
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ItemName,
-            this.Quantity,
-            this.UnitofMeasurement,
-            this.Price});
-            this.dataGridView1.Location = new System.Drawing.Point(29, 528);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(899, 133);
-            this.dataGridView1.TabIndex = 27;
-            // 
-            // ItemName
-            // 
-            this.ItemName.HeaderText = "ItemName";
-            this.ItemName.Name = "ItemName";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // UnitofMeasurement
-            // 
-            this.UnitofMeasurement.HeaderText = "Unit of Measurement";
-            this.UnitofMeasurement.Name = "UnitofMeasurement";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微軟正黑體", 11F);
-            this.label1.Location = new System.Drawing.Point(25, 506);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 19);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Item :";
             // 
             // SPOStatus
             // 
