@@ -19,7 +19,7 @@ namespace ProcurementSystem
             listView1.Items.Clear();
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none;allow zero datetime = true");
             cnn.Open();
-            String query = "SELECT * from PurchaseRequest WHERE RestNo = '" + RestNo + "';";
+            String query = "SELECT * from PurchaseRequest WHERE RestNo = '" + RestNo + "' AND Status !='PSS';";
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
             DataTable dt = new DataTable();
