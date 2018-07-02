@@ -33,6 +33,11 @@ namespace ProcurementSystem
             {
                 dbtoListview();
             }
+
+            if (BPANoSelection.Text.Equals(""))
+            {
+                initListview();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -81,10 +86,43 @@ namespace ProcurementSystem
             cnn.Close();
         }
 
+        private void initListview()
+        {
+            String querypara = BPANoSelection.Text;
+            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+            cnn.Open();
+            String query = "SELECT * from BPALines";
+            MySqlCommand cmd = new MySqlCommand(query, cnn);
+            MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+            DataTable dt = new DataTable();
+            ada.Fill(dt);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow dr = dt.Rows[i];
+
+                ListViewItem listitem = new ListViewItem(dr["BPANo"].ToString());
+                listitem.SubItems.Add(dr["ItemID"].ToString());
+                listitem.SubItems.Add(dr["PromisedQuantity"].ToString());
+                listitem.SubItems.Add(dr["UOM"].ToString());
+                listitem.SubItems.Add(dr["MoQ"].ToString());
+                listitem.SubItems.Add(dr["Price"].ToString());
+                listitem.SubItems.Add(dr["Amount"].ToString());
+                listitem.SubItems.Add(dr["Category"].ToString());
+                listitem.SubItems.Add(dr["Reference"].ToString());
+
+                listView1.Items.Add(listitem);
+            }
+            cnn.Close();
+        }
+
         private void refresh_btn_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
+            BPANoSelection.Text = "";
+            search.Text = "";
             dbtoListview();
+            initListview();
         }
 
         private void back_btn_Click(object sender, EventArgs e)
@@ -98,20 +136,26 @@ namespace ProcurementSystem
             dbtoListview();
         }
 
-        private void search_TextChanged(object sender, EventArgs e)  //wait to improve
+        private void search_TextChanged(object sender, EventArgs e)  
         {
             if (search.Text != "")
             {
-                foreach (ListViewItem item in listView1.Items)
+                for (int i = listView1.Items.Count - 1; i >= 0; i--)
                 {
+                    var item = listView1.Items[i];
                     if (item.Text.ToLower().Contains(search.Text.ToLower()))
                     {
-                        item.Selected = true;
+                        item.BackColor = SystemColors.Highlight;
+                        item.ForeColor = SystemColors.HighlightText;
                     }
                     else
                     {
                         listView1.Items.Remove(item);
                     }
+                }
+                if (listView1.SelectedItems.Count == 1)
+                {
+                    listView1.Focus();
                 }
             }
         }

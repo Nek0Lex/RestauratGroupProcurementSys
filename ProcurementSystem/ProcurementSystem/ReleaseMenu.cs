@@ -19,15 +19,20 @@ namespace ProcurementSystem
 
         private void BPRForward_Click(object sender, EventArgs e)
         {
-            BlanketPurchaseRelease BPR = new BlanketPurchaseRelease();
-            BPR.Show();
-            this.Close();
+            BlanketPurchaseReleaseAdd BPRAdd = new BlanketPurchaseReleaseAdd();
+            BPRAdd.Show();
         }
 
         private void SRForward_Click(object sender, EventArgs e)
         {
-            SRConnector sRConnector = new SRConnector();
-            sRConnector.Show();
+            ScheduleReleaseAdd scheduleReleaseAdd = new ScheduleReleaseAdd();
+            scheduleReleaseAdd.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Menu mainMenu = new Menu("WC000001", "WC");
+            mainMenu.Show();
             this.Close();
         }
     }

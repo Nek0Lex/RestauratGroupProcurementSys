@@ -128,9 +128,14 @@ namespace ProcurementSystem
                 MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
                 cnn.Open();
                 String deleteitem = listView1.SelectedItems[0].SubItems[0].Text;
-                String query = "DELETE from BlanketPurchaseAgreement where BPANo = '" + deleteitem + "'; ";
-                MySqlCommand cmd = new MySqlCommand(query, cnn);
-                MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+                String delete = "DELETE from BlanketPurchaseAgreement where BPANo = '" + deleteitem + "'; ";
+                MySqlCommand cmd = new MySqlCommand(delete, cnn);
+                cmd.ExecuteNonQuery();
+                delete = "DELETE FROM BlanketPurchaseRelease WHERE BPANo = '" + deleteitem + "'; ";
+                cmd = new MySqlCommand(delete, cnn);
+                cmd.ExecuteNonQuery();
+                delete = "DELETE FROM BPALines WHERE BPANo = '" + deleteitem + "'; ";
+                cmd = new MySqlCommand(delete, cnn);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Remove success!");
                 refreshFunction();

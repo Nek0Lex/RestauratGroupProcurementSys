@@ -61,6 +61,9 @@ namespace ProcurementSystem
                     String delete = "DELETE FROM SPO WHERE SPONo = '" + spoNo + "'; ";
                     MySqlCommand cmd = new MySqlCommand(delete, cnn);
                     cmd.ExecuteNonQuery();
+                    delete = "DELETE FROM SPOLines WHERE SPONo = '" + spoNo + "'; ";
+                    cmd = new MySqlCommand(delete, cnn);
+                    cmd.ExecuteNonQuery();
                     String add = "INSERT INTO SPO (SPONo, SupplierNo, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, RestNo, ExpectedDeliveryDate, TermsAndCondition)VALUES('" + spoNo + "', '" + supplierNo + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + restNo + "', '" + edd + "', '" + tac + "'); ";
                     MySqlCommand cmd2 = new MySqlCommand(add, cnn);
                     cmd2.ExecuteNonQuery();
