@@ -35,10 +35,11 @@ namespace ProcurementSystem
                 case "PM":
                     lb1.Text = "Purchase Manager";
                     btn1.Text = "Agreement";
-                    btn2.Text = "Supplier";
-                    btn3.Text = "Mapping";
-                    btn4.Text = "Edit User Information";
-                    WHPO.Visible = false;
+                    btn2.Text = "Mapping";
+                    btn3.Text = "Supplier";
+                    btn4.Visible = false;
+                    btn5.Visible = false;
+                    btn6.Text = "Edit User Information";
                     break;
                 case "RM":
                     lb1.Text = "Restaurant Manager";
@@ -49,37 +50,37 @@ namespace ProcurementSystem
                     this.restNo = dt.Rows[0][1].ToString();
                     btn1.Text = "Purchase Request";
                     btn2.Text = "Confirm Delivery Note";
-                    btn3.Text = "Edit User Information";
-                    btn4.Text = "Edit Restaurant Information";
-                    WHPO.Visible = false;
-                    release.Visible = false;
+                    btn3.Visible = false;
+                    btn4.Visible = false;
+                    btn5.Text = "Edit Restaurant Information";
+                    btn6.Text = "Edit User Information";
                     break;
                 case "CM":
                     lb1.Text = "Category Manager";
                     btn1.Text = "Category";
                     btn2.Text = "Item";
                     btn3.Text = "Stock";
-                    btn4.Text = "Edit User Information";
-                    WHPO.Visible = false;
-                    release.Visible = false;
+                    btn4.Visible = false;
+                    btn5.Visible = false;
+                    btn6.Text = "Edit User Information";
                     break;
                 case "WC":
                     lb1.Text = "Warehouse Clerk";
                     btn1.Text = "Despatch Instruction";
                     btn2.Text = "Delivery Note";
                     btn3.Text = "Stock";
-                    btn4.Text = "Edit User Information";
-                    WHPO.Text = "Purchase request";
-                    release.Text = "Release";
+                    btn4.Text = "Purchase Order";
+                    btn5.Text = "Release";
+                    btn6.Text = "Edit User Information";
                     break;
                 case "AD":
                     lb1.Text = "Accounting Department";
-                    btn1.Text = "Complete Payment";
-                    btn2.Text = "Payment Record";
-                    btn3.Visible = false; //to be added function or keep invisible
-                    btn4.Text = "Edit User Information";
-                    WHPO.Visible = false;
-                    release.Visible = false;
+                    btn1.Text = "Purchase Order";
+                    btn2.Text = "Delivery Note";
+                    btn3.Text = "Supplier";
+                    btn4.Visible = false;
+                    btn5.Visible = false;
+                    btn6.Text = "Edit User Information";
                     break;
                 case "AM":
                     lb1.Text = "ADMIN";
@@ -87,8 +88,8 @@ namespace ProcurementSystem
                     btn2.Text = "Restaurant";
                     btn3.Text = "Supplier";
                     btn4.Visible = false; //to be added function or keep invisible
-                    WHPO.Visible = false;
-                    release.Visible = false;
+                    btn5.Visible = false;
+                    btn6.Visible = false;
                     break;
             }
         }
@@ -119,7 +120,7 @@ namespace ProcurementSystem
                     break;
                 case "RM":
                     this.Hide();
-                    PurchaseRequest pr = new PurchaseRequest(this,"R001",StaffNo);
+                    PurchaseRequest pr = new PurchaseRequest(this, restNo, StaffNo);
                     pr.Show();
                     break;
                 case "PM":
@@ -136,6 +137,11 @@ namespace ProcurementSystem
                     this.Hide();
                     WHViewDPI dpi = new WHViewDPI(this);
                     dpi.Show();
+                    break;
+                case "AD":
+                    this.Hide();
+                    WHPurchaseOrder WHPO = new WHPurchaseOrder(this);
+                    WHPO.Show();
                     break;
             }
         }
@@ -156,11 +162,17 @@ namespace ProcurementSystem
         {
             switch (deptCode)
             {
+                case "PM":
+                    this.Hide();
+                    PRMapping prm = new PRMapping(this);
+                    prm.Show();
+                    break;
                 case "RM":
                     this.Hide();
                     ViewDeliveryNoteMenu vDN = new ViewDeliveryNoteMenu(this, "RM", restNo);
                     vDN.Show();
                     break;
+                case "AD":
                 case "WC":
                     this.Hide();
                     ViewDeliveryNoteMenu WHvDN = new ViewDeliveryNoteMenu(this, "WC");
@@ -170,11 +182,6 @@ namespace ProcurementSystem
                     this.Hide();
                     EditMenu em = new EditMenu(this, 1);
                     em.Show();
-                    break;
-                case "PM":
-                    this.Hide();
-                    SupplierMenu sm = new SupplierMenu(this);
-                    sm.Show();
                     break;
                 case "CM":
                     this.Hide();
@@ -188,18 +195,32 @@ namespace ProcurementSystem
         {
             switch (deptCode)
             {
+                case "AD":
+                    this.Hide();
+                    EditAc eac = new EditAc(deptCode, StaffNo, this);
+                    eac.Show();
+                    break;
+                case "WC":
+                    this.Hide();
+                    WHPurchaseOrder WHPO = new WHPurchaseOrder(this);
+                    WHPO.Show();
+                    break;
+            }
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            switch (deptCode)
+            {
                 case "RM":
                     this.Hide();
                     EditRest erest = new EditRest(restNo, this);
                     erest.Show();
                     break;
-                case "PM":
-                case "CM":
                 case "WC":
-                case "AD":
                     this.Hide();
-                    EditAc eac = new EditAc(deptCode, StaffNo, this);
-                    eac.Show();
+                    ReleaseMenu releaseMenu = new ReleaseMenu();
+                    releaseMenu.Show();
                     break;
             }
         }
@@ -208,21 +229,6 @@ namespace ProcurementSystem
         {
             switch (deptCode)
             {
-                case "RM":
-                    this.Hide();
-                    EditAc eac = new EditAc(deptCode, StaffNo, this);
-                    eac.Show();
-                    break;
-                case "AM":
-                    this.Hide();
-                    SupplierMenu sm = new SupplierMenu(this);
-                    sm.Show();
-                    break;
-                case "PM":
-                    this.Hide();
-                    PRMapping prm = new PRMapping(this);
-                    prm.Show();
-                    break;
                 case "CM":
                     this.Hide();
                     WHStock stk = new WHStock(this);
@@ -233,19 +239,30 @@ namespace ProcurementSystem
                     WHStock wstk = new WHStock(this);
                     wstk.Show();
                     break;
+                case "AD":
+                case "PM":
+                case "AM":
+                    this.Hide();
+                    SupplierMenu sm = new SupplierMenu(this);
+                    sm.Show();
+                    break;
             }
         }
 
-        private void btn5_Click(object sender, EventArgs e)
+        private void btn6_Click(object sender, EventArgs e)
         {
-            WHPurchaseOrder WHPO = new WHPurchaseOrder();
-            WHPO.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ReleaseMenu releaseMenu = new ReleaseMenu();
-            releaseMenu.Show();
+            switch (deptCode)
+            {
+                case "WC":
+                case "PM":
+                case "CM":
+                case "AD":
+                case "RM":
+                    this.Hide();
+                    EditAc eac = new EditAc(deptCode, StaffNo, this);
+                    eac.Show();
+                    break;
+            }
         }
     }
 }

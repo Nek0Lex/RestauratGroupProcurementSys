@@ -30,9 +30,10 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.WHPO = new System.Windows.Forms.Button();
-            this.btn4 = new System.Windows.Forms.Button();
+            this.btn6 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
+            this.btn5 = new System.Windows.Forms.Button();
+            this.btn4 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
             this.lb1 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbStaffName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.release = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,10 +61,10 @@
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.groupBox1.Controls.Add(this.release);
-            this.groupBox1.Controls.Add(this.WHPO);
-            this.groupBox1.Controls.Add(this.btn4);
+            this.groupBox1.Controls.Add(this.btn6);
             this.groupBox1.Controls.Add(this.btn3);
+            this.groupBox1.Controls.Add(this.btn5);
+            this.groupBox1.Controls.Add(this.btn4);
             this.groupBox1.Controls.Add(this.btn2);
             this.groupBox1.Controls.Add(this.btn1);
             this.groupBox1.Cursor = System.Windows.Forms.Cursors.Default;
@@ -80,41 +80,53 @@
             this.groupBox1.Text = "Menu";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // WHPO
+            // btn6
             // 
-            this.WHPO.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
-            this.WHPO.Location = new System.Drawing.Point(438, 56);
-            this.WHPO.Margin = new System.Windows.Forms.Padding(2);
-            this.WHPO.Name = "WHPO";
-            this.WHPO.Size = new System.Drawing.Size(166, 127);
-            this.WHPO.TabIndex = 4;
-            this.WHPO.Text = "button5";
-            this.WHPO.UseVisualStyleBackColor = true;
-            this.WHPO.Click += new System.EventHandler(this.btn5_Click);
-            // 
-            // btn4
-            // 
-            this.btn4.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
-            this.btn4.Location = new System.Drawing.Point(231, 220);
-            this.btn4.Margin = new System.Windows.Forms.Padding(2);
-            this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(166, 127);
-            this.btn4.TabIndex = 3;
-            this.btn4.Text = "button4";
-            this.btn4.UseVisualStyleBackColor = true;
-            this.btn4.Click += new System.EventHandler(this.btn4_Click);
+            this.btn6.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
+            this.btn6.Location = new System.Drawing.Point(438, 220);
+            this.btn6.Margin = new System.Windows.Forms.Padding(2);
+            this.btn6.Name = "btn6";
+            this.btn6.Size = new System.Drawing.Size(166, 127);
+            this.btn6.TabIndex = 5;
+            this.btn6.Text = "button6";
+            this.btn6.UseVisualStyleBackColor = true;
+            this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
             // btn3
             // 
             this.btn3.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
-            this.btn3.Location = new System.Drawing.Point(22, 220);
+            this.btn3.Location = new System.Drawing.Point(438, 56);
             this.btn3.Margin = new System.Windows.Forms.Padding(2);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(166, 127);
-            this.btn3.TabIndex = 2;
+            this.btn3.TabIndex = 4;
             this.btn3.Text = "button3";
             this.btn3.UseVisualStyleBackColor = true;
             this.btn3.Click += new System.EventHandler(this.btn3_Click);
+            // 
+            // btn5
+            // 
+            this.btn5.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
+            this.btn5.Location = new System.Drawing.Point(231, 220);
+            this.btn5.Margin = new System.Windows.Forms.Padding(2);
+            this.btn5.Name = "btn5";
+            this.btn5.Size = new System.Drawing.Size(166, 127);
+            this.btn5.TabIndex = 3;
+            this.btn5.Text = "button5";
+            this.btn5.UseVisualStyleBackColor = true;
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
+            // 
+            // btn4
+            // 
+            this.btn4.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
+            this.btn4.Location = new System.Drawing.Point(22, 220);
+            this.btn4.Margin = new System.Windows.Forms.Padding(2);
+            this.btn4.Name = "btn4";
+            this.btn4.Size = new System.Drawing.Size(166, 127);
+            this.btn4.TabIndex = 2;
+            this.btn4.Text = "button4";
+            this.btn4.UseVisualStyleBackColor = true;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
             // btn2
             // 
@@ -198,18 +210,6 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "You are login as:";
             // 
-            // release
-            // 
-            this.release.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F);
-            this.release.Location = new System.Drawing.Point(438, 220);
-            this.release.Margin = new System.Windows.Forms.Padding(2);
-            this.release.Name = "release";
-            this.release.Size = new System.Drawing.Size(166, 127);
-            this.release.TabIndex = 5;
-            this.release.Text = "button6";
-            this.release.UseVisualStyleBackColor = true;
-            this.release.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -235,15 +235,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lb1;
+        private System.Windows.Forms.Button btn5;
         private System.Windows.Forms.Button btn4;
-        private System.Windows.Forms.Button btn3;
         private System.Windows.Forms.Button btn2;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbStaffName;
-        private System.Windows.Forms.Button WHPO;
-        private System.Windows.Forms.Button release;
+        private System.Windows.Forms.Button btn3;
+        private System.Windows.Forms.Button btn6;
     }
 }
