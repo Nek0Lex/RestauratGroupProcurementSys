@@ -83,29 +83,36 @@ namespace ProcurementSystem
 
         private void confirm_Click(object sender, EventArgs e)
         {
-            String CreationDate = creationDate.Value.ToString("yyyy-MM-dd");
-            String EffectiveDate = effectiveDate.Value.ToString("yyyy-MM-dd");
-            String ShippingAddress = shippingAddress.Text;
-            String srno = textBox3.Text;
-            DateTime today = DateTime.Today;
-            MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-            cnn.Open();
-            String query = "UPDATE SheduleRelease SET CreationDate = '"+CreationDate+"', " +
-                "EffectiveDate = '" + EffectiveDate + "'" +
-                "DeliveryAddress = '"+ShippingAddress+"' WHERE SRNo = '"+srno+"' ;";
-            MySqlCommand cmd = new MySqlCommand(query, cnn);
-            MySqlCommand insertPPOLine = new MySqlCommand("INSERT" , cnn);
+            if (textBox3.Text.Equals("") || shippingAddress.Text.Equals(""))
+            {
+                MessageBox.Show("Fill in all the text box!");
+            }
+            else
+            {
+                String CreationDate = creationDate.Value.ToString("yyyy-MM-dd");
+                String EffectiveDate = effectiveDate.Value.ToString("yyyy-MM-dd");
+                String ShippingAddress = shippingAddress.Text;
+                String srno = textBox3.Text;
+                DateTime today = DateTime.Today;
+                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                cnn.Open();
+                String query = "UPDATE SheduleRelease SET CreationDate = '" + CreationDate + "', " +
+                    "EffectiveDate = '" + EffectiveDate + "'" +
+                    "DeliveryAddress = '" + ShippingAddress + "' WHERE SRNo = '" + srno + "' ;";
+                MySqlCommand cmd = new MySqlCommand(query, cnn);
+                MySqlCommand insertPPOLine = new MySqlCommand("INSERT", cnn);
 
-            MySqlCommand cmd3 = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + itemName + "';", cnn);
-            String itemID = cmd3.ExecuteScalar().ToString();
-            MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + itemID + "';", cnn);
-            String VItemID = cmd4.ExecuteScalar().ToString();
-            MySqlCommand changeStatus = new MySqlCommand("UPDATE PurchaseRequest " +
-                "SET Status = 'PPO', MappingDate ='" + today.ToString("yyyy-MM-dd") +
-                "' WHERE RequestNo = '" + RequestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
-            changeStatus.ExecuteNonQuery();
-            MessageBox.Show("Change successfully!");
-            this.Close();
+                MySqlCommand cmd3 = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + itemName + "';", cnn);
+                String itemID = cmd3.ExecuteScalar().ToString();
+                MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + itemID + "';", cnn);
+                String VItemID = cmd4.ExecuteScalar().ToString();
+                MySqlCommand changeStatus = new MySqlCommand("UPDATE PurchaseRequest " +
+                    "SET Status = 'PPO', MappingDate ='" + today.ToString("yyyy-MM-dd") +
+                    "' WHERE RequestNo = '" + RequestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
+                changeStatus.ExecuteNonQuery();
+                MessageBox.Show("Change successfully!");
+                this.Close();
+            }
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -117,6 +124,19 @@ namespace ProcurementSystem
         {
             ScheduleReleaseAdd scheduleReleaseAdd = new ScheduleReleaseAdd();
             scheduleReleaseAdd.Show();
+        }
+
+        private Boolean checkEmpty()
+        {
+            Boolean check = false;
+            foreach (Control control in groupBox1.Controls)
+            {
+                TextBox textBox = control as TextBox;
+
+                if (textBox.Text.Equals(""))
+                    check = true;
+            }
+            return check;
         }
     }
 }

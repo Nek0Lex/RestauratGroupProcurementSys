@@ -52,64 +52,71 @@ namespace ProcurementSystem
 
         private void confirm_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Confirm?", null, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+            if (account.Text.Equals("") || actualAmount.Text.Equals(""))
             {
-                
-                String bpaNo = BPANo.Text;
-                String ReleaseNo = releaseNo.Text;
-                String RestNo = restNo.Text;
-                String RequestNo = requestNo.Text;
-                String CreationDate = creationDate.Value.ToString("yyyy-MM-dd");
-                String DeliveryDate = deliveryDate.Value.ToString("yyyy-MM-dd");
-                String ac = account.Text;
-                String Amount = actualAmount.Text;
-                String Quantity = quantity.Text;
-                String result;
-                DateTime today = DateTime.Today;
-                MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
-                cnn.Open();
-                /*
-                String query = "UPDATE BlanketPurchaseRelease " +
-                    "SET CreationDate = '"+CreationDate+"'," +
-                        "DeliveryDate = '"+DeliveryDate+"', " +
-                        "RestNo = '"+RestNo+"', " +
-                        "Account = '"+ac+"', " +
-                        "ActualAmount ='"+Amount+"', " +
-                        "ActualQuantity = '"+Quantity+"'" +
-                    "WHERE ReleaseNo = '"+ReleaseNo+"'; ";
-                MySqlCommand cmd = new MySqlCommand(query, cnn);
-                cmd.ExecuteNonQuery();*/
-                String queryI = "INSERT INTO BlanketPurchaseRelease (ReleaseNo, RequestNo, BPANo, CreationDate, RestNo, DeliveryDate, Account, ActualAmount, ActualQuantity)" +
-                    "VALUES('" + ReleaseNo + "', '" + RequestNo + "', '" + bpaNo + "', '" + CreationDate + "', '" + RestNo + "', '" + DeliveryDate + "', '" + ac +"', '" + Amount + "', '" + Quantity + "');";
-                MySqlCommand cmd = new MySqlCommand(queryI, cnn);
-                cmd.ExecuteNonQuery();
-
-                //trans itemname to itemid
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                MessageBox.Show("Fill in all the box");
+            }
+            else
+            {
+                if (MessageBox.Show("Confirm?", null, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
                 {
-                    if (row.Cells[0].Value != null)
+
+                    String bpaNo = BPANo.Text;
+                    String ReleaseNo = releaseNo.Text;
+                    String RestNo = restNo.Text;
+                    String RequestNo = requestNo.Text;
+                    String CreationDate = creationDate.Value.ToString("yyyy-MM-dd");
+                    String DeliveryDate = deliveryDate.Value.ToString("yyyy-MM-dd");
+                    String ac = account.Text;
+                    String Amount = actualAmount.Text;
+                    String Quantity = quantity.Text;
+                    String result;
+                    DateTime today = DateTime.Today;
+                    MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
+                    cnn.Open();
+                    /*
+                    String query = "UPDATE BlanketPurchaseRelease " +
+                        "SET CreationDate = '"+CreationDate+"'," +
+                            "DeliveryDate = '"+DeliveryDate+"', " +
+                            "RestNo = '"+RestNo+"', " +
+                            "Account = '"+ac+"', " +
+                            "ActualAmount ='"+Amount+"', " +
+                            "ActualQuantity = '"+Quantity+"'" +
+                        "WHERE ReleaseNo = '"+ReleaseNo+"'; ";
+                    MySqlCommand cmd = new MySqlCommand(query, cnn);
+                    cmd.ExecuteNonQuery();*/
+                    String queryI = "INSERT INTO BlanketPurchaseRelease (ReleaseNo, RequestNo, BPANo, CreationDate, RestNo, DeliveryDate, Account, ActualAmount, ActualQuantity)" +
+                        "VALUES('" + ReleaseNo + "', '" + RequestNo + "', '" + bpaNo + "', '" + CreationDate + "', '" + RestNo + "', '" + DeliveryDate + "', '" + ac + "', '" + Amount + "', '" + Quantity + "');";
+                    MySqlCommand cmd = new MySqlCommand(queryI, cnn);
+                    cmd.ExecuteNonQuery();
+
+                    //trans itemname to itemid
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
-                        MySqlCommand cmd3 = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
-                        String itemID = cmd3.ExecuteScalar().ToString();
-                        MySqlCommand cmd2 = new MySqlCommand("INSERT INTO BPReleaseLines (ReleaseNo, ItemID, Quantity) " +
-                            "VALUES('" + ReleaseNo + "' , '" + itemID + "', '" + Quantity + "');", cnn);
-                        cmd2.ExecuteNonQuery();
-                        MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + itemID + "';", cnn);
-                        String VItemID = cmd4.ExecuteScalar().ToString();
-                        MySqlCommand changeStatus = new MySqlCommand("UPDATE PurchaseRequest " +
-                            "SET Status = 'BPA', MappingDate = '"+today.ToString("yyyy-MM-dd")+
-                            "' WHERE RequestNo = '" + RequestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
-                        changeStatus.ExecuteNonQuery();
-						MySqlCommand updateBPAQty = new MySqlCommand("UPDATE BPALines SET PromisedQuantity = (PromisedQuantity-" + Quantity + ") WHERE BPANo = '" + bpaNo + "';", cnn);
-						updateBPAQty.ExecuteNonQuery();
-					}
-                    else 
-                    {
-                        break;
+                        if (row.Cells[0].Value != null)
+                        {
+                            MySqlCommand cmd3 = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
+                            String itemID = cmd3.ExecuteScalar().ToString();
+                            MySqlCommand cmd2 = new MySqlCommand("INSERT INTO BPReleaseLines (ReleaseNo, ItemID, Quantity) " +
+                                "VALUES('" + ReleaseNo + "' , '" + itemID + "', '" + Quantity + "');", cnn);
+                            cmd2.ExecuteNonQuery();
+                            MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + itemID + "';", cnn);
+                            String VItemID = cmd4.ExecuteScalar().ToString();
+                            MySqlCommand changeStatus = new MySqlCommand("UPDATE PurchaseRequest " +
+                                "SET Status = 'BPA', MappingDate = '" + today.ToString("yyyy-MM-dd") +
+                                "' WHERE RequestNo = '" + RequestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
+                            changeStatus.ExecuteNonQuery();
+                            MySqlCommand updateBPAQty = new MySqlCommand("UPDATE BPALines SET PromisedQuantity = (PromisedQuantity-" + Quantity + ") WHERE BPANo = '" + bpaNo + "';", cnn);
+                            updateBPAQty.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            break;
+                        }
+
                     }
-                
+                    MessageBox.Show("Change successfully!");
                 }
-                MessageBox.Show("Change successfully!");
             }
             
         }
