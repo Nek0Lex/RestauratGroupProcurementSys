@@ -80,25 +80,27 @@ namespace ProcurementSystem
 
                 //trans itemname to itemid
                 foreach (DataGridViewRow row in dataGridView1.Rows)
-                { 
-                    String item = row.Cells["Item Name"].Value.ToString();
-                    query = "SELECT * FROM Item WHERE ItemName = '"+item+"'; ";
-                    cmd = new MySqlCommand(query, cnn);
-                    MySqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
+                {
+                    if (row.Cells[0].Value != null)
                     {
-                        result = dr["ItemID"].ToString();
-                        query = "UPDATE BPReleaseLines " +
-                        "SET ReleaseNo =  '" + ReleaseNo + "', " +
-                        "ItemID = '" + result + "'," +
-                        "Quantity = '" + result + "'; ";
-                        cmd.ExecuteNonQuery();
+                        MySqlCommand cmd3 = new MySqlCommand("SELECT ItemID FROM Item WHERE ItemDescription = '" + row.Cells[0].Value.ToString() + "';", cnn);
+                        String itemID = cmd3.ExecuteScalar().ToString();
+                        MySqlCommand cmd2 = new MySqlCommand("INSERT INTO BPReleaseLines (ReleaseNo, ItemID, Quantity) " +
+                            "VALUES('" + ReleaseNo + "' , '" + itemID + "', '" + Quantity + "');", cnn);
+                        cmd2.ExecuteNonQuery();
                     }
+                    else
+                    {
+                        break;
+                    }
+
                 }
+
+
 
                 MessageBox.Show("Change successfully!");
             }
-;
+
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -13,9 +13,11 @@ namespace ProcurementSystem
 {
     public partial class WHPurchaseOrder : Form
     {
-        public WHPurchaseOrder()
+        private Menu m;
+        public WHPurchaseOrder(Menu m)
         {
             InitializeComponent();
+            this.m = m;
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
             cnn.Open();
             String query = "select * from BlanketPurchaseAgreement;";
@@ -88,6 +90,7 @@ namespace ProcurementSystem
         private void back_btn_Click(object sender, EventArgs e)
         {
             this.Close();
+            m.Show();
         }
 
         private void BPANoSelection_SelectedIndexChanged(object sender, EventArgs e)
