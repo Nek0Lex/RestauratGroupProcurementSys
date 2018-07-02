@@ -164,7 +164,9 @@ namespace ProcurementSystem
                 String deleteitem = listView1.SelectedItems[0].SubItems[0].Text;
                 String query = "DELETE from SPO where SPONo = '" + deleteitem + "'; ";
                 MySqlCommand cmd = new MySqlCommand(query, cnn);
-                MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
+                cmd.ExecuteNonQuery();
+                query = "DELETE from SPOLines where SPONo = '" + deleteitem + "'; ";
+                cmd = new MySqlCommand(query, cnn);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Remove success!");
                 refreshFunction();
@@ -176,7 +178,7 @@ namespace ProcurementSystem
             listView1.Items.Clear();
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
             cnn.Open();
-            String query = "select * from PPO ORDER BY PPONo ASC;";
+            String query = "select * from SPO ORDER BY PPONo ASC;";
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             MySqlDataAdapter ada = new MySqlDataAdapter(query, cnn);
             DataTable dt = new DataTable();
