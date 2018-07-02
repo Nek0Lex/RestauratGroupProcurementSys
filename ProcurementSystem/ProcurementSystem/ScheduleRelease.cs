@@ -91,6 +91,7 @@ namespace ProcurementSystem
                 "DeliveryAddress = '"+ShippingAddress+"' WHERE SRNo = '"+srno+"' ;";
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             MySqlCommand insertPPOLine = new MySqlCommand("INSERT" , cnn);
+
             cnn.Close();
 
             MessageBox.Show("Change successfully!");

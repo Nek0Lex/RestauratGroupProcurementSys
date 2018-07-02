@@ -57,9 +57,9 @@ namespace ProcurementSystem
                 String bpaNo = BPANo.Text;
                 String ReleaseNo = releaseNo.Text;
                 String RestNo = restNo.Text;
+                String RequestNo = requestNo.Text;
                 String CreationDate = creationDate.Value.ToString("yyyy-MM-dd");
                 String DeliveryDate = deliveryDate.Value.ToString("yyyy-MM-dd");
-                String Restno = restNo.Text;
                 String ac = account.Text;
                 String Amount = actualAmount.Text;
                 String Quantity = quantity.Text;
@@ -67,6 +67,7 @@ namespace ProcurementSystem
 
                 MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
                 cnn.Open();
+                /*
                 String query = "UPDATE BlanketPurchaseRelease " +
                     "SET CreationDate = '"+CreationDate+"'," +
                         "DeliveryDate = '"+DeliveryDate+"', " +
@@ -76,6 +77,10 @@ namespace ProcurementSystem
                         "ActualQuantity = '"+Quantity+"'" +
                     "WHERE ReleaseNo = '"+ReleaseNo+"'; ";
                 MySqlCommand cmd = new MySqlCommand(query, cnn);
+                cmd.ExecuteNonQuery();*/
+                String queryI = "INSERT INTO BlanketPurchaseRelease (ReleaseNo, RequestNo, BPANo, CreationDate, RestNo, DeliveryDate, Account, ActualAmount, ActualQuantity)" +
+                    "VALUES('" + ReleaseNo + "', '" + RequestNo + "', '" + bpaNo + "', '" + CreationDate + "', '" + RestNo + "', '" + DeliveryDate + "', '" + ac +"', '" + Amount + "', '" + Quantity + "');";
+                MySqlCommand cmd = new MySqlCommand(queryI, cnn);
                 cmd.ExecuteNonQuery();
 
                 //trans itemname to itemid
@@ -88,8 +93,14 @@ namespace ProcurementSystem
                         MySqlCommand cmd2 = new MySqlCommand("INSERT INTO BPReleaseLines (ReleaseNo, ItemID, Quantity) " +
                             "VALUES('" + ReleaseNo + "' , '" + itemID + "', '" + Quantity + "');", cnn);
                         cmd2.ExecuteNonQuery();
+                        MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + itemID + "';", cnn);
+                        String VItemID = cmd4.ExecuteScalar().ToString();
+                        MySqlCommand changeStatus = new MySqlCommand("UPDATE PurchaseRequest " +
+                            "SET Status = 'BPA' " +
+                            "WHERE RequestNo = '" + RequestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
+                        changeStatus.ExecuteNonQuery();
                     }
-                    else
+                    else 
                     {
                         break;
                     }
@@ -112,6 +123,11 @@ namespace ProcurementSystem
         {
             BlanketPurchaseReleaseAdd blanketPurchaseReleaseAdd = new BlanketPurchaseReleaseAdd();
             blanketPurchaseReleaseAdd.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
