@@ -87,7 +87,7 @@ namespace ProcurementSystem
             String EffectiveDate = effectiveDate.Value.ToString("yyyy-MM-dd");
             String ShippingAddress = shippingAddress.Text;
             String srno = textBox3.Text;
-        
+            DateTime today = DateTime.Today;
             MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
             cnn.Open();
             String query = "UPDATE SheduleRelease SET CreationDate = '"+CreationDate+"', " +
@@ -101,8 +101,8 @@ namespace ProcurementSystem
             MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + itemID + "';", cnn);
             String VItemID = cmd4.ExecuteScalar().ToString();
             MySqlCommand changeStatus = new MySqlCommand("UPDATE PurchaseRequest " +
-                "SET Status = 'PPO' " +
-                "WHERE RequestNo = '" + RequestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
+                "SET Status = 'PPO', MappingDate ='" + today.ToString("yyyy-MM-dd") +
+                "' WHERE RequestNo = '" + RequestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
             changeStatus.ExecuteNonQuery();
             MessageBox.Show("Change successfully!");
             this.Close();

@@ -165,6 +165,7 @@ namespace ProcurementSystem
                     restNo = getRestNo.ExecuteScalar().ToString();
                     BlanketPurchaseRelease BPR = new BlanketPurchaseRelease(bprBPANo, nowBPRNo, restNo, itemList.Rows[0].Cells[0].Value.ToString(), itemList.Rows[0].Cells[1].Value.ToString(), tbRequestID.Text);
                     BPR.ShowDialog();
+                    this.reset();
                 }
                 //handlingItem = new List<string>();
                 //handlingItemQty = new List<string>();
@@ -241,7 +242,7 @@ namespace ProcurementSystem
                     itemID = getItemID.ExecuteScalar().ToString();
                     MySqlCommand genDes = new MySqlCommand("INSERT INTO DespatchInstruction (DesID, RequestNo, CreationDate, ItemID, quantity, status) VALUES ('"+nowDesNo+"', '"+tbRequestID.Text+"', '"+today.ToString("yyyy-MM-dd")+"' ,'"+itemID+"', '"+itemList.Rows[0].Cells[1].Value.ToString()+"', 'PRO')",cnn);
                     genDes.ExecuteNonQuery();                   
-                    MySqlCommand updateRequest = new MySqlCommand("UPDATE PurchaseRequest SET status ='PSS' WHERE RequestNo='" + tbRequestID.Text + "' AND VItemID = '"+itemList.Rows[0].Cells[2].Value.ToString()+"'",cnn);
+                    MySqlCommand updateRequest = new MySqlCommand("UPDATE PurchaseRequest SET status ='PSS', MappingDate ='"+today.ToString("yyyy-MM-dd")+"' WHERE RequestNo='" + tbRequestID.Text + "' AND VItemID = '"+itemList.Rows[0].Cells[2].Value.ToString()+"'",cnn);
                     updateRequest.ExecuteNonQuery();
                     MessageBox.Show("Successly Added!");
                     this.reset();

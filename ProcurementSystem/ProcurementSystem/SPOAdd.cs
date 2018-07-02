@@ -56,6 +56,7 @@ namespace ProcurementSystem
         {
             try
             {
+                DateTime today = DateTime.Today;
                 String spoNo = "SPO" + SPONo.Text;
                 String supplierNo = "S" + SupplierNo.Text;
                 String creationDate = CreationDate.Value.ToString("yyyy-MM-dd");
@@ -106,8 +107,8 @@ namespace ProcurementSystem
                             MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + itemID + "';", cnn);
                             String VItemID = cmd4.ExecuteScalar().ToString();
                             MySqlCommand changeStatus = new MySqlCommand("UPDATE PurchaseRequest " +
-                                "SET Status = 'SPO' " +
-                                "WHERE RequestNo = '" + requestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
+                                "SET Status = 'SPO', MappingDate ='"+today.ToString("yyyy-MM-dd")+
+                                "' WHERE RequestNo = '" + requestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
                             changeStatus.ExecuteNonQuery();
                         }
                         else

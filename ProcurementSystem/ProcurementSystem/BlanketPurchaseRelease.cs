@@ -65,7 +65,7 @@ namespace ProcurementSystem
                 String Amount = actualAmount.Text;
                 String Quantity = quantity.Text;
                 String result;
-
+                DateTime today = DateTime.Today;
                 MySqlConnection cnn = new MySqlConnection("server=code4cat.me; user id=jackysc; password=123456; database=procurement;SslMode=none");
                 cnn.Open();
                 /*
@@ -97,8 +97,8 @@ namespace ProcurementSystem
                         MySqlCommand cmd4 = new MySqlCommand("SELECT VItemID FROM VItem WHERE ItemID = '" + itemID + "';", cnn);
                         String VItemID = cmd4.ExecuteScalar().ToString();
                         MySqlCommand changeStatus = new MySqlCommand("UPDATE PurchaseRequest " +
-                            "SET Status = 'BPA' " +
-                            "WHERE RequestNo = '" + RequestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
+                            "SET Status = 'BPA', MappingDate = '"+today.ToString("yyyy-MM-dd")+
+                            "' WHERE RequestNo = '" + RequestNo + "' AND VItemID = '" + VItemID + "' ;", cnn);
                         changeStatus.ExecuteNonQuery();
 						MySqlCommand updateBPAQty = new MySqlCommand("UPDATE BPALines SET PromisedQuantity = (PromisedQuantity-" + Quantity + ") WHERE BPANo = '" + bpaNo + "';", cnn);
 						updateBPAQty.ExecuteNonQuery();
