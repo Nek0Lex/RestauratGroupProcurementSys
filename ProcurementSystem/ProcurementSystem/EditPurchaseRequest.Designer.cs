@@ -59,7 +59,7 @@
             // deleteItem
             // 
             this.deleteItem.Font = new System.Drawing.Font("新細明體", 11F);
-            this.deleteItem.Location = new System.Drawing.Point(557, 264);
+            this.deleteItem.Location = new System.Drawing.Point(562, 264);
             this.deleteItem.Name = "deleteItem";
             this.deleteItem.Size = new System.Drawing.Size(75, 23);
             this.deleteItem.TabIndex = 40;
@@ -257,7 +257,7 @@
             this.ItemQuantity,
             this.VItemId,
             this.category_id});
-            this.purchaseList2.Location = new System.Drawing.Point(118, 151);
+            this.purchaseList2.Location = new System.Drawing.Point(123, 151);
             this.purchaseList2.Name = "purchaseList2";
             this.purchaseList2.ReadOnly = true;
             this.purchaseList2.RowTemplate.Height = 24;
