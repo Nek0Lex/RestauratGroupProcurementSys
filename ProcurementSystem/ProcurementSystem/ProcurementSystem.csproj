@@ -92,6 +92,12 @@
     <Compile Include="Category.Designer.cs">
       <DependentUpon>Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="confirmRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="confirmRequest.Designer.cs">
+      <DependentUpon>confirmRequest.cs</DependentUpon>
+    </Compile>
     <Compile Include="CPAStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -393,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Category.resx">
       <DependentUpon>Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="confirmRequest.resx">
+      <DependentUpon>confirmRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CPAStatus.resx">
       <DependentUpon>CPAStatus.cs</DependentUpon>

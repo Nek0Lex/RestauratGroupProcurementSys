@@ -51,7 +51,7 @@ namespace ProcurementSystem
                     btn1.Text = "Purchase Request";
                     btn2.Text = "Confirm Delivery Note";
                     btn3.Visible = false;
-                    btn4.Visible = false;
+                    btn4.Text = "Confirm the request";
                     btn5.Text = "Edit Restaurant Information";
                     btn6.Text = "Edit User Information";
                     break;
@@ -205,6 +205,11 @@ namespace ProcurementSystem
                     WHPurchaseOrder WHPO = new WHPurchaseOrder(this);
                     WHPO.Show();
                     break;
+                case "RM":
+                    confirmRequest confirmRequest = new confirmRequest("R001");
+                    confirmRequest.Show();
+                    break;
+
             }
         }
 
