@@ -60,6 +60,9 @@ namespace ProcurementSystem
                     String delete = "DELETE FROM PPO WHERE ppoNo = '" + ppoNo + "'; ";
                     MySqlCommand cmd = new MySqlCommand(delete, cnn);
                     cmd.ExecuteNonQuery();
+                    delete = "DELETE from PPOLines where PPONo = '" + ppoNo + "'; ";
+                    cmd = new MySqlCommand(delete, cnn);
+                    cmd.ExecuteNonQuery();
                     String add = "INSERT INTO PPO (PPONo, SupplierNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, BuyerAccount, SRNo, Amount, Currency, TermsAndCondition)VALUES('" + ppoNo + "', '" + supplierNo + "', '" + purchaseOrderRevision + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + buyerAccount + "', '" + srNo + "', " + amount + ", '" + currency + "', '" + tac + "'); ";
                     MySqlCommand cmd2 = new MySqlCommand(add, cnn);
                     cmd2.ExecuteNonQuery();

@@ -69,5 +69,10 @@ namespace ProcurementSystem
                 c.BorderStyle = BorderStyle.None;
             }
         }
+
+        private void textBox14_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

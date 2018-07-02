@@ -191,7 +191,6 @@
             this.account.Name = "account";
             this.account.Size = new System.Drawing.Size(81, 25);
             this.account.TabIndex = 15;
-            this.account.Text = "//account";
             // 
             // textBox7
             // 

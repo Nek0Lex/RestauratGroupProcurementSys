@@ -30,6 +30,12 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Currency = new System.Windows.Forms.ComboBox();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.Amount = new System.Windows.Forms.TextBox();
@@ -55,12 +61,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.PPONo = new System.Windows.Forms.TextBox();
             this.back = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox14 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +114,53 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create new PPO";
+            // 
+            // textBox14
+            // 
+            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox14.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.textBox14.Location = new System.Drawing.Point(16, 459);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            this.textBox14.Size = new System.Drawing.Size(45, 18);
+            this.textBox14.TabIndex = 37;
+            this.textBox14.Text = "Item:";
+            this.textBox14.TextChanged += new System.EventHandler(this.textBox14_TextChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemName,
+            this.Quantity,
+            this.UOM,
+            this.Price});
+            this.dataGridView1.Location = new System.Drawing.Point(16, 484);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(827, 129);
+            this.dataGridView1.TabIndex = 36;
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "ItemName";
+            this.ItemName.Name = "ItemName";
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // UOM
+            // 
+            this.UOM.HeaderText = "Unit of Measurement";
+            this.UOM.Name = "UOM";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
             // 
             // Currency
             // 
@@ -376,52 +423,6 @@
             this.back.Text = "Back";
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ItemName,
-            this.Quantity,
-            this.UOM,
-            this.Price});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 392);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(827, 129);
-            this.dataGridView1.TabIndex = 36;
-            // 
-            // ItemName
-            // 
-            this.ItemName.HeaderText = "ItemName";
-            this.ItemName.Name = "ItemName";
-            // 
-            // Quantity
-            // 
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // UOM
-            // 
-            this.UOM.HeaderText = "Unit of Measurement";
-            this.UOM.Name = "UOM";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            // 
-            // textBox14
-            // 
-            this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox14.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox14.Location = new System.Drawing.Point(6, 367);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(45, 18);
-            this.textBox14.TabIndex = 37;
-            this.textBox14.Text = "Item:";
             // 
             // PPOStatus
             // 

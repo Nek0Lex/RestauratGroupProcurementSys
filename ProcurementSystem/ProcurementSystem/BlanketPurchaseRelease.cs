@@ -52,6 +52,9 @@ namespace ProcurementSystem
 
         private void confirm_Click(object sender, EventArgs e)
         {
+            if (account.Text == "" || actualAmount.Text=="") {
+                MessageBox.Show("Please Check Your Input!");
+            }else
             if (MessageBox.Show("Confirm?", null, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
             {
                 

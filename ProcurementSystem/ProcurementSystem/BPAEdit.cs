@@ -61,6 +61,12 @@ namespace ProcurementSystem
                     String delete = "DELETE FROM BlanketPurchaseAgreement WHERE BPANo = '" + bpaNo + "'; ";
                     MySqlCommand cmd = new MySqlCommand(delete, cnn);
                     cmd.ExecuteNonQuery();
+                    delete = "DELETE FROM BlanketPurchaseRelease WHERE BPANo = '" + bpaNo + "'; ";
+                    cmd = new MySqlCommand(delete, cnn);
+                    cmd.ExecuteNonQuery();
+                    delete = "DELETE FROM BPALines WHERE BPANo = '" + bpaNo + "'; ";
+                    cmd = new MySqlCommand(delete, cnn);
+                    cmd.ExecuteNonQuery();
                     String add = "INSERT INTO BlanketPurchaseAgreement (BPANo, RequestNo, PurchaseOrderRevision, CreationDate, EffectiveDate, BuyerName, BillingAddress, AmountAgreed, Currency, TermsAndCondition, SupplierNo)VALUES('" + bpaNo + "', '" + requestNo + "', '" + por + "', '" + creationDate + "', '" + effectiveDate + "', '" + buyerName + "', '" + billAddress + "', '" + amount + "', '" + Currency + "', '" + tac + "', '" + supplierNo + "'); ";
                     MySqlCommand cmd2 = new MySqlCommand(add, cnn);
                     cmd2.ExecuteNonQuery();
